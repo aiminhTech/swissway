@@ -42,8 +42,7 @@ bun install
 To create db and insert data:
 
 ```bash
-cd src/db
-bun run insert.ts
+bun run:db
 ```
 
 Running this will create a swissway.db SQLite database file.

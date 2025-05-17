@@ -15,7 +15,7 @@ export type Information = {
   content: InformationContent[]
 }
 
-type InformationContent = {
+export type InformationContent = {
   topic: string,
   description: string
   infos: {
