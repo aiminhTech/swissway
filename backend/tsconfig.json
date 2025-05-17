@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+       "@models/*": ["src/models/*"],
+       "@db/*": ["src/db/*"],
+       "@utils/*": ["src/utils/*"],
+       "@assets/*": ["src/assets/*"],
+    },
+
     // Environment setup & latest features
     "lib": ["ESNext"],
     "target": "ESNext",
