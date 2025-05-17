@@ -1,3 +1,4 @@
+import { categories, checklistItems, checklists, images, informations, languages, locales, quizAnswers, quizQuestions, quizzes } from "./data";
 import db from "./db"
 import type { Category, CheckList, CheckListItem, Image, Information, Language, Quiz, QuizAnswer, QuizQuestion } from "./model";
 
@@ -81,9 +82,9 @@ const insertQuizQuestion = db.transaction((questions: QuizQuestion[]) => {
 });
 
 //quiz_answer table
-const quizAnswerQuery = db.prepare("INSERT INTO quiz_answer (quiz-question_id, answer, is_correct) VALUES ($quizQuestionId, $answer, $isCorrect) ON CONFLICT DO NOTHING")
+const quizAnswerQuery = db.prepare("INSERT INTO quiz_answer (quiz_question_id, answer, is_correct) VALUES ($quizQuestionId, $answer, $isCorrect) ON CONFLICT DO NOTHING")
 
-const insertQuizanswer = db.transaction((answers: QuizAnswer[]) => {
+const insertQuizAnswer = db.transaction((answers: QuizAnswer[]) => {
 	for (const a of answers) quizAnswerQuery.run({
 		$quizQuestionId: a.quizQuestionId,
 		$answer: a.answer,
@@ -103,21 +104,18 @@ const insertImage = db.transaction((imgs: Image[]) => {
 });
 
 
-
-
-
 function insertAll() {
 	try {
-		insertLocales();
-		insertLanguages()
-		insertCategories()
-		insertInformations()
-		insertChecklist()
-		insertChecklistItem()
-		insertQuiz()
-		insertQuizQuestion()
-		insertQuizanswer()
-		insertImage()
+		insertLocales(locales);
+		insertLanguages(languages)
+		insertCategories(categories)
+		insertInformations(informations)
+		insertChecklist(checklists)
+		insertChecklistItem(checklistItems)
+		insertQuiz(quizzes)
+		insertQuizQuestion(quizQuestions)
+		insertQuizAnswer(quizAnswers)
+		insertImage(images)
 
 		console.log("succeed");
 	} catch (err) {

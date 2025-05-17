@@ -47,7 +47,7 @@ export type QuizQuestion = {
 export type QuizAnswer = {
   quizQuestionId: number,
   answer: string,
-  isCorrect: boolean
+  isCorrect: number
 }
 
 export type Image = {
