@@ -1,24 +1,16 @@
 import CatergoryWidget from "@/components/CatergoryWidget";
-import ContentWidget from "@/components/ContentWidget";
-import { Center } from "@/components/ui/center";
+import InfoTitleWidget from "@/components/ContentWidget";
 import { ScrollView } from "@/components/ui/scroll-view";
-import { CategoryType, InfoTitleType } from "@/models/models";
-import { fetchCategories, fetchInfoTitles } from "@/services/api";
-import { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
+import { useApiStore } from "@/store/apiStore";
+import { useEffect } from "react";
 
 export default function Dashboard() {
-  const [categories, setCategories] = useState<CategoryType[]>([]);
-  const [infoTitles, setInfoTitles] = useState<InfoTitleType[]>([]);
+  const { fetchCategories, categories, fetchInfoTitles, infoTitles } =
+    useApiStore();
 
   useEffect(() => {
-    fetchCategories("de")
-      .then(setCategories)
-      .catch((error) => console.error("Error fetching categories:", error));
-
-    fetchInfoTitles("de")
-      .then(setInfoTitles)
-      .catch((error) => console.error("Error fetching categories:", error));
+    fetchCategories("de");
+    fetchInfoTitles("de", "Arbeiten");
   }, []);
 
   return (
@@ -26,12 +18,8 @@ export default function Dashboard() {
       style={{ height: "100%", margin: 16 }}
       contentContainerStyle={{ flexGrow: 1 }}
     >
-      <CatergoryWidget categories={categories} />
-      <ContentWidget contentTitles={infoTitles} />
-
-      <Center className="flex-1"></Center>
+      {categories && <CatergoryWidget categories={categories} />}
+      {infoTitles && <InfoTitleWidget contentTitles={infoTitles} />}
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({});

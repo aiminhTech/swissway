@@ -4,6 +4,7 @@ import { CategoryType } from "@/models/models";
 import { Box } from "./ui/box";
 import { Heading } from "./ui/heading";
 import Line from "@/components/Line";
+import { useRouter } from "expo-router";
 
 type CategoryBoxProps = {
   category: string;
@@ -11,12 +12,22 @@ type CategoryBoxProps = {
 };
 
 function CategoryBox({ category, description }: CategoryBoxProps) {
+  const router = useRouter();
+
   return (
     <>
       <Box>
         <Line width={350} />
         <Text style={styles.title}>{category}</Text>
-        <TouchableOpacity style={styles.touchBox}>
+        <TouchableOpacity
+          style={styles.touchBox}
+          onPress={() =>
+            router.push({
+              pathname: "/tabs/(tabs)/explore/[cat]",
+              params: { cat: encodeURIComponent(category) },
+            })
+          }
+        >
           <Text style={styles.des}>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
@@ -75,6 +86,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 4, height: 8 },
     shadowOpacity: 0.5,
     shadowRadius: 3.84,
+    justifyContent: "center",
+    alignItems: "center",
   },
   title: {
     color: Colors.custom.burgundy,
