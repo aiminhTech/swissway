@@ -13,19 +13,13 @@ export type Category = {
 export type Information = {
   categoryId: number;
   title: string;
+  description: string;
   content: InformationContent[];
 };
 
 export type InformationContent = {
   topic: string;
   description: string;
-  infos: {
-    title: string;
-    content: {
-      subtitle?: string;
-      text: string;
-    }[];
-  }[];
 };
 
 export type CheckList = {
