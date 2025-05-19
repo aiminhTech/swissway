@@ -13,6 +13,7 @@ export type ApiCategory = {
   code: string;
   language_name: string;
   category_id: number;
+  category_key: string;
   category_name: string;
   category_description: string;
 };

@@ -4,7 +4,6 @@ erDiagram
   LOCALE ||--|{ CATEGORY : "translates"
 
   CATEGORY ||--|{ INFORMATION : "contains"
-
   CATEGORY ||--o{ CHECKLIST  : "contains"
   CHECKLIST ||--|{ CHECKLIST_ITEM  : "contains steps"
 
@@ -28,6 +27,7 @@ erDiagram
 
   CATEGORY {
     id integer PK 
+    translation_key string "NOT NULL"
     locale_id integer FK
     name string "NOT NULL"
     description string "NOT NULL"

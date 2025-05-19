@@ -4,6 +4,7 @@ export type Language = {
 };
 
 export type Category = {
+  translationKey: string;
   localeId: number;
   name: string;
   description: string;
