@@ -23,11 +23,13 @@ const schema = `
 
 	CREATE TABLE IF NOT EXISTS category (
 		id INTEGER PRIMARY KEY NOT NULL,
+		translation_key TEXT NOT NULL,
 		locale_id INTEGER NOT NULL REFERENCES locale(id),
 		name TEXT NOT NULL,
 		description TEXT NOT NULL
 	) STRICT;
 	CREATE UNIQUE INDEX IF NOT EXISTS idx_category_locale_id_name ON category(locale_id, name);
+	CREATE INDEX IF NOT EXISTS idx_category_translation_key ON category(translation_key);
 
 	CREATE TABLE IF NOT EXISTS information (
 		id INTEGER PRIMARY KEY NOT NULL,

@@ -48,13 +48,14 @@ export function insertAll(db: Database) {
 
   //category table
   const categoryQuery = db.prepare(
-    "INSERT INTO category (locale_id, name, description) VALUES ($localeId, $name, $description) ON CONFLICT DO NOTHING"
+    "INSERT INTO category (locale_id, translation_key, name, description) VALUES ($localeId, $translationKey, $name, $description) ON CONFLICT DO NOTHING"
   );
 
   const insertCategories = db.transaction((cats: Category[]) => {
     for (const c of cats)
       categoryQuery.run({
         $localeId: c.localeId,
+        $translationKey : c.translationKey,
         $name: c.name,
         $description: c.description,
       });
