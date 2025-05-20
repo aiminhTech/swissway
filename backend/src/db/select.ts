@@ -1,5 +1,16 @@
-import type { ApiCategory, ApiChecklist, ApiInfoContent, ApiLocale, ApiQuiz } from "@models/api-model";
-import { transformCategories, transformChecklists, transformInfoContents, transformQuiz } from "@utils/transform-api-response";
+import type {
+  ApiCategory,
+  ApiChecklist,
+  ApiInfoContent,
+  ApiLocale,
+  ApiQuiz,
+} from "@models/api-model";
+import {
+  transformCategories,
+  transformChecklists,
+  transformInfoContents,
+  transformQuiz,
+} from "@utils/transform-api-response";
 import db from "@db/db";
 
 export function getLocales(): ApiLocale[] {
@@ -7,59 +18,83 @@ export function getLocales(): ApiLocale[] {
 }
 
 export function getCategories(localeCode: string) {
-  const result = db.prepare(`
+  const result = db
+    .prepare(
+      `
     SELECT * from view_category as v
     WHERE v.code = ?
-  `).all(localeCode) as ApiCategory[];
+  `
+    )
+    .all(localeCode) as ApiCategory[];
 
-  return transformCategories(result)
+  return transformCategories(result);
 }
 
 //information
-export function getInfoByCatKey(localeCode: string, catKey: string) {
-  return db.prepare(`
-    SELECT v.code, v.category_name, v.information_title, v.information_translation_key, v.information_content from view_information as v
-    WHERE v.code = ? AND v.category_translation_key = ?  
-  `).all(localeCode, catKey);
+export function getInfoTitleLocaleCodeAndCatName(
+  localeCode: string,
+  catName: string
+) {
+  return db
+    .prepare(
+      `
+    SELECT v.code AS locale_code, v.category_name, v.information_title from view_information as v
+    WHERE v.code = ? AND v.category_name = ?
+  `
+    )
+    .all(localeCode, catName);
 }
 
-export function getInfoContentByKey(localeCode: string, infoKey: string) {
-  const result = db.prepare(`
+export function getInfoContentByKey(localeCode: string, infoTitle: string) {
+  const result = db
+    .prepare(
+      `
     SELECT * from view_information as v
-    WHERE v.code = ? AND v.information_translation_key = ?
-  `).all(localeCode, infoKey) as ApiInfoContent[];
+    WHERE v.code = ? AND v.	information_title = ?
+  `
+    )
+    .all(localeCode, infoTitle) as ApiInfoContent[];
 
-  return transformInfoContents(result)
+  return transformInfoContents(result);
 }
 
-export function getChecklists(localeCode: string, catKey: string) {
-  const result = db.prepare(`
+//checklist
+export function getChecklists(catName: string) {
+  const result = db
+    .prepare(
+      `
     SELECT * from view_checklist as v
-    WHERE v.code = ? AND v.category_translation_key = ?
-  `).all(localeCode, catKey) as ApiChecklist[];
+    WHERE v.category_name = ?  
+  `
+    )
+    .all(catName) as ApiChecklist[];
 
-  return transformChecklists(result)
+  return transformChecklists(result);
 }
 
-// quizz
-export function getQuizLists(localeCode: string, catKey: string) {
-  return db.prepare(`
-    SELECT q.id AS id, q.title AS title
-    FROM quiz AS q
-    JOIN category ON q.category_id = category.id
-    JOIN locale ON q.locale_id = locale.id
-    WHERE locale.code = ? AND category.translation_key = ?
-  `).all(localeCode, catKey);
+export function getQuizLists(catName: string) {
+  return db
+    .prepare(
+      `
+    SELECT q.id AS quiz_id, q.title AS title FROM quiz as q
+    JOIN category ON q.category_id  = category.id
+    WHERE category.name = ?
+    
+    `
+    )
+    .all(catName);
 }
 
 export function getQuiz(id: number) {
-  const result = db.prepare(`
+  const result = db
+    .prepare(
+      `
     SELECT v.quiz_title,v.question, v.answers
     FROM view_full_quiz as v
     WHERE v.quiz_id = ?
-  `).all(id) as ApiQuiz[];
+  `
+    )
+    .all(id) as ApiQuiz[];
 
-  return transformQuiz(result)
+  return transformQuiz(result);
 }
-
-

@@ -2,8 +2,8 @@ import { Hono } from "hono";
 import {
   getCategories,
   getChecklists,
-  getInfoByCatKey,
   getInfoContentByKey,
+  getInfoTitleLocaleCodeAndCatName,
   getLocales,
   getQuiz,
   getQuizLists,
@@ -29,23 +29,23 @@ app.get("/api/category", (c) => {
   return c.json(categories);
 });
 
-// http://localhost:3000/api/info?code=en&catKey=Work
-app.get("/api/info", (c) => {
+// http://localhost:3000/api/info?code=en&cat=Work
+http: app.get("/api/info", (c) => {
   const code = c.req.query("code");
-  const catKey = c.req.query("catKey");
+  const cat = c.req.query("cat");
 
-  if (!code || !catKey) {
+  if (!code || !cat) {
     return c.text("missing query param", 400);
   }
 
-  const infoTitles = getInfoByCatKey(code, catKey);
+  const infoTitles = getInfoTitleLocaleCodeAndCatName(code, cat);
   return c.json(infoTitles);
 });
 
-// http://localhost:3000/api/info/content?code=en&infoKey=Absences%20from%20work%20due%20to%20illness%20or%20accident
+// http://localhost:3000/api/info/content?code=en&infoTitle=Family and work/Absences from work due to illness or accident
 app.get("/api/info/content", (c) => {
   const code = c.req.query("code");
-  const infoKey = c.req.query("infoKey");
+  const infoKey = c.req.query("infoTitle");
 
   if (!code || !infoKey) {
     return c.text("missing query param", 400);
@@ -55,20 +55,19 @@ app.get("/api/info/content", (c) => {
   return c.json(infoContents);
 });
 
-// TODO: always empty response
+// http://localhost:3000/api/checklist?cat=Customs&code=en
 app.get("/api/checklist", (c) => {
-  const code = c.req.query("code");
-  const catKey = c.req.query("catKey");
+  const cat = c.req.query("cat");
 
-  if (!code || !catKey) {
+  if (!cat) {
     return c.text("missing query param", 400);
   }
 
-  const checklists = getChecklists(code, catKey);
+  const checklists = getChecklists(cat);
   return c.json(checklists);
 });
 
-// http://localhost:3000/api/quiz?code=en&catKey=Customs
+// http://localhost:3000/api/quiz?cat=Customs
 app.get("/api/quiz", (c) => {
   const code = c.req.query("code");
   const catKey = c.req.query("catKey");
@@ -81,6 +80,7 @@ app.get("/api/quiz", (c) => {
   return c.json(quizLists);
 });
 
+// http://localhost:3000/api/quiz/1
 // http://localhost:3000/api/quiz/1
 app.get("/api/quiz/:id", (c) => {
   const id = c.req.param("id");
