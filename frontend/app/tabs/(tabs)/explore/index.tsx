@@ -9,8 +9,8 @@ export default function Dashboard() {
     useApiStore();
 
   useEffect(() => {
-    fetchCategories("de");
-    fetchInfoTitles("de", "Arbeiten");
+    fetchCategories("en");
+    fetchInfoTitles("en", "Health");
   }, []);
 
   return (

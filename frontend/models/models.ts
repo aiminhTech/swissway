@@ -20,7 +20,10 @@ export type ContentType = {
   topic: string;
   description: string;
   infos: {
-    subtitle: string;
-    text: string;
-  };
+    title: string;
+    content: {
+      subtitle?: string;
+      text: string;
+    }[];
+  }[];
 };
