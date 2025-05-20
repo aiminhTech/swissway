@@ -1,11 +1,4 @@
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Pressable,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, View, Pressable } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { Colors } from "@/constants/Colors";
 import { useApiStore } from "@/store/apiStore";
@@ -14,39 +7,51 @@ import { useEffect, useState } from "react";
 export default function InfoContents() {
   const params = useLocalSearchParams();
   const { detail } = params;
-  const { fetchInfoContents, infoContents } = useApiStore();
-  const [expanded, setExpanded] = useState(false);
+  const { fetchInfoContents, infoContents, language } = useApiStore();
+
+  const [expandedItems, setExpandedItems] = useState<{
+    [key: string]: boolean;
+  }>({});
 
   useEffect(() => {
     if (typeof detail === "string") {
-      fetchInfoContents(detail);
+      fetchInfoContents(language, detail);
     }
   }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {infoContents &&
+        infoContents.length > 0 &&
         infoContents[0].info_content.map((c, idx) => (
           <View key={idx} style={styles.topicContainer}>
-            <Text style={styles.topic}>{c.topic}</Text>
-            <Text style={styles.description}>{c.description}</Text>
+            <Text style={styles.topic}>{(detail as string).split("/")[1]}</Text>
 
             {c.infos.map((info, iIdx) => (
               <View key={iIdx} style={styles.infoCard}>
                 <Text style={styles.infoTitle}>{info.title}</Text>
+
                 {info.content.map((item, cIdx) => {
+                  const key = `${idx}-${iIdx}-${cIdx}`;
+                  const isExpanded = expandedItems[key];
+
                   return (
                     <Pressable
                       key={cIdx}
                       style={styles.infoContentBlock}
-                      onPress={() => setExpanded(!expanded)}
+                      onPress={() =>
+                        setExpandedItems((prev) => ({
+                          ...prev,
+                          [key]: !prev[key],
+                        }))
+                      }
                     >
                       {item.subtitle ? (
                         <>
                           <Text style={styles.subtitle}>
-                            {item.subtitle} {expanded ? "▲" : "▼"}
+                            {item.subtitle} {isExpanded ? "▲" : "▼"}
                           </Text>
-                          {expanded && (
+                          {isExpanded && (
                             <Text style={styles.text}>{item.text}</Text>
                           )}
                         </>
@@ -82,13 +87,6 @@ const styles = StyleSheet.create({
     color: Colors.custom.grey,
     fontWeight: "bold",
     marginBottom: 8,
-    textAlign: "center",
-  },
-  description: {
-    fontSize: 15,
-    color: Colors.custom.grey,
-    marginBottom: 32,
-    textAlign: "center",
   },
   infoCard: {
     backgroundColor: Colors.custom.cream,

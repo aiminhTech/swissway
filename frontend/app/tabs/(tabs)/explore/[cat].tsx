@@ -9,9 +9,10 @@ import { useEffect } from "react";
 
 type InfoTitleProps = {
   title: string;
+  infoTitle: string;
 };
 
-function InfoTitle({ title }: InfoTitleProps) {
+function InfoTitle({ title, infoTitle }: InfoTitleProps) {
   const router = useRouter();
 
   return (
@@ -20,7 +21,7 @@ function InfoTitle({ title }: InfoTitleProps) {
       onPress={() => {
         router.push({
           pathname: "/tabs/(tabs)/explore/detail/[detail]",
-          params: { detail: encodeURIComponent(title) },
+          params: { detail: encodeURI(infoTitle) },
         });
       }}
     >
@@ -33,12 +34,12 @@ export default function Infos() {
   const params = useLocalSearchParams();
   const { cat } = params;
 
-  const { infoTitles, fetchInfoTitles } = useApiStore();
+  const { infoTitles, fetchInfoTitles, language } = useApiStore();
   const infos = infoTitles?.filter((t) => t.category_name === cat).sort() || [];
 
   useEffect(() => {
     if (typeof cat == "string") {
-      fetchInfoTitles("en", cat);
+      fetchInfoTitles(language, cat);
     }
   }, []);
   return (
@@ -46,9 +47,16 @@ export default function Infos() {
       <Heading style={styles.heading}>{cat}</Heading>
       <Line></Line>
       <Box>
-        {infos.map((i, idx) => (
-          <InfoTitle key={idx} title={i.information_title}></InfoTitle>
-        ))}
+        {infos.map((i, idx) => {
+          const title = i.information_title.split("/");
+          return (
+            <InfoTitle
+              key={idx}
+              title={title[0]}
+              infoTitle={i.information_title}
+            ></InfoTitle>
+          );
+        })}
       </Box>
     </ScrollView>
   );

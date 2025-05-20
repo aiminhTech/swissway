@@ -5,12 +5,12 @@ import { useApiStore } from "@/store/apiStore";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-  const { fetchCategories, categories, fetchInfoTitles, infoTitles } =
+  const { fetchCategories, categories, fetchInfoTitles, infoTitles, language } =
     useApiStore();
 
   useEffect(() => {
-    fetchCategories("en");
-    fetchInfoTitles("en", "Health");
+    fetchCategories(language);
+    //fetchInfoTitles("Health");
   }, []);
 
   return (

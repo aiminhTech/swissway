@@ -1,5 +1,10 @@
 import { create } from "zustand";
-import { CategoryType, InfoContentType, InfoTitleType } from "@/models/models"; // Adjust path
+import {
+  CategoryType,
+  InfoContentType,
+  InfoTitleType,
+  LanguageEnum,
+} from "@/models/models";
 import {
   fetchCategories,
   fetchInfoContents,
@@ -7,15 +12,17 @@ import {
 } from "@/services/api";
 
 type ApiStore = {
+  language: LanguageEnum;
   categories: CategoryType[] | null;
   infoTitles: InfoTitleType[] | null;
   infoContents: InfoContentType[] | null;
   fetchCategories: (code: string) => Promise<void>;
   fetchInfoTitles: (code: string, cat: string) => Promise<void>;
-  fetchInfoContents: (code: string) => Promise<void>;
+  fetchInfoContents: (code: string, title: string) => Promise<void>;
 };
 
 export const useApiStore = create<ApiStore>((set) => ({
+  language: LanguageEnum.EN,
   categories: null,
   infoTitles: null,
   infoContents: null,
@@ -32,9 +39,9 @@ export const useApiStore = create<ApiStore>((set) => ({
       set({ infoTitles: data });
     } catch (err) {}
   },
-  fetchInfoContents: async (title: string) => {
+  fetchInfoContents: async (code: string, title: string) => {
     try {
-      const data = await fetchInfoContents(title);
+      const data = await fetchInfoContents(code, title);
       set({ infoContents: data });
     } catch (err) {}
   },

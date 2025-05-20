@@ -17,8 +17,6 @@ export type InfoContentType = {
 };
 
 export type ContentType = {
-  topic: string;
-  description: string;
   infos: {
     title: string;
     content: {
@@ -27,3 +25,8 @@ export type ContentType = {
     }[];
   }[];
 };
+
+export enum LanguageEnum {
+  EN = "en",
+  DE = "de",
+}
