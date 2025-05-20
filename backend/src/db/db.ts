@@ -1,6 +1,6 @@
 import { Database } from "bun:sqlite";
 import { join } from "path";
-import { insertAll } from "@db/insert";
+import { insert } from "@db/insert";
 
 const dbPath = join(import.meta.dir, "../../swissway.db");
 const db = new Database(dbPath);
@@ -142,6 +142,6 @@ const schema = `
 `;
 
 db.run(schema);
-insertAll(db);
+insert(db);
 
 export default db;
