@@ -32,26 +32,28 @@ export function getInfoContentByKey(localeCode: string, infoKey: string) {
   return transformInfoContents(result)
 }
 
-//checklist
-export function getChecklists(catName: string) {
+export function getChecklists(localeCode: string, catKey: string) {
   const result = db.prepare(`
     SELECT * from view_checklist as v
-    WHERE v.category_name = ?
-  `).all(catName) as ApiChecklist[];
+    WHERE v.code = ? AND v.category_translation_key = ?
+  `).all(localeCode, catKey) as ApiChecklist[];
 
   return transformChecklists(result)
 }
 
-export function getQuizLists(catName: string) {
+// quizz
+export function getQuizLists(localeCode: string, catKey: string) {
   return db.prepare(`
-    SELECT q.id AS id, q.title AS title FROM quiz as q
-    JOIN category ON q.category_id  = category.id
-    WHERE category.name = ?
-  `).all(catName);
+    SELECT q.id AS id, q.title AS title
+    FROM quiz AS q
+    JOIN category ON q.category_id = category.id
+    JOIN locale ON q.locale_id = locale.id
+    WHERE locale.code = ? AND category.translation_key = ?
+  `).all(localeCode, catKey);
 }
 
 export function getQuiz(id: number) {
-  const result =  db.prepare(`
+  const result = db.prepare(`
     SELECT v.quiz_title,v.question, v.answers
     FROM view_full_quiz as v
     WHERE v.quiz_id = ?
