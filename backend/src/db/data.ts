@@ -180,71 +180,6 @@ More information is available on the Federal Office for Customs and Border Secur
           },
         ],
       },
-      {
-        infos: [
-          {
-            title: "Imported goods for personal use",
-            content: [
-              {
-                text: `Every person entering Switzerland must clear customs. You are required to declare all imported goods you are carrying if their total value exceeds CHF 150, and any goods that exceed the duty-free allowances for foodstuffs, alcohol and tobacco.
-
-If you do not pay the customs duties you owe, your belongings could be seized. The customs formalities are described on the page about shopping tourism.`,
-              },
-            ],
-          },
-          {
-            title: "Plants and animals",
-            content: [
-              {
-                subtitle: "Animals",
-                text: `Border formalities vary depending on whether you bring a dog, a lizard skin or goods of animal origin into Switzerland.`,
-              },
-            ],
-          },
-          {
-            title: "Plants",
-            content: [
-              {
-                text: `Be careful about the souvenirs you bring back from your trips. It is against the law to import a number of different plants, fruits, vegetables, cut flowers, seeds and other parts of living plants into Switzerland. This also applies to soil and certain types of wood.`,
-              },
-            ],
-          },
-          {
-            title: "Weapons",
-            content: [
-              {
-                text: `It is prohibited to import a number of different weapons into Switzerland. You must declare all weapons and ammunition you are bringing into Switzerland at the customs office.
-
-Weapons are not subject to customs duties, but you need to pay the value added tax (8.1%).
-
-More information about bringing weapons into Switzerland and the required permits is available on the Federal Office for Customs and Border Security's web page about weapons and on the ch.ch page about weapons.`,
-              },
-            ],
-          },
-          {
-            title: "Loaned vehicle",
-            content: [
-              {
-                text: `You can enter Switzerland with a loaned vehicle, but you would be well advised to have a written authorisation from the owner of the vehicle to avoid any suspicion of theft. 
-                
-In principle, you may not use an uncleared vehicle in Switzerland if you are a resident of Switzerland. The Federal Office for Customs and Border Security offers further information about using an uncleared vehicle temporarily in Switzerland.`,
-              },
-            ],
-          },
-          {
-            title: "Cash",
-            content: [
-              {
-                text: `You can enter Switzerland with as much cash (in the form of cash, foreign currencies or securities) as you like. However, customs officials may ask you questions if you're carrying CHF 10,000 or more.
-
-They will make a note in the computer system of the Federal Office for Customs and Border Security. If there is any suspicion of money laundering or terrorist financing, customs officials may seize the cash temporarily and hand it over to the police.
-
-More information is available on the Federal Office for Customs and Border Security's web page about cash, foreign currencies and securities.`,
-              },
-            ],
-          },
-        ],
-      },
     ],
   },
   {
@@ -537,6 +472,7 @@ export const quizzes: Quiz[] = [
 export const quizQuestions: QuizQuestion[] = [
   { localeId: 1, quizId: 1, question: "question 1" },
   { localeId: 1, quizId: 1, question: "question 2" },
+  { localeId: 1, quizId: 1, question: "question 3" },
   { localeId: 2, quizId: 2, question: "Frage 1" },
   { localeId: 2, quizId: 2, question: "Frage 2" },
 ];
@@ -546,6 +482,14 @@ export const quizAnswers: QuizAnswer[] = [
   { localeId: 1, quizQuestionId: 1, answer: "answer B", isCorrect: 0 },
   { localeId: 1, quizQuestionId: 1, answer: "answer C", isCorrect: 0 },
   { localeId: 1, quizQuestionId: 1, answer: "answer D", isCorrect: 1 },
+  { localeId: 1, quizQuestionId: 2, answer: "answer A", isCorrect: 0 },
+  { localeId: 1, quizQuestionId: 2, answer: "answer B", isCorrect: 1 },
+  { localeId: 1, quizQuestionId: 2, answer: "answer C", isCorrect: 0 },
+  { localeId: 1, quizQuestionId: 2, answer: "answer D", isCorrect: 0 },
+  { localeId: 1, quizQuestionId: 3, answer: "answer A", isCorrect: 1 },
+  { localeId: 1, quizQuestionId: 3, answer: "answer B", isCorrect: 0 },
+  { localeId: 1, quizQuestionId: 3, answer: "answer C", isCorrect: 0 },
+  { localeId: 1, quizQuestionId: 3, answer: "answer D", isCorrect: 0 },
 ];
 
 export const images: Image[] = [

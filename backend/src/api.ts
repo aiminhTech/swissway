@@ -69,18 +69,16 @@ app.get("/api/checklist", (c) => {
 
 // http://localhost:3000/api/quiz?cat=Customs
 app.get("/api/quiz", (c) => {
-  const code = c.req.query("code");
-  const catKey = c.req.query("catKey");
+  const cat = c.req.query("cat");
 
-   if (!code || !catKey) {
+  if (!cat) {
     return c.text("missing query param", 400);
   }
 
-  const quizLists = getQuizLists(code, catKey);
+  const quizLists = getQuizLists(cat);
   return c.json(quizLists);
 });
 
-// http://localhost:3000/api/quiz/1
 // http://localhost:3000/api/quiz/1
 app.get("/api/quiz/:id", (c) => {
   const id = c.req.param("id");
