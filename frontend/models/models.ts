@@ -5,7 +5,7 @@ export type CategoryType = {
 };
 
 export type InfoTitleType = {
-  code: string; //TODO fix key to locale_code
+  locale_code: string;
   category_name: string;
   information_title: string;
 };
@@ -30,3 +30,7 @@ export enum LanguageEnum {
   EN = "en",
   DE = "de",
 }
+
+export type FetchError = {
+  message: string;
+};

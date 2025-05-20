@@ -1,17 +1,25 @@
 import CatergoryWidget from "@/components/CatergoryWidget";
 import InfoTitleWidget from "@/components/ContentWidget";
+import Error from "@/components/Error";
 import { ScrollView } from "@/components/ui/scroll-view";
 import { useApiStore } from "@/store/apiStore";
 import { useEffect } from "react";
 
 export default function Dashboard() {
-  const { fetchCategories, categories, fetchInfoTitles, infoTitles, language } =
-    useApiStore();
+  const {
+    fetchCategories,
+    categories,
+    categoriesError,
+    fetchInfoTitles,
+    infoTitles,
+    infoTitlesError,
+    language,
+  } = useApiStore();
 
   useEffect(() => {
     fetchCategories(language);
-    //fetchInfoTitles("Health");
-  }, []);
+    fetchInfoTitles(language, "Health");
+  }, [language]);
 
   return (
     <ScrollView
@@ -19,7 +27,12 @@ export default function Dashboard() {
       contentContainerStyle={{ flexGrow: 1 }}
     >
       {categories && <CatergoryWidget categories={categories} />}
-      {infoTitles && <InfoTitleWidget contentTitles={infoTitles} />}
+      {
+        <InfoTitleWidget
+          contentTitles={infoTitles}
+          infoTitlesError={infoTitlesError}
+        />
+      }
     </ScrollView>
   );
 }

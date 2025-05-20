@@ -1,36 +1,57 @@
 import { Colors } from "@/constants/Colors";
 import { TouchableOpacity, Text, StyleSheet, ScrollView } from "react-native";
-import { InfoTitleType } from "@/models/models";
+import { FetchError, InfoTitleType } from "@/models/models";
 import { Heading } from "./ui/heading";
 import { Box } from "./ui/box";
 import Line from "@/components/Line";
+import Error from "@/components/Error";
+import { useRouter } from "expo-router";
 
 type InfoTitleBoxProps = {
   title: string;
 };
 
 function InfoTitleBox({ title }: InfoTitleBoxProps) {
+  const router = useRouter();
+
   return (
-    <TouchableOpacity style={styles.touchBox}>
+    <TouchableOpacity
+      style={styles.touchBox}
+      onPress={() =>
+        router.push({
+          pathname: "/tabs/(tabs)/explore/detail/[detail]",
+          params: { detail: encodeURIComponent(title) },
+        })
+      }
+    >
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
-type InfoTitleProps = { contentTitles: InfoTitleType[] };
+type InfoTitleProps = {
+  contentTitles: InfoTitleType[] | undefined;
+  infoTitlesError: FetchError | undefined;
+};
 
-export default function InfoTitleWidget({ contentTitles }: InfoTitleProps) {
+export default function InfoTitleWidget({
+  contentTitles,
+  infoTitlesError,
+}: InfoTitleProps) {
   return (
     <Box style={{ marginTop: 24 }}>
       <Heading style={styles.heading}>Essential Content</Heading>
       <Line />
-      <ScrollView style={{ width: "100%" }}>
-        <Box style={styles.grid}>
-          {contentTitles.map((cat, idx) => (
-            <InfoTitleBox key={idx} title={cat.information_title} />
-          ))}
-        </Box>
-      </ScrollView>
+      {infoTitlesError && <Error error={infoTitlesError} />}
+      {contentTitles && (
+        <ScrollView style={{ width: "100%" }}>
+          <Box style={styles.grid}>
+            {contentTitles.map((cat, idx) => (
+              <InfoTitleBox key={idx} title={cat.information_title} />
+            ))}
+          </Box>
+        </ScrollView>
+      )}
     </Box>
   );
 }

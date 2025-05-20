@@ -6,6 +6,7 @@ import { Heading } from "@/components/ui/heading";
 import { Colors } from "@/constants/Colors";
 import Line from "@/components/Line";
 import { useEffect } from "react";
+import Error from "@/components/Error";
 
 type InfoTitleProps = {
   title: string;
@@ -34,7 +35,8 @@ export default function Infos() {
   const params = useLocalSearchParams();
   const { cat } = params;
 
-  const { infoTitles, fetchInfoTitles, language } = useApiStore();
+  const { infoTitles, fetchInfoTitles, infoTitlesError, language } =
+    useApiStore();
   const infos = infoTitles?.filter((t) => t.category_name === cat).sort() || [];
 
   useEffect(() => {
@@ -46,6 +48,7 @@ export default function Infos() {
     <ScrollView style={{ margin: 16 }} contentContainerStyle={{ flexGrow: 1 }}>
       <Heading style={styles.heading}>{cat}</Heading>
       <Line></Line>
+      {infoTitlesError && <Error error={infoTitlesError} />}
       <Box>
         {infos.map((i, idx) => {
           const title = i.information_title.split("/");
