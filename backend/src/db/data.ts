@@ -12,78 +12,40 @@ import type {
 export const locales = ["en", "de"];
 
 export const categories: Category[] = [
-  {
-    localeId: 1,
-    name: "Customs",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Documents and register extracts",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Family and partnership",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Foreign nationals in Switzerland",
-    description: "foo",
-  },
+  // english
+  { localeId: 1, name: "Customs", description: "foo", },
+  { localeId: 1, name: "Documents and register extracts", description: "foo", },
+  { localeId: 1, name: "Family and partnership", description: "foo", },
+  { localeId: 1, name: "Foreign nationals in Switzerland", description: "foo", },
   { localeId: 1, name: "Health", description: "foo" },
-  {
-    localeId: 1,
-    name: "Housing",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Insurance",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Political system",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Retirement",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Safety and justice",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "School and education",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Taxes and finances",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Travel and emigrate",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Vehicles and traffic",
-    description: "foo",
-  },
-  {
-    localeId: 1,
-    name: "Votes and elections",
-    description: "foo",
-  },
+  { localeId: 1, name: "Housing", description: "foo", },
+  { localeId: 1, name: "Insurance", description: "foo", },
+  { localeId: 1, name: "Political system", description: "foo", },
+  { localeId: 1, name: "Retirement", description: "foo", },
+  { localeId: 1, name: "Safety and justice", description: "foo", },
+  { localeId: 1, name: "School and education", description: "foo", },
+  { localeId: 1, name: "Taxes and finances", description: "foo", },
+  { localeId: 1, name: "Travel and emigrate", description: "foo", },
+  { localeId: 1, name: "Vehicles and traffic", description: "foo", },
+  { localeId: 1, name: "Votes and elections", description: "foo", },
   { localeId: 1, name: "Work", description: "foo" },
+  // german
+  { localeId: 2, name: "Abstimmungen und Wahlen", description: "foo" },
+  { localeId: 2, name: "Arbeit", description: "foo" },
+  { localeId: 2, name: "Ausländer in der Schweiz", description: "foo" },
+  { localeId: 2, name: "Ausweise und Dokumente", description: "foo" },
+  { localeId: 2, name: "Fahrzeuge und Verkehr", description: "foo" },
+  { localeId: 2, name: "Familie und Partnerschaft", description: "foo" },
+  { localeId: 2, name: "Gesundheit", description: "foo" },
+  { localeId: 2, name: "Pensionierung", description: "foo" },
+  { localeId: 2, name: "Politisches System", description: "foo" },
+  { localeId: 2, name: "Reisen und Auswandern", description: "foo" },
+  { localeId: 2, name: "Schule und Bildung", description: "foo" },
+  { localeId: 2, name: "Sicherheit und Recht", description: "foo" },
+  { localeId: 2, name: "Steuern und Finanzen", description: "foo" },
+  { localeId: 2, name: "Versicherungen", description: "foo" },
+  { localeId: 2, name: "Wohnen", description: "foo" },
+  { localeId: 2, name: "Zoll", description: "foo" },
 ];
 
 const informationWorkAbscenceDueToIllnes: Information[] = [
@@ -141,6 +103,48 @@ const informationWorkAbscenceDueToIllnes: Information[] = [
         ],
       },
     ],
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Arranging childcare",
+    description: "What are your rights if your child is ill? And what can you do if no one can look after your child while you are working, or if you have to be away from home on short notice?"
+    content: []
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Family allowance",
+    description: "You are entitled to receive a monthly allowance for each child from their birth until they reach the age of 16. If your child is in education after 16 or is unable to work for health reasons, you may receive additional support."
+    content: []
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Pregnancy, maternity leave and work",
+    description: "During your pregnancy, your employer must take special measures to protect you and your baby. You also have special rights during maternity leave and breastfeeding."
+    content: []
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Maternity leave",
+    description: "When a child is born, the mother who has given birth is entitled to 14 weeks' paid leave."
+    content: []
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Co-parental leave /  paternity leave",
+    description: "When a child is born, the baby’s father – or the wife of the biological mother – is entitled to two weeks’ paid leave."
+    content: []
+  },
+  {
+    localeId: 1,
+    categoryId: 16,
+    title: "Family and work|Co-parental leave /  paternity leave",
+    description: "Under certain conditions, couples who adopt a child under the age of 4 may share two weeks of paid leave."
+    content: []
   },
 ];
 
