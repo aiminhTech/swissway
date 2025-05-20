@@ -1,12 +1,10 @@
 export type Category = {
-  translationKey: string;
   localeId: number;
   name: string;
   description: string;
 };
 
 export type Information = {
-  translationKey: string;
   localeId: number;
   categoryId: number;
   title: string;
@@ -25,35 +23,30 @@ export type InformationContent = {
 };
 
 export type CheckList = {
-  translationKey: string;
   localeId: number;
   categoryId: number;
   title: string;
 };
 
 export type CheckListItem = {
-  translationKey: string;
   localeId: number;
   checklistId: number;
   text: string;
 };
 
 export type Quiz = {
-  translationKey: string;
   localeId: number;
   categoryId: number;
   title: string;
 };
 
 export type QuizQuestion = {
-  translationKey: string;
   localeId: number;
   quizId: number;
   question: string;
 };
 
 export type QuizAnswer = {
-  translationKey: string;
   localeId: number;
   quizQuestionId: number;
   answer: string;
