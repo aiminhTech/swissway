@@ -4,7 +4,6 @@ import {
   checklists,
   images,
   informations,
-  languages,
   locales,
   quizAnswers,
   quizQuestions,
@@ -16,7 +15,6 @@ import type {
   CheckListItem,
   Image,
   Information,
-  Language,
   Quiz,
   QuizAnswer,
   QuizQuestion,
@@ -31,19 +29,6 @@ export function insertAll(db: Database) {
 
   const insertLocales = db.transaction((codes) => {
     for (const c of codes) localeQuery.run(c);
-  });
-
-  //language table
-  const languageQuery = db.prepare(
-    "INSERT INTO language (locale_id, name) VALUES ($localeId, $name) ON CONFLICT DO NOTHING"
-  );
-
-  const insertLanguages = db.transaction((languages: Language[]) => {
-    for (const l of languages)
-      languageQuery.run({
-        $localeId: l.localeId,
-        $name: l.name,
-      });
   });
 
   //category table
@@ -62,13 +47,14 @@ export function insertAll(db: Database) {
 
   //information table
   const informationQuery = db.prepare(
-    "INSERT INTO information (category_id, title, content) VALUES ($categoryId, $title, $content) ON CONFLICT DO NOTHING"
+    "INSERT INTO information (category_id, locale_id, title, content) VALUES ($categoryId, $localeId, $title, $content) ON CONFLICT DO NOTHING"
   );
 
   const insertInformations = db.transaction((infos: Information[]) => {
     for (const i of infos)
       informationQuery.run({
         $categoryId: i.categoryId,
+        $localeId: i.localeId,
         $title: i.title,
         $content: JSON.stringify(i.content),
       });
@@ -76,65 +62,70 @@ export function insertAll(db: Database) {
 
   //checklist table
   const checklistQuery = db.prepare(
-    "INSERT INTO checklist (category_id, title) VALUES ($categoryId, $title) ON CONFLICT DO NOTHING"
+    "INSERT INTO checklist (category_id, locale_id, title) VALUES ($categoryId, $localeId, $title) ON CONFLICT DO NOTHING"
   );
 
   const insertChecklist = db.transaction((lists: CheckList[]) => {
     for (const l of lists)
       checklistQuery.run({
         $categoryId: l.categoryId,
+        $localeId: l.localeId,
         $title: l.title,
       });
   });
 
   //checklist_item table
   const checklistItemQuery = db.prepare(
-    "INSERT INTO checklist_item (checklist_id, text) VALUES ($checklistId, $text) ON CONFLICT DO NOTHING"
+    "INSERT INTO checklist_item (checklist_id, locale_id, text) VALUES ($checklistId, $localeId, $text) ON CONFLICT DO NOTHING"
   );
 
   const insertChecklistItem = db.transaction((items: CheckListItem[]) => {
     for (const i of items)
       checklistItemQuery.run({
         $checklistId: i.checklistId,
+        $localeId: i.localeId,
         $text: i.text,
       });
   });
 
   // quiz table
   const quizQuery = db.prepare(
-    "INSERT INTO quiz (category_id, title) VALUES ($categoryId, $title) ON CONFLICT DO NOTHING"
+    "INSERT INTO quiz (category_id, locale_id, title) VALUES ($categoryId, $localeId, $title) ON CONFLICT DO NOTHING"
   );
 
   const insertQuiz = db.transaction((quizzes: Quiz[]) => {
     for (const q of quizzes)
       quizQuery.run({
         $categoryId: q.categoryId,
+        $localeId: q.localeId,
         $title: q.title,
       });
   });
 
   //quiz_question table
   const quizQuestionQuery = db.prepare(
-    "INSERT INTO quiz_question (quiz_id, question) VALUES ($quizId, $question) ON CONFLICT DO NOTHING"
+    "INSERT INTO quiz_question (quiz_id, locale_id, question) VALUES ($quizId, $localeId, $question) ON CONFLICT DO NOTHING"
   );
 
   const insertQuizQuestion = db.transaction((questions: QuizQuestion[]) => {
     for (const q of questions)
       quizQuestionQuery.run({
         $quizId: q.quizId,
+        $localeId: q.localeId,
         $question: q.question,
       });
   });
 
   //quiz_answer table
   const quizAnswerQuery = db.prepare(
-    "INSERT INTO quiz_answer (quiz_question_id, answer, is_correct) VALUES ($quizQuestionId, $answer, $isCorrect) ON CONFLICT DO NOTHING"
+    "INSERT INTO quiz_answer (quiz_question_id, locale_id, answer, is_correct) VALUES ($quizQuestionId, $localeId, $answer, $isCorrect) ON CONFLICT DO NOTHING"
   );
 
   const insertQuizAnswer = db.transaction((answers: QuizAnswer[]) => {
     for (const a of answers)
       quizAnswerQuery.run({
         $quizQuestionId: a.quizQuestionId,
+        $localeId: a.localeId,
         $answer: a.answer,
         $isCorrect: a.isCorrect,
       });
@@ -156,7 +147,6 @@ export function insertAll(db: Database) {
 
   try {
     insertLocales(locales);
-    insertLanguages(languages);
     insertCategories(categories);
     insertInformations(informations);
     insertChecklist(checklists);

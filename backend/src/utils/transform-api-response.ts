@@ -2,23 +2,16 @@ import type {
   ApiCategory,
   ApiChecklist,
   ApiInfoContent,
-  ApiLanguage,
   ApiQuiz,
 } from "@models/api-model";
 import type { InformationContent } from "@models/model";
-
-export function transformLanguage(apiLanguages: ApiLanguage[]) {
-  return apiLanguages.map((l) => ({
-    locale_code: l.code,
-    language_name: l.language_name,
-  }));
-}
 
 export function transformCategories(apiCategories: ApiCategory[]) {
   return apiCategories.map((c) => ({
     locale_code: c.code,
     category_name: c.category_name,
     category_description: c.category_description,
+    category_translation_key: c.category_translation_key
   }));
 }
 

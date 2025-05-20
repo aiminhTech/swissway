@@ -1,10 +1,9 @@
 import { Hono } from "hono";
 import {
-  getCategory,
+  getCategories,
   getChecklists,
-  getInfoByCat,
-  getInfoContentByTitle,
-  getLanguages,
+  getInfoContentByKey,
+  getInfoTitleLocaleCodeAndCatName,
   getLocales,
   getQuiz,
   getQuizLists,
@@ -12,22 +11,13 @@ import {
 
 const app = new Hono();
 
+// http://localhost:3000/api/locale
 app.get("/api/locale", (c) => {
   const locales = getLocales();
   return c.json(locales);
 });
 
-app.get("/api/language", (c) => {
-  const code = c.req.query("code");
-
-  if (!code) {
-    return c.text("missing locale code query param", 400);
-  }
-
-  const languages = getLanguages(code);
-  return c.json(languages);
-});
-
+// http://localhost:3000/api/category?code=en
 app.get("/api/category", (c) => {
   const code = c.req.query("code");
 
@@ -35,11 +25,12 @@ app.get("/api/category", (c) => {
     return c.text("missing query param", 400);
   }
 
-  const categories = getCategory(code);
+  const categories = getCategories(code);
   return c.json(categories);
 });
 
-app.get("/api/info", (c) => {
+// http://localhost:3000/api/info?code=en&cat=Work
+http: app.get("/api/info", (c) => {
   const code = c.req.query("code");
   const cat = c.req.query("cat");
 
@@ -47,21 +38,24 @@ app.get("/api/info", (c) => {
     return c.text("missing query param", 400);
   }
 
-  const infoTitles = getInfoByCat(code, cat);
+  const infoTitles = getInfoTitleLocaleCodeAndCatName(code, cat);
   return c.json(infoTitles);
 });
 
-app.get("/api/info/:content", (c) => {
-  const title = c.req.query("title");
+// http://localhost:3000/api/info/content?code=en&infoTitle=Family and work/Absences from work due to illness or accident
+app.get("/api/info/content", (c) => {
+  const code = c.req.query("code");
+  const infoKey = c.req.query("infoTitle");
 
-  if (!title) {
+  if (!code || !infoKey) {
     return c.text("missing query param", 400);
   }
 
-  const infoContents = getInfoContentByTitle(title);
+  const infoContents = getInfoContentByKey(code, infoKey);
   return c.json(infoContents);
 });
 
+// http://localhost:3000/api/checklist?cat=Customs&code=en
 app.get("/api/checklist", (c) => {
   const cat = c.req.query("cat");
 
@@ -73,17 +67,21 @@ app.get("/api/checklist", (c) => {
   return c.json(checklists);
 });
 
+// http://localhost:3000/api/quiz?cat=Customs
 app.get("/api/quiz", (c) => {
-  const cat = c.req.query("cat");
+  const code = c.req.query("code");
+  const catKey = c.req.query("catKey");
 
-  if (!cat) {
+   if (!code || !catKey) {
     return c.text("missing query param", 400);
   }
 
-  const quizLists = getQuizLists(cat);
+  const quizLists = getQuizLists(code, catKey);
   return c.json(quizLists);
 });
 
+// http://localhost:3000/api/quiz/1
+// http://localhost:3000/api/quiz/1
 app.get("/api/quiz/:id", (c) => {
   const id = c.req.param("id");
 

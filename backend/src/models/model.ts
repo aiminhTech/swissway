@@ -1,8 +1,3 @@
-export type Language = {
-  localeId: number;
-  name: string;
-};
-
 export type Category = {
   localeId: number;
   name: string;
@@ -10,14 +5,14 @@ export type Category = {
 };
 
 export type Information = {
+  localeId: number;
   categoryId: number;
   title: string;
+  description: string;
   content: InformationContent[];
 };
 
 export type InformationContent = {
-  topic: string;
-  description: string;
   infos: {
     title: string;
     content: {
@@ -28,26 +23,31 @@ export type InformationContent = {
 };
 
 export type CheckList = {
+  localeId: number;
   categoryId: number;
   title: string;
 };
 
 export type CheckListItem = {
+  localeId: number;
   checklistId: number;
   text: string;
 };
 
 export type Quiz = {
+  localeId: number;
   categoryId: number;
   title: string;
 };
 
 export type QuizQuestion = {
+  localeId: number;
   quizId: number;
   question: string;
 };
 
 export type QuizAnswer = {
+  localeId: number;
   quizQuestionId: number;
   answer: string;
   isCorrect: number;
