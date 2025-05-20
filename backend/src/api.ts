@@ -1,10 +1,9 @@
 import { Hono } from "hono";
 import {
-  getCategory,
+  getCategories,
   getChecklists,
-  getInfoByCat,
-  getInfoContentByTitle,
-  getLanguages,
+  getInfoByCatKey,
+  getInfoContentByKey,
   getLocales,
   getQuiz,
   getQuizLists,
@@ -12,22 +11,13 @@ import {
 
 const app = new Hono();
 
+// http://localhost:3000/api/locale
 app.get("/api/locale", (c) => {
   const locales = getLocales();
   return c.json(locales);
 });
 
-app.get("/api/language", (c) => {
-  const code = c.req.query("code");
-
-  if (!code) {
-    return c.text("missing locale code query param", 400);
-  }
-
-  const languages = getLanguages(code);
-  return c.json(languages);
-});
-
+// http://localhost:3000/api/category?code=en
 app.get("/api/category", (c) => {
   const code = c.req.query("code");
 
@@ -35,41 +25,45 @@ app.get("/api/category", (c) => {
     return c.text("missing query param", 400);
   }
 
-  const categories = getCategory(code);
+  const categories = getCategories(code);
   return c.json(categories);
 });
 
+// http://localhost:3000/api/info?code=en&catKey=Work
 app.get("/api/info", (c) => {
   const code = c.req.query("code");
-  const cat = c.req.query("cat");
+  const catKey = c.req.query("catKey");
 
-  if (!code || !cat) {
+  if (!code || !catKey) {
     return c.text("missing query param", 400);
   }
 
-  const infoTitles = getInfoByCat(code, cat);
+  const infoTitles = getInfoByCatKey(code, catKey);
   return c.json(infoTitles);
 });
 
-app.get("/api/info/:content", (c) => {
-  const title = c.req.query("title");
+// http://localhost:3000/api/info/content?code=en&infoKey=Absences%20from%20work%20due%20to%20illness%20or%20accident
+app.get("/api/info/content", (c) => {
+  const code = c.req.query("code");
+  const infoKey = c.req.query("infoKey");
 
-  if (!title) {
+   if (!code || !infoKey) {
     return c.text("missing query param", 400);
   }
 
-  const infoContents = getInfoContentByTitle(title);
+  const infoContents = getInfoContentByKey(code, infoKey);
   return c.json(infoContents);
 });
 
+// TODO params
 app.get("/api/checklist", (c) => {
-  const cat = c.req.query("cat");
+  const catKey = c.req.query("catKey");
 
-  if (!cat) {
+  if (!catKey) {
     return c.text("missing query param", 400);
   }
 
-  const checklists = getChecklists(cat);
+  const checklists = getChecklists(catKey);
   return c.json(checklists);
 });
 

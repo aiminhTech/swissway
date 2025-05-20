@@ -1,23 +1,12 @@
-import type { ApiCategory, ApiChecklist, ApiInfoContent, ApiLanguage, ApiLocale, ApiQuiz } from "@models/api-model";
-import { transformCategories, transformChecklists, transformInfoContents, transformLanguage, transformQuiz } from "@utils/transform-api-response";
+import type { ApiCategory, ApiChecklist, ApiInfoContent, ApiLocale, ApiQuiz } from "@models/api-model";
+import { transformCategories, transformChecklists, transformInfoContents, transformQuiz } from "@utils/transform-api-response";
 import db from "@db/db";
 
 export function getLocales(): ApiLocale[] {
   return db.prepare("SELECT * FROM locale").all() as ApiLocale[];
 }
 
-export function getLanguages(localeCode: string) {
-  const result = db.prepare(`
-    SELECT locale.id as code_id, locale.code AS code, language.name AS language_name
-		FROM language
-		JOIN locale ON language.locale_id = locale.id
-    WHERE locale.code = ?
-  `).all(localeCode) as ApiLanguage[];
-
-  return transformLanguage(result)
-}
-
-export function getCategory(localeCode: string) {
+export function getCategories(localeCode: string) {
   const result = db.prepare(`
     SELECT * from view_category as v
     WHERE v.code = ?
@@ -27,18 +16,18 @@ export function getCategory(localeCode: string) {
 }
 
 //information
-export function getInfoByCat(localeCode: string, cat: string) {
+export function getInfoByCatKey(localeCode: string, catKey: string) {
   return db.prepare(`
-    SELECT v.code, v.category_name, v.information_title from view_information as v
-    WHERE v.code = ? AND v.category_name = ?
-  `).all(localeCode, cat);
+    SELECT v.code, v.category_name, v.information_title, v.information_translation_key, v.information_content from view_information as v
+    WHERE v.code = ? AND v.category_translation_key = ?  
+  `).all(localeCode, catKey);
 }
 
-export function getInfoContentByTitle(infoTitle: string) {
+export function getInfoContentByKey(localeCode: string, infoKey: string) {
   const result = db.prepare(`
     SELECT * from view_information as v
-    WHERE v.information_title = ?
-  `).all(infoTitle) as ApiInfoContent[];
+    WHERE v.code = ? AND v.information_translation_key = ?
+  `).all(localeCode, infoKey) as ApiInfoContent[];
 
   return transformInfoContents(result)
 }

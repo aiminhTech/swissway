@@ -3,17 +3,10 @@ export type ApiLocale = {
   code: string;
 };
 
-export type ApiLanguage = {
-  code_id: number;
-  code: string;
-  language_name: string;
-};
-
 export type ApiCategory = {
   code: string;
-  language_name: string;
   category_id: number;
-  category_key: string;
+  category_translation_key: string;
   category_name: string;
   category_description: string;
 };
