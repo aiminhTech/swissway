@@ -11,8 +11,8 @@ export default function Home() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      router.push("/tabs");
-    }, 2000);
+      router.push("/tabs/(tabs)/explore");
+    });
 
     return () => clearTimeout(timeout);
   }, []);

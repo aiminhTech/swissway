@@ -2,6 +2,7 @@ import React from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { useClientOnlyValue } from "@/components/useClientOnlyValue";
+import { Colors } from "@/constants/Colors";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof MaterialIcons>["name"];
@@ -15,15 +16,15 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerShown: useClientOnlyValue(false, true),
-        tabBarActiveTintColor: "#8B1A1A",
+        tabBarActiveTintColor: Colors.custom.burgundy,
+        tabBarInactiveTintColor: Colors.custom.grey,
         tabBarStyle: {
           backgroundColor: "#fffff",
         },
       }}
-     
     >
       <Tabs.Screen
-        name="index"
+        name="explore"
         options={{
           title: "Explore",
           tabBarIcon: ({ color }) => (
@@ -38,6 +39,13 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="dashboard" color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="quiz"
+        options={{
+          title: "Quiz",
+          tabBarIcon: ({ color }) => <TabBarIcon name="quiz" color={color} />,
         }}
       />
       <Tabs.Screen
