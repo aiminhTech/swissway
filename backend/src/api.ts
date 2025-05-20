@@ -47,7 +47,7 @@ app.get("/api/info/content", (c) => {
   const code = c.req.query("code");
   const infoKey = c.req.query("infoKey");
 
-   if (!code || !infoKey) {
+  if (!code || !infoKey) {
     return c.text("missing query param", 400);
   }
 
@@ -55,29 +55,33 @@ app.get("/api/info/content", (c) => {
   return c.json(infoContents);
 });
 
-// TODO params
+// TODO: always empty response
 app.get("/api/checklist", (c) => {
+  const code = c.req.query("code");
   const catKey = c.req.query("catKey");
 
-  if (!catKey) {
+  if (!code || !catKey) {
     return c.text("missing query param", 400);
   }
 
-  const checklists = getChecklists(catKey);
+  const checklists = getChecklists(code, catKey);
   return c.json(checklists);
 });
 
+// http://localhost:3000/api/quiz?code=en&catKey=Customs
 app.get("/api/quiz", (c) => {
-  const cat = c.req.query("cat");
+  const code = c.req.query("code");
+  const catKey = c.req.query("catKey");
 
-  if (!cat) {
+   if (!code || !catKey) {
     return c.text("missing query param", 400);
   }
 
-  const quizLists = getQuizLists(cat);
+  const quizLists = getQuizLists(code, catKey);
   return c.json(quizLists);
 });
 
+// http://localhost:3000/api/quiz/1
 app.get("/api/quiz/:id", (c) => {
   const id = c.req.param("id");
 

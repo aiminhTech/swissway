@@ -119,22 +119,22 @@ const schema = `
 		FROM view_category AS v
 		JOIN information AS i ON i.category_id = v.category_id;
 
-		CREATE VIEW IF NOT EXISTS view_checklist AS
-		SELECT 
-			v.code,
-			v.category_translation_key,
-			v.category_name,
-			c.title AS checklist_title,
-			GROUP_CONCAT(ci.text, ' ||| ') AS checklist_items
-		FROM 
-			view_category AS v
-		JOIN checklist AS c ON c.category_id = v.category_id
-		JOIN checklist_item AS ci ON ci.checklist_id = c.id
-		GROUP BY 
-			v.code,
-			v.category_translation_key,
-			v.category_name,
-			c.title;
+	CREATE VIEW IF NOT EXISTS view_checklist AS
+	SELECT 
+		v.code as code,
+		v.category_translation_key as category_translation_key,
+		v.category_name as category_name,
+		c.title AS checklist_title,
+		GROUP_CONCAT(ci.text, ' ||| ') AS checklist_items
+	FROM 
+		view_category AS v
+	JOIN checklist AS c ON c.category_id = v.category_id
+	JOIN checklist_item AS ci ON ci.checklist_id = c.id
+	GROUP BY 
+		v.code,
+		v.category_translation_key,
+		v.category_name,
+		c.title;
 
 
 	CREATE VIEW IF NOT EXISTS view_quiz_question_answers AS
