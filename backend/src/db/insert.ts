@@ -1,14 +1,4 @@
-import {
-  categories,
-  checklistItems,
-  checklists,
-  images,
-  informations,
-  locales,
-  quizAnswers,
-  quizQuestions,
-  quizzes,
-} from "@db/data";
+import { categories, checklistItems, checklists, images, informations, locales, quizAnswers, quizQuestions, quizzes } from "@/models/reference-data/data";
 import { Database } from "bun:sqlite";
 
 export function insert(db: Database) {

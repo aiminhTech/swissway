@@ -17,7 +17,10 @@ export type InformationContent = {
     title: string;
     content: {
       subtitle?: string;
-      text: string;
+      text?: string;
+      links?: {
+        text: string, url: string
+      }[]
     }[];
   }[];
 };

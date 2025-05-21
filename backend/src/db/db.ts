@@ -85,7 +85,7 @@ const schema = `
 		FROM locale;
 
 	CREATE VIEW IF NOT EXISTS view_category AS
-		SELECT 
+		SELECT
 			v.code,
 			c.id AS category_id,
 			c.name AS category_name,
@@ -94,7 +94,7 @@ const schema = `
 		JOIN category AS c ON c.locale_id = v.code_id;
 
 	CREATE VIEW IF NOT EXISTS view_information AS
-		SELECT 
+		SELECT
 			v.code,
 			v.category_name,
 			i.title AS information_title,
@@ -103,33 +103,33 @@ const schema = `
 		JOIN information AS i ON i.category_id = v.category_id;
 
 		CREATE VIEW IF NOT EXISTS view_checklist AS
-		SELECT 
+		SELECT
 			v.code,
 			v.category_name,
 			c.title AS checklist_title,
 			GROUP_CONCAT(ci.text, ' ||| ') AS checklist_items
-		FROM 
+		FROM
 			view_category AS v
 		JOIN checklist AS c ON c.category_id = v.category_id
 		JOIN checklist_item AS ci ON ci.checklist_id = c.id
-		GROUP BY 
+		GROUP BY
 			v.code,
 			v.category_name,
 			c.title;
 
 
 	CREATE VIEW IF NOT EXISTS view_quiz_question_answers AS
-		SELECT 
+		SELECT
 			qq.id AS question_id,
 			qq.quiz_id,
 			qq.question,
 			GROUP_CONCAT(qa.answer || '::' || qa.is_correct, ' ||| ') AS answers
 		FROM quiz_question AS qq
 		JOIN quiz_answer AS qa ON qa.quiz_question_id = qq.id
-		GROUP BY question_id;                        
+		GROUP BY question_id;
 
 	CREATE VIEW IF NOT EXISTS view_full_quiz AS
-		SELECT 
+		SELECT
 			vc.code,
 			vc.category_name,
 			vqa.quiz_id,
