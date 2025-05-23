@@ -8,6 +8,7 @@ import {
   getQuiz,
   getQuizLists,
 } from "@db/select";
+import { showRoutes } from "hono/dev";
 
 const app = new Hono();
 
@@ -90,4 +91,5 @@ app.get("/api/quiz/:id", (c) => {
   return c.json(getQuiz(Number(id)));
 });
 
+showRoutes(app);
 export default app;

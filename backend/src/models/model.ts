@@ -19,7 +19,7 @@ export type InformationContent = {
       subtitle?: string;
       text?: string;
       links?: {
-        text: string, url: string
+        text?: string, url: string
       }[]
     }[];
   }[];
