@@ -25,5 +25,8 @@ export const Colors = {
     lightgrey: "#c9c7c7",
     cream: "#F5F1E6",
     brown: "#4F382A",
+    darkgreen: "#006550",
+    lightgreen: "#CFF3D1",
+    lightred: "#F7C7C7",
   },
 };

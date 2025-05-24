@@ -1,11 +1,10 @@
-import CatergoryWidget from "@/components/CatergoryWidget";
-import InfoTitleWidget from "@/components/ContentWidget";
-import Error from "@/components/Error";
+import CatergoryWidget from "@/components/explore/CatergoryWidget";
+import InfoTitleWidget from "@/components/explore/ContentWidget";
 import { ScrollView } from "@/components/ui/scroll-view";
 import { useApiStore } from "@/store/apiStore";
 import { useEffect } from "react";
 
-export default function Dashboard() {
+export default function Explore() {
   const {
     fetchCategories,
     categories,
@@ -26,7 +25,10 @@ export default function Dashboard() {
       style={{ height: "100%", margin: 16 }}
       contentContainerStyle={{ flexGrow: 1 }}
     >
-      {categories && <CatergoryWidget categories={categories} />}
+      <CatergoryWidget
+        categories={categories}
+        categoriesError={categoriesError}
+      />
       {
         <InfoTitleWidget
           contentTitles={infoTitles}

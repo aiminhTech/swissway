@@ -1,3 +1,7 @@
+export enum LanguageEnum {
+  EN = "en",
+  DE = "de",
+}
 export type CategoryType = {
   locale_code: string;
   category_name: string;
@@ -26,10 +30,23 @@ export type ContentType = {
   }[];
 };
 
-export enum LanguageEnum {
-  EN = "en",
-  DE = "de",
-}
+export type QuizListType = {
+  quiz_id: number;
+  title: string;
+};
+
+export type AnswerOption = {
+  [answerText: string]: number;
+};
+
+export type Question = {
+  [questionText: string]: AnswerOption[];
+};
+
+export type QuizType = {
+  title: string;
+  questions: Question[];
+};
 
 export type FetchError = {
   message: string;
