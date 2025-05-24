@@ -3,6 +3,8 @@ import {
   FetchError,
   InfoContentType,
   InfoTitleType,
+  QuizListType,
+  QuizType,
 } from "@/models/models";
 
 const baseUrl = "http://localhost:3000/api";
@@ -24,7 +26,7 @@ export async function fetchInfoTitles(code: string, cat: string) {
 
   if (!res.ok) {
     return {
-      message: `Failed to fetch categories. Please try again`,
+      message: `Failed to fetch info titles. Please try again`,
     } as FetchError;
   }
 
@@ -38,9 +40,39 @@ export async function fetchInfoContents(code: string, title: string) {
 
   if (!res.ok) {
     return {
-      message: `Failed to fetch categories. Please try again`,
+      message: `Failed to fetch info contents. Please try again`,
     } as FetchError;
   }
 
   return res.json() as Promise<InfoContentType[]>;
+}
+
+export async function fetchQuizzes(catName: string) {
+  const res = await fetch(`${baseUrl}/quiz?cat=${catName}`);
+
+  if (!res.ok) {
+    return {
+      message: `Failed to fetch quizzes. Please try again`,
+    } as FetchError;
+  }
+
+  return res.json() as Promise<QuizListType[]>;
+}
+
+export async function fetchQuizById(id: string) {
+  try {
+    const res = await fetch(`${baseUrl}/quiz/${id}`);
+
+    if (!res.ok) {
+      return {
+        message: `Failed to fetch quizzes. Please try again`,
+      } as FetchError;
+    }
+
+    return res.json() as Promise<QuizType>;
+  } catch (e) {
+    return {
+      message: `Unexpected error: ${e}. Please try again`,
+    } as FetchError;
+  }
 }

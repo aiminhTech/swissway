@@ -5,11 +5,14 @@ import {
   InfoContentType,
   InfoTitleType,
   LanguageEnum,
+  QuizListType,
+  QuizType,
 } from "@/models/models";
 import {
   fetchCategories,
   fetchInfoContents,
   fetchInfoTitles,
+  fetchQuizzes,
 } from "@/services/api";
 
 type ApiStore = {
@@ -17,12 +20,15 @@ type ApiStore = {
   categories: CategoryType[] | undefined;
   infoTitles: InfoTitleType[] | undefined;
   infoContents: InfoContentType[] | undefined;
+  quizzes: Record<string, QuizListType[]>;
   fetchCategories: (code: string) => Promise<void>;
   fetchInfoTitles: (code: string, cat: string) => Promise<void>;
   fetchInfoContents: (code: string, title: string) => Promise<void>;
+  fetchQuizzes: (cat: string) => Promise<void>;
   categoriesError: FetchError | undefined;
   infoTitlesError: FetchError | undefined;
   contentsError: FetchError | undefined;
+  quizzesError: Record<string, FetchError | undefined>;
 };
 
 function isFetchError(data: any): data is FetchError {
@@ -38,13 +44,14 @@ export const useApiStore = create<ApiStore>((set) => ({
   infoContents: undefined,
   infoTitlesError: undefined,
   contentsError: undefined,
+  quizzes: {},
+  quizzesError: {},
 
   fetchCategories: async (code: string) => {
     try {
       const res = await fetchCategories(code);
 
       if (isFetchError(res)) {
-        console.error("FetchCategories Error:", res.message);
         set({ categories: undefined, categoriesError: res });
         return;
       }
@@ -56,7 +63,6 @@ export const useApiStore = create<ApiStore>((set) => ({
 
       set({ categories: res, categoriesError: undefined });
     } catch (err: any) {
-      console.error("Unexpected error in fetchCategories:", err);
       set({
         categories: undefined,
         categoriesError: { message: err?.message || "Unknown error" },
@@ -68,7 +74,6 @@ export const useApiStore = create<ApiStore>((set) => ({
       const res = await fetchInfoTitles(code, cat);
 
       if (isFetchError(res)) {
-        console.error("FetchInfoTitles Error:", res.message);
         set({ infoTitles: undefined, infoTitlesError: res });
 
         return;
@@ -81,7 +86,6 @@ export const useApiStore = create<ApiStore>((set) => ({
 
       set({ infoTitles: res, infoTitlesError: undefined });
     } catch (err: any) {
-      console.error("Unexpected error in fetchInfoTitles:", err);
       set({
         infoTitles: undefined,
         infoTitlesError: { message: err?.message || "Unknown error" },
@@ -94,7 +98,6 @@ export const useApiStore = create<ApiStore>((set) => ({
       const res = await fetchInfoContents(code, title);
 
       if (isFetchError(res)) {
-        console.error("FetchInfoContents Error:", res.message);
         set({ infoContents: undefined, contentsError: res });
         return;
       }
@@ -107,11 +110,44 @@ export const useApiStore = create<ApiStore>((set) => ({
 
       set({ infoContents: res, contentsError: undefined });
     } catch (err: any) {
-      console.error("Unexpected error in fetchInfoContents:", err);
       set({
         infoContents: undefined,
         contentsError: { message: err?.message || "Unknown error" },
       });
+    }
+  },
+  fetchQuizzes: async (cat: string) => {
+    try {
+      const res = await fetchQuizzes(cat);
+
+      if (isFetchError(res)) {
+        set((state) => ({
+          quizzes: { ...state.quizzes, [cat]: [] },
+          quizzesError: { ...state.quizzesError, [cat]: res },
+        }));
+        return;
+      }
+
+      if (!res || res.length === 0) {
+        set((state) => ({
+          quizzes: { ...state.quizzes, [cat]: [] },
+          quizzesError: { ...state.quizzesError, [cat]: noDataErr },
+        }));
+        return;
+      }
+
+      set((state) => ({
+        quizzes: { ...state.quizzes, [cat]: res },
+        quizzesError: { ...state.quizzesError, [cat]: undefined },
+      }));
+    } catch (err: any) {
+      set((state) => ({
+        quizzes: { ...state.quizzes, [cat]: [] },
+        quizzesError: {
+          ...state.quizzesError,
+          [cat]: { message: err?.message || "Unknown error" },
+        },
+      }));
     }
   },
 }));
