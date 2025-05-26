@@ -1,5 +1,5 @@
 import CatergoryWidget from "@/components/explore/CatergoryWidget";
-import InfoTitleWidget from "@/components/explore/ContentWidget";
+import ContentTitleWidget from "@/components/explore/ContentTitleWidget";
 import { ScrollView } from "@/components/ui/scroll-view";
 import { useApiStore } from "@/store/apiStore";
 import { useEffect } from "react";
@@ -17,7 +17,7 @@ export default function Explore() {
 
   useEffect(() => {
     fetchCategories(language);
-    fetchInfoTitles(language, "Health");
+    //fetchInfoTitles(language, "Health");
   }, [language]);
 
   return (
@@ -29,12 +29,12 @@ export default function Explore() {
         categories={categories}
         categoriesError={categoriesError}
       />
-      {
-        <InfoTitleWidget
+      {/*  {
+        <ContentTitleWidget
           contentTitles={infoTitles}
           infoTitlesError={infoTitlesError}
         />
-      }
+      } */}
     </ScrollView>
   );
 }

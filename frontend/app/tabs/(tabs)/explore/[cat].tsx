@@ -10,10 +10,13 @@ import Error from "@/components/Error";
 
 type InfoTitleProps = {
   title: string;
-  infoTitle: string;
+  groupedTitles: {
+    base: string;
+    variations: string[];
+  };
 };
 
-function InfoTitle({ title, infoTitle }: InfoTitleProps) {
+function InfoTitle({ title, groupedTitles }: InfoTitleProps) {
   const router = useRouter();
 
   return (
@@ -22,7 +25,7 @@ function InfoTitle({ title, infoTitle }: InfoTitleProps) {
       onPress={() => {
         router.push({
           pathname: "/tabs/(tabs)/explore/detail/[detail]",
-          params: { detail: encodeURI(infoTitle) },
+          params: { detail: encodeURI(JSON.stringify(groupedTitles)) },
         });
       }}
     >
@@ -37,27 +40,51 @@ export default function Infos() {
 
   const { infoTitles, fetchInfoTitles, infoTitlesError, language } =
     useApiStore();
-  const infos = infoTitles?.filter((t) => t.category_name === cat).sort() || [];
 
   useEffect(() => {
     if (typeof cat == "string") {
       fetchInfoTitles(language, cat);
     }
   }, []);
+
+  if (!infoTitles || infoTitles.length < 0) {
+    return <Error error={{ message: "No content found" }} />;
+  }
+
+  const groupTitles = (titles: { information_title: string }[]) => {
+    const map = new Map<string, string[]>();
+
+    for (const { information_title } of titles) {
+      const [base, ...rest] = information_title.split("///");
+      if (!map.has(base)) {
+        map.set(base, []);
+      }
+      if (rest.length > 0) {
+        map.get(base)!.push(rest.join("///"));
+      }
+    }
+
+    return Array.from(map.entries()).map(([base, variations]) => ({
+      base,
+      variations,
+    }));
+  };
+  const groupedTitles = groupTitles(infoTitles);
+
   return (
     <ScrollView style={{ margin: 16 }} contentContainerStyle={{ flexGrow: 1 }}>
       <Heading style={styles.heading}>{cat}</Heading>
       <Line></Line>
       {infoTitlesError && <Error error={infoTitlesError} />}
+
       <Box>
-        {infos.map((i, idx) => {
-          const title = i.information_title.split("/");
+        {groupedTitles.map((i, idx) => {
           return (
             <InfoTitle
               key={idx}
-              title={title[0]}
-              infoTitle={i.information_title}
-            ></InfoTitle>
+              title={i.base}
+              groupedTitles={groupedTitles[idx]}
+            />
           );
         })}
       </Box>

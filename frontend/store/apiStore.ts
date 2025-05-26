@@ -5,26 +5,31 @@ import {
   InfoContentType,
   InfoTitleType,
   LanguageEnum,
+  LocaleType,
   QuizListType,
-  QuizType,
 } from "@/models/models";
 import {
   fetchCategories,
   fetchInfoContents,
   fetchInfoTitles,
+  fetchLocale,
   fetchQuizzes,
 } from "@/services/api";
 
 type ApiStore = {
   language: LanguageEnum;
+  setLanguage: (lang: LanguageEnum) => void;
+  languages: LocaleType[] | undefined;
   categories: CategoryType[] | undefined;
   infoTitles: InfoTitleType[] | undefined;
   infoContents: InfoContentType[] | undefined;
   quizzes: Record<string, QuizListType[]>;
+  fetchLanguages: () => Promise<void>;
   fetchCategories: (code: string) => Promise<void>;
   fetchInfoTitles: (code: string, cat: string) => Promise<void>;
   fetchInfoContents: (code: string, title: string) => Promise<void>;
   fetchQuizzes: (cat: string) => Promise<void>;
+  languagesError: FetchError | undefined;
   categoriesError: FetchError | undefined;
   infoTitlesError: FetchError | undefined;
   contentsError: FetchError | undefined;
@@ -38,6 +43,10 @@ const noDataErr = { message: "No contents found." };
 
 export const useApiStore = create<ApiStore>((set) => ({
   language: LanguageEnum.EN,
+  setLanguage: (lang: LanguageEnum) => set({ language: lang }),
+
+  languages: undefined,
+  languagesError: undefined,
   categories: undefined,
   categoriesError: undefined,
   infoTitles: undefined,
@@ -46,6 +55,29 @@ export const useApiStore = create<ApiStore>((set) => ({
   contentsError: undefined,
   quizzes: {},
   quizzesError: {},
+
+  fetchLanguages: async () => {
+    try {
+      const res = await fetchLocale();
+
+      if (isFetchError(res)) {
+        set({ languages: undefined, languagesError: res });
+        return;
+      }
+
+      if (!res || res.length === 0) {
+        set({ language: undefined, languagesError: noDataErr });
+        return;
+      }
+
+      set({ languages: res, languagesError: undefined });
+    } catch (err: any) {
+      set({
+        languages: undefined,
+        languagesError: { message: err?.message || "Unknown error" },
+      });
+    }
+  },
 
   fetchCategories: async (code: string) => {
     try {

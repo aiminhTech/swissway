@@ -3,11 +3,30 @@ import {
   FetchError,
   InfoContentType,
   InfoTitleType,
+  LocaleType,
   QuizListType,
   QuizType,
 } from "@/models/models";
 
 const baseUrl = "http://localhost:3000/api";
+
+export async function fetchLocale() {
+  try {
+    const res = await fetch(`${baseUrl}/locale`);
+
+    if (!res.ok) {
+      return {
+        message: `Failed to fetch locales. Please try again`,
+      } as FetchError;
+    }
+
+    return res.json() as Promise<LocaleType[]>;
+  } catch (e) {
+    return {
+      message: `Unexpected error: ${e}. Please try again`,
+    } as FetchError;
+  }
+}
 
 export async function fetchCategories(code: string) {
   const res = await fetch(`${baseUrl}/category?code=${code}`);
