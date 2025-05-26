@@ -1,0 +1,9 @@
+{
+  "entryPoints": [ "src/api.ts"],
+  "out": "docs",
+  "includeVersion": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "theme": "default"
+}

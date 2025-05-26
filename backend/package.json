@@ -6,10 +6,12 @@
   "scripts": {
     "clean": "rm -rf dist && echo 'Done.'",
     "dev": "bun --watch src/api.ts",
-    "run:db": "bun src/db/db.ts"
+    "run:db": "bun src/db/db.ts",
+    "docs": "typedoc"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typedoc": "^0.28.5"
   },
   "peerDependencies": {
     "typescript": "^5"

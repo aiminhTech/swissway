@@ -2,9 +2,30 @@ import { Database } from "bun:sqlite";
 import { join } from "path";
 import { insert } from "@db/insert";
 
+/**
+ * Path to the SQLite database file, resolved relative to the current module.
+ */
 const dbPath = join(import.meta.dir, "../../swissway.db");
+
+/**
+ * SQLite database instance used throughout the application.
+ */
 const db = new Database(dbPath);
 
+/**
+ * SQL schema defining all tables, indexes, and views used in the application.
+ *
+ * This includes:
+ * - `locale`, `category`, `information`, `checklist`, `checklist_item`, `quiz`, `quiz_question`, `quiz_answer`, `image` tables
+ * - Unique indexes for data integrity
+ * - Views for simplified data access, including:
+ *   - `view_locale`
+ *   - `view_category`
+ *   - `view_information`
+ *   - `view_checklist`
+ *   - `view_quiz_question_answers`
+ *   - `view_full_quiz`
+ */
 const schema = `
 	PRAGMA foreign_keys = ON;
 
@@ -141,7 +162,19 @@ const schema = `
 		JOIN view_category AS vc ON q.category_id = vc.category_id;
 `;
 
+/**
+ * Executes the database schema to initialize all tables and views.
+ */
 db.run(schema);
+
+/**
+ * Calls the `insert` function to seed the database with initial values.
+ *
+ * @param db - The initialized SQLite database instance
+ */
 insert(db);
 
+/**
+ * Exports the initialized SQLite database instance for use throughout the application.
+ */
 export default db;
