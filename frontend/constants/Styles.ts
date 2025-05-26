@@ -17,6 +17,12 @@ export const globalStyles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 12,
   },
+  heading3: {
+    fontWeight: "bold",
+    color: Colors.custom.burgundy,
+    fontSize: 18,
+    marginBottom: 12,
+  },
   touchBox: {
     marginBottom: 12,
     borderRadius: 15,

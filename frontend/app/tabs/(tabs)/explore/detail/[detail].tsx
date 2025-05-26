@@ -35,13 +35,7 @@ export default function InfoContents() {
   }
 
   if (!infoContents || infoContents.length === 0) {
-    return (
-      <Error
-        error={{
-          message: "No content available.",
-        }}
-      />
-    );
+    return <Error error={{ message: "No content available." }} />;
   }
 
   return (

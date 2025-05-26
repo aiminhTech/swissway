@@ -1,16 +1,5 @@
-import type {
-  ApiCategory,
-  ApiChecklist,
-  ApiInfoContent,
-  ApiLocale,
-  ApiQuiz,
-} from "@models/api-model";
-import {
-  transformCategories,
-  transformChecklists,
-  transformInfoContents,
-  transformQuiz,
-} from "@utils/transform-api-response";
+import type { ApiCategory, ApiChecklist, ApiInfoContent, ApiLocale, ApiQuiz } from "@models/api-model";
+import { transformCategories, transformChecklists, transformInfoContents, transformQuiz } from "@utils/transform-api-response";
 import db from "@db/db";
 
 export function getLocales(): ApiLocale[] {
@@ -23,7 +12,7 @@ export function getCategories(localeCode: string) {
       `
     SELECT * from view_category as v
     WHERE v.code = ?
-  `
+  `,
     )
     .all(localeCode) as ApiCategory[];
 
@@ -31,16 +20,13 @@ export function getCategories(localeCode: string) {
 }
 
 //information
-export function getInfoTitleLocaleCodeAndCatName(
-  localeCode: string,
-  catName: string
-) {
+export function getInfoTitleLocaleCodeAndCatName(localeCode: string, catName: string) {
   return db
     .prepare(
       `
     SELECT v.code AS locale_code, v.category_name, v.information_title from view_information as v
     WHERE v.code = ? AND v.category_name = ?
-  `
+  `,
     )
     .all(localeCode, catName);
 }
@@ -51,7 +37,7 @@ export function getInfoContentByKey(localeCode: string, infoTitle: string) {
       `
       SELECT * FROM view_information AS v
       WHERE v.code = ? AND v.information_title LIKE ? 
-      `
+      `,
     )
     .all(localeCode, `${infoTitle}%`) as ApiInfoContent[];
 
@@ -59,15 +45,15 @@ export function getInfoContentByKey(localeCode: string, infoTitle: string) {
 }
 
 //checklist
-export function getChecklists(catName: string) {
+export function getChecklists(localeCode: string) {
   const result = db
     .prepare(
       `
     SELECT * from view_checklist as v
-    WHERE v.category_name = ?  
-  `
+    WHERE v.code = ?  
+  `,
     )
-    .all(catName) as ApiChecklist[];
+    .all(localeCode) as ApiChecklist[];
 
   return transformChecklists(result);
 }
@@ -80,7 +66,7 @@ export function getQuizLists(catName: string) {
     JOIN category ON q.category_id  = category.id
     WHERE category.name = ?
     
-    `
+    `,
     )
     .all(catName);
 }
@@ -92,7 +78,7 @@ export function getQuiz(id: number) {
     SELECT v.quiz_title,v.question, v.answers
     FROM view_full_quiz as v
     WHERE v.quiz_id = ?
-  `
+  `,
     )
     .all(id) as ApiQuiz[];
 

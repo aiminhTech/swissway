@@ -1,5 +1,6 @@
 import {
   CategoryType,
+  ChecklistType,
   FetchError,
   InfoContentType,
   InfoTitleType,
@@ -89,6 +90,24 @@ export async function fetchQuizById(id: string) {
     }
 
     return res.json() as Promise<QuizType>;
+  } catch (e) {
+    return {
+      message: `Unexpected error: ${e}. Please try again`,
+    } as FetchError;
+  }
+}
+
+export async function fetchChecklists(code: string) {
+  try {
+    const res = await fetch(`${baseUrl}/checklist?code=${code}`);
+
+    if (!res.ok) {
+      return {
+        message: `Failed to fetch checklists. Please try again`,
+      } as FetchError;
+    }
+
+    return res.json() as Promise<ChecklistType[]>;
   } catch (e) {
     return {
       message: `Unexpected error: ${e}. Please try again`,

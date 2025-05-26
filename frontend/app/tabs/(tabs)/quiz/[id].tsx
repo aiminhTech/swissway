@@ -124,7 +124,7 @@ export default function Quiz() {
 
 const styles = StyleSheet.create({
   question: {
-    marginBottom: 12,
+    marginBottom: 32,
     color: Colors.custom.navy,
     fontSize: 20,
     fontWeight: "500",

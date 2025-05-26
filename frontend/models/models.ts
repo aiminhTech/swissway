@@ -65,6 +65,17 @@ export type QuizType = {
   questions: Question[];
 };
 
+export type ChecklistType = {
+  locale_code: string;
+  title: string;
+  items: string[];
+};
+
 export type FetchError = {
   message: string;
+};
+
+export type GroupedTitle = {
+  base: string;
+  variations: string[];
 };

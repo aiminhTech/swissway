@@ -2,25 +2,30 @@ import { Colors } from "@/constants/Colors";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { globalStyles } from "@/constants/Styles";
+import { GroupedTitle } from "@/models/models";
 
 type ContentTitleBoxProps = {
-  title: string;
+  groupedTitles: GroupedTitle;
+  marginRight: number;
 };
 
-export default function ContentTitleBox({ title }: ContentTitleBoxProps) {
+export default function ContentTitleBox({
+  groupedTitles,
+  marginRight,
+}: ContentTitleBoxProps) {
   const router = useRouter();
 
   return (
     <TouchableOpacity
-      style={[globalStyles.touchBox, styles.touchBox]}
+      style={[globalStyles.touchBox, styles.touchBox, { marginRight }]}
       onPress={() =>
         router.push({
           pathname: "/tabs/(tabs)/explore/detail/[detail]",
-          params: { detail: encodeURIComponent(title) },
+          params: { detail: encodeURI(JSON.stringify(groupedTitles)) },
         })
       }
     >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{groupedTitles.base}</Text>
     </TouchableOpacity>
   );
 }
@@ -37,7 +42,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: Colors.custom.navy,
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: "GeneralSans",
     letterSpacing: 0.75,
     textAlign: "center",

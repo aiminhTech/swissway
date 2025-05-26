@@ -1,13 +1,5 @@
 import { Hono } from "hono";
-import {
-  getCategories,
-  getChecklists,
-  getInfoContentByKey,
-  getInfoTitleLocaleCodeAndCatName,
-  getLocales,
-  getQuiz,
-  getQuizLists,
-} from "@db/select";
+import { getCategories, getChecklists, getInfoContentByKey, getInfoTitleLocaleCodeAndCatName, getLocales, getQuiz, getQuizLists } from "@db/select";
 import { showRoutes } from "hono/dev";
 
 const app = new Hono();
@@ -56,15 +48,15 @@ app.get("/api/info/content", (c) => {
   return c.json(infoContents);
 });
 
-// http://localhost:3000/api/checklist?cat=Customs&code=en
+// http://localhost:3000/api/checklist?code=en
 app.get("/api/checklist", (c) => {
-  const cat = c.req.query("cat");
+  const code = c.req.query("code");
 
-  if (!cat) {
+  if (!code) {
     return c.text("missing query param", 400);
   }
 
-  const checklists = getChecklists(cat);
+  const checklists = getChecklists(code);
   return c.json(checklists);
 });
 

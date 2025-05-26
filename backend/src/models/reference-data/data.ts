@@ -1,5 +1,6 @@
 import type { Category, CheckList, CheckListItem, Image, Information } from "@models/model";
 import { infoEN } from "./info-en";
+import { checklistItemsEN, checklistsEN } from "./checklist-en";
 
 export const locales = ["en", "de"];
 
@@ -104,27 +105,9 @@ export const categoriesDE: Category[] = [
 
 export const categories = [...categoriesEN, ...categoriesDE];
 
-export const checklists: CheckList[] = [
-  {
-    localeId: 1,
-    categoryId: 1,
-    title: "checklist 1",
-  },
-  {
-    localeId: 2,
-    categoryId: 3,
-    title: "Checkliste 1",
-  },
-];
+export const checklists: CheckList[] = [...checklistsEN];
 
-export const checklistItems: CheckListItem[] = [
-  { localeId: 1, checklistId: 1, text: "todo 1" },
-  { localeId: 1, checklistId: 1, text: "todo 2" },
-  { localeId: 1, checklistId: 1, text: "todo 2" },
-  { localeId: 2, checklistId: 2, text: "Schritt 1" },
-  { localeId: 2, checklistId: 2, text: "Schritt 2" },
-  { localeId: 2, checklistId: 2, text: "Schritt 3" },
-];
+export const checklistItems: CheckListItem[] = [...checklistItemsEN];
 
 export const images: Image[] = [
   { relatedTable: "information", relatedId: 1, url: "/src/assets/foo.png" },

@@ -7,22 +7,22 @@ import { Colors } from "@/constants/Colors";
 import Line from "@/components/Line";
 import { useEffect } from "react";
 import Error from "@/components/Error";
+import { groupTitles } from "@/libs/utils";
+import { GroupedTitle } from "@/models/models";
 
 type InfoTitleProps = {
   title: string;
-  groupedTitles: {
-    base: string;
-    variations: string[];
-  };
+  groupedTitles: GroupedTitle;
 };
 
 function InfoTitle({ title, groupedTitles }: InfoTitleProps) {
   const router = useRouter();
-
+  const { setLastSeenTopics } = useApiStore();
   return (
     <TouchableOpacity
       style={styles.titleBox}
       onPress={() => {
+        setLastSeenTopics(groupedTitles);
         router.push({
           pathname: "/tabs/(tabs)/explore/detail/[detail]",
           params: { detail: encodeURI(JSON.stringify(groupedTitles)) },
@@ -51,24 +51,6 @@ export default function Infos() {
     return <Error error={{ message: "No content found" }} />;
   }
 
-  const groupTitles = (titles: { information_title: string }[]) => {
-    const map = new Map<string, string[]>();
-
-    for (const { information_title } of titles) {
-      const [base, ...rest] = information_title.split("///");
-      if (!map.has(base)) {
-        map.set(base, []);
-      }
-      if (rest.length > 0) {
-        map.get(base)!.push(rest.join("///"));
-      }
-    }
-
-    return Array.from(map.entries()).map(([base, variations]) => ({
-      base,
-      variations,
-    }));
-  };
   const groupedTitles = groupTitles(infoTitles);
 
   return (
