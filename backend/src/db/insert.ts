@@ -1,4 +1,16 @@
-import { categories, checklistItems, checklists, images, informations, locales, quizAnswers, quizQuestions, quizzes } from "@/models/reference-data/data";
+import {
+  categories,
+  checklistItems,
+  checklists,
+  images,
+  informations,
+  locales,
+} from "@/models/reference-data/data";
+import {
+  quizAnswers,
+  quizQuestions,
+  quizzes,
+} from "@/models/reference-data/quiz-en";
 import { Database } from "bun:sqlite";
 
 export function insert(db: Database) {
@@ -32,7 +44,7 @@ export function insert(db: Database) {
         $categoryId: i.categoryId,
         $localeId: i.localeId,
         $title: i.title,
-        $content: JSON.stringify(i.content),
+        $content: JSON.stringify(i.contents),
       });
     }
 

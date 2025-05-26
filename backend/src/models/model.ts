@@ -9,20 +9,27 @@ export type Information = {
   categoryId: number;
   title: string;
   description: string;
-  content: InformationContent[];
+  contents: InfoContent[];
 };
 
-export type InformationContent = {
-  infos: {
-    title: string;
-    content: {
-      subtitle?: string;
-      text?: string;
-      links?: {
-        text?: string, url: string
-      }[]
-    }[];
-  }[];
+export type InfoContent = {
+  infos: Info[];
+};
+
+export type Info = {
+  title: string;
+  contents: Content[];
+};
+
+export type Content = {
+  subtitle?: string;
+  text: string;
+  links?: Link[];
+};
+
+export type Link = {
+  text?: string;
+  url: string;
 };
 
 export type CheckList = {

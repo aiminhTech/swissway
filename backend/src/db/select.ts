@@ -49,11 +49,11 @@ export function getInfoContentByKey(localeCode: string, infoTitle: string) {
   const result = db
     .prepare(
       `
-    SELECT * from view_information as v
-    WHERE v.code = ? AND v.	information_title = ?
-  `
+      SELECT * FROM view_information AS v
+      WHERE v.code = ? AND v.information_title LIKE ? 
+      `
     )
-    .all(localeCode, infoTitle) as ApiInfoContent[];
+    .all(localeCode, `${infoTitle}%`) as ApiInfoContent[];
 
   return transformInfoContents(result);
 }

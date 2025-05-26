@@ -98,7 +98,7 @@ const schema = `
 			v.code,
 			v.category_name,
 			i.title AS information_title,
-			i.content AS information_content
+			i.content AS information_contents
 		FROM view_category AS v
 		JOIN information AS i ON i.category_id = v.category_id;
 

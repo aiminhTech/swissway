@@ -15,7 +15,7 @@ export type ApiInfoContent = {
   code: string;
   category_name: string;
   information_title: string;
-  information_content: string;
+  information_contents: string;
 };
 
 export type ApiChecklist = {
