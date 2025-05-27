@@ -1,9 +1,10 @@
 {
-  "entryPoints": [ "src/api.ts"],
+  "entryPoints": ["src"],
   "out": "docs",
   "includeVersion": true,
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeInternal": true,
-  "theme": "default"
+  "theme": "default",
+  "entryPointStrategy": "expand"
 }

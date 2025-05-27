@@ -13,6 +13,38 @@ import {
 } from "@/models/reference-data/quiz-en";
 import { Database } from "bun:sqlite";
 
+/**
+ * Inserts seed data into the SQLite database.
+ *
+ * This function performs a transactional batch insert of reference data into multiple tables:
+ * - `locale`
+ * - `category`
+ * - `information`
+ * - `checklist`
+ * - `checklist_item`
+ * - `quiz`
+ * - `quiz_question`
+ * - `quiz_answer`
+ * - `image`
+ *
+ * The insertions use "ON CONFLICT DO NOTHING" to avoid duplicates.
+ * The reference data is imported from static modules representing localized content and quizzes.
+ *
+ * @param db - An open SQLite `Database` instance from Bun's SQLite module.
+ *
+ * @remarks
+ * The function wraps all insertions in a single transaction for atomicity and performance.
+ * If any error occurs during the transaction, it will be caught and logged.
+ *
+ * @example
+ * ```ts
+ * import { Database } from "bun:sqlite";
+ * import { insert } from "./path/to/this/file";
+ *
+ * const db = new Database("mydb.sqlite");
+ * insert(db);
+ * ```
+ */
 export function insert(db: Database) {
   const insertAll = db.transaction(() => {
     // locale table

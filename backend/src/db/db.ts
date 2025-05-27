@@ -5,12 +5,12 @@ import { insert } from "@db/insert";
 /**
  * Path to the SQLite database file, resolved relative to the current module.
  */
-const dbPath = join(import.meta.dir, "../../swissway.db");
+export const dbPath = join(import.meta.dir, "../../swissway.db");
 
 /**
  * SQLite database instance used throughout the application.
  */
-const db = new Database(dbPath);
+export const db = new Database(dbPath);
 
 /**
  * SQL schema defining all tables, indexes, and views used in the application.
@@ -26,7 +26,7 @@ const db = new Database(dbPath);
  *   - `view_quiz_question_answers`
  *   - `view_full_quiz`
  */
-const schema = `
+export const schema = `
 	PRAGMA foreign_keys = ON;
 
 	CREATE TABLE IF NOT EXISTS locale (

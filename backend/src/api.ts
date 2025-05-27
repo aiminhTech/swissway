@@ -1,5 +1,13 @@
-import { Hono } from "hono";
-import { getCategories, getChecklists, getInfoContentByKey, getInfoTitleLocaleCodeAndCatName, getLocales, getQuiz, getQuizLists } from "@db/select";
+import { Hono, type Context } from "hono";
+import {
+  getCategories,
+  getChecklists,
+  getInfoContentByKey,
+  getInfoTitleLocaleCodeAndCatName,
+  getLocales,
+  getQuiz,
+  getQuizLists,
+} from "@db/select";
 import { showRoutes } from "hono/dev";
 
 /**
@@ -15,21 +23,28 @@ const app = new Hono();
  * @example
  * GET http://localhost:3000/api/locale
  */
-app.get("/api/locale", (c) => {
+export function getLocaleHandler(c: Context) {
   const locales = getLocales();
   return c.json(locales);
-});
+}
+app.get("/api/locale", getLocaleHandler);
+
 
 /**
  * GET `/api/category?code=:localeCode`
  *
  * Returns all categories for a given locale code.
  *
- * @queryParam code - The locale code (e.g., `en`, `de`, etc.)
+ * Query parameters:
+ * - `code` — The locale code (e.g., `en`, `de`, etc.)
+ *
+ * @param c - The request context
+ * @returns JSON array of categories for the specified locale code
+ *
  * @example
  * GET http://localhost:3000/api/category?code=en
  */
-app.get("/api/category", (c) => {
+export function getCategoryHandler(c: Context) {
   const code = c.req.query("code");
 
   if (!code) {
@@ -38,19 +53,26 @@ app.get("/api/category", (c) => {
 
   const categories = getCategories(code);
   return c.json(categories);
-});
+}
+app.get("/api/category", getCategoryHandler);
+
 
 /**
  * GET `/api/info?code=:localeCode&cat=:categoryName`
  *
  * Returns information titles for a given locale and category.
  *
- * @queryParam code - The locale code
- * @queryParam cat - The name of the category
+ * Query parameters:
+ * - `code` — The locale code
+ * - `cat` — The name of the category
+ *
+ * @param c - The request context
+ * @returns JSON array of information titles matching the locale and category
+ *
  * @example
  * GET http://localhost:3000/api/info?code=en&cat=Work
  */
-app.get("/api/info", (c) => {
+export function getInfoHandler(c: Context) {
   const code = c.req.query("code");
   const cat = c.req.query("cat");
 
@@ -60,19 +82,26 @@ app.get("/api/info", (c) => {
 
   const infoTitles = getInfoTitleLocaleCodeAndCatName(code, cat);
   return c.json(infoTitles);
-});
+}
+app.get("/api/info", getInfoHandler);
+
 
 /**
  * GET `/api/info/content?code=:localeCode&infoTitle=:title`
  *
  * Returns the content for a specific information entry.
  *
- * @queryParam code - The locale code
- * @queryParam infoTitle - The full information title
+ * Query parameters:
+ * - `code` — The locale code
+ * - `infoTitle` — The full information title
+ *
+ * @param c - The request context
+ * @returns JSON content associated with the specified information title and locale
+ *
  * @example
  * GET http://localhost:3000/api/info/content?code=en&infoTitle=Family and work/Absences from work due to illness or accident
  */
-app.get("/api/info/content", (c) => {
+export function getInfoContentHandler(c: Context) {
   const code = c.req.query("code");
   const infoKey = c.req.query("infoTitle");
 
@@ -82,18 +111,25 @@ app.get("/api/info/content", (c) => {
 
   const infoContents = getInfoContentByKey(code, infoKey);
   return c.json(infoContents);
-});
+}
+app.get("/api/info/content", getInfoContentHandler);
+
 
 /**
  * GET `/api/checklist?code=:localeCode`
  *
  * Returns checklists for a specific locale.
  *
- * @queryParam code - The locale code
+ * Query parameters:
+ * - `code` — The locale code
+ *
+ * @param c - The request context
+ * @returns JSON array of checklists for the specified locale
+ *
  * @example
  * GET http://localhost:3000/api/checklist?code=en
  */
-app.get("/api/checklist", (c) => {
+export function getChecklistHandler(c: Context) {
   const code = c.req.query("code");
 
   if (!code) {
@@ -102,18 +138,25 @@ app.get("/api/checklist", (c) => {
 
   const checklists = getChecklists(code);
   return c.json(checklists);
-});
+}
+app.get("/api/checklist", getChecklistHandler);
+
 
 /**
  * GET `/api/quiz?cat=:categoryName`
  *
  * Returns all quizzes for a given category.
  *
- * @queryParam cat - The name of the category
+ * Query parameters:
+ * - `cat` — The name of the category
+ *
+ * @param c - The request context
+ * @returns JSON array of quizzes for the specified category
+ *
  * @example
  * GET http://localhost:3000/api/quiz?cat=Customs
  */
-app.get("/api/quiz", (c) => {
+export function getQuizListHandler(c: Context) {
   const cat = c.req.query("cat");
 
   if (!cat) {
@@ -122,18 +165,25 @@ app.get("/api/quiz", (c) => {
 
   const quizLists = getQuizLists(cat);
   return c.json(quizLists);
-});
+}
+app.get("/api/quiz", getQuizListHandler);
+
 
 /**
  * GET `/api/quiz/:id`
  *
  * Returns a single quiz with all questions and answers by quiz ID.
  *
- * @param id - The ID of the quiz
+ * URL parameters:
+ * - `id` — The ID of the quiz
+ *
+ * @param c - The request context
+ * @returns JSON object representing the quiz identified by the given ID
+ *
  * @example
  * GET http://localhost:3000/api/quiz/1
  */
-app.get("/api/quiz/:id", (c) => {
+export function getQuizByIdHandler(c: Context) {
   const id = c.req.param("id");
 
   if (!id) {
@@ -141,7 +191,9 @@ app.get("/api/quiz/:id", (c) => {
   }
 
   return c.json(getQuiz(Number(id)));
-});
+}
+app.get("/api/quiz/:id", getQuizByIdHandler);
+
 
 /**
  * Displays all registered routes in the console.

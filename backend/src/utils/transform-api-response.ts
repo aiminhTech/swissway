@@ -6,6 +6,18 @@ import type {
 } from "@models/api-model";
 import type { InfoContent } from "@models/model";
 
+
+/**
+ * Transforms API category data into a structured format.
+ *
+ * @param apiCategories - Array of categories fetched from API/database.
+ * @returns Array of transformed categories with explicit keys.
+ *
+ * @example
+ * ```ts
+ * const transformed = transformCategories(apiCategories);
+ * ```
+ */
 export function transformCategories(apiCategories: ApiCategory[]) {
   return apiCategories.map((c) => ({
     locale_code: c.code,
@@ -15,6 +27,17 @@ export function transformCategories(apiCategories: ApiCategory[]) {
   }));
 }
 
+/**
+ * Transforms API info content data by parsing JSON contents.
+ *
+ * @param apiInfoContents - Array of information content objects from API/database.
+ * @returns Array of info content objects with parsed `info_contents` as `InfoContent[]`.
+ *
+ * @example
+ * ```ts
+ * const transformed = transformInfoContents(apiInfoContents);
+ * ```
+ */
 export function transformInfoContents(apiInfoContents: ApiInfoContent[]) {
   return apiInfoContents.map((ic) => {
     const contents = JSON.parse(ic.information_contents) as InfoContent[];
@@ -27,6 +50,17 @@ export function transformInfoContents(apiInfoContents: ApiInfoContent[]) {
   });
 }
 
+/**
+ * Transforms API checklist data by splitting checklist items string.
+ *
+ * @param apiChecklists - Array of checklist objects from API/database.
+ * @returns Array of transformed checklist objects with `items` as string arrays.
+ *
+ * @example
+ * ```ts
+ * const transformed = transformChecklists(apiChecklists);
+ * ```
+ */
 export function transformChecklists(apiChecklists: ApiChecklist[]) {
   return apiChecklists.map((c) => {
     const items = c.checklist_items.split(" ||| ");
@@ -39,6 +73,18 @@ export function transformChecklists(apiChecklists: ApiChecklist[]) {
   });
 }
 
+/**
+ * Transforms API quiz data by grouping answers under their respective questions.
+ *
+ * @param apiQuiz - Array of quiz question and answer objects from API/database.
+ * @returns An object containing the quiz title and an array of questions,
+ *          each with their answers mapped as `{ isCorrectFlag: answerNumber }`.
+ *
+ * @example
+ * ```ts
+ * const transformedQuiz = transformQuiz(apiQuiz);
+ * ```
+ */
 export function transformQuiz(apiQuiz: ApiQuiz[]) {
   const title = apiQuiz[0]?.quiz_title;
 
@@ -61,3 +107,4 @@ export function transformQuiz(apiQuiz: ApiQuiz[]) {
 
   return { title, questions };
 }
+
