@@ -5,8 +5,9 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf dist && echo 'Done.'",
-    "dev": "bun --watch src/api.ts",
+    "dev": "bun --watch src/server.ts",
     "run:db": "bun src/db/db.ts",
+    "start": "bun run src/server.ts",
     "docs": "typedoc"
   },
   "devDependencies": {

@@ -15,6 +15,8 @@ import { showRoutes } from "hono/dev";
  */
 const app = new Hono();
 
+app.get("/", (c) => c.text("Backend is live and running!"));
+
 /**
  * GET `/api/locale`
  *
