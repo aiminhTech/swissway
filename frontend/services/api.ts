@@ -9,7 +9,7 @@ import {
   QuizType,
 } from "@/models/models";
 
-const baseUrl = "http://localhost:3000/api";
+const baseUrl = "https://swissway.onrender.com/api";
 
 export async function fetchLocale() {
   try {
