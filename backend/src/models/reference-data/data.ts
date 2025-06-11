@@ -1,6 +1,7 @@
 import type { Category, CheckList, CheckListItem, Image, Information } from "@models/model";
 import { infoEN } from "./info-en";
 import { checklistItemsEN, checklistsEN } from "./checklist-en";
+import { infoDE } from "./info-de";
 
 export const locales = ["en", "de"];
 
@@ -30,29 +31,25 @@ export const categoriesEN: Category[] = [
     name: "Health",
     description: "Resources on healthcare providers, insurance, and staying healthy in Switzerland.",
   },
-  /*
   {
     localeId: 1,
     name: "Housing",
     description: "Everything you need to know about finding, renting, or buying a home.",
   },
- {
+  {
     localeId: 1,
     name: "Insurance",
-    description:
-      "Overview of mandatory and optional insurances, from health to liability.",
+    description: "Overview of mandatory and optional insurances, from health to liability.",
   },
   {
     localeId: 1,
     name: "Political system",
-    description:
-      "Understand how Swiss democracy works, including federalism and citizen participation.",
+    description: "Understand how Swiss democracy works, including federalism and citizen participation.",
   },
   {
     localeId: 1,
     name: "Retirement",
-    description:
-      "Details on pensions, retirement planning, and senior services.",
+    description: "Details on pensions, retirement planning, and senior services.",
   },
   {
     localeId: 1,
@@ -62,8 +59,7 @@ export const categoriesEN: Category[] = [
   {
     localeId: 1,
     name: "School and education",
-    description:
-      "Educational pathways from kindergarten to university and adult learning.",
+    description: "Educational pathways from kindergarten to university and adult learning.",
   },
   {
     localeId: 1,
@@ -73,8 +69,7 @@ export const categoriesEN: Category[] = [
   {
     localeId: 1,
     name: "Travel and emigrate",
-    description:
-      "Advice on traveling abroad or relocating from or to Switzerland.",
+    description: "Advice on traveling abroad or relocating from or to Switzerland.",
   },
   {
     localeId: 1,
@@ -84,15 +79,13 @@ export const categoriesEN: Category[] = [
   {
     localeId: 1,
     name: "Votes and elections",
-    description:
-      "Get involved in democratic processes through voting and elections.",
+    description: "Get involved in democratic processes through voting and elections.",
   },
   {
     localeId: 1,
     name: "Work",
-    description:
-      "Job search, labor rights, and employment regulations in Switzerland.",
-  }, */
+    description: "Job search, labor rights, and employment regulations in Switzerland.",
+  },
 ];
 
 export const categoriesDE: Category[] = [
@@ -100,6 +93,11 @@ export const categoriesDE: Category[] = [
     localeId: 2,
     name: "Zoll",
     description: "Informationen zu Zollvorschriften, Abgaben und der Einfuhr von Waren in die Schweiz.",
+  },
+  {
+    localeId: 2,
+    name: "Arbeit",
+    description: "",
   },
 ];
 
@@ -114,4 +112,4 @@ export const images: Image[] = [
   { relatedTable: "information", relatedId: 2, url: "/src/assets/bar.png" },
 ];
 
-export const informations: Information[] = [...infoEN];
+export const informations: Information[] = [...infoEN, ...infoDE];
