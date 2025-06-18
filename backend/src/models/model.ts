@@ -10,6 +10,7 @@ export type Information = {
   title: string;
   description: string;
   contents: InfoContent[];
+  isEssential: number
 };
 
 export type InfoContent = {

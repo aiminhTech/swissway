@@ -52,7 +52,7 @@ export function getCategories(localeCode: string) {
  * const infoTitles = getInfoTitleLocaleCodeAndCatName("en", "Work");
  * ```
  */
-export function getInfoTitleLocaleCodeAndCatName(localeCode: string, catName: string) {
+export function getInfoTitleByLocaleCodeAndCatName(localeCode: string, catName: string) {
   return db
     .prepare(
       `
@@ -62,6 +62,19 @@ export function getInfoTitleLocaleCodeAndCatName(localeCode: string, catName: st
     )
     .all(localeCode, catName);
 }
+
+
+export function getEssentialInfoTitle(localeCode: string, isEssential: number) {
+  return db
+    .prepare(
+      `
+    SELECT v.code AS locale_code, v.category_name, v.information_title from view_information as v
+    WHERE v.code = ? AND v.is_essential = ?
+  `,
+    )
+    .all(localeCode, isEssential);
+}
+
 
 /**
  * Retrieves detailed information content by locale code and information title key.
@@ -80,7 +93,7 @@ export function getInfoContentByKey(localeCode: string, infoTitle: string) {
     .prepare(
       `
       SELECT * FROM view_information AS v
-      WHERE v.code = ? AND v.information_title LIKE ? 
+      WHERE v.code = ? AND v.information_title LIKE ?
       `,
     )
     .all(localeCode, `${infoTitle}%`) as ApiInfoContent[];
@@ -104,7 +117,7 @@ export function getChecklists(localeCode: string) {
     .prepare(
       `
     SELECT * from view_checklist as v
-    WHERE v.code = ?  
+    WHERE v.code = ?
   `,
     )
     .all(localeCode) as ApiChecklist[];
@@ -130,7 +143,7 @@ export function getQuizLists(catName: string) {
     SELECT q.id AS quiz_id, q.title AS title FROM quiz as q
     JOIN category ON q.category_id  = category.id
     WHERE category.name = ?
-    
+
     `,
     )
     .all(catName);

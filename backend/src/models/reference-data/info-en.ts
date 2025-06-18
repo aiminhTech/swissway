@@ -74,6 +74,7 @@ More information is available on the Federal Office for Customs and Border Secur
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -153,6 +154,7 @@ The Federal Office for Customs and Security Border provides a list of the custom
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -203,6 +205,7 @@ Swiss Post charges a minimum of CHF 11.50 and a maximum of CHF 70 for processing
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -249,7 +252,7 @@ If you are simply leaving Switzerland with personal goods, you do not need to co
             contents: [
               {
                 subtitle: "QuickZoll App",
-                text: `QuickZoll is an app provided by the Federal Office for Customs and Border Security for the importation of personal goods. 
+                text: `QuickZoll is an app provided by the Federal Office for Customs and Border Security for the importation of personal goods.
 
 The app allows you to declare your goods before you bring them into the country and to pay any customs fees directly. The goods cleared for import using QuickZoll can then be brought into Switzerland at any border crossing.
 
@@ -282,6 +285,7 @@ Swiss VAT must be paid on goods of a total value exceeding CHF 150 on import eve
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 
@@ -333,6 +337,7 @@ If there is a will or a contract of succession, the certificate of inheritance c
         ],
       },
     ],
+    isEssential: 1
   },
   //Civil status certificates
   {
@@ -440,6 +445,7 @@ If there is a will or a contract of succession, the certificate of inheritance c
         ],
       },
     ],
+    isEssential: 1
   },
   //Criminal records extract
   {
@@ -506,6 +512,7 @@ The procedure for ordering a special private extract is the same as for a standa
         ],
       },
     ],
+    isEssential: 0
   },
   //Driving licence
   {
@@ -588,6 +595,7 @@ After handing over your foreign licence and taking the necessary texts, you will
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -647,6 +655,7 @@ The price of an international licence varies from canton to canton. It is around
         ],
       },
     ],
+    isEssential: 0
   },
   //Extract from the debt enforcement register
   {
@@ -734,6 +743,7 @@ You can also ask for an extract from the register relating to another person wit
         ],
       },
     ],
+    isEssential: 0
   },
   //Hunting licence
   {
@@ -813,6 +823,7 @@ You can find more information on compulsory shooting and recognised shooting ran
         ],
       },
     ],
+    isEssential: 0
   },
   //Living wills
   {
@@ -868,6 +879,7 @@ Doctors are bound only by living wills that have been dated and signed by hand.`
         ],
       },
     ],
+    isEssential: 0
   },
   //Passport and identity card
   {
@@ -1012,6 +1024,7 @@ A temporary passport is valid for a maximum of 12 months.`,
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -1080,6 +1093,7 @@ In cases of urgency - for example, if you cannot otherwise return to Switzerland
         ],
       },
     ],
+    isEssential: 1
   },
   //Permits for living in Switzerland
   {
@@ -1195,6 +1209,7 @@ If you have a residence permit (B permit), you may be permitted to stay subject 
         ],
       },
     ],
+    isEssential: 1
   },
   //Requesting an OASI card
   {
@@ -1264,6 +1279,7 @@ If you live abroad but work in Switzerland, please refer to the sections ‹If y
         ],
       },
     ],
+    isEssential: 0
   },
   //Salary certificate
   {
@@ -1311,6 +1327,7 @@ The salary certificate is the most important document you need for completing yo
         ],
       },
     ],
+    isEssential: 0
   },
   //Lost vehicle registration document
   {
@@ -1357,6 +1374,7 @@ The salary certificate is the most important document you need for completing yo
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 
@@ -1471,6 +1489,7 @@ The same regulations as apply to the adoption of minors also apply to the adopti
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -1520,6 +1539,7 @@ Check your insurance coverage before requesting unpaid leave.`,
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -1585,6 +1605,7 @@ You can contact the relevant cantonal offices (web page available in German, Fre
         ],
       },
     ],
+    isEssential: 0
   },
   //Civil status certificates
   {
@@ -1692,6 +1713,7 @@ You can contact the relevant cantonal offices (web page available in German, Fre
         ],
       },
     ],
+    isEssential: 0
   },
   //Family reunification
   {
@@ -1808,6 +1830,7 @@ You will find further useful information on the page Moving to Switzerland.`,
         ],
       },
     ],
+    isEssential: 1
   },
   //Death
   {
@@ -1872,6 +1895,7 @@ If you live abroad, you must contact the Swiss compensation fund to find out the
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -1968,6 +1992,7 @@ If you would like the funeral to take place in Switzerland, the Swiss embassy or
         ],
       },
     ],
+    isEssential: 0
   },
   //Divorce
   {
@@ -2036,6 +2061,7 @@ Ask the competent court about the possibilities of obtaining legal aid.`,
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2123,6 +2149,7 @@ If you were granted a B permit for the purpose of family reunification, you may 
         ],
       },
     ],
+    isEssential: 0
   },
   //Inheritance
   {
@@ -2190,6 +2217,7 @@ Normally, spouses and registered partners and their descendants (children and gr
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2241,6 +2269,7 @@ Normally, spouses and registered partners and their descendants (children and gr
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2287,6 +2316,7 @@ In order to avoid this type of double taxation, Switzerland has concluded agreem
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2333,6 +2363,7 @@ The inventory gives you a complete overview of the assets that make up the estat
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2436,6 +2467,7 @@ Contact a lawyer or notary to find out more about this.`,
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2547,6 +2579,7 @@ You should keep a written record of any gifts that you make. This will help to a
         ],
       },
     ],
+    isEssential: 0
   },
 
   // Marriage - living together as an unmarried couple
@@ -2663,6 +2696,7 @@ However, you and your partner can enter into a property agreement, which must be
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -2776,6 +2810,7 @@ If neither you nor your spouse are Swiss, you should contact the migration autho
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -2831,6 +2866,7 @@ In this case, their assets will be managed jointly and will be divided in half i
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 
@@ -2900,6 +2936,7 @@ Usually the entire asylum procedure takes place in a federal asylum centre. You 
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -2962,6 +2999,7 @@ Students must also submit the following documents with their application for a r
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -3022,7 +3060,7 @@ To travel abroad from Switzerland, you must submit your visa application to the 
                 subtitle: "Additional documents",
                 text: `Depending on your country of origin, the Swiss consulate or embassy where you submit your visa application may request additional documents, even if you are only applying for a tourist visa. The documents may include:
 
-1. Letter of invitation: 
+1. Letter of invitation:
 The letter must be in German, French or Italian and confirm that your Swiss host (private individual or company) is expecting you. It must contain information on the length of and reason for your stay, your personal data (first name(s), surname, date of birth, nationality) and the personal data of your host. The letter must be dated and signed by your host. Further information on the letter of invitation is available in the SEM factsheet.
 
 2. Declaration of sponsorship:
@@ -3058,6 +3096,7 @@ A leaflet describes what to do if you lose your travel document in Switzerland a
         ],
       },
     ],
+    isEssential: 0
   },
   //Living in Switzerland
   {
@@ -3107,7 +3146,7 @@ If you are not covered by Agreement on Acquired Citizens’ Rights, you are subj
 You do not need authorisation to buy your main residence and building land if you meet the following conditions:
 
 - you have a valid residence permit (usually a B permit (different rules apply to C permit holders, see below),
-- you will live in the home and do not rent it out, 
+- you will live in the home and do not rent it out,
 - you plan to build your home and can start work within one year of acquiring the land.`,
               },
               {
@@ -3178,6 +3217,7 @@ Like Swiss citizens, foreign nationals cannot build a second home in a commune w
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 1,
@@ -3295,6 +3335,7 @@ Parents often insure their children for dental treatment (orthodontics). This is
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -3339,6 +3380,7 @@ Other taxpayers file a tax return and are taxed according to the standard taxati
         ],
       },
     ],
+    isEssential: 0
   },
   //Naturalisation
   {
@@ -3471,6 +3513,7 @@ The documents that also have to be provided vary according to the case. You can 
         ],
       },
     ],
+    isEssential: 0
   },
   //Working in Switzerland as a foreign national
   {
@@ -3552,7 +3595,7 @@ You can find further information on the United Kingdom web page of the State Sec
                 text: `Only qualified non-EU/EFTA nationals, for example managers, specialists or university graduates with several years of professional experience, may work in Switzerland.
 
 Non-EU/EFTA nationals require a work permit, even for short-term employment. The number of permits issued is limited.
- 
+
 A work permit may also be issued for self-employment. Spouses of Swiss nationals or of persons with a settlement permit do not require a work permit.`,
               },
               {
@@ -3589,6 +3632,7 @@ You only need to worry about private accident insurance if you work less than ei
         ],
       },
     ],
+    isEssential: 1
   },
 ];
 
@@ -3667,6 +3711,7 @@ If you are employed for more than eight hours per week you are covered by compul
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -3757,6 +3802,7 @@ Added to this are regular check-ups with your obstetrician/gynaecologist, which 
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 1,
@@ -3844,6 +3890,7 @@ Parents often insure their children for dental treatment (orthodontics). This is
         ],
       },
     ],
+    isEssential: 0
   },
   //Medicines and narcotic substances
   {
@@ -3908,6 +3955,7 @@ In addition, cannabis users can legally obtain cannabis products subject to stri
         ],
       },
     ],
+    isEssential: 0
   },
   //Protection against ticks
   {
@@ -4009,6 +4057,7 @@ The ideal time for vaccination is winter, but it can be done all year round. Ful
         ],
       },
     ],
+    isEssential: 0
   },
   //Vaccinations
   {
@@ -4117,6 +4166,7 @@ NB: In some countries, certain vaccinations are mandatory.`,
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 

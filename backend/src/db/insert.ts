@@ -69,7 +69,7 @@ export function insert(db: Database) {
 
     // information table
     const informationQuery = db.prepare(
-      "INSERT INTO information (category_id, locale_id, title, content) VALUES ($categoryId, $localeId, $title, $content) ON CONFLICT DO NOTHING"
+      "INSERT INTO information (category_id, locale_id, title, content, is_essential) VALUES ($categoryId, $localeId, $title, $content, $isEssential) ON CONFLICT DO NOTHING"
     );
     for (const i of informations) {
       informationQuery.run({
@@ -77,6 +77,7 @@ export function insert(db: Database) {
         $localeId: i.localeId,
         $title: i.title,
         $content: JSON.stringify(i.contents),
+        $isEssential: i.isEssential
       });
     }
 

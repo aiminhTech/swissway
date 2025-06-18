@@ -112,6 +112,7 @@ Wenn die eingeführte Ware einen Gesamtwert von 150 Franken überschreitet, muss
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -205,7 +206,7 @@ Wenn Sie Ihren Wohnsitz in der Schweiz haben, dürfen Sie grundsätzlich kein un
             title: "Bargeld",
             contents: [
               {
-                text: `Sie können die Schweizer Grenze mit so viel Barmitteln (Bargeld und Wertpapiere) überqueren, wie Sie wollen. Wenn Sie aber mit mindestens  10 000 Schweizer Franken in bar in die Schweiz einreisen ober bei Verdacht, kann Sie das Zollpersonal befragen. 
+                text: `Sie können die Schweizer Grenze mit so viel Barmitteln (Bargeld und Wertpapiere) überqueren, wie Sie wollen. Wenn Sie aber mit mindestens  10 000 Schweizer Franken in bar in die Schweiz einreisen ober bei Verdacht, kann Sie das Zollpersonal befragen.
 
 Ihre Angaben werden im Informationssystem des Bundesamtes für Zoll und Grenzsicherheit erfasst. Besteht ein Verdacht auf Geldwäscherei oder Terrorismusfinanzierung, kann das Zollpersonal die Barmittel vorläufig sicherstellen und der Polizei übergeben. Weitere Informationen finden Sie auf der Seite Bargeld, Fremdwährung, Wertpapiere.`,
                 links: [
@@ -220,6 +221,7 @@ Ihre Angaben werden im Informationssystem des Bundesamtes für Zoll und Grenzsic
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -304,6 +306,7 @@ Sie müssen den Grenzübertritt nicht vorgängig dem Zoll ankündigen; dieser Sc
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -369,6 +372,7 @@ Sie hat FAQ zu den Kosten bei der Einfuhr von Paketsendung publiziert.`,
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 
@@ -535,6 +539,7 @@ Eine private Unfallversicherung müssen Sie nur dann abschliessen, wenn Sie weni
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -602,6 +607,7 @@ Im Gegensatz zu den beiden anderen Säulen ist die dritte Säule nicht obligator
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -849,6 +855,7 @@ Die AHV-Nummer Ihrer Kinder finden Sie daher auf der Krankenversicherungskarte o
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -1013,6 +1020,7 @@ Ihre Pensionskasse kann Sie im Detail über das Thema Rente informieren.`,
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -1040,7 +1048,7 @@ Wichtigste Merkmale der Säule 3a:
 - Die Zinsen sind höher als bei einem Sparkonto.
 - Die Beiträge, die Sie überweisen, können jedes Jahr von den Steuern abgezogen werden.
 - Für den  Bezug des Guthabens gelten bestimmte Bedingungen.
-- Bei der Auszahlung des Guthabens wird eine einmalige Steuer fällig, die sich nach dem Einkommen zum Zeitpunkt des Bezugs richtet. 
+- Bei der Auszahlung des Guthabens wird eine einmalige Steuer fällig, die sich nach dem Einkommen zum Zeitpunkt des Bezugs richtet.
 `,
               },
               {
@@ -1128,7 +1136,7 @@ In den nachstehenden Ausnahmefällen haben Sie die Möglichkeit eines vorzeitige
 - Sie wollen bei einer Vorsorgeeinrichtung der 2. Säule zusätzliche Beitragsjahre einkaufen.
 - Sie erhalten eine Vollrente der Invalidenversicherung (IV) und das Invalidenrisiko ist nicht versichert.
 
-Wenn Sie entscheiden, über das ordentliche Rentenalter (65 Jahre) hinaus zu arbeiten, können Sie weiterhin Beiträge einzahlen und den Bezug um maximal fünf Jahre aufschieben. 
+Wenn Sie entscheiden, über das ordentliche Rentenalter (65 Jahre) hinaus zu arbeiten, können Sie weiterhin Beiträge einzahlen und den Bezug um maximal fünf Jahre aufschieben.
 
 Bei einem Bezug müssen Sie sich das gesamte Guthaben auf einmal auszahlen lassen.
 
@@ -1141,6 +1149,7 @@ Ihre Vorsorgeeinrichtung kann Sie im Detail über die Bedingungen und die Modali
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -1232,10 +1241,10 @@ Beitragszeiten      Alter/Unterhaltspflicht           Bedingungen               
 18 bis 24           mit Unterhaltspflicht                                                       4001
 22 bis 24           ab 55                                                                       5201
 22 bis 24           ab 25                             Bezug einer Invalidenrente,               5201
-                                                      die einem Invaliditätsgrad von 
+                                                      die einem Invaliditätsgrad von
                                                       mindestens 40% entspricht                 5201
-22 bis 24           mit Unterhaltspflicht             Bezug einer Invalidenrente, die 
-                                                      einem Invaliditätsgrad von mindestens 
+22 bis 24           mit Unterhaltspflicht             Bezug einer Invalidenrente, die
+                                                      einem Invaliditätsgrad von mindestens
                                                       40% entspricht
 
 Beitragsbefreit                                                                                 90/1802
@@ -1293,6 +1302,7 @@ Sie müssen dafür das entsprechende Formular «Antrag für Überbrückungsleist
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1379,6 +1389,7 @@ Wenn Sie einen Unfall haben, nachdem Sie die Kündigung bekommen haben, wird die
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1434,6 +1445,7 @@ Ein Beispiel für einen NAV auf nationaler Ebene ist der NAV Hauswirtschaft. Die
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -1476,6 +1488,7 @@ Es sollten auch nicht einzelne negative Vorfälle aufgeführt sein (zum Beispiel
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1560,6 +1573,7 @@ Die in der Berufsschule verbrachten Tage gelten als Arbeitszeit.`,
         ],
       },
     ],
+    isEssential: 1
   },
   {
     localeId: 2,
@@ -1629,6 +1643,7 @@ Dennoch haben während der Kurzarbeitsphase sowohl der Arbeitgeber als auch die 
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1704,6 +1719,7 @@ Bitte beachten Sie: Für Jugendliche bis 18 Jahre muss die tägliche Ruhezeit in
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1813,6 +1829,7 @@ Das SECO stellt eine aktuelle Liste der Berufskategorien zur Verfügung, für di
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1866,7 +1883,7 @@ Fällt ein Feiertag auf einen arbeitsfreien Tag (z. B. Samstag oder Sonntag), be
             title: "Abwesenheiten / Urlaub",
             contents: [
               {
-                text: `In gewissen Fällen können Sie der Arbeit fernbleiben, ohne die Stunden oder Tage, an denen Sie abwesend waren, später nachholen zu müssen. Das gilt zum Beispiel in folgenden Fällen:  
+                text: `In gewissen Fällen können Sie der Arbeit fernbleiben, ohne die Stunden oder Tage, an denen Sie abwesend waren, später nachholen zu müssen. Das gilt zum Beispiel in folgenden Fällen:
 
 - Erfüllung gesetzlicher Pflichten
 - Ausübung eines öffentlichen Amts (Mitglied eines Gemeindeparlaments oder einer Gemeindeexekutive usw.)
@@ -1886,6 +1903,7 @@ Bitte beachten Sie: Kommen Sie aufgrund äusserer Umstände wie Stau, gesperrte 
         ],
       },
     ],
+    isEssential: 0
   },
   {
     localeId: 2,
@@ -1978,6 +1996,7 @@ Die Höhe des Assistenzbeitrags hängt vom Zeitaufwand und den Qualifikationen a
         ],
       },
     ],
+    isEssential: 0
   },
 ];
 

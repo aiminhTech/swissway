@@ -97,7 +97,7 @@ export const categoriesDE: Category[] = [
   {
     localeId: 2,
     name: "Arbeit",
-    description: "",
+    description: "Informationen zu arbeitsrechtlichen Regelungen, Beschäftigungsmöglichkeiten und Arbeitsgenehmigungen in der Schweiz.",
   },
 ];
 

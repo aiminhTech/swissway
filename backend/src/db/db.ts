@@ -48,7 +48,8 @@ export const schema = `
 		locale_id INTEGER NOT NULL REFERENCES locale(id),
 		category_id INTEGER NOT NULL REFERENCES category(id),
 		title TEXT NOT NULL,
-		content TEXT NOT NULL
+		content TEXT NOT NULL,
+		is_essential INTEGER NOT NULL
 	) STRICT;
 	CREATE UNIQUE INDEX IF NOT EXISTS idx_information_locale_id_category_id_title ON information(locale_id, category_id, title);
 
@@ -119,7 +120,8 @@ export const schema = `
 			v.code,
 			v.category_name,
 			i.title AS information_title,
-			i.content AS information_contents
+			i.content AS information_contents,
+			i.is_essential AS is_essential
 		FROM view_category AS v
 		JOIN information AS i ON i.category_id = v.category_id;
 

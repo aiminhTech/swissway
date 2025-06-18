@@ -2,11 +2,11 @@ import { Hono, type Context } from "hono";
 import {
   getCategories,
   getChecklists,
+  getEssentialInfoTitle,
   getInfoContentByKey,
-  getInfoTitleLocaleCodeAndCatName,
-  getLocales,
+  getInfoTitleByLocaleCodeAndCatName, getLocales,
   getQuiz,
-  getQuizLists,
+  getQuizLists
 } from "@db/select";
 import { showRoutes } from "hono/dev";
 
@@ -25,11 +25,11 @@ app.get("/", (c) => c.text("Backend is live and running!"));
  * @example
  * GET http://localhost:3000/api/locale
  */
-export function getLocaleHandler(c: Context) {
+export function getLocale(c: Context) {
   const locales = getLocales();
   return c.json(locales);
 }
-app.get("/api/locale", getLocaleHandler);
+app.get("/api/locale", getLocale);
 
 
 /**
@@ -46,7 +46,7 @@ app.get("/api/locale", getLocaleHandler);
  * @example
  * GET http://localhost:3000/api/category?code=en
  */
-export function getCategoryHandler(c: Context) {
+export function getCategory(c: Context) {
   const code = c.req.query("code");
 
   if (!code) {
@@ -56,7 +56,7 @@ export function getCategoryHandler(c: Context) {
   const categories = getCategories(code);
   return c.json(categories);
 }
-app.get("/api/category", getCategoryHandler);
+app.get("/api/category", getCategory);
 
 
 /**
@@ -74,7 +74,7 @@ app.get("/api/category", getCategoryHandler);
  * @example
  * GET http://localhost:3000/api/info?code=en&cat=Work
  */
-export function getInfoHandler(c: Context) {
+export function getInfo(c: Context) {
   const code = c.req.query("code");
   const cat = c.req.query("cat");
 
@@ -82,10 +82,27 @@ export function getInfoHandler(c: Context) {
     return c.text("missing query param", 400);
   }
 
-  const infoTitles = getInfoTitleLocaleCodeAndCatName(code, cat);
+  const infoTitles = getInfoTitleByLocaleCodeAndCatName(code, cat);
   return c.json(infoTitles);
 }
-app.get("/api/info", getInfoHandler);
+app.get("/api/info", getInfo);
+
+export function getEssentialInfo(c: Context) {
+  const code = c.req.query("code");
+  const essential = c.req.query("essential");
+  console.log(code, essential);
+
+  if (!code || !essential) {
+    return c.text("missing query paramm", 400);
+  }
+
+  if (essential === "true") {
+    return c.json(getEssentialInfoTitle(code, 1));
+  }
+
+  return c.json([])
+}
+app.get("/api/info/essential", getEssentialInfo);
 
 
 /**
@@ -103,7 +120,7 @@ app.get("/api/info", getInfoHandler);
  * @example
  * GET http://localhost:3000/api/info/content?code=en&infoTitle=Family and work/Absences from work due to illness or accident
  */
-export function getInfoContentHandler(c: Context) {
+export function getInfoContent(c: Context) {
   const code = c.req.query("code");
   const infoKey = c.req.query("infoTitle");
 
@@ -114,7 +131,7 @@ export function getInfoContentHandler(c: Context) {
   const infoContents = getInfoContentByKey(code, infoKey);
   return c.json(infoContents);
 }
-app.get("/api/info/content", getInfoContentHandler);
+app.get("/api/info/content", getInfoContent);
 
 
 /**
@@ -131,7 +148,7 @@ app.get("/api/info/content", getInfoContentHandler);
  * @example
  * GET http://localhost:3000/api/checklist?code=en
  */
-export function getChecklistHandler(c: Context) {
+export function getChecklist(c: Context) {
   const code = c.req.query("code");
 
   if (!code) {
@@ -141,7 +158,7 @@ export function getChecklistHandler(c: Context) {
   const checklists = getChecklists(code);
   return c.json(checklists);
 }
-app.get("/api/checklist", getChecklistHandler);
+app.get("/api/checklist", getChecklist);
 
 
 /**
@@ -158,7 +175,7 @@ app.get("/api/checklist", getChecklistHandler);
  * @example
  * GET http://localhost:3000/api/quiz?cat=Customs
  */
-export function getQuizListHandler(c: Context) {
+export function getQuizList(c: Context) {
   const cat = c.req.query("cat");
 
   if (!cat) {
@@ -168,7 +185,7 @@ export function getQuizListHandler(c: Context) {
   const quizLists = getQuizLists(cat);
   return c.json(quizLists);
 }
-app.get("/api/quiz", getQuizListHandler);
+app.get("/api/quiz", getQuizList);
 
 
 /**
@@ -185,7 +202,7 @@ app.get("/api/quiz", getQuizListHandler);
  * @example
  * GET http://localhost:3000/api/quiz/1
  */
-export function getQuizByIdHandler(c: Context) {
+export function getQuizById(c: Context) {
   const id = c.req.param("id");
 
   if (!id) {
@@ -194,7 +211,7 @@ export function getQuizByIdHandler(c: Context) {
 
   return c.json(getQuiz(Number(id)));
 }
-app.get("/api/quiz/:id", getQuizByIdHandler);
+app.get("/api/quiz/:id", getQuizById);
 
 
 /**
