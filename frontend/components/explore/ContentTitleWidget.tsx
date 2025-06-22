@@ -1,16 +1,17 @@
-import { StyleSheet, ScrollView, StyleProp, ViewStyle } from "react-native";
-import { FetchError, GroupedTitle, InfoTitleType } from "@/models/models";
+import { ScrollView, StyleProp, ViewStyle } from "react-native";
 import Line from "@/components/Line";
 import Error from "@/components/Error";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import ContentTitleBox from "./ContentTitleBox";
 import { globalStyles } from "@/constants/Styles";
+import { ApiError } from "@/models/api-model";
+import { GroupedTitle } from "@/models/model";
 
 type ContentTitleWidgetProps = {
+  groupedTitles?: GroupedTitle[];
+  error?: ApiError;
   heading?: string;
-  groupedTitles: GroupedTitle[] | undefined;
-  infoTitlesError: FetchError | undefined;
   withLine: boolean;
   style?: StyleProp<ViewStyle>;
   horizontal?: boolean | null | undefined;
@@ -18,9 +19,9 @@ type ContentTitleWidgetProps = {
 };
 
 export default function ContentTitleWidget({
-  heading,
   groupedTitles,
-  infoTitlesError,
+  error,
+  heading,
   withLine,
   style,
   horizontal,
@@ -30,7 +31,7 @@ export default function ContentTitleWidget({
     <Box style={{ marginTop: 24 }}>
       {heading && <Heading style={globalStyles.heading}>{heading}</Heading>}
       {withLine && <Line />}
-      {infoTitlesError && <Error error={infoTitlesError} />}
+      {error && <Error error={error} />}
       {groupedTitles && (
         <ScrollView style={{ width: "100%" }} horizontal={horizontal}>
           <Box style={style}>
@@ -47,5 +48,3 @@ export default function ContentTitleWidget({
     </Box>
   );
 }
-
-const styles = StyleSheet.create({});

@@ -103,12 +103,12 @@ export const schema = `
 	CREATE UNIQUE INDEX IF NOT EXISTS idx_image_related_table_related_id_url ON image(related_table, related_id, url);
 
 	CREATE VIEW IF NOT EXISTS view_locale AS
-		SELECT locale.id as code_id, locale.code AS code
+		SELECT locale.id as code_id, locale.code AS locale_code
 		FROM locale;
 
 	CREATE VIEW IF NOT EXISTS view_category AS
 		SELECT
-			v.code,
+			v.locale_code,
 			c.id AS category_id,
 			c.name AS category_name,
 			c.description AS category_description
@@ -117,7 +117,7 @@ export const schema = `
 
 	CREATE VIEW IF NOT EXISTS view_information AS
 		SELECT
-			v.code,
+			v.locale_code,
 			v.category_name,
 			i.title AS information_title,
 			i.content AS information_contents,
@@ -127,7 +127,7 @@ export const schema = `
 
 		CREATE VIEW IF NOT EXISTS view_checklist AS
 		SELECT
-			v.code,
+			v.locale_code,
 			v.category_name,
 			c.title AS checklist_title,
 			GROUP_CONCAT(ci.text, ' ||| ') AS checklist_items
@@ -136,7 +136,7 @@ export const schema = `
 		JOIN checklist AS c ON c.category_id = v.category_id
 		JOIN checklist_item AS ci ON ci.checklist_id = c.id
 		GROUP BY
-			v.code,
+			v.locale_code,
 			v.category_name,
 			c.title;
 
@@ -153,7 +153,7 @@ export const schema = `
 
 	CREATE VIEW IF NOT EXISTS view_full_quiz AS
 		SELECT
-			vc.code,
+			vc.locale_code,
 			vc.category_name,
 			vqa.quiz_id,
 			q.title AS quiz_title,

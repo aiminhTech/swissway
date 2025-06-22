@@ -8,7 +8,9 @@ import Line from "@/components/Line";
 import { useEffect } from "react";
 import Error from "@/components/Error";
 import { groupTitles } from "@/libs/utils";
-import { GroupedTitle } from "@/models/models";
+import { GroupedTitle } from "@/models/model";
+import { ApiError } from "@/models/api-model";
+import BackButton from "@/components/ui/BackButton";
 
 type InfoTitleProps = {
   title: string;
@@ -38,8 +40,7 @@ export default function Infos() {
   const params = useLocalSearchParams();
   const { cat } = params;
 
-  const { infoTitles, fetchInfoTitles, infoTitlesError, language } =
-    useApiStore();
+  const { infoTitleState, fetchInfoTitles, language } = useApiStore();
 
   useEffect(() => {
     if (typeof cat == "string") {
@@ -47,34 +48,39 @@ export default function Infos() {
     }
   }, []);
 
-  if (!infoTitles || infoTitles.length < 0) {
-    return <Error error={{ message: "No content found" }} />;
-  }
+  const { titles, error } = infoTitleState;
 
-  const groupedTitles = groupTitles(infoTitles);
+  const groupedTitles = titles ? groupTitles(titles) : undefined;
 
   return (
     <ScrollView style={{ margin: 16 }} contentContainerStyle={{ flexGrow: 1 }}>
-      <Heading style={styles.heading}>{cat}</Heading>
+      <Box style={styles.headingWrapper}>
+        <BackButton />
+        <Heading style={styles.heading}>{cat}</Heading>
+      </Box>
       <Line></Line>
-      {infoTitlesError && <Error error={infoTitlesError} />}
-
+      {error && <Error error={error} />}
       <Box>
-        {groupedTitles.map((i, idx) => {
-          return (
-            <InfoTitle
-              key={idx}
-              title={i.base}
-              groupedTitles={groupedTitles[idx]}
-            />
-          );
-        })}
+        {groupedTitles &&
+          groupedTitles.map((i, idx) => {
+            return (
+              <InfoTitle
+                key={idx}
+                title={i.base}
+                groupedTitles={groupedTitles[idx]}
+              />
+            );
+          })}
       </Box>
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  headingWrapper: {
+    display: "flex",
+    flexDirection: "row",
+  },
   heading: {
     fontSize: 22,
     color: Colors.custom.grey,

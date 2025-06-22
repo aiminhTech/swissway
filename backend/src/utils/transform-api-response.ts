@@ -1,11 +1,6 @@
-import type {
-  ApiCategory,
-  ApiChecklist,
-  ApiInfoContent,
-  ApiQuiz,
-} from "@models/api-model";
-import type { InfoContent } from "@models/model";
-
+import type { CategoryDB, ChecklistDB, InfoContentDB } from "@/models/db-model";
+import { ApiCategories, ApiCategory, ApiInfoContents, type ApiChecklists, type ApiQuizzes } from "@models/api-model";
+import { LocaleId, type InfoContent } from "@models/model";
 
 /**
  * Transforms API category data into a structured format.
@@ -18,12 +13,11 @@ import type { InfoContent } from "@models/model";
  * const transformed = transformCategories(apiCategories);
  * ```
  */
-export function transformCategories(apiCategories: ApiCategory[]) {
-  return apiCategories.map((c) => ({
-    locale_code: c.code,
+export function transformCategories(categories: CategoryDB[]): ApiCategories {
+  return categories.map((c) => ({
+    locale_code: c.locale_code,
     category_name: c.category_name,
     category_description: c.category_description,
-    category_translation_key: c.category_translation_key,
   }));
 }
 
@@ -38,14 +32,13 @@ export function transformCategories(apiCategories: ApiCategory[]) {
  * const transformed = transformInfoContents(apiInfoContents);
  * ```
  */
-export function transformInfoContents(apiInfoContents: ApiInfoContent[]) {
-  return apiInfoContents.map((ic) => {
+export function transformInfoContents(infoContents: InfoContentDB[]): ApiInfoContents {
+  return infoContents.map((ic) => {
     const contents = JSON.parse(ic.information_contents) as InfoContent[];
 
     return {
-      locale_code: ic.code,
-      info_title: ic.information_title,
-      info_contents: contents,
+      information_title: ic.information_title,
+      information_contents: contents,
     };
   });
 }
@@ -61,14 +54,14 @@ export function transformInfoContents(apiInfoContents: ApiInfoContent[]) {
  * const transformed = transformChecklists(apiChecklists);
  * ```
  */
-export function transformChecklists(apiChecklists: ApiChecklist[]) {
-  return apiChecklists.map((c) => {
+export function transformChecklists(checklists: ChecklistDB[]) {
+  return checklists.map((c) => {
     const items = c.checklist_items.split(" ||| ");
 
     return {
-      locale_code: c.code,
-      title: c.checklist_title,
-      items,
+      locale_code: c.locale_code,
+      checklist_title: c.checklist_title,
+      checklist_items: items,
     };
   });
 }
@@ -85,7 +78,11 @@ export function transformChecklists(apiChecklists: ApiChecklist[]) {
  * const transformedQuiz = transformQuiz(apiQuiz);
  * ```
  */
-export function transformQuiz(apiQuiz: ApiQuiz[]) {
+export function transformQuiz(apiQuiz: ApiQuizzes) {
+  if (apiQuiz.length === 0) {
+    return undefined;
+  }
+
   const title = apiQuiz[0]?.quiz_title;
 
   const questionMap = apiQuiz.reduce((acc, item) => {
@@ -107,4 +104,3 @@ export function transformQuiz(apiQuiz: ApiQuiz[]) {
 
   return { title, questions };
 }
-

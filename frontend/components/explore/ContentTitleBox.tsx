@@ -2,7 +2,7 @@ import { Colors } from "@/constants/Colors";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { globalStyles } from "@/constants/Styles";
-import { GroupedTitle } from "@/models/models";
+import { GroupedTitle } from "@/models/model";
 
 type ContentTitleBoxProps = {
   groupedTitles: GroupedTitle;

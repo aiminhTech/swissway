@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Colors } from "@/constants/Colors";
-import { Info, Link } from "@/models/models";
 import InfoLink from "./InfoLink";
+import { Info, Link } from "@/models/api-model";
 
 type InfoCardProps = {
   info: Info;
@@ -56,7 +56,7 @@ export default function InfoCard({
   );
 }
 
-type TextSectionProps = { text: string; links: Link[] | undefined };
+type TextSectionProps = { text: string; links?: Link[] };
 
 function TextSection({ text, links }: TextSectionProps) {
   return (

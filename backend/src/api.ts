@@ -1,14 +1,7 @@
 import { Hono, type Context } from "hono";
-import {
-  getCategories,
-  getChecklists,
-  getEssentialInfoTitle,
-  getInfoContentByKey,
-  getInfoTitleByLocaleCodeAndCatName, getLocales,
-  getQuiz,
-  getQuizLists
-} from "@db/select";
+import { getCategories, getChecklists, getEssentialInfoTitle, getInfoContent, getInfoTitle, getLocales, getQuiz, getQuizLists } from "@db/select";
 import { showRoutes } from "hono/dev";
+import { ApiError } from "./models/api-model";
 
 /**
  * Hono application instance for handling API routes.
@@ -18,201 +11,129 @@ const app = new Hono();
 app.get("/", (c) => c.text("Backend is live and running!"));
 
 /**
- * GET `/api/locale`
- *
  * Returns a list of all available locales.
- *
- * @example
- * GET http://localhost:3000/api/locale
  */
-export function getLocale(c: Context) {
+app.get("/api/locale", (c: Context) => {
   const locales = getLocales();
-  return c.json(locales);
-}
-app.get("/api/locale", getLocale);
 
+  return locales.length === 0 ? c.json(ApiError.noContent("locale"), 404) : c.json(locales);
+});
 
 /**
- * GET `/api/category?code=:localeCode`
- *
  * Returns all categories for a given locale code.
- *
- * Query parameters:
- * - `code` — The locale code (e.g., `en`, `de`, etc.)
- *
- * @param c - The request context
- * @returns JSON array of categories for the specified locale code
- *
- * @example
- * GET http://localhost:3000/api/category?code=en
  */
-export function getCategory(c: Context) {
+app.get("/api/category", (c: Context) => {
   const code = c.req.query("code");
 
   if (!code) {
-    return c.text("missing query param", 400);
+    return c.json(ApiError.missingParameter("code"), 400);
   }
 
   const categories = getCategories(code);
-  return c.json(categories);
-}
-app.get("/api/category", getCategory);
 
+  return categories.length === 0 ? c.json(ApiError.noContent("category"), 404) : c.json(categories);
+});
 
 /**
- * GET `/api/info?code=:localeCode&cat=:categoryName`
- *
  * Returns information titles for a given locale and category.
- *
- * Query parameters:
- * - `code` — The locale code
- * - `cat` — The name of the category
- *
- * @param c - The request context
- * @returns JSON array of information titles matching the locale and category
- *
- * @example
- * GET http://localhost:3000/api/info?code=en&cat=Work
  */
-export function getInfo(c: Context) {
+app.get("/api/info", (c: Context) => {
   const code = c.req.query("code");
   const cat = c.req.query("cat");
 
-  if (!code || !cat) {
-    return c.text("missing query param", 400);
+  if (!code) {
+    return c.json(ApiError.missingParameter("code"), 400);
   }
 
-  const infoTitles = getInfoTitleByLocaleCodeAndCatName(code, cat);
-  return c.json(infoTitles);
-}
-app.get("/api/info", getInfo);
+  if (!cat) {
+    return c.json(ApiError.missingParameter("cat"), 400);
+  }
 
-export function getEssentialInfo(c: Context) {
+  const infoTitles = getInfoTitle(code, cat);
+
+  return infoTitles.length === 0 ? c.json(ApiError.noContent("information"), 404) : c.json(infoTitles);
+});
+
+/**
+ * Returns essential information titles for a given locale and category.
+ */
+app.get("/api/info/essential", (c: Context) => {
   const code = c.req.query("code");
   const essential = c.req.query("essential");
-  console.log(code, essential);
 
-  if (!code || !essential) {
-    return c.text("missing query paramm", 400);
+  if (!code) {
+    return c.json(ApiError.missingParameter("code"), 400);
   }
 
-  if (essential === "true") {
-    return c.json(getEssentialInfoTitle(code, 1));
+  if (!essential) {
+    return c.json(ApiError.missingParameter("essential"), 400);
   }
 
-  return c.json([])
-}
-app.get("/api/info/essential", getEssentialInfo);
-
+  return essential === "true" ? c.json(getEssentialInfoTitle(code, 1)) : c.json(ApiError.noContent("essential information"), 404);
+});
 
 /**
- * GET `/api/info/content?code=:localeCode&infoTitle=:title`
- *
  * Returns the content for a specific information entry.
- *
- * Query parameters:
- * - `code` — The locale code
- * - `infoTitle` — The full information title
- *
- * @param c - The request context
- * @returns JSON content associated with the specified information title and locale
- *
- * @example
- * GET http://localhost:3000/api/info/content?code=en&infoTitle=Family and work/Absences from work due to illness or accident
  */
-export function getInfoContent(c: Context) {
+app.get("/api/info/content", (c: Context) => {
   const code = c.req.query("code");
-  const infoKey = c.req.query("infoTitle");
+  const title = c.req.query("title");
 
-  if (!code || !infoKey) {
-    return c.text("missing query param", 400);
+  if (!code) {
+    return c.json(ApiError.missingParameter("code"), 400);
   }
 
-  const infoContents = getInfoContentByKey(code, infoKey);
-  return c.json(infoContents);
-}
-app.get("/api/info/content", getInfoContent);
+  if (!title) {
+    return c.json(ApiError.missingParameter("title"), 400);
+  }
 
+  const infoContents = getInfoContent(code, title);
+
+  return infoContents.length === 0 ? c.json(ApiError.noContent("information content"), 404) : c.json(infoContents);
+});
 
 /**
- * GET `/api/checklist?code=:localeCode`
- *
  * Returns checklists for a specific locale.
- *
- * Query parameters:
- * - `code` — The locale code
- *
- * @param c - The request context
- * @returns JSON array of checklists for the specified locale
- *
- * @example
- * GET http://localhost:3000/api/checklist?code=en
  */
-export function getChecklist(c: Context) {
+app.get("/api/checklist", (c: Context) => {
   const code = c.req.query("code");
 
   if (!code) {
-    return c.text("missing query param", 400);
+    return c.json(ApiError.missingParameter("code"), 400);
   }
 
   const checklists = getChecklists(code);
-  return c.json(checklists);
-}
-app.get("/api/checklist", getChecklist);
 
+  return checklists.length === 0 ? c.json(ApiError.noContent("checklist"), 404) : c.json(checklists);
+});
 
 /**
- * GET `/api/quiz?cat=:categoryName`
- *
  * Returns all quizzes for a given category.
- *
- * Query parameters:
- * - `cat` — The name of the category
- *
- * @param c - The request context
- * @returns JSON array of quizzes for the specified category
- *
- * @example
- * GET http://localhost:3000/api/quiz?cat=Customs
  */
-export function getQuizList(c: Context) {
+app.get("/api/quiz", (c: Context) => {
   const cat = c.req.query("cat");
 
   if (!cat) {
-    return c.text("missing query param", 400);
+    return c.json(ApiError.missingParameter("cat"), 400);
   }
 
   const quizLists = getQuizLists(cat);
-  return c.json(quizLists);
-}
-app.get("/api/quiz", getQuizList);
-
+  return quizLists.length === 0 ? c.json(ApiError.noContent("quiz list"), 404) : c.json(quizLists);
+});
 
 /**
- * GET `/api/quiz/:id`
- *
  * Returns a single quiz with all questions and answers by quiz ID.
- *
- * URL parameters:
- * - `id` — The ID of the quiz
- *
- * @param c - The request context
- * @returns JSON object representing the quiz identified by the given ID
- *
- * @example
- * GET http://localhost:3000/api/quiz/1
  */
-export function getQuizById(c: Context) {
+app.get("/api/quiz/:id", (c: Context) => {
   const id = c.req.param("id");
 
   if (!id) {
-    return c.text("missing url param", 400);
+    return c.json(ApiError.missingUrlParameter("id"), 400);
   }
+  const quizzes = getQuiz(Number(id));
 
-  return c.json(getQuiz(Number(id)));
-}
-app.get("/api/quiz/:id", getQuizById);
-
+  return quizzes ? c.json(quizzes) : c.json(ApiError.noContent(`quiz ${id}`), 404);
+});
 
 /**
  * Displays all registered routes in the console.

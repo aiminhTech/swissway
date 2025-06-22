@@ -13,8 +13,8 @@ type QuizCategoryProps = {
 
 export default function QuizCategory({ categoryName }: QuizCategoryProps) {
   const fetchQuizzes = useApiStore((state) => state.fetchQuizzes);
-  const quizzes = useApiStore((state) => state.quizzes[categoryName]);
-  const error = useApiStore((state) => state.quizzesError[categoryName]);
+  const quizzes = useApiStore((state) => state.quizState.quizzes[categoryName]);
+  const error = useApiStore((state) => state.quizState.error[categoryName]);
   const router = useRouter();
 
   useEffect(() => {
@@ -22,15 +22,14 @@ export default function QuizCategory({ categoryName }: QuizCategoryProps) {
   }, [categoryName, fetchQuizzes]);
 
   return (
-    <Box style={{ marginBottom: 16 }}>
-      <Text style={styles.quizType}>{categoryName}</Text>
+    quizzes && (
+      <Box style={{ marginBottom: 16 }}>
+        <Text style={styles.quizType}>{categoryName}</Text>
 
-      {error && <Error error={error} />}
+        {error && <Error error={error} />}
 
-      <ScrollView horizontal>
-        {quizzes &&
-          quizzes.length > 0 &&
-          quizzes.map((quiz, idx) => (
+        <ScrollView horizontal>
+          {quizzes.map((quiz, idx) => (
             <TouchableOpacity
               key={idx}
               style={styles.touchBox}
@@ -44,8 +43,9 @@ export default function QuizCategory({ categoryName }: QuizCategoryProps) {
               <Text style={styles.quizTitle}>{quiz.title}</Text>
             </TouchableOpacity>
           ))}
-      </ScrollView>
-    </Box>
+        </ScrollView>
+      </Box>
+    )
   );
 }
 

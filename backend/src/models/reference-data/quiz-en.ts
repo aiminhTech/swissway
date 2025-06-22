@@ -1,1500 +1,1501 @@
+import { makeQuiz, makeQuizAnswer, makeQuizQuestion } from "@/utils/reference-data-utils";
 import type { Quiz, QuizAnswer, QuizQuestion } from "../model";
 
 // Custom
 // Quiz 1 - 5
-const quizCustom = [
-  { localeId: 1, categoryId: 1, title: "Customs Basics" },
-  { localeId: 1, categoryId: 1, title: "Moving to Switzerland" },
-  { localeId: 1, categoryId: 1, title: "Ordering Goods from Abroad" },
-  { localeId: 1, categoryId: 1, title: "Shopping Tourism" },
-  { localeId: 1, categoryId: 1, title: "Special Situations" },
+const quizCustom: Quiz[] = [
+  makeQuiz(1, 1, "Customs Basics"),
+  makeQuiz(1, 1, "Moving to Switzerland"),
+  makeQuiz(1, 1, "Ordering Goods from Abroad"),
+  makeQuiz(1, 1, "Shopping Tourism"),
+  makeQuiz(1, 1, "Special Situations"),
 ];
 
 // Question 1 - 36
-const quizQuestionCustom = [
+const quizQuestionCustom: QuizQuestion[] = [
   //Customs Basics (Quiz 1)
-  { localeId: 1, quizId: 1, question: "What is the duty-free value threshold for personal imports into Switzerland?" },
-  { localeId: 1, quizId: 1, question: "Which of the following items require declaration if exceeded?" },
-  { localeId: 1, quizId: 1, question: "What happens if you fail to declare goods?" },
-  { localeId: 1, quizId: 1, question: "Which items are exempt from duties regardless of value?" },
-  { localeId: 1, quizId: 1, question: "How often can you benefit from the duty-free threshold?" },
-  { localeId: 1, quizId: 1, question: "Are children eligible for the same duty-free allowances?" },
-  { localeId: 1, quizId: 1, question: "Do duty-free limits apply per person or per family?" },
-  { localeId: 1, quizId: 1, question: "What should you do if you're unsure whether to declare something?" },
+  makeQuizQuestion(1, 1, "What is the duty-free value threshold for personal imports into Switzerland?"),
+  makeQuizQuestion(1, 1, "Which of the following items require declaration if exceeded?"),
+  makeQuizQuestion(1, 1, "What happens if you fail to declare goods?"),
+  makeQuizQuestion(1, 1, "Which items are exempt from duties regardless of value?"),
+  makeQuizQuestion(1, 1, "How often can you benefit from the duty-free threshold?"),
+  makeQuizQuestion(1, 1, "Are children eligible for the same duty-free allowances?"),
+  makeQuizQuestion(1, 1, "Do duty-free limits apply per person or per family?"),
+  makeQuizQuestion(1, 1, "What should you do if you're unsure whether to declare something?"),
 
   // Moving to Switzerland (Quiz 2)
-  { localeId: 1, quizId: 2, question: "Can you import pets duty-free when relocating?" },
-  { localeId: 1, quizId: 2, question: "What items are excluded from duty-free relocation imports?" },
-  { localeId: 1, quizId: 2, question: "Is a residence permit required for relocation import?" },
-  { localeId: 1, quizId: 2, question: "How should goods be transported for duty-free relocation?" },
-  { localeId: 1, quizId: 2, question: "How long must you have used belongings before importing them duty-free?" },
-  { localeId: 1, quizId: 2, question: "What document is NOT required when moving?" },
-  { localeId: 1, quizId: 2, question: "What is the deadline for importing goods duty-free after relocation?" },
+  makeQuizQuestion(1, 2, "Can you import pets duty-free when relocating?"),
+  makeQuizQuestion(1, 2, "What items are excluded from duty-free relocation imports?"),
+  makeQuizQuestion(1, 2, "Is a residence permit required for relocation import?"),
+  makeQuizQuestion(1, 2, "How should goods be transported for duty-free relocation?"),
+  makeQuizQuestion(1, 2, "How long must you have used belongings before importing them duty-free?"),
+  makeQuizQuestion(1, 2, "What document is NOT required when moving?"),
+  makeQuizQuestion(1, 2, "What is the deadline for importing goods duty-free after relocation?"),
 
   // Ordering Goods from Abroad (Quiz 3)
-  { localeId: 1, quizId: 3, question: "Do customs charges apply to gifts sent by mail?" },
-  { localeId: 1, quizId: 3, question: "Are shipping costs included when calculating VAT?" },
-  { localeId: 1, quizId: 3, question: "Can you dispute a customs charge?" },
-  { localeId: 1, quizId: 3, question: "Where can you find customs rates for specific goods?" },
-  { localeId: 1, quizId: 3, question: "Are second-hand goods treated differently for customs?" },
-  { localeId: 1, quizId: 3, question: "What is the VAT exemption limit for 8.1% goods?" },
-  { localeId: 1, quizId: 3, question: "Who typically pays customs duties for online purchases?" },
+  makeQuizQuestion(1, 3, "Do customs charges apply to gifts sent by mail?"),
+  makeQuizQuestion(1, 3, "Are shipping costs included when calculating VAT?"),
+  makeQuizQuestion(1, 3, "Can you dispute a customs charge?"),
+  makeQuizQuestion(1, 3, "Where can you find customs rates for specific goods?"),
+  makeQuizQuestion(1, 3, "Are second-hand goods treated differently for customs?"),
+  makeQuizQuestion(1, 3, "What is the VAT exemption limit for 8.1% goods?"),
+  makeQuizQuestion(1, 3, "Who typically pays customs duties for online purchases?"),
 
   // Shopping Tourism (Quiz 4)
-  { localeId: 1, quizId: 4, question: "Can you reclaim foreign VAT when shopping abroad?" },
-  { localeId: 1, quizId: 4, question: "Is it allowed to split purchases to stay below limits?" },
-  { localeId: 1, quizId: 4, question: "Does group travel affect import limits?" },
-  { localeId: 1, quizId: 4, question: "Do food items have special restrictions?" },
-  { localeId: 1, quizId: 4, question: "What documents help during inspection?" },
-  { localeId: 1, quizId: 4, question: "How much meat can you import duty-free per person per day?" },
-  { localeId: 1, quizId: 4, question: "What app can be used to declare goods before entering Switzerland?" },
+  makeQuizQuestion(1, 4, "Can you reclaim foreign VAT when shopping abroad?"),
+  makeQuizQuestion(1, 4, "Is it allowed to split purchases to stay below limits?"),
+  makeQuizQuestion(1, 4, "Does group travel affect import limits?"),
+  makeQuizQuestion(1, 4, "Do food items have special restrictions?"),
+  makeQuizQuestion(1, 4, "What documents help during inspection?"),
+  makeQuizQuestion(1, 4, "How much meat can you import duty-free per person per day?"),
+  makeQuizQuestion(1, 4, "What app can be used to declare goods before entering Switzerland?"),
 
   // Special Situations (Quiz 5)
-  { localeId: 1, quizId: 5, question: "Can you import medication for personal use?" },
-  { localeId: 1, quizId: 5, question: "What rules apply for temporary imports like event equipment?" },
-  { localeId: 1, quizId: 5, question: "Do diplomatic goods have special customs treatment?" },
-  { localeId: 1, quizId: 5, question: "Are there exceptions for humanitarian aid shipments?" },
-  { localeId: 1, quizId: 5, question: "What is required to import cultural artifacts?" },
-  { localeId: 1, quizId: 5, question: "What is the rule regarding loaned vehicles?" },
-  { localeId: 1, quizId: 5, question: "Do you need to declare weapons?" },
+  makeQuizQuestion(1, 5, "Can you import medication for personal use?"),
+  makeQuizQuestion(1, 5, "What rules apply for temporary imports like event equipment?"),
+  makeQuizQuestion(1, 5, "Do diplomatic goods have special customs treatment?"),
+  makeQuizQuestion(1, 5, "Are there exceptions for humanitarian aid shipments?"),
+  makeQuizQuestion(1, 5, "What is required to import cultural artifacts?"),
+  makeQuizQuestion(1, 5, "What is the rule regarding loaned vehicles?"),
+  makeQuizQuestion(1, 5, "Do you need to declare weapons?"),
 ];
 
 // Answer 1 - 143
 const quizAnswerCustom: QuizAnswer[] = [
   // Question 1: Duty-free value threshold for personal imports
-  { localeId: 1, quizQuestionId: 1, answer: "CHF 100", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 1, answer: "CHF 150", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 1, answer: "CHF 200", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 1, answer: "CHF 300", isCorrect: 0 },
+  makeQuizAnswer(1, 1, "CHF 100", 0),
+  makeQuizAnswer(1, 1, "CHF 150", 1),
+  makeQuizAnswer(1, 1, "CHF 200", 0),
+  makeQuizAnswer(1, 1, "CHF 300", 0),
 
   // Question 2: Items requiring declaration if exceeded
-  { localeId: 1, quizQuestionId: 2, answer: "Books", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 2, answer: "Meat and alcohol", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 2, answer: "Clothing", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 2, answer: "Electronics", isCorrect: 0 },
+  makeQuizAnswer(1, 2, "Books", 0),
+  makeQuizAnswer(1, 2, "Meat and alcohol", 1),
+  makeQuizAnswer(1, 2, "Clothing", 0),
+  makeQuizAnswer(1, 2, "Electronics", 0),
 
   // Question 3: Consequences of failing to declare goods
-  { localeId: 1, quizQuestionId: 3, answer: "You are warned", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 3, answer: "You may receive a fine", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 3, answer: "Your items could be seized", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 3, answer: "Nothing happens", isCorrect: 0 },
+  makeQuizAnswer(1, 3, "You are warned", 0),
+  makeQuizAnswer(1, 3, "You may receive a fine", 0),
+  makeQuizAnswer(1, 3, "Your items could be seized", 1),
+  makeQuizAnswer(1, 3, "Nothing happens", 0),
 
   // Question 4: Items exempt from duties
-  { localeId: 1, quizQuestionId: 4, answer: "Personal medications", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 4, answer: "Electronics", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 4, answer: "Alcohol", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 4, answer: "Tobacco", isCorrect: 0 },
+  makeQuizAnswer(1, 4, "Personal medications", 1),
+  makeQuizAnswer(1, 4, "Electronics", 0),
+  makeQuizAnswer(1, 4, "Alcohol", 0),
+  makeQuizAnswer(1, 4, "Tobacco", 0),
 
   // Question 5: Frequency of duty-free threshold
-  { localeId: 1, quizQuestionId: 5, answer: "Once per day", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 5, answer: "Once per week", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 5, answer: "Once per month", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 5, answer: "Unlimited", isCorrect: 0 },
+  makeQuizAnswer(1, 5, "Once per day", 1),
+  makeQuizAnswer(1, 5, "Once per week", 0),
+  makeQuizAnswer(1, 5, "Once per month", 0),
+  makeQuizAnswer(1, 5, "Unlimited", 0),
 
   // Question 6: Duty-free allowances for children
-  { localeId: 1, quizQuestionId: 6, answer: "Yes, same as adults", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 6, answer: "No, children have no allowance", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 6, answer: "Half of adult allowance", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 6, answer: "Only for specific items", isCorrect: 0 },
+  makeQuizAnswer(1, 6, "Yes, same as adults", 1),
+  makeQuizAnswer(1, 6, "No, children have no allowance", 0),
+  makeQuizAnswer(1, 6, "Half of adult allowance", 0),
+  makeQuizAnswer(1, 6, "Only for specific items", 0),
 
   // Question 7: Duty-free limits per person or family
-  { localeId: 1, quizQuestionId: 7, answer: "Per person", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 7, answer: "Per family", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 7, answer: "Per household", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 7, answer: "Per trip", isCorrect: 0 },
+  makeQuizAnswer(1, 7, "Per person", 1),
+  makeQuizAnswer(1, 7, "Per family", 0),
+  makeQuizAnswer(1, 7, "Per household", 0),
+  makeQuizAnswer(1, 7, "Per trip", 0),
 
   // Question 8: What to do if unsure about declaring
-  { localeId: 1, quizQuestionId: 8, answer: "Declare it", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 8, answer: "Ignore it", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 8, answer: "Ask a friend", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 8, answer: "Hide it", isCorrect: 0 },
+  makeQuizAnswer(1, 8, "Declare it", 1),
+  makeQuizAnswer(1, 8, "Ignore it", 0),
+  makeQuizAnswer(1, 8, "Ask a friend", 0),
+  makeQuizAnswer(1, 8, "Hide it", 0),
 
   // Question 9: Importing pets duty-free
-  { localeId: 1, quizQuestionId: 9, answer: "Yes, with conditions", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 9, answer: "No, always dutiable", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 9, answer: "Only for dogs", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 9, answer: "Only for cats", isCorrect: 0 },
+  makeQuizAnswer(1, 9, "Yes, with conditions", 1),
+  makeQuizAnswer(1, 9, "No, always dutiable", 0),
+  makeQuizAnswer(1, 9, "Only for dogs", 0),
+  makeQuizAnswer(1, 9, "Only for cats", 0),
 
   // Question 10: Items excluded from duty-free relocation
-  { localeId: 1, quizQuestionId: 10, answer: "New furniture", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 10, answer: "Used clothing", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 10, answer: "Personal books", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 10, answer: "Kitchenware", isCorrect: 0 },
+  makeQuizAnswer(1, 10, "New furniture", 1),
+  makeQuizAnswer(1, 10, "Used clothing", 0),
+  makeQuizAnswer(1, 10, "Personal books", 0),
+  makeQuizAnswer(1, 10, "Kitchenware", 0),
 
   // Question 11: Residence permit for relocation import
-  { localeId: 1, quizQuestionId: 11, answer: "Not always required", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 11, answer: "Always required", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 11, answer: "Only for EU citizens", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 11, answer: "Only for non-EU citizens", isCorrect: 0 },
+  makeQuizAnswer(1, 11, "Not always required", 1),
+  makeQuizAnswer(1, 11, "Always required", 0),
+  makeQuizAnswer(1, 11, "Only for EU citizens", 0),
+  makeQuizAnswer(1, 11, "Only for non-EU citizens", 0),
 
   // Question 12: Transport method for duty-free relocation
-  { localeId: 1, quizQuestionId: 12, answer: "By any means", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 12, answer: "Only by sea", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 12, answer: "Only by air", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 12, answer: "Only by road", isCorrect: 0 },
+  makeQuizAnswer(1, 12, "By any means", 1),
+  makeQuizAnswer(1, 12, "Only by sea", 0),
+  makeQuizAnswer(1, 12, "Only by air", 0),
+  makeQuizAnswer(1, 12, "Only by road", 0),
 
   // Question 13: Usage duration for duty-free belongings
-  { localeId: 1, quizQuestionId: 13, answer: "6 months", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 13, answer: "1 month", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 13, answer: "1 year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 13, answer: "No requirement", isCorrect: 0 },
+  makeQuizAnswer(1, 13, "6 months", 1),
+  makeQuizAnswer(1, 13, "1 month", 0),
+  makeQuizAnswer(1, 13, "1 year", 0),
+  makeQuizAnswer(1, 13, "No requirement", 0),
 
   // Question 14: Document NOT required when moving
-  { localeId: 1, quizQuestionId: 14, answer: "Bank statement", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 14, answer: "List of imported goods", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 14, answer: "Residence permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 14, answer: "Moving contract", isCorrect: 0 },
+  makeQuizAnswer(1, 14, "Bank statement", 1),
+  makeQuizAnswer(1, 14, "List of imported goods", 0),
+  makeQuizAnswer(1, 14, "Residence permit", 0),
+  makeQuizAnswer(1, 14, "Moving contract", 0),
 
   // Question 15: Deadline for importing goods duty-free
-  { localeId: 1, quizQuestionId: 15, answer: "1 year", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 15, answer: "6 months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 15, answer: "2 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 15, answer: "No deadline", isCorrect: 0 },
+  makeQuizAnswer(1, 15, "1 year", 1),
+  makeQuizAnswer(1, 15, "6 months", 0),
+  makeQuizAnswer(1, 15, "2 years", 0),
+  makeQuizAnswer(1, 15, "No deadline", 0),
 
   // Question 16: Customs charges for gifts by mail
-  { localeId: 1, quizQuestionId: 16, answer: "Yes, above CHF 100", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 16, answer: "No, gifts are exempt", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 16, answer: "Only for non-EU senders", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 16, answer: "Only for commercial gifts", isCorrect: 0 },
+  makeQuizAnswer(1, 16, "Yes, above CHF 100", 1),
+  makeQuizAnswer(1, 16, "No, gifts are exempt", 0),
+  makeQuizAnswer(1, 16, "Only for non-EU senders", 0),
+  makeQuizAnswer(1, 16, "Only for commercial gifts", 0),
 
   // Question 17: Shipping costs in VAT calculation
-  { localeId: 1, quizQuestionId: 17, answer: "Yes", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 17, answer: "Only for express shipping", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 17, answer: "Only for EU shipments", isCorrect: 0 },
+  makeQuizAnswer(1, 17, "Yes", 1),
+  makeQuizAnswer(1, 17, "Only for express shipping", 0),
+  makeQuizAnswer(1, 17, "Only for EU shipments", 0),
 
   // Question 18: Disputing a customs charge
-  { localeId: 1, quizQuestionId: 18, answer: "Yes, with appeal", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 18, answer: "No, never", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 18, answer: "Only for businesses", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 18, answer: "Only for residents", isCorrect: 0 },
+  makeQuizAnswer(1, 18, "Yes, with appeal", 1),
+  makeQuizAnswer(1, 18, "No, never", 0),
+  makeQuizAnswer(1, 18, "Only for businesses", 0),
+  makeQuizAnswer(1, 18, "Only for residents", 0),
 
   // Question 19: Finding customs rates
-  { localeId: 1, quizQuestionId: 19, answer: "Swiss Customs website", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 19, answer: "Local post office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 19, answer: "Travel agency", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 19, answer: "Retailer’s website", isCorrect: 0 },
+  makeQuizAnswer(1, 19, "Swiss Customs website", 1),
+  makeQuizAnswer(1, 19, "Local post office", 0),
+  makeQuizAnswer(1, 19, "Travel agency", 0),
+  makeQuizAnswer(1, 19, "Retailer’s website", 0),
 
   // Question 20: Second-hand goods treatment
-  { localeId: 1, quizQuestionId: 20, answer: "Same as new goods", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 20, answer: "Always exempt", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 20, answer: "Lower VAT rate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 20, answer: "No declaration needed", isCorrect: 0 },
+  makeQuizAnswer(1, 20, "Same as new goods", 1),
+  makeQuizAnswer(1, 20, "Always exempt", 0),
+  makeQuizAnswer(1, 20, "Lower VAT rate", 0),
+  makeQuizAnswer(1, 20, "No declaration needed", 0),
 
   // Question 21: VAT exemption limit for 8.1% goods
-  { localeId: 1, quizQuestionId: 21, answer: "CHF 62", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 21, answer: "CHF 100", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 21, answer: "CHF 150", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 21, answer: "CHF 200", isCorrect: 0 },
+  makeQuizAnswer(1, 21, "CHF 62", 1),
+  makeQuizAnswer(1, 21, "CHF 100", 0),
+  makeQuizAnswer(1, 21, "CHF 150", 0),
+  makeQuizAnswer(1, 21, "CHF 200", 0),
 
   // Question 22: Who pays customs duties for online purchases
-  { localeId: 1, quizQuestionId: 22, answer: "Recipient", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 22, answer: "Sender", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 22, answer: "Carrier", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 22, answer: "Swiss government", isCorrect: 0 },
+  makeQuizAnswer(1, 22, "Recipient", 1),
+  makeQuizAnswer(1, 22, "Sender", 0),
+  makeQuizAnswer(1, 22, "Carrier", 0),
+  makeQuizAnswer(1, 22, "Swiss government", 0),
 
   // Question 23: Reclaiming foreign VAT
-  { localeId: 1, quizQuestionId: 23, answer: "Yes, with receipt", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 23, answer: "No, never", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 23, answer: "Only in EU", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 23, answer: "Only for residents", isCorrect: 0 },
+  makeQuizAnswer(1, 23, "Yes, with receipt", 1),
+  makeQuizAnswer(1, 23, "No, never", 0),
+  makeQuizAnswer(1, 23, "Only in EU", 0),
+  makeQuizAnswer(1, 23, "Only for residents", 0),
 
   // Question 24: Splitting purchases to stay below limits
-  { localeId: 1, quizQuestionId: 24, answer: "Not allowed", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 24, answer: "Allowed", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 24, answer: "Only for families", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 24, answer: "Only for groups", isCorrect: 0 },
+  makeQuizAnswer(1, 24, "Not allowed", 1),
+  makeQuizAnswer(1, 24, "Allowed", 0),
+  makeQuizAnswer(1, 24, "Only for families", 0),
+  makeQuizAnswer(1, 24, "Only for groups", 0),
 
   // Question 25: Group travel affecting import limits
-  { localeId: 1, quizQuestionId: 25, answer: "No, individual limits", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 25, answer: "Yes, combined limits", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 25, answer: "Only for families", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 25, answer: "Only for tours", isCorrect: 0 },
+  makeQuizAnswer(1, 25, "No, individual limits", 1),
+  makeQuizAnswer(1, 25, "Yes, combined limits", 0),
+  makeQuizAnswer(1, 25, "Only for families", 0),
+  makeQuizAnswer(1, 25, "Only for tours", 0),
 
   // Question 26: Special restrictions for food items
-  { localeId: 1, quizQuestionId: 26, answer: "Yes, quantity limits", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 26, answer: "No restrictions", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 26, answer: "Only for meat", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 26, answer: "Only for dairy", isCorrect: 0 },
+  makeQuizAnswer(1, 26, "Yes, quantity limits", 1),
+  makeQuizAnswer(1, 26, "No restrictions", 0),
+  makeQuizAnswer(1, 26, "Only for meat", 0),
+  makeQuizAnswer(1, 26, "Only for dairy", 0),
 
   // Question 27: Documents helping during inspection
-  { localeId: 1, quizQuestionId: 27, answer: "Receipts", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 27, answer: "Passport", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 27, answer: "Travel itinerary", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 27, answer: "Hotel booking", isCorrect: 0 },
+  makeQuizAnswer(1, 27, "Receipts", 1),
+  makeQuizAnswer(1, 27, "Passport", 0),
+  makeQuizAnswer(1, 27, "Travel itinerary", 0),
+  makeQuizAnswer(1, 27, "Hotel booking", 0),
 
   // Question 28: Meat import limit per person per day
-  { localeId: 1, quizQuestionId: 28, answer: "1 kg", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 28, answer: "0.5 kg", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 28, answer: "2 kg", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 28, answer: "Unlimited", isCorrect: 0 },
+  makeQuizAnswer(1, 28, "1 kg", 1),
+  makeQuizAnswer(1, 28, "0.5 kg", 0),
+  makeQuizAnswer(1, 28, "2 kg", 0),
+  makeQuizAnswer(1, 28, "Unlimited", 0),
 
   // Question 29: App for declaring goods
-  { localeId: 1, quizQuestionId: 29, answer: "QuickZoll", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 29, answer: "FastEntry", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 29, answer: "EasyCross", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 29, answer: "QuickScan", isCorrect: 0 },
+  makeQuizAnswer(1, 29, "QuickZoll", 1),
+  makeQuizAnswer(1, 29, "FastEntry", 0),
+  makeQuizAnswer(1, 29, "EasyCross", 0),
+  makeQuizAnswer(1, 29, "QuickScan", 0),
 
   // Question 30: Importing medication for personal use
-  { localeId: 1, quizQuestionId: 30, answer: "Yes, limited quantity", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 30, answer: "No, prohibited", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 30, answer: "Only with prescription", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 30, answer: "Unlimited", isCorrect: 0 },
+  makeQuizAnswer(1, 30, "Yes, limited quantity", 1),
+  makeQuizAnswer(1, 30, "No, prohibited", 0),
+  makeQuizAnswer(1, 30, "Only with prescription", 0),
+  makeQuizAnswer(1, 30, "Unlimited", 0),
 
   // Question 31: Rules for temporary imports
-  { localeId: 1, quizQuestionId: 31, answer: "ATA Carnet", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 31, answer: "No documentation", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 31, answer: "Only for EU goods", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 31, answer: "Permanent import only", isCorrect: 0 },
+  makeQuizAnswer(1, 31, "ATA Carnet", 1),
+  makeQuizAnswer(1, 31, "No documentation", 0),
+  makeQuizAnswer(1, 31, "Only for EU goods", 0),
+  makeQuizAnswer(1, 31, "Permanent import only", 0),
 
   // Question 32: Diplomatic goods customs treatment
-  { localeId: 1, quizQuestionId: 32, answer: "Exempt with approval", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 32, answer: "Same as regular goods", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 32, answer: "Prohibited", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 32, answer: "Only for EU diplomats", isCorrect: 0 },
+  makeQuizAnswer(1, 32, "Exempt with approval", 1),
+  makeQuizAnswer(1, 32, "Same as regular goods", 0),
+  makeQuizAnswer(1, 32, "Prohibited", 0),
+  makeQuizAnswer(1, 32, "Only for EU diplomats", 0),
 
   // Question 33: Exceptions for humanitarian aid
-  { localeId: 1, quizQuestionId: 33, answer: "Yes, duty-free", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 33, answer: "No, standard duties", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 33, answer: "Only for food", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 33, answer: "Only for medicine", isCorrect: 0 },
+  makeQuizAnswer(1, 33, "Yes, duty-free", 1),
+  makeQuizAnswer(1, 33, "No, standard duties", 0),
+  makeQuizAnswer(1, 33, "Only for food", 0),
+  makeQuizAnswer(1, 33, "Only for medicine", 0),
 
   // Question 34: Importing cultural artifacts
-  { localeId: 1, quizQuestionId: 34, answer: "Export permit needed", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 34, answer: "No restrictions", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 34, answer: "Only for museums", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 34, answer: "Prohibited", isCorrect: 0 },
+  makeQuizAnswer(1, 34, "Export permit needed", 1),
+  makeQuizAnswer(1, 34, "No restrictions", 0),
+  makeQuizAnswer(1, 34, "Only for museums", 0),
+  makeQuizAnswer(1, 34, "Prohibited", 0),
 
   // Question 35: Rules for loaned vehicles
-  { localeId: 1, quizQuestionId: 35, answer: "Written authorization", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 35, answer: "No special rule", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 35, answer: "Must be registered", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 35, answer: "Unrestricted use", isCorrect: 0 },
+  makeQuizAnswer(1, 35, "Written authorization", 1),
+  makeQuizAnswer(1, 35, "No special rule", 0),
+  makeQuizAnswer(1, 35, "Must be registered", 0),
+  makeQuizAnswer(1, 35, "Unrestricted use", 0),
 
   // Question 36: Declaring weapons
-  { localeId: 1, quizQuestionId: 36, answer: "Yes, always", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 36, answer: "Only with ammunition", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 36, answer: "Only in quantities", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 36, answer: "No", isCorrect: 0 },
+  makeQuizAnswer(1, 36, "Yes, always", 1),
+  makeQuizAnswer(1, 36, "Only with ammunition", 0),
+  makeQuizAnswer(1, 36, "Only in quantities", 0),
+  makeQuizAnswer(1, 36, "No", 0),
 ];
 
 // Documents
 // Quiz 6 - 19
 const quizDocuments: Quiz[] = [
-  { localeId: 1, categoryId: 2, title: "Certificate of Inheritance" },
-  { localeId: 1, categoryId: 2, title: "Civil Status Certificates" },
-  { localeId: 1, categoryId: 2, title: "Criminal Records Extract" },
-  { localeId: 1, categoryId: 2, title: "Driving Licence" },
-  { localeId: 1, categoryId: 2, title: "International Driving Licence" },
-  { localeId: 1, categoryId: 2, title: "Extract from the Debt Enforcement Register" },
-  { localeId: 1, categoryId: 2, title: "Hunting Training and Licence" },
-  { localeId: 1, categoryId: 2, title: "Living Wills" },
-  { localeId: 1, categoryId: 2, title: "Passport and Identity Card" },
-  { localeId: 1, categoryId: 2, title: "Lost or Stolen Passport or Identity Card" },
-  { localeId: 1, categoryId: 2, title: "Permits for Living in Switzerland" },
-  { localeId: 1, categoryId: 2, title: "Requesting an OASI Card" },
-  { localeId: 1, categoryId: 2, title: "Salary Certificate" },
-  { localeId: 1, categoryId: 2, title: "Lost Vehicle Registration Document" },
+  makeQuiz(1, 2, "Certificate of Inheritance"),
+  makeQuiz(1, 2, "Civil Status Certificates"),
+  makeQuiz(1, 2, "Criminal Records Extract"),
+  makeQuiz(1, 2, "Driving Licence"),
+  makeQuiz(1, 2, "International Driving Licence"),
+  makeQuiz(1, 2, "Extract from the Debt Enforcement Register"),
+  makeQuiz(1, 2, "Hunting Training and Licence"),
+  makeQuiz(1, 2, "Living Wills"),
+  makeQuiz(1, 2, "Passport and Identity Card"),
+  makeQuiz(1, 2, "Lost or Stolen Passport or Identity Card"),
+  makeQuiz(1, 2, "Permits for Living in Switzerland"),
+  makeQuiz(1, 2, "Requesting an OASI Card"),
+  makeQuiz(1, 2, "Salary Certificate"),
+  makeQuiz(1, 2, "Lost Vehicle Registration Document"),
 ];
 
 // Question 37 - 148
-const quizQuestionDocuments = [
+const quizQuestionDocuments: QuizQuestion[] = [
   // Quiz 6: Certificate of Inheritance
-  { localeId: 1, quizId: 6, question: "Who can apply for a certificate of inheritance if there is no will?" },
-  { localeId: 1, quizId: 6, question: "What document is required to obtain a certificate of inheritance?" },
-  { localeId: 1, quizId: 6, question: "What factor influences the cost of a certificate of inheritance?" },
-  { localeId: 1, quizId: 6, question: "When can you apply for a certificate if there is a will?" },
-  { localeId: 1, quizId: 6, question: "What must you prove to get a certificate of inheritance?" },
-  { localeId: 1, quizId: 6, question: "What is the purpose of a certificate of inheritance?" },
-  { localeId: 1, quizId: 6, question: "Who are considered statutory heirs?" },
-  { localeId: 1, quizId: 6, question: "What additional costs may arise for a certificate of inheritance?" },
+  makeQuizQuestion(1, 6, "Who can apply for a certificate of inheritance if there is no will?"),
+  makeQuizQuestion(1, 6, "What document is required to obtain a certificate of inheritance?"),
+  makeQuizQuestion(1, 6, "What factor influences the cost of a certificate of inheritance?"),
+  makeQuizQuestion(1, 6, "When can you apply for a certificate if there is a will?"),
+  makeQuizQuestion(1, 6, "What must you prove to get a certificate of inheritance?"),
+  makeQuizQuestion(1, 6, "What is the purpose of a certificate of inheritance?"),
+  makeQuizQuestion(1, 6, "Who are considered statutory heirs?"),
+  makeQuizQuestion(1, 6, "What additional costs may arise for a certificate of inheritance?"),
 
   // Quiz 7: Civil Status Certificates
-  { localeId: 1, quizId: 7, question: "Where can you request a birth certificate?" },
-  { localeId: 1, quizId: 7, question: "What is the standard cost of a civil status certificate?" },
-  { localeId: 1, quizId: 7, question: "Who can request a civil status certificate for another person?" },
-  { localeId: 1, quizId: 7, question: "Where do Swiss citizens request a certificate of origin?" },
-  { localeId: 1, quizId: 7, question: "How can you order a civil status certificate?" },
-  { localeId: 1, quizId: 7, question: "What certificate do foreign nationals request for civil status?" },
-  { localeId: 1, quizId: 7, question: "What is the cost for a family certificate compared to others?" },
-  { localeId: 1, quizId: 7, question: "Can family record books still be ordered?" },
+  makeQuizQuestion(1, 7, "Where can you request a birth certificate?"),
+  makeQuizQuestion(1, 7, "What is the standard cost of a civil status certificate?"),
+  makeQuizQuestion(1, 7, "Who can request a civil status certificate for another person?"),
+  makeQuizQuestion(1, 7, "Where do Swiss citizens request a certificate of origin?"),
+  makeQuizQuestion(1, 7, "How can you order a civil status certificate?"),
+  makeQuizQuestion(1, 7, "What certificate do foreign nationals request for civil status?"),
+  makeQuizQuestion(1, 7, "What is the cost for a family certificate compared to others?"),
+  makeQuizQuestion(1, 7, "Can family record books still be ordered?"),
 
   // Quiz 8: Criminal Records Extract
-  { localeId: 1, quizId: 8, question: "What does a standard private extract from the criminal records show?" },
-  { localeId: 1, quizId: 8, question: "How much does a standard private extract cost?" },
-  { localeId: 1, quizId: 8, question: "When is a special private extract required?" },
-  { localeId: 1, quizId: 8, question: "Where can you order a criminal records extract?" },
-  { localeId: 1, quizId: 8, question: "What additional cost applies for a legalized extract?" },
-  { localeId: 1, quizId: 8, question: "What must an employer provide for a special private extract?" },
-  { localeId: 1, quizId: 8, question: "What convictions are listed in a special private extract?" },
-  { localeId: 1, quizId: 8, question: "Why might you need a criminal records extract?" },
+  makeQuizQuestion(1, 8, "What does a standard private extract from the criminal records show?"),
+  makeQuizQuestion(1, 8, "How much does a standard private extract cost?"),
+  makeQuizQuestion(1, 8, "When is a special private extract required?"),
+  makeQuizQuestion(1, 8, "Where can you order a criminal records extract?"),
+  makeQuizQuestion(1, 8, "What additional cost applies for a legalized extract?"),
+  makeQuizQuestion(1, 8, "What must an employer provide for a special private extract?"),
+  makeQuizQuestion(1, 8, "What convictions are listed in a special private extract?"),
+  makeQuizQuestion(1, 8, "Why might you need a criminal records extract?"),
 
   // Quiz 9: Driving Licence
-  { localeId: 1, quizId: 9, question: "When must you exchange a blue paper driving licence?" },
-  { localeId: 1, quizId: 9, question: "What must you do if your Swiss driving licence is stolen?" },
-  { localeId: 1, quizId: 9, question: "How long can you drive in Switzerland with a foreign licence?" },
-  { localeId: 1, quizId: 9, question: "What is required to exchange an EU/EEA driving licence?" },
-  { localeId: 1, quizId: 9, question: "What happens to a lost driving licence once replaced?" },
-  { localeId: 1, quizId: 9, question: "How much does a duplicate driving licence cost?" },
-  { localeId: 1, quizId: 9, question: "What test is required for non-EU/EEA licence holders?" },
-  { localeId: 1, quizId: 9, question: "How long does it take to receive a new driving licence?" },
+  makeQuizQuestion(1, 9, "When must you exchange a blue paper driving licence?"),
+  makeQuizQuestion(1, 9, "What must you do if your Swiss driving licence is stolen?"),
+  makeQuizQuestion(1, 9, "How long can you drive in Switzerland with a foreign licence?"),
+  makeQuizQuestion(1, 9, "What is required to exchange an EU/EEA driving licence?"),
+  makeQuizQuestion(1, 9, "What happens to a lost driving licence once replaced?"),
+  makeQuizQuestion(1, 9, "How much does a duplicate driving licence cost?"),
+  makeQuizQuestion(1, 9, "What test is required for non-EU/EEA licence holders?"),
+  makeQuizQuestion(1, 9, "How long does it take to receive a new driving licence?"),
 
   // Quiz 10: International Driving Licence
-  { localeId: 1, quizId: 10, question: "What is required to use an international driving licence abroad?" },
-  { localeId: 1, quizId: 10, question: "Which countries recommend an international driving licence for Swiss drivers?" },
-  { localeId: 1, quizId: 10, question: "What is the validity period of an international driving licence?" },
-  { localeId: 1, quizId: 10, question: "Where can you order an international driving licence?" },
-  { localeId: 1, quizId: 10, question: "What is the approximate cost of an international driving licence?" },
-  { localeId: 1, quizId: 10, question: "Can you renew an international driving licence?" },
-  { localeId: 1, quizId: 10, question: "When might a foreign driver need an international licence in Switzerland?" },
-  { localeId: 1, quizId: 10, question: "Who provides information on required driving documents abroad?" },
+  makeQuizQuestion(1, 10, "What is required to use an international driving licence abroad?"),
+  makeQuizQuestion(1, 10, "Which countries recommend an international driving licence for Swiss drivers?"),
+  makeQuizQuestion(1, 10, "What is the validity period of an international driving licence?"),
+  makeQuizQuestion(1, 10, "Where can you order an international driving licence?"),
+  makeQuizQuestion(1, 10, "What is the approximate cost of an international driving licence?"),
+  makeQuizQuestion(1, 10, "Can you renew an international driving licence?"),
+  makeQuizQuestion(1, 10, "When might a foreign driver need an international licence in Switzerland?"),
+  makeQuizQuestion(1, 10, "Who provides information on required driving documents abroad?"),
 
   // Quiz 11: Extract from the Debt Enforcement Register
-  { localeId: 1, quizId: 11, question: "What does an extract from the debt enforcement register show?" },
-  { localeId: 1, quizId: 11, question: "How can you request an extract from the debt enforcement register?" },
-  { localeId: 1, quizId: 11, question: "How long does an entry remain in the debt enforcement register?" },
-  { localeId: 1, quizId: 11, question: "What is required to request an extract for another person?" },
-  { localeId: 1, quizId: 11, question: "How much does an extract from the debt enforcement register cost?" },
-  { localeId: 1, quizId: 11, question: "How can an entry be removed from the debt enforcement register?" },
-  { localeId: 1, quizId: 11, question: "When might you need a debt enforcement register extract?" },
-  { localeId: 1, quizId: 11, question: "Can you request an extract without informing the person concerned?" },
+  makeQuizQuestion(1, 11, "What does an extract from the debt enforcement register show?"),
+  makeQuizQuestion(1, 11, "How can you request an extract from the debt enforcement register?"),
+  makeQuizQuestion(1, 11, "How long does an entry remain in the debt enforcement register?"),
+  makeQuizQuestion(1, 11, "What is required to request an extract for another person?"),
+  makeQuizQuestion(1, 11, "How much does an extract from the debt enforcement register cost?"),
+  makeQuizQuestion(1, 11, "How can an entry be removed from the debt enforcement register?"),
+  makeQuizQuestion(1, 11, "When might you need a debt enforcement register extract?"),
+  makeQuizQuestion(1, 11, "Can you request an extract without informing the person concerned?"),
 
   // Quiz 12: Hunting Training and Licence
-  { localeId: 1, quizId: 12, question: "What is required before you can hunt in Switzerland?" },
-  { localeId: 1, quizId: 12, question: "Which canton does not permit hunting?" },
-  { localeId: 1, quizId: 12, question: "What must hunters do to prove shooting accuracy?" },
-  { localeId: 1, quizId: 12, question: "How do some cantons regulate hunting?" },
-  { localeId: 1, quizId: 12, question: "What regulates closed hunting seasons?" },
-  { localeId: 1, quizId: 12, question: "What is required to hunt with dogs in Switzerland?" },
-  { localeId: 1, quizId: 12, question: "Which cantons use hunting estates instead of licences?" },
-  { localeId: 1, quizId: 12, question: "Where can you find information on hunting training?" },
+  makeQuizQuestion(1, 12, "What is required before you can hunt in Switzerland?"),
+  makeQuizQuestion(1, 12, "Which canton does not permit hunting?"),
+  makeQuizQuestion(1, 12, "What must hunters do to prove shooting accuracy?"),
+  makeQuizQuestion(1, 12, "How do some cantons regulate hunting?"),
+  makeQuizQuestion(1, 12, "What regulates closed hunting seasons?"),
+  makeQuizQuestion(1, 12, "What is required to hunt with dogs in Switzerland?"),
+  makeQuizQuestion(1, 12, "Which cantons use hunting estates instead of licences?"),
+  makeQuizQuestion(1, 12, "Where can you find information on hunting training?"),
 
   // Quiz 13: Living Wills
-  { localeId: 1, quizId: 13, question: "What is the purpose of a living will?" },
-  { localeId: 1, quizId: 13, question: "What must you do to make a living will legally binding?" },
-  { localeId: 1, quizId: 13, question: "How often should you review your living will?" },
-  { localeId: 1, quizId: 13, question: "Where can you find living will templates?" },
-  { localeId: 1, quizId: 13, question: "Who should you give your living will to?" },
-  { localeId: 1, quizId: 13, question: "What condition must you meet to create a living will?" },
-  { localeId: 1, quizId: 13, question: "What types of living wills are available?" },
-  { localeId: 1, quizId: 13, question: "Is a living will mandatory in Switzerland?" },
+  makeQuizQuestion(1, 13, "What is the purpose of a living will?"),
+  makeQuizQuestion(1, 13, "What must you do to make a living will legally binding?"),
+  makeQuizQuestion(1, 13, "How often should you review your living will?"),
+  makeQuizQuestion(1, 13, "Where can you find living will templates?"),
+  makeQuizQuestion(1, 13, "Who should you give your living will to?"),
+  makeQuizQuestion(1, 13, "What condition must you meet to create a living will?"),
+  makeQuizQuestion(1, 13, "What types of living wills are available?"),
+  makeQuizQuestion(1, 13, "Is a living will mandatory in Switzerland?"),
 
   // Quiz 14: Passport and Identity Card
-  { localeId: 1, quizId: 14, question: "How long does it take to receive a passport in Switzerland?" },
-  { localeId: 1, quizId: 14, question: "What biometric data is required for a passport?" },
-  { localeId: 1, quizId: 14, question: "What is the validity period of a passport for adults?" },
-  { localeId: 1, quizId: 14, question: "Where can Swiss citizens abroad apply for a passport?" },
-  { localeId: 1, quizId: 14, question: "What is required for a child’s passport application?" },
-  { localeId: 1, quizId: 14, question: "What is the validity period of a child’s passport?" },
-  { localeId: 1, quizId: 14, question: "What is a temporary passport?" },
-  { localeId: 1, quizId: 14, question: "What photo requirements apply for a passport?" },
+  makeQuizQuestion(1, 14, "How long does it take to receive a passport in Switzerland?"),
+  makeQuizQuestion(1, 14, "What biometric data is required for a passport?"),
+  makeQuizQuestion(1, 14, "What is the validity period of a passport for adults?"),
+  makeQuizQuestion(1, 14, "Where can Swiss citizens abroad apply for a passport?"),
+  makeQuizQuestion(1, 14, "What is required for a child’s passport application?"),
+  makeQuizQuestion(1, 14, "What is the validity period of a child’s passport?"),
+  makeQuizQuestion(1, 14, "What is a temporary passport?"),
+  makeQuizQuestion(1, 14, "What photo requirements apply for a passport?"),
 
   // Quiz 15: Lost or Stolen Passport or Identity Card
-  { localeId: 1, quizId: 15, question: "What must you do if your passport is stolen in Switzerland?" },
-  { localeId: 1, quizId: 15, question: "What happens to a lost passport after a police report is filed?" },
-  { localeId: 1, quizId: 15, question: "What is the maximum validity of a temporary passport?" },
-  { localeId: 1, quizId: 15, question: "What must you do if your passport is stolen abroad?" },
-  { localeId: 1, quizId: 15, question: "How can you apply for a new passport after a theft?" },
-  { localeId: 1, quizId: 15, question: "What happens if you find a lost passport after reporting it?" },
-  { localeId: 1, quizId: 15, question: "Who cancels a stolen passport in Switzerland?" },
-  { localeId: 1, quizId: 15, question: "What is required to get a temporary passport?" },
+  makeQuizQuestion(1, 15, "What must you do if your passport is stolen in Switzerland?"),
+  makeQuizQuestion(1, 15, "What happens to a lost passport after a police report is filed?"),
+  makeQuizQuestion(1, 15, "What is the maximum validity of a temporary passport?"),
+  makeQuizQuestion(1, 15, "What must you do if your passport is stolen abroad?"),
+  makeQuizQuestion(1, 15, "How can you apply for a new passport after a theft?"),
+  makeQuizQuestion(1, 15, "What happens if you find a lost passport after reporting it?"),
+  makeQuizQuestion(1, 15, "Who cancels a stolen passport in Switzerland?"),
+  makeQuizQuestion(1, 15, "What is required to get a temporary passport?"),
 
   // Quiz 16: Permits for Living in Switzerland
-  { localeId: 1, quizId: 16, question: "Who must obtain a permit to live in Switzerland for more than three months?" },
-  { localeId: 1, quizId: 16, question: "What document is required to apply for a permit renewal?" },
-  { localeId: 1, quizId: 16, question: "What condition allows third-country citizens to stay after divorce?" },
-  { localeId: 1, quizId: 16, question: "What permit is for temporarily admitted foreigners?" },
-  { localeId: 1, quizId: 16, question: "Where do you apply for a residence permit?" },
-  { localeId: 1, quizId: 16, question: "What must you do if your permit is lost?" },
-  { localeId: 1, quizId: 16, question: "What permit do EU/EFTA cross-border commuters need?" },
-  { localeId: 1, quizId: 16, question: "When can you apply to renew your permit?" },
+  makeQuizQuestion(1, 16, "Who must obtain a permit to live in Switzerland for more than three months?"),
+  makeQuizQuestion(1, 16, "What document is required to apply for a permit renewal?"),
+  makeQuizQuestion(1, 16, "What condition allows third-country citizens to stay after divorce?"),
+  makeQuizQuestion(1, 16, "What permit is for temporarily admitted foreigners?"),
+  makeQuizQuestion(1, 16, "Where do you apply for a residence permit?"),
+  makeQuizQuestion(1, 16, "What must you do if your permit is lost?"),
+  makeQuizQuestion(1, 16, "What permit do EU/EFTA cross-border commuters need?"),
+  makeQuizQuestion(1, 16, "When can you apply to renew your permit?"),
 
   // Quiz 17: Requesting an OASI Card
-  { localeId: 1, quizId: 17, question: "How can an employee request an OASI card?" },
-  { localeId: 1, quizId: 17, question: "Where should self-employed individuals send their OASI card application?" },
-  { localeId: 1, quizId: 17, question: "Who issues an OASI card for someone living abroad and not working in Switzerland?" },
-  { localeId: 1, quizId: 17, question: "What form is required to request an OASI card?" },
-  { localeId: 1, quizId: 17, question: "Where can you find the OASI card application form?" },
-  { localeId: 1, quizId: 17, question: "What should you do if you lose your OASI card?" },
-  { localeId: 1, quizId: 17, question: "Who handles OASI card requests for non-employees?" },
-  { localeId: 1, quizId: 17, question: "What is the process for getting a new OASI card?" },
+  makeQuizQuestion(1, 17, "How can an employee request an OASI card?"),
+  makeQuizQuestion(1, 17, "Where should self-employed individuals send their OASI card application?"),
+  makeQuizQuestion(1, 17, "Who issues an OASI card for someone living abroad and not working in Switzerland?"),
+  makeQuizQuestion(1, 17, "What form is required to request an OASI card?"),
+  makeQuizQuestion(1, 17, "Where can you find the OASI card application form?"),
+  makeQuizQuestion(1, 17, "What should you do if you lose your OASI card?"),
+  makeQuizQuestion(1, 17, "Who handles OASI card requests for non-employees?"),
+  makeQuizQuestion(1, 17, "What is the process for getting a new OASI card?"),
 
   // Quiz 18: Salary Certificate
-  { localeId: 1, quizId: 18, question: "When do employees typically receive their salary certificate?" },
-  { localeId: 1, quizId: 18, question: "What should you do if your salary certificate is incorrect?" },
-  { localeId: 1, quizId: 18, question: "Who must provide a salary certificate to employees?" },
-  { localeId: 1, quizId: 18, question: "What is included in a salary certificate?" },
-  { localeId: 1, quizId: 18, question: "When must a salary certificate be attached to a tax return?" },
-  { localeId: 1, quizId: 18, question: "Who can help employers create a salary certificate?" },
-  { localeId: 1, quizId: 18, question: "What happens if you change employers during the year?" },
-  { localeId: 1, quizId: 18, question: "Do employees need to request a salary certificate?" },
+  makeQuizQuestion(1, 18, "When do employees typically receive their salary certificate?"),
+  makeQuizQuestion(1, 18, "What should you do if your salary certificate is incorrect?"),
+  makeQuizQuestion(1, 18, "Who must provide a salary certificate to employees?"),
+  makeQuizQuestion(1, 18, "What is included in a salary certificate?"),
+  makeQuizQuestion(1, 18, "When must a salary certificate be attached to a tax return?"),
+  makeQuizQuestion(1, 18, "Who can help employers create a salary certificate?"),
+  makeQuizQuestion(1, 18, "What happens if you change employers during the year?"),
+  makeQuizQuestion(1, 18, "Do employees need to request a salary certificate?"),
 
   // Quiz 19: Lost Vehicle Registration Document
-  { localeId: 1, quizId: 19, question: "Who can apply for a replacement vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "What is the cost range for a new vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "What must you do if you find a lost vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "Where do you apply for a replacement vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "What must you notify within 19 days for a vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "What happens to a replacement vehicle registration document if the original is found?" },
-  { localeId: 1, quizId: 19, question: "Who issues a replacement vehicle registration document?" },
-  { localeId: 1, quizId: 19, question: "What is the process for replacing a stolen vehicle registration document?" },
+  makeQuizQuestion(1, 19, "Who can apply for a replacement vehicle registration document?"),
+  makeQuizQuestion(1, 19, "What is the cost range for a new vehicle registration document?"),
+  makeQuizQuestion(1, 19, "What must you do if you find a lost vehicle registration document?"),
+  makeQuizQuestion(1, 19, "Where do you apply for a replacement vehicle registration document?"),
+  makeQuizQuestion(1, 19, "What must you notify within 19 days for a vehicle registration document?"),
+  makeQuizQuestion(1, 19, "What happens to a replacement vehicle registration document if the original is found?"),
+  makeQuizQuestion(1, 19, "Who issues a replacement vehicle registration document?"),
+  makeQuizQuestion(1, 19, "What is the process for replacing a stolen vehicle registration document?"),
 ];
 
 const quizAnswerDocuments: QuizAnswer[] = [
   // Quiz 37: Certificate of Inheritance
   // Question 37
-  { localeId: 1, quizQuestionId: 37, answer: "Statutory heirs", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 37, answer: "Anyone", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 37, answer: "Only the executor", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 37, answer: "Only non-relatives", isCorrect: 0 },
+  makeQuizAnswer(1, 37, "Statutory heirs", 1),
+  makeQuizAnswer(1, 37, "Anyone", 0),
+  makeQuizAnswer(1, 37, "Only the executor", 0),
+  makeQuizAnswer(1, 37, "Only non-relatives", 0),
 
   // Question 38
-  { localeId: 1, quizQuestionId: 38, answer: "Death certificate", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 38, answer: "Bank statement", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 38, answer: "Tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 38, answer: "Medical records", isCorrect: 0 },
+  makeQuizAnswer(1, 38, "Death certificate", 1),
+  makeQuizAnswer(1, 38, "Bank statement", 0),
+  makeQuizAnswer(1, 38, "Tax return", 0),
+  makeQuizAnswer(1, 38, "Medical records", 0),
 
   // Question 39
-  { localeId: 1, quizQuestionId: 39, answer: "Enquiries needed", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 39, answer: "Fixed fee", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 39, answer: "Number of heirs", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 39, answer: "Estate value", isCorrect: 0 },
+  makeQuizAnswer(1, 39, "Enquiries needed", 1),
+  makeQuizAnswer(1, 39, "Fixed fee", 0),
+  makeQuizAnswer(1, 39, "Number of heirs", 0),
+  makeQuizAnswer(1, 39, "Estate value", 0),
 
   // Question 40
-  { localeId: 1, quizQuestionId: 40, answer: "After official notice", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 40, answer: "Immediately", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 40, answer: "Before the will is read", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 40, answer: "No restriction", isCorrect: 0 },
+  makeQuizAnswer(1, 40, "After official notice", 1),
+  makeQuizAnswer(1, 40, "Immediately", 0),
+  makeQuizAnswer(1, 40, "Before the will is read", 0),
+  makeQuizAnswer(1, 40, "No restriction", 0),
 
   // Question 41
-  { localeId: 1, quizQuestionId: 41, answer: "Not renounced inheritance", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 41, answer: "Swiss citizenship", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 41, answer: "Property ownership", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 41, answer: "Tax compliance", isCorrect: 0 },
+  makeQuizAnswer(1, 41, "Not renounced inheritance", 1),
+  makeQuizAnswer(1, 41, "Swiss citizenship", 0),
+  makeQuizAnswer(1, 41, "Property ownership", 0),
+  makeQuizAnswer(1, 41, "Tax compliance", 0),
 
   // Question 42
-  { localeId: 1, quizQuestionId: 42, answer: "Deal with deceased's assets", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 42, answer: "File taxes", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 42, answer: "Register property", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 42, answer: "Apply for permits", isCorrect: 0 },
+  makeQuizAnswer(1, 42, "Deal with deceased's assets", 1),
+  makeQuizAnswer(1, 42, "File taxes", 0),
+  makeQuizAnswer(1, 42, "Register property", 0),
+  makeQuizAnswer(1, 42, "Apply for permits", 0),
 
   // Question 43
-  { localeId: 1, quizQuestionId: 43, answer: "Spouse, descendants, parents", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 43, answer: "Friends, colleagues", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 43, answer: "Only children", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 43, answer: "Only spouse", isCorrect: 0 },
+  makeQuizAnswer(1, 43, "Spouse, descendants, parents", 1),
+  makeQuizAnswer(1, 43, "Friends, colleagues", 0),
+  makeQuizAnswer(1, 43, "Only children", 0),
+  makeQuizAnswer(1, 43, "Only spouse", 0),
 
   // Question 44
-  { localeId: 1, quizQuestionId: 44, answer: "Civil register office fees", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 44, answer: "Legal fees", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 44, answer: "Bank fees", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 44, answer: "No additional costs", isCorrect: 0 },
+  makeQuizAnswer(1, 44, "Civil register office fees", 1),
+  makeQuizAnswer(1, 44, "Legal fees", 0),
+  makeQuizAnswer(1, 44, "Bank fees", 0),
+  makeQuizAnswer(1, 44, "No additional costs", 0),
 
   // Quiz 2: Civil Status Certificates
   // Question 45
-  { localeId: 1, quizQuestionId: 45, answer: "Register office at place of birth", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 45, answer: "Cantonal passport office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 45, answer: "Swiss embassy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 45, answer: "Tax office", isCorrect: 0 },
+  makeQuizAnswer(1, 45, "Register office at place of birth", 1),
+  makeQuizAnswer(1, 45, "Cantonal passport office", 0),
+  makeQuizAnswer(1, 45, "Swiss embassy", 0),
+  makeQuizAnswer(1, 45, "Tax office", 0),
 
   // Question 46
-  { localeId: 1, quizQuestionId: 46, answer: "CHF 30", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 46, answer: "CHF 17", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 46, answer: "CHF 50", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 46, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 46, "CHF 30", 1),
+  makeQuizAnswer(1, 46, "CHF 17", 0),
+  makeQuizAnswer(1, 46, "CHF 50", 0),
+  makeQuizAnswer(1, 46, "Free", 0),
 
   // Question 47
-  { localeId: 1, quizQuestionId: 47, answer: "With power of attorney", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 47, answer: "Anyone", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 47, answer: "Only family members", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 47, answer: "Only Swiss citizens", isCorrect: 0 },
+  makeQuizAnswer(1, 47, "With power of attorney", 1),
+  makeQuizAnswer(1, 47, "Anyone", 0),
+  makeQuizAnswer(1, 47, "Only family members", 0),
+  makeQuizAnswer(1, 47, "Only Swiss citizens", 0),
 
   // Question 48
-  { localeId: 1, quizQuestionId: 48, answer: "Register office at place of origin", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 48, answer: "Place of residence", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 48, answer: "Place of birth", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 48, answer: "Any register office", isCorrect: 0 },
+  makeQuizAnswer(1, 48, "Register office at place of origin", 1),
+  makeQuizAnswer(1, 48, "Place of residence", 0),
+  makeQuizAnswer(1, 48, "Place of birth", 0),
+  makeQuizAnswer(1, 48, "Any register office", 0),
 
   // Question 49
-  { localeId: 1, quizQuestionId: 49, answer: "Online or in person", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 49, answer: "Only online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 49, answer: "Only in person", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 49, answer: "By mail only", isCorrect: 0 },
+  makeQuizAnswer(1, 49, "Online or in person", 1),
+  makeQuizAnswer(1, 49, "Only online", 0),
+  makeQuizAnswer(1, 49, "Only in person", 0),
+  makeQuizAnswer(1, 49, "By mail only", 0),
 
   // Question 50
-  { localeId: 1, quizQuestionId: 50, answer: "Confirmation of registered civil status", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 50, answer: "Birth certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 50, answer: "Marriage certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 50, answer: "Family certificate", isCorrect: 0 },
+  makeQuizAnswer(1, 50, "Confirmation of registered civil status", 1),
+  makeQuizAnswer(1, 50, "Birth certificate", 0),
+  makeQuizAnswer(1, 50, "Marriage certificate", 0),
+  makeQuizAnswer(1, 50, "Family certificate", 0),
 
   // Question 51
-  { localeId: 1, quizQuestionId: 51, answer: "Higher than CHF 30", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 51, answer: "Same as CHF 30", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 51, answer: "Lower than CHF 30", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 51, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 51, "Higher than CHF 30", 1),
+  makeQuizAnswer(1, 51, "Same as CHF 30", 0),
+  makeQuizAnswer(1, 51, "Lower than CHF 30", 0),
+  makeQuizAnswer(1, 51, "Free", 0),
 
   // Question 52
-  { localeId: 1, quizQuestionId: 52, answer: "No, only updated", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 52, answer: "Yes, new orders allowed", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 52, answer: "Only for Swiss citizens", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 52, answer: "Only for foreign nationals", isCorrect: 0 },
+  makeQuizAnswer(1, 52, "No, only updated", 1),
+  makeQuizAnswer(1, 52, "Yes, new orders allowed", 0),
+  makeQuizAnswer(1, 52, "Only for Swiss citizens", 0),
+  makeQuizAnswer(1, 52, "Only for foreign nationals", 0),
 
   // Quiz 3: Criminal Records Extract
   // Question 53
-  { localeId: 1, quizQuestionId: 53, answer: "Felony or misdemeanour convictions", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 53, answer: "Traffic violations", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 53, answer: "Civil disputes", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 53, answer: "Tax records", isCorrect: 0 },
+  makeQuizAnswer(1, 53, "Felony or misdemeanour convictions", 1),
+  makeQuizAnswer(1, 53, "Traffic violations", 0),
+  makeQuizAnswer(1, 53, "Civil disputes", 0),
+  makeQuizAnswer(1, 53, "Tax records", 0),
 
   // Question 54
-  { localeId: 1, quizQuestionId: 54, answer: "CHF 17", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 54, answer: "CHF 30", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 54, answer: "CHF 50", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 54, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 54, "CHF 17", 1),
+  makeQuizAnswer(1, 54, "CHF 30", 0),
+  makeQuizAnswer(1, 54, "CHF 50", 0),
+  makeQuizAnswer(1, 54, "Free", 0),
 
   // Question 55
-  { localeId: 1, quizQuestionId: 55, answer: "Contact with minors", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 55, answer: "Job applications", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 55, answer: "Citizenship applications", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 55, answer: "Firearms licences", isCorrect: 0 },
+  makeQuizAnswer(1, 55, "Contact with minors", 1),
+  makeQuizAnswer(1, 55, "Job applications", 0),
+  makeQuizAnswer(1, 55, "Citizenship applications", 0),
+  makeQuizAnswer(1, 55, "Firearms licences", 0),
 
   // Question 56
-  { localeId: 1, quizQuestionId: 56, answer: "Post office or online", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 56, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 56, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 56, answer: "Embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 56, "Post office or online", 1),
+  makeQuizAnswer(1, 56, "Tax office", 0),
+  makeQuizAnswer(1, 56, "Police station", 0),
+  makeQuizAnswer(1, 56, "Embassy", 0),
 
   // Question 57
-  { localeId: 1, quizQuestionId: 57, answer: "CHF 20", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 57, answer: "CHF 10", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 57, answer: "CHF 30", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 57, answer: "No additional cost", isCorrect: 0 },
+  makeQuizAnswer(1, 57, "CHF 20", 1),
+  makeQuizAnswer(1, 57, "CHF 10", 0),
+  makeQuizAnswer(1, 57, "CHF 30", 0),
+  makeQuizAnswer(1, 57, "No additional cost", 0),
 
   // Question 58
-  { localeId: 1, quizQuestionId: 58, answer: "Signed confirmation", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 58, answer: "Payment receipt", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 58, answer: "ID copy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 58, answer: "No documentation", isCorrect: 0 },
+  makeQuizAnswer(1, 58, "Signed confirmation", 1),
+  makeQuizAnswer(1, 58, "Payment receipt", 0),
+  makeQuizAnswer(1, 58, "ID copy", 0),
+  makeQuizAnswer(1, 58, "No documentation", 0),
 
   // Question 59
-  { localeId: 1, quizQuestionId: 59, answer: "Current bans", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 59, answer: "All convictions", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 59, answer: "Past bans", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 59, answer: "No convictions", isCorrect: 0 },
+  makeQuizAnswer(1, 59, "Current bans", 1),
+  makeQuizAnswer(1, 59, "All convictions", 0),
+  makeQuizAnswer(1, 59, "Past bans", 0),
+  makeQuizAnswer(1, 59, "No convictions", 0),
 
   // Question 60
-  { localeId: 1, quizQuestionId: 60, answer: "For job or citizenship", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 60, answer: "For tax filing", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 60, answer: "For travel", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 60, answer: "For marriage", isCorrect: 0 },
+  makeQuizAnswer(1, 60, "For job or citizenship", 1),
+  makeQuizAnswer(1, 60, "For tax filing", 0),
+  makeQuizAnswer(1, 60, "For travel", 0),
+  makeQuizAnswer(1, 60, "For marriage", 0),
 
   // Quiz 4: Driving Licence
   // Question 61
-  { localeId: 1, quizQuestionId: 61, answer: "By 1 November 2024", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 61, answer: "By 1 January 2024", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 61, answer: "No deadline", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 61, answer: "By 31 December 2024", isCorrect: 0 },
+  makeQuizAnswer(1, 61, "By 1 November 2024", 1),
+  makeQuizAnswer(1, 61, "By 1 January 2024", 0),
+  makeQuizAnswer(1, 61, "No deadline", 0),
+  makeQuizAnswer(1, 61, "By 31 December 2024", 0),
 
   // Question 62
-  { localeId: 1, quizQuestionId: 62, answer: "Report to police", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 62, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 62, answer: "Contact tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 62, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 62, "Report to police", 1),
+  makeQuizAnswer(1, 62, "Apply online", 0),
+  makeQuizAnswer(1, 62, "Contact tax office", 0),
+  makeQuizAnswer(1, 62, "No action needed", 0),
 
   // Question 63
-  { localeId: 1, quizQuestionId: 63, answer: "12 months", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 63, answer: "6 months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 63, answer: "24 months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 63, answer: "No limit", isCorrect: 0 },
+  makeQuizAnswer(1, 63, "12 months", 1),
+  makeQuizAnswer(1, 63, "6 months", 0),
+  makeQuizAnswer(1, 63, "24 months", 0),
+  makeQuizAnswer(1, 63, "No limit", 0),
 
   // Question 64
-  { localeId: 1, quizQuestionId: 64, answer: "Eye test", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 64, answer: "Driving test", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 64, answer: "Theory exam", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 64, answer: "Medical exam", isCorrect: 0 },
+  makeQuizAnswer(1, 64, "Eye test", 1),
+  makeQuizAnswer(1, 64, "Driving test", 0),
+  makeQuizAnswer(1, 64, "Theory exam", 0),
+  makeQuizAnswer(1, 64, "Medical exam", 0),
 
   // Question 65
-  { localeId: 1, quizQuestionId: 65, answer: "No longer valid", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 65, answer: "Still valid", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 65, answer: "Suspended", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 65, answer: "Renewed", isCorrect: 0 },
+  makeQuizAnswer(1, 65, "No longer valid", 1),
+  makeQuizAnswer(1, 65, "Still valid", 0),
+  makeQuizAnswer(1, 65, "Suspended", 0),
+  makeQuizAnswer(1, 65, "Renewed", 0),
 
   // Question 66
-  { localeId: 1, quizQuestionId: 66, answer: "Around CHF 30", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 66, answer: "CHF 50", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 66, answer: "CHF 100", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 66, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 66, "Around CHF 30", 1),
+  makeQuizAnswer(1, 66, "CHF 50", 0),
+  makeQuizAnswer(1, 66, "CHF 100", 0),
+  makeQuizAnswer(1, 66, "Free", 0),
 
   // Question 67
-  { localeId: 1, quizQuestionId: 67, answer: "Driving test", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 67, answer: "Eye test", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 67, answer: "No test", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 67, answer: "Medical exam", isCorrect: 0 },
+  makeQuizAnswer(1, 67, "Driving test", 1),
+  makeQuizAnswer(1, 67, "Eye test", 0),
+  makeQuizAnswer(1, 67, "No test", 0),
+  makeQuizAnswer(1, 67, "Medical exam", 0),
 
   // Question 68
-  { localeId: 1, quizQuestionId: 68, answer: "1-2 weeks", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 68, answer: "1-2 days", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 68, answer: "3-4 weeks", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 68, answer: "1 month", isCorrect: 0 },
+  makeQuizAnswer(1, 68, "1-2 weeks", 1),
+  makeQuizAnswer(1, 68, "1-2 days", 0),
+  makeQuizAnswer(1, 68, "3-4 weeks", 0),
+  makeQuizAnswer(1, 68, "1 month", 0),
 
   // Quiz 5: International Driving Licence
   // Question 69
-  { localeId: 1, quizQuestionId: 69, answer: "Swiss driving licence", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 69, answer: "Passport", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 69, answer: "Identity card", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 69, answer: "No additional document", isCorrect: 0 },
+  makeQuizAnswer(1, 69, "Swiss driving licence", 1),
+  makeQuizAnswer(1, 69, "Passport", 0),
+  makeQuizAnswer(1, 69, "Identity card", 0),
+  makeQuizAnswer(1, 69, "No additional document", 0),
 
   // Question 70
-  { localeId: 1, quizQuestionId: 70, answer: "Countries outside EU/EFTA", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 70, answer: "EU countries only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 70, answer: "EFTA countries only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 70, answer: "All countries", isCorrect: 0 },
+  makeQuizAnswer(1, 70, "Countries outside EU/EFTA", 1),
+  makeQuizAnswer(1, 70, "EU countries only", 0),
+  makeQuizAnswer(1, 70, "EFTA countries only", 0),
+  makeQuizAnswer(1, 70, "All countries", 0),
 
   // Question 71
-  { localeId: 1, quizQuestionId: 71, answer: "Three years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 71, answer: "One year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 71, answer: "Five years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 71, answer: "No expiry", isCorrect: 0 },
+  makeQuizAnswer(1, 71, "Three years", 1),
+  makeQuizAnswer(1, 71, "One year", 0),
+  makeQuizAnswer(1, 71, "Five years", 0),
+  makeQuizAnswer(1, 71, "No expiry", 0),
 
   // Question 72
-  { localeId: 1, quizQuestionId: 72, answer: "Road traffic office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 72, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 72, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 72, answer: "Embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 72, "Road traffic office", 1),
+  makeQuizAnswer(1, 72, "Tax office", 0),
+  makeQuizAnswer(1, 72, "Police station", 0),
+  makeQuizAnswer(1, 72, "Embassy", 0),
 
   // Question 73
-  { localeId: 1, quizQuestionId: 73, answer: "Around CHF 30", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 73, answer: "CHF 17", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 73, answer: "CHF 50", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 73, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 73, "Around CHF 30", 1),
+  makeQuizAnswer(1, 73, "CHF 17", 0),
+  makeQuizAnswer(1, 73, "CHF 50", 0),
+  makeQuizAnswer(1, 73, "Free", 0),
 
   // Question 74
-  { localeId: 1, quizQuestionId: 74, answer: "No, order a new one", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 74, answer: "Yes, renewable", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 74, answer: "Only if expired", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 74, answer: "Only in some cantons", isCorrect: 0 },
+  makeQuizAnswer(1, 74, "No, order a new one", 1),
+  makeQuizAnswer(1, 74, "Yes, renewable", 0),
+  makeQuizAnswer(1, 74, "Only if expired", 0),
+  makeQuizAnswer(1, 74, "Only in some cantons", 0),
 
   // Question 75
-  { localeId: 1, quizQuestionId: 75, answer: "Non-Latin characters", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 75, answer: "Expired licence", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 75, answer: "No vehicle categories", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 75, answer: "All foreign licences", isCorrect: 0 },
+  makeQuizAnswer(1, 75, "Non-Latin characters", 1),
+  makeQuizAnswer(1, 75, "Expired licence", 0),
+  makeQuizAnswer(1, 75, "No vehicle categories", 0),
+  makeQuizAnswer(1, 75, "All foreign licences", 0),
 
   // Question 76
-  { localeId: 1, quizQuestionId: 76, answer: "Travel agent", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 76, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 76, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 76, answer: "Bank", isCorrect: 0 },
+  makeQuizAnswer(1, 76, "Travel agent", 1),
+  makeQuizAnswer(1, 76, "Tax office", 0),
+  makeQuizAnswer(1, 76, "Police station", 0),
+  makeQuizAnswer(1, 76, "Bank", 0),
 
   // Quiz 6: Extract from the Debt Enforcement Register
   // Question 77
-  { localeId: 1, quizQuestionId: 77, answer: "Debt enforcement proceedings", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 77, answer: "Criminal convictions", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 77, answer: "Tax records", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 77, answer: "Civil status", isCorrect: 0 },
+  makeQuizAnswer(1, 77, "Debt enforcement proceedings", 1),
+  makeQuizAnswer(1, 77, "Criminal convictions", 0),
+  makeQuizAnswer(1, 77, "Tax records", 0),
+  makeQuizAnswer(1, 77, "Civil status", 0),
 
   // Question 78
-  { localeId: 1, quizQuestionId: 78, answer: "Online or in person", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 78, answer: "Only online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 78, answer: "Only in person", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 78, answer: "Through a lawyer", isCorrect: 0 },
+  makeQuizAnswer(1, 78, "Online or in person", 1),
+  makeQuizAnswer(1, 78, "Only online", 0),
+  makeQuizAnswer(1, 78, "Only in person", 0),
+  makeQuizAnswer(1, 78, "Through a lawyer", 0),
 
   // Question 79
-  { localeId: 1, quizQuestionId: 79, answer: "Five years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 79, answer: "One year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 79, answer: "Three years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 79, answer: "Permanent", isCorrect: 0 },
+  makeQuizAnswer(1, 79, "Five years", 1),
+  makeQuizAnswer(1, 79, "One year", 0),
+  makeQuizAnswer(1, 79, "Three years", 0),
+  makeQuizAnswer(1, 79, "Permanent", 0),
 
   // Question 80
-  { localeId: 1, quizQuestionId: 80, answer: "Signed authorization", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 80, answer: "No documentation", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 80, answer: "Tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 80, answer: "Bank statement", isCorrect: 0 },
+  makeQuizAnswer(1, 80, "Signed authorization", 1),
+  makeQuizAnswer(1, 80, "No documentation", 0),
+  makeQuizAnswer(1, 80, "Tax return", 0),
+  makeQuizAnswer(1, 80, "Bank statement", 0),
 
   // Question 81
-  { localeId: 1, quizQuestionId: 81, answer: "CHF 17", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 81, answer: "CHF 30", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 81, answer: "CHF 50", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 81, answer: "Free", isCorrect: 0 },
+  makeQuizAnswer(1, 81, "CHF 17", 1),
+  makeQuizAnswer(1, 81, "CHF 30", 0),
+  makeQuizAnswer(1, 81, "CHF 50", 0),
+  makeQuizAnswer(1, 81, "Free", 0),
 
   // Question 82
-  { localeId: 1, quizQuestionId: 82, answer: "Creditor agreement", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 82, answer: "Court order", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 82, answer: "Tax payment", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 82, answer: "No removal possible", isCorrect: 0 },
+  makeQuizAnswer(1, 82, "Creditor agreement", 1),
+  makeQuizAnswer(1, 82, "Court order", 0),
+  makeQuizAnswer(1, 82, "Tax payment", 0),
+  makeQuizAnswer(1, 82, "No removal possible", 0),
 
   // Question 83
-  { localeId: 1, quizQuestionId: 83, answer: "Renting an apartment", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 83, answer: "Filing taxes", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 83, answer: "Registering a vehicle", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 83, answer: "Applying for a passport", isCorrect: 0 },
+  makeQuizAnswer(1, 83, "Renting an apartment", 1),
+  makeQuizAnswer(1, 83, "Filing taxes", 0),
+  makeQuizAnswer(1, 83, "Registering a vehicle", 0),
+  makeQuizAnswer(1, 83, "Applying for a passport", 0),
 
   // Question 84
-  { localeId: 1, quizQuestionId: 84, answer: "Yes, with proof of interest", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 84, answer: "No, always inform", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 84, answer: "Only with court order", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 84, answer: "Only for family", isCorrect: 0 },
+  makeQuizAnswer(1, 84, "Yes, with proof of interest", 1),
+  makeQuizAnswer(1, 84, "No, always inform", 0),
+  makeQuizAnswer(1, 84, "Only with court order", 0),
+  makeQuizAnswer(1, 84, "Only for family", 0),
 
   // Quiz 7: Hunting Training and Licence
   // Question 85
-  { localeId: 1, quizQuestionId: 85, answer: "Pass an examination", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 85, answer: "Join a club", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 85, answer: "Pay a fee", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 85, answer: "No requirement", isCorrect: 0 },
+  makeQuizAnswer(1, 85, "Pass an examination", 1),
+  makeQuizAnswer(1, 85, "Join a club", 0),
+  makeQuizAnswer(1, 85, "Pay a fee", 0),
+  makeQuizAnswer(1, 85, "No requirement", 0),
 
   // Question 86
-  { localeId: 1, quizQuestionId: 86, answer: "Geneva", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 86, answer: "Bern", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 86, answer: "Zurich", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 86, answer: "Vaud", isCorrect: 0 },
+  makeQuizAnswer(1, 86, "Geneva", 1),
+  makeQuizAnswer(1, 86, "Bern", 0),
+  makeQuizAnswer(1, 86, "Zurich", 0),
+  makeQuizAnswer(1, 86, "Vaud", 0),
 
   // Question 87
-  { localeId: 1, quizQuestionId: 87, answer: "Annual shooting test", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 87, answer: "Monthly shooting test", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 87, answer: "No shooting test", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 87, answer: "Biennial shooting test", isCorrect: 0 },
+  makeQuizAnswer(1, 87, "Annual shooting test", 1),
+  makeQuizAnswer(1, 87, "Monthly shooting test", 0),
+  makeQuizAnswer(1, 87, "No shooting test", 0),
+  makeQuizAnswer(1, 87, "Biennial shooting test", 0),
 
   // Question 88
-  { localeId: 1, quizQuestionId: 88, answer: "Hunting estates", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 88, answer: "No regulation", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 88, answer: "Only licences", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 88, answer: "Federal bans", isCorrect: 0 },
+  makeQuizAnswer(1, 88, "Hunting estates", 1),
+  makeQuizAnswer(1, 88, "No regulation", 0),
+  makeQuizAnswer(1, 88, "Only licences", 0),
+  makeQuizAnswer(1, 88, "Federal bans", 0),
 
   // Question 89
-  { localeId: 1, quizQuestionId: 89, answer: "Confederation", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 89, answer: "Cantons only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 89, answer: "Hunting associations", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 89, answer: "No regulation", isCorrect: 0 },
+  makeQuizAnswer(1, 89, "Confederation", 1),
+  makeQuizAnswer(1, 89, "Cantons only", 0),
+  makeQuizAnswer(1, 89, "Hunting associations", 0),
+  makeQuizAnswer(1, 89, "No regulation", 0),
 
   // Question 90
-  { localeId: 1, quizQuestionId: 90, answer: "Training and tests", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 90, answer: "No requirements", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 90, answer: "Only a licence", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 90, answer: "Veterinary approval", isCorrect: 0 },
+  makeQuizAnswer(1, 90, "Training and tests", 1),
+  makeQuizAnswer(1, 90, "No requirements", 0),
+  makeQuizAnswer(1, 90, "Only a licence", 0),
+  makeQuizAnswer(1, 90, "Veterinary approval", 0),
 
   // Question 91
-  { localeId: 1, quizQuestionId: 91, answer: "Zurich, Lucerne, Aargau", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 91, answer: "Bern, Vaud, Ticino", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 91, answer: "Geneva, Jura, Valais", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 91, answer: "Fribourg, Zug, Uri", isCorrect: 0 },
+  makeQuizAnswer(1, 91, "Zurich, Lucerne, Aargau", 1),
+  makeQuizAnswer(1, 91, "Bern, Vaud, Ticino", 0),
+  makeQuizAnswer(1, 91, "Geneva, Jura, Valais", 0),
+  makeQuizAnswer(1, 91, "Fribourg, Zug, Uri", 0),
 
   // Question 92
-  { localeId: 1, quizQuestionId: 92, answer: "Cantonal offices", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 92, answer: "Tax authorities", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 92, answer: "Police stations", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 92, answer: "Federal offices", isCorrect: 0 },
+  makeQuizAnswer(1, 92, "Cantonal offices", 1),
+  makeQuizAnswer(1, 92, "Tax authorities", 0),
+  makeQuizAnswer(1, 92, "Police stations", 0),
+  makeQuizAnswer(1, 92, "Federal offices", 0),
 
   // Quiz 8: Living Wills
   // Question 93
-  { localeId: 1, quizQuestionId: 93, answer: "Determine medical treatment", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 93, answer: "Assign inheritance", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 93, answer: "Authorize travel", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 93, answer: "Declare taxes", isCorrect: 0 },
+  makeQuizAnswer(1, 93, "Determine medical treatment", 1),
+  makeQuizAnswer(1, 93, "Assign inheritance", 0),
+  makeQuizAnswer(1, 93, "Authorize travel", 0),
+  makeQuizAnswer(1, 93, "Declare taxes", 0),
 
   // Question 94
-  { localeId: 1, quizQuestionId: 94, answer: "Date and sign by hand", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 94, answer: "Notarize", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 94, answer: "File with court", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 94, answer: "Register online", isCorrect: 0 },
+  makeQuizAnswer(1, 94, "Date and sign by hand", 1),
+  makeQuizAnswer(1, 94, "Notarize", 0),
+  makeQuizAnswer(1, 94, "File with court", 0),
+  makeQuizAnswer(1, 94, "Register online", 0),
 
   // Question 95
-  { localeId: 1, quizQuestionId: 95, answer: "Every two years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 95, answer: "Every year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 95, answer: "Every five years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 95, answer: "Never", isCorrect: 0 },
+  makeQuizAnswer(1, 95, "Every two years", 1),
+  makeQuizAnswer(1, 95, "Every year", 0),
+  makeQuizAnswer(1, 95, "Every five years", 0),
+  makeQuizAnswer(1, 95, "Never", 0),
 
   // Question 96
-  { localeId: 1, quizQuestionId: 96, answer: "Swiss Medical Association", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 96, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 96, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 96, answer: "Embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 96, "Swiss Medical Association", 1),
+  makeQuizAnswer(1, 96, "Tax office", 0),
+  makeQuizAnswer(1, 96, "Police station", 0),
+  makeQuizAnswer(1, 96, "Embassy", 0),
 
   // Question 97
-  { localeId: 1, quizQuestionId: 97, answer: "Family or doctor", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 97, answer: "Lawyer", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 97, answer: "Bank", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 97, answer: "Tax office", isCorrect: 0 },
+  makeQuizAnswer(1, 97, "Family or doctor", 1),
+  makeQuizAnswer(1, 97, "Lawyer", 0),
+  makeQuizAnswer(1, 97, "Bank", 0),
+  makeQuizAnswer(1, 97, "Tax office", 0),
 
   // Question 98
-  { localeId: 1, quizQuestionId: 98, answer: "Legal capacity", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 98, answer: "Swiss citizenship", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 98, answer: "Medical approval", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 98, answer: "Age limit", isCorrect: 0 },
+  makeQuizAnswer(1, 98, "Legal capacity", 1),
+  makeQuizAnswer(1, 98, "Swiss citizenship", 0),
+  makeQuizAnswer(1, 98, "Medical approval", 0),
+  makeQuizAnswer(1, 98, "Age limit", 0),
 
   // Question 99
-  { localeId: 1, quizQuestionId: 99, answer: "General and specific", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 99, answer: "Short and long", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 99, answer: "Legal and medical", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 99, answer: "Public and private", isCorrect: 0 },
+  makeQuizAnswer(1, 99, "General and specific", 1),
+  makeQuizAnswer(1, 99, "Short and long", 0),
+  makeQuizAnswer(1, 99, "Legal and medical", 0),
+  makeQuizAnswer(1, 99, "Public and private", 0),
 
   // Question 100
-  { localeId: 1, quizQuestionId: 100, answer: "No, optional", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 100, answer: "Yes, mandatory", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 100, answer: "Only for elderly", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 100, answer: "Only for hospitalized", isCorrect: 0 },
+  makeQuizAnswer(1, 100, "No, optional", 1),
+  makeQuizAnswer(1, 100, "Yes, mandatory", 0),
+  makeQuizAnswer(1, 100, "Only for elderly", 0),
+  makeQuizAnswer(1, 100, "Only for hospitalized", 0),
 
   // Quiz 9: Passport and Identity Card
   // Question 101
-  { localeId: 1, quizQuestionId: 101, answer: "10 working days", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 101, answer: "5 working days", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 101, answer: "20 working days", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 101, answer: "30 working days", isCorrect: 0 },
+  makeQuizAnswer(1, 101, "10 working days", 1),
+  makeQuizAnswer(1, 101, "5 working days", 0),
+  makeQuizAnswer(1, 101, "20 working days", 0),
+  makeQuizAnswer(1, 101, "30 working days", 0),
 
   // Question 102
-  { localeId: 1, quizQuestionId: 102, answer: "Photo, signature, fingerprints", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 102, answer: "Photo only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 102, answer: "Signature only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 102, answer: "No biometric data", isCorrect: 0 },
+  makeQuizAnswer(1, 102, "Photo, signature, fingerprints", 1),
+  makeQuizAnswer(1, 102, "Photo only", 0),
+  makeQuizAnswer(1, 102, "Signature only", 0),
+  makeQuizAnswer(1, 102, "No biometric data", 0),
 
   // Question 103
-  { localeId: 1, quizQuestionId: 103, answer: "10 years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 103, answer: "5 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 103, answer: "15 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 103, answer: "No expiry", isCorrect: 0 },
+  makeQuizAnswer(1, 103, "10 years", 1),
+  makeQuizAnswer(1, 103, "5 years", 0),
+  makeQuizAnswer(1, 103, "15 years", 0),
+  makeQuizAnswer(1, 103, "No expiry", 0),
 
   // Question 104
-  { localeId: 1, quizQuestionId: 104, answer: "Swiss embassy", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 104, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 104, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 104, answer: "Cantonal office", isCorrect: 0 },
+  makeQuizAnswer(1, 104, "Swiss embassy", 1),
+  makeQuizAnswer(1, 104, "Tax office", 0),
+  makeQuizAnswer(1, 104, "Police station", 0),
+  makeQuizAnswer(1, 104, "Cantonal office", 0),
 
   // Question 105
-  { localeId: 1, quizQuestionId: 105, answer: "Parental authority", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 105, answer: "Child’s signature", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 105, answer: "Birth certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 105, answer: "No requirements", isCorrect: 0 },
+  makeQuizAnswer(1, 105, "Parental authority", 1),
+  makeQuizAnswer(1, 105, "Child’s signature", 0),
+  makeQuizAnswer(1, 105, "Birth certificate", 0),
+  makeQuizAnswer(1, 105, "No requirements", 0),
 
   // Question 106
-  { localeId: 1, quizQuestionId: 106, answer: "5 years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 106, answer: "10 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 106, answer: "3 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 106, answer: "No expiry", isCorrect: 0 },
+  makeQuizAnswer(1, 106, "5 years", 1),
+  makeQuizAnswer(1, 106, "10 years", 0),
+  makeQuizAnswer(1, 106, "3 years", 0),
+  makeQuizAnswer(1, 106, "No expiry", 0),
 
   // Question 107
-  { localeId: 1, quizQuestionId: 107, answer: "Non-biometric urgent passport", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 107, answer: "Biometric passport", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 107, answer: "Identity card", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 107, answer: "Driving licence", isCorrect: 0 },
+  makeQuizAnswer(1, 107, "Non-biometric urgent passport", 1),
+  makeQuizAnswer(1, 107, "Biometric passport", 0),
+  makeQuizAnswer(1, 107, "Identity card", 0),
+  makeQuizAnswer(1, 107, "Driving licence", 0),
 
   // Question 108
-  { localeId: 1, quizQuestionId: 108, answer: "Meet specific requirements", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 108, answer: "Any photo", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 108, answer: "No photo needed", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 108, answer: "Only digital photos", isCorrect: 0 },
+  makeQuizAnswer(1, 108, "Meet specific requirements", 1),
+  makeQuizAnswer(1, 108, "Any photo", 0),
+  makeQuizAnswer(1, 108, "No photo needed", 0),
+  makeQuizAnswer(1, 108, "Only digital photos", 0),
 
   // Quiz 10: Lost or Stolen Passport or Identity Card
   // Question 109
-  { localeId: 1, quizQuestionId: 109, answer: "File a police report", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 109, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 109, answer: "Contact embassy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 109, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 109, "File a police report", 1),
+  makeQuizAnswer(1, 109, "Apply online", 0),
+  makeQuizAnswer(1, 109, "Contact embassy", 0),
+  makeQuizAnswer(1, 109, "No action needed", 0),
 
   // Question 110
-  { localeId: 1, quizQuestionId: 110, answer: "It is cancelled", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 110, answer: "It remains valid", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 110, answer: "It is renewed", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 110, answer: "It is suspended", isCorrect: 0 },
+  makeQuizAnswer(1, 110, "It is cancelled", 1),
+  makeQuizAnswer(1, 110, "It remains valid", 0),
+  makeQuizAnswer(1, 110, "It is renewed", 0),
+  makeQuizAnswer(1, 110, "It is suspended", 0),
 
   // Question 111
-  { localeId: 1, quizQuestionId: 111, answer: "12 months", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 111, answer: "6 months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 111, answer: "24 months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 111, answer: "No limit", isCorrect: 0 },
+  makeQuizAnswer(1, 111, "12 months", 1),
+  makeQuizAnswer(1, 111, "6 months", 0),
+  makeQuizAnswer(1, 111, "24 months", 0),
+  makeQuizAnswer(1, 111, "No limit", 0),
 
   // Question 112
-  { localeId: 1, quizQuestionId: 112, answer: "Notify local police and embassy", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 112, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 112, answer: "Contact tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 112, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 112, "Notify local police and embassy", 1),
+  makeQuizAnswer(1, 112, "Apply online", 0),
+  makeQuizAnswer(1, 112, "Contact tax office", 0),
+  makeQuizAnswer(1, 112, "No action needed", 0),
 
   // Question 113
-  { localeId: 1, quizQuestionId: 113, answer: "At embassy or online", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 113, answer: "Only online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 113, answer: "Only at embassy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 113, answer: "At police station", isCorrect: 0 },
+  makeQuizAnswer(1, 113, "At embassy or online", 1),
+  makeQuizAnswer(1, 113, "Only online", 0),
+  makeQuizAnswer(1, 113, "Only at embassy", 0),
+  makeQuizAnswer(1, 113, "At police station", 0),
 
   // Question 114
-  { localeId: 1, quizQuestionId: 114, answer: "Hand over to passport office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 114, answer: "Keep it", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 114, answer: "Destroy it", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 114, answer: "Use it", isCorrect: 0 },
+  makeQuizAnswer(1, 114, "Hand over to passport office", 1),
+  makeQuizAnswer(1, 114, "Keep it", 0),
+  makeQuizAnswer(1, 114, "Destroy it", 0),
+  makeQuizAnswer(1, 114, "Use it", 0),
 
   // Question 115
-  { localeId: 1, quizQuestionId: 115, answer: "Police", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 115, answer: "Embassy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 115, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 115, answer: "Passport office", isCorrect: 0 },
+  makeQuizAnswer(1, 115, "Police", 1),
+  makeQuizAnswer(1, 115, "Embassy", 0),
+  makeQuizAnswer(1, 115, "Tax office", 0),
+  makeQuizAnswer(1, 115, "Passport office", 0),
 
   // Question 116
-  { localeId: 1, quizQuestionId: 116, answer: "Justified urgency", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 116, answer: "No requirements", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 116, answer: "Payment only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 116, answer: "Swiss citizenship", isCorrect: 0 },
+  makeQuizAnswer(1, 116, "Justified urgency", 1),
+  makeQuizAnswer(1, 116, "No requirements", 0),
+  makeQuizAnswer(1, 116, "Payment only", 0),
+  makeQuizAnswer(1, 116, "Swiss citizenship", 0),
 
   // Quiz 11: Permits for Living in Switzerland
   // Question 117
-  { localeId: 1, quizQuestionId: 117, answer: "All foreign nationals", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 117, answer: "Only EU/EFTA nationals", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 117, answer: "Only third-country nationals", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 117, answer: "Only Swiss citizens", isCorrect: 0 },
+  makeQuizAnswer(1, 117, "All foreign nationals", 1),
+  makeQuizAnswer(1, 117, "Only EU/EFTA nationals", 0),
+  makeQuizAnswer(1, 117, "Only third-country nationals", 0),
+  makeQuizAnswer(1, 117, "Only Swiss citizens", 0),
 
   // Question 118
-  { localeId: 1, quizQuestionId: 118, answer: "Valid ID or passport", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 118, answer: "Tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 118, answer: "Employment contract", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 118, answer: "Bank statement", isCorrect: 0 },
+  makeQuizAnswer(1, 118, "Valid ID or passport", 1),
+  makeQuizAnswer(1, 118, "Tax return", 0),
+  makeQuizAnswer(1, 118, "Employment contract", 0),
+  makeQuizAnswer(1, 118, "Bank statement", 0),
 
   // Question 119
-  { localeId: 1, quizQuestionId: 119, answer: "Married for three years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 119, answer: "Married for one year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 119, answer: "No marriage required", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 119, answer: "Employed for five years", isCorrect: 0 },
+  makeQuizAnswer(1, 119, "Married for three years", 1),
+  makeQuizAnswer(1, 119, "Married for one year", 0),
+  makeQuizAnswer(1, 119, "No marriage required", 0),
+  makeQuizAnswer(1, 119, "Employed for five years", 0),
 
   // Question 120
-  { localeId: 1, quizQuestionId: 120, answer: "F permit", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 120, answer: "B permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 120, answer: "C permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 120, answer: "G permit", isCorrect: 0 },
+  makeQuizAnswer(1, 120, "F permit", 1),
+  makeQuizAnswer(1, 120, "B permit", 0),
+  makeQuizAnswer(1, 120, "C permit", 0),
+  makeQuizAnswer(1, 120, "G permit", 0),
 
   // Question 121
-  { localeId: 1, quizQuestionId: 121, answer: "Cantonal migration authorities", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 121, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 121, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 121, answer: "Embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 121, "Cantonal migration authorities", 1),
+  makeQuizAnswer(1, 121, "Tax office", 0),
+  makeQuizAnswer(1, 121, "Police station", 0),
+  makeQuizAnswer(1, 121, "Embassy", 0),
 
   // Question 122
-  { localeId: 1, quizQuestionId: 122, answer: "Report to police", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 122, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 122, answer: "Contact embassy", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 122, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 122, "Report to police", 1),
+  makeQuizAnswer(1, 122, "Apply online", 0),
+  makeQuizAnswer(1, 122, "Contact embassy", 0),
+  makeQuizAnswer(1, 122, "No action needed", 0),
 
   // Question 123
-  { localeId: 1, quizQuestionId: 123, answer: "G permit", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 123, answer: "B permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 123, answer: "C permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 123, answer: "L permit", isCorrect: 0 },
+  makeQuizAnswer(1, 123, "G permit", 1),
+  makeQuizAnswer(1, 123, "B permit", 0),
+  makeQuizAnswer(1, 123, "C permit", 0),
+  makeQuizAnswer(1, 123, "L permit", 0),
 
   // Question 124
-  { localeId: 1, quizQuestionId: 124, answer: "Three months to two weeks before expiry", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 124, answer: "Any time", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 124, answer: "After expiry", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 124, answer: "One year before expiry", isCorrect: 0 },
+  makeQuizAnswer(1, 124, "Three months to two weeks before expiry", 1),
+  makeQuizAnswer(1, 124, "Any time", 0),
+  makeQuizAnswer(1, 124, "After expiry", 0),
+  makeQuizAnswer(1, 124, "One year before expiry", 0),
 
   // Quiz 12: Requesting an OASI Card
   // Question 125
-  { localeId: 1, quizQuestionId: 125, answer: "Submit form to employer", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 125, answer: "Apply online directly", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 125, answer: "Visit the tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 125, answer: "Contact the embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 125, "Submit form to employer", 1),
+  makeQuizAnswer(1, 125, "Apply online directly", 0),
+  makeQuizAnswer(1, 125, "Visit the tax office", 0),
+  makeQuizAnswer(1, 125, "Contact the embassy", 0),
 
   // Question 126
-  { localeId: 1, quizQuestionId: 126, answer: "Professional fund or compensation office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 126, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 126, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 126, answer: "Swiss embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 126, "Professional fund or compensation office", 1),
+  makeQuizAnswer(1, 126, "Tax office", 0),
+  makeQuizAnswer(1, 126, "Police station", 0),
+  makeQuizAnswer(1, 126, "Swiss embassy", 0),
 
   // Question 127
-  { localeId: 1, quizQuestionId: 127, answer: "Swiss Compensation Office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 127, answer: "Cantonal migration office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 127, answer: "Tax authority", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 127, answer: "Employer", isCorrect: 0 },
+  makeQuizAnswer(1, 127, "Swiss Compensation Office", 1),
+  makeQuizAnswer(1, 127, "Cantonal migration office", 0),
+  makeQuizAnswer(1, 127, "Tax authority", 0),
+  makeQuizAnswer(1, 127, "Employer", 0),
 
   // Question 128
-  { localeId: 1, quizQuestionId: 128, answer: "Form 101", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 128, answer: "Form 102", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 128, answer: "Form 103", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 128, answer: "No form needed", isCorrect: 0 },
+  makeQuizAnswer(1, 128, "Form 101", 1),
+  makeQuizAnswer(1, 128, "Form 102", 0),
+  makeQuizAnswer(1, 128, "Form 103", 0),
+  makeQuizAnswer(1, 128, "No form needed", 0),
 
   // Question 129
-  { localeId: 1, quizQuestionId: 129, answer: "Compensation office website", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 129, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 129, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 129, answer: "Embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 129, "Compensation office website", 1),
+  makeQuizAnswer(1, 129, "Tax office", 0),
+  makeQuizAnswer(1, 129, "Police station", 0),
+  makeQuizAnswer(1, 129, "Embassy", 0),
 
   // Question 130
-  { localeId: 1, quizQuestionId: 130, answer: "Contact compensation office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 130, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 130, answer: "Visit tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 130, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 130, "Contact compensation office", 1),
+  makeQuizAnswer(1, 130, "Apply online", 0),
+  makeQuizAnswer(1, 130, "Visit tax office", 0),
+  makeQuizAnswer(1, 130, "No action needed", 0),
 
   // Question 131
-  { localeId: 1, quizQuestionId: 131, answer: "Compensation office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 131, answer: "Employer", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 131, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 131, answer: "Police station", isCorrect: 0 },
+  makeQuizAnswer(1, 131, "Compensation office", 1),
+  makeQuizAnswer(1, 131, "Employer", 0),
+  makeQuizAnswer(1, 131, "Tax office", 0),
+  makeQuizAnswer(1, 131, "Police station", 0),
 
   // Question 132
-  { localeId: 1, quizQuestionId: 132, answer: "Submit form to compensation office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 132, answer: "Apply online directly", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 132, answer: "Visit tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 132, answer: "Contact embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 132, "Submit form to compensation office", 1),
+  makeQuizAnswer(1, 132, "Apply online directly", 0),
+  makeQuizAnswer(1, 132, "Visit tax office", 0),
+  makeQuizAnswer(1, 132, "Contact embassy", 0),
 
   // Quiz 13: Salary Certificate
   // Question 133
-  { localeId: 1, quizQuestionId: 133, answer: "Before end of January", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 133, answer: "Before end of March", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 133, answer: "Before end of June", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 133, answer: "Upon request", isCorrect: 0 },
+  makeQuizAnswer(1, 133, "Before end of January", 1),
+  makeQuizAnswer(1, 133, "Before end of March", 0),
+  makeQuizAnswer(1, 133, "Before end of June", 0),
+  makeQuizAnswer(1, 133, "Upon request", 0),
 
   // Question 134
-  { localeId: 1, quizQuestionId: 134, answer: "Request from employer", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 134, answer: "Contact tax authority", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 134, answer: "Apply online", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 134, answer: "Visit police station", isCorrect: 0 },
+  makeQuizAnswer(1, 134, "Request from employer", 1),
+  makeQuizAnswer(1, 134, "Contact tax authority", 0),
+  makeQuizAnswer(1, 134, "Apply online", 0),
+  makeQuizAnswer(1, 134, "Visit police station", 0),
 
   // Question 135
-  { localeId: 1, quizQuestionId: 135, answer: "Employer", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 135, answer: "Employee", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 135, answer: "Tax authority", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 135, answer: "Bank", isCorrect: 0 },
+  makeQuizAnswer(1, 135, "Employer", 1),
+  makeQuizAnswer(1, 135, "Employee", 0),
+  makeQuizAnswer(1, 135, "Tax authority", 0),
+  makeQuizAnswer(1, 135, "Bank", 0),
 
   // Question 136
-  { localeId: 1, quizQuestionId: 136, answer: "Gross salary, deductions", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 136, answer: "Net salary only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 136, answer: "Bonuses only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 136, answer: "No financial details", isCorrect: 0 },
+  makeQuizAnswer(1, 136, "Gross salary, deductions", 1),
+  makeQuizAnswer(1, 136, "Net salary only", 0),
+  makeQuizAnswer(1, 136, "Bonuses only", 0),
+  makeQuizAnswer(1, 136, "No financial details", 0),
 
   // Question 137
-  { localeId: 1, quizQuestionId: 137, answer: "With tax return", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 137, answer: "Upon request", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 137, answer: "Not required", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 137, answer: "Only for audits", isCorrect: 0 },
+  makeQuizAnswer(1, 137, "With tax return", 1),
+  makeQuizAnswer(1, 137, "Upon request", 0),
+  makeQuizAnswer(1, 137, "Not required", 0),
+  makeQuizAnswer(1, 137, "Only for audits", 0),
 
   // Question 138
-  { localeId: 1, quizQuestionId: 138, answer: "Tax authority", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 138, answer: "Bank", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 138, answer: "Lawyer", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 138, answer: "Employee", isCorrect: 0 },
+  makeQuizAnswer(1, 138, "Tax authority", 1),
+  makeQuizAnswer(1, 138, "Bank", 0),
+  makeQuizAnswer(1, 138, "Lawyer", 0),
+  makeQuizAnswer(1, 138, "Employee", 0),
 
   // Question 139
-  { localeId: 1, quizQuestionId: 139, answer: "Certificates from all employers", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 139, answer: "One certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 139, answer: "No certificate needed", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 139, answer: "Last employer only", isCorrect: 0 },
+  makeQuizAnswer(1, 139, "Certificates from all employers", 1),
+  makeQuizAnswer(1, 139, "One certificate", 0),
+  makeQuizAnswer(1, 139, "No certificate needed", 0),
+  makeQuizAnswer(1, 139, "Last employer only", 0),
 
   // Question 140
-  { localeId: 1, quizQuestionId: 140, answer: "No, provided automatically", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 140, answer: "Yes, always request", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 140, answer: "Only for new employees", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 140, answer: "Only for tax audits", isCorrect: 0 },
+  makeQuizAnswer(1, 140, "No, provided automatically", 1),
+  makeQuizAnswer(1, 140, "Yes, always request", 0),
+  makeQuizAnswer(1, 140, "Only for new employees", 0),
+  makeQuizAnswer(1, 140, "Only for tax audits", 0),
 
   // Quiz 14: Lost Vehicle Registration Document
   // Question 141
-  { localeId: 1, quizQuestionId: 141, answer: "Vehicle owner", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 141, answer: "Anyone", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 141, answer: "Insurance company", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 141, answer: "Driver only", isCorrect: 0 },
+  makeQuizAnswer(1, 141, "Vehicle owner", 1),
+  makeQuizAnswer(1, 141, "Anyone", 0),
+  makeQuizAnswer(1, 141, "Insurance company", 0),
+  makeQuizAnswer(1, 141, "Driver only", 0),
 
   // Question 142
-  { localeId: 1, quizQuestionId: 142, answer: "CHF 15-30", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 142, answer: "CHF 50-100", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 142, answer: "Free", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 142, answer: "CHF 5-10", isCorrect: 0 },
+  makeQuizAnswer(1, 142, "CHF 15-30", 1),
+  makeQuizAnswer(1, 142, "CHF 50-100", 0),
+  makeQuizAnswer(1, 142, "Free", 0),
+  makeQuizAnswer(1, 142, "CHF 5-10", 0),
 
   // Question 143
-  { localeId: 1, quizQuestionId: 143, answer: "Return to road traffic office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 143, answer: "Keep it", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 143, answer: "Destroy it", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 143, answer: "Use it", isCorrect: 0 },
+  makeQuizAnswer(1, 143, "Return to road traffic office", 1),
+  makeQuizAnswer(1, 143, "Keep it", 0),
+  makeQuizAnswer(1, 143, "Destroy it", 0),
+  makeQuizAnswer(1, 143, "Use it", 0),
 
   // Question 144
-  { localeId: 1, quizQuestionId: 144, answer: "Road traffic office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 144, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 144, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 144, answer: "Insurance company", isCorrect: 0 },
+  makeQuizAnswer(1, 144, "Road traffic office", 1),
+  makeQuizAnswer(1, 144, "Police station", 0),
+  makeQuizAnswer(1, 144, "Tax office", 0),
+  makeQuizAnswer(1, 144, "Insurance company", 0),
 
   // Question 145
-  { localeId: 1, quizQuestionId: 145, answer: "Loss or theft", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 145, answer: "Change of address", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 145, answer: "Vehicle sale", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 145, answer: "No notification needed", isCorrect: 0 },
+  makeQuizAnswer(1, 145, "Loss or theft", 1),
+  makeQuizAnswer(1, 145, "Change of address", 0),
+  makeQuizAnswer(1, 145, "Vehicle sale", 0),
+  makeQuizAnswer(1, 145, "No notification needed", 0),
 
   // Question 146
-  { localeId: 1, quizQuestionId: 146, answer: "Original becomes invalid", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 146, answer: "Original remains valid", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 146, answer: "Both are valid", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 146, answer: "Replacement is temporary", isCorrect: 0 },
+  makeQuizAnswer(1, 146, "Original becomes invalid", 1),
+  makeQuizAnswer(1, 146, "Original remains valid", 0),
+  makeQuizAnswer(1, 146, "Both are valid", 0),
+  makeQuizAnswer(1, 146, "Replacement is temporary", 0),
 
   // Question 147
-  { localeId: 1, quizQuestionId: 147, answer: "Road traffic office", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 147, answer: "Police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 147, answer: "Tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 147, answer: "Insurance company", isCorrect: 0 },
+  makeQuizAnswer(1, 147, "Road traffic office", 1),
+  makeQuizAnswer(1, 147, "Police station", 0),
+  makeQuizAnswer(1, 147, "Tax office", 0),
+  makeQuizAnswer(1, 147, "Insurance company", 0),
 
   // Question 148
-  { localeId: 1, quizQuestionId: 148, answer: "Report theft to police, then apply", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 148, answer: "Apply online directly", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 148, answer: "Contact insurance", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 148, answer: "No action needed", isCorrect: 0 },
+  makeQuizAnswer(1, 148, "Report theft to police, then apply", 1),
+  makeQuizAnswer(1, 148, "Apply online directly", 0),
+  makeQuizAnswer(1, 148, "Contact insurance", 0),
+  makeQuizAnswer(1, 148, "No action needed", 0),
 ];
 
 // Documents
 // Quiz 20 - 25
-const quizFamily = [
-  { localeId: 1, categoryId: 3, title: "Adoption" },
-  { localeId: 1, categoryId: 3, title: "Family Reunification" },
-  { localeId: 1, categoryId: 3, title: "Death" },
-  { localeId: 1, categoryId: 3, title: "Divorce" },
-  { localeId: 1, categoryId: 3, title: "Inheritance" },
-  { localeId: 1, categoryId: 3, title: "Marriage" },
+const quizFamily: Quiz[] = [
+  makeQuiz(1, 3, "Adoption"),
+  makeQuiz(1, 3, "Family Reunification"),
+  makeQuiz(1, 3, "Death"),
+  makeQuiz(1, 3, "Divorce"),
+  makeQuiz(1, 3, "Inheritance"),
+  makeQuiz(1, 3, "Marriage"),
 ];
 
 // Question 149 - 196
-const quizQuestionFamily = [
+const quizQuestionFamily: QuizQuestion[] = [
   // Quiz 20: Adoption
-  { localeId: 1, quizId: 20, question: "Who should you contact to adopt a child in Switzerland?" },
-  { localeId: 1, quizId: 20, question: "What is the minimum age difference required between the adoptive parent and the child?" },
-  { localeId: 1, quizId: 20, question: "What is a key requirement for adopting a child as a couple in Switzerland?" },
-  { localeId: 1, quizId: 20, question: "What is the minimum age for a single person to adopt a child?" },
-  { localeId: 1, quizId: 20, question: "What is required for a child to consent to their adoption?" },
-  { localeId: 1, quizId: 20, question: "How long must adoptive parents care for a child before adoption?" },
-  { localeId: 1, quizId: 20, question: "Who is entitled to adoption leave in Switzerland?" },
-  { localeId: 1, quizId: 20, question: "What is the maximum daily adoption allowance in Switzerland?" },
+  makeQuizQuestion(1, 20, "Who should you contact to adopt a child in Switzerland?"),
+  makeQuizQuestion(1, 20, "What is the minimum age difference required between the adoptive parent and the child?"),
+  makeQuizQuestion(1, 20, "What is a key requirement for adopting a child as a couple in Switzerland?"),
+  makeQuizQuestion(1, 20, "What is the minimum age for a single person to adopt a child?"),
+  makeQuizQuestion(1, 20, "What is required for a child to consent to their adoption?"),
+  makeQuizQuestion(1, 20, "How long must adoptive parents care for a child before adoption?"),
+  makeQuizQuestion(1, 20, "Who is entitled to adoption leave in Switzerland?"),
+  makeQuizQuestion(1, 20, "What is the maximum daily adoption allowance in Switzerland?"),
 
   // Quiz 21: Family Reunification
-  { localeId: 1, quizId: 21, question: "Who can apply for family reunification in Switzerland?" },
-  { localeId: 1, quizId: 21, question: "Which family members can a Swiss citizen bring to Switzerland?" },
-  { localeId: 1, quizId: 21, question: "What is a key condition for family reunification?" },
-  { localeId: 1, quizId: 21, question: "What is the time limit for applying for family reunification for children over 12?" },
-  { localeId: 1, quizId: 21, question: "Who cannot bring all family members to Switzerland?" },
-  { localeId: 1, quizId: 21, question: "What document is required for family members arriving in Switzerland?" },
-  { localeId: 1, quizId: 21, question: "What must children joining Switzerland do until age 16?" },
-  { localeId: 1, quizId: 21, question: "Where should you apply for family reunification?" },
+  makeQuizQuestion(1, 21, "Who can apply for family reunification in Switzerland?"),
+  makeQuizQuestion(1, 21, "Which family members can a Swiss citizen bring to Switzerland?"),
+  makeQuizQuestion(1, 21, "What is a key condition for family reunification?"),
+  makeQuizQuestion(1, 21, "What is the time limit for applying for family reunification for children over 12?"),
+  makeQuizQuestion(1, 21, "Who cannot bring all family members to Switzerland?"),
+  makeQuizQuestion(1, 21, "What document is required for family members arriving in Switzerland?"),
+  makeQuizQuestion(1, 21, "What must children joining Switzerland do until age 16?"),
+  makeQuizQuestion(1, 21, "Where should you apply for family reunification?"),
 
   // Quiz 22: Death
-  { localeId: 1, quizId: 22, question: "Who issues a death certificate if a person dies in a hospital?" },
-  { localeId: 1, quizId: 22, question: "Within how many days must a death be reported to the civil register office?" },
-  { localeId: 1, quizId: 22, question: "What document is required to report a death?" },
-  { localeId: 1, quizId: 22, question: "What must be done before a funeral can take place?" },
-  { localeId: 1, quizId: 22, question: "Who should be notified if a death occurs abroad?" },
-  { localeId: 1, quizId: 22, question: "What is the purpose of a survivor’s pension?" },
-  { localeId: 1, quizId: 22, question: "What is the maximum monthly widow’s or widower’s pension?" },
-  { localeId: 1, quizId: 22, question: "What should be done after the funeral regarding the deceased’s insurance?" },
+  makeQuizQuestion(1, 22, "Who issues a death certificate if a person dies in a hospital?"),
+  makeQuizQuestion(1, 22, "Within how many days must a death be reported to the civil register office?"),
+  makeQuizQuestion(1, 22, "What document is required to report a death?"),
+  makeQuizQuestion(1, 22, "What must be done before a funeral can take place?"),
+  makeQuizQuestion(1, 22, "Who should be notified if a death occurs abroad?"),
+  makeQuizQuestion(1, 22, "What is the purpose of a survivor’s pension?"),
+  makeQuizQuestion(1, 22, "What is the maximum monthly widow’s or widower’s pension?"),
+  makeQuizQuestion(1, 22, "What should be done after the funeral regarding the deceased’s insurance?"),
 
   // Quiz 23: Divorce
-  { localeId: 1, quizId: 23, question: "Where do you file for a divorce in Switzerland?" },
-  { localeId: 1, quizId: 23, question: "What is required for a divorce by mutual consent?" },
-  { localeId: 1, quizId: 23, question: "How long must spouses live separately for a unilateral divorce?" },
-  { localeId: 1, quizId: 23, question: "What is the typical duration of a divorce by mutual consent?" },
-  { localeId: 1, quizId: 23, question: "What happens to parental responsibility after divorce?" },
-  { localeId: 1, quizId: 23, question: "What can you do if an ex-spouse does not pay child support?" },
-  { localeId: 1, quizId: 23, question: "What is the effect of divorce on a foreign national’s B permit?" },
-  { localeId: 1, quizId: 23, question: "What are the court costs for a divorce in Switzerland?" },
+  makeQuizQuestion(1, 23, "Where do you file for a divorce in Switzerland?"),
+  makeQuizQuestion(1, 23, "What is required for a divorce by mutual consent?"),
+  makeQuizQuestion(1, 23, "How long must spouses live separately for a unilateral divorce?"),
+  makeQuizQuestion(1, 23, "What is the typical duration of a divorce by mutual consent?"),
+  makeQuizQuestion(1, 23, "What happens to parental responsibility after divorce?"),
+  makeQuizQuestion(1, 23, "What can you do if an ex-spouse does not pay child support?"),
+  makeQuizQuestion(1, 23, "What is the effect of divorce on a foreign national’s B permit?"),
+  makeQuizQuestion(1, 23, "What are the court costs for a divorce in Switzerland?"),
 
   // Quiz 24: Inheritance
-  { localeId: 1, quizId: 24, question: "Who is exempt from inheritance tax in most cantons?" },
-  { localeId: 1, quizId: 24, question: "What is required to obtain a certificate of inheritance?" },
-  { localeId: 1, quizId: 24, question: "Within how many months must you renounce an inheritance?" },
-  { localeId: 1, quizId: 24, question: "Who inherits if there is no will and no relatives?" },
-  { localeId: 1, quizId: 24, question: "What is a handwritten will also known as?" },
-  { localeId: 1, quizId: 24, question: "What can be included in a contract of succession?" },
-  { localeId: 1, quizId: 24, question: "What is the purpose of a public inventory?" },
-  { localeId: 1, quizId: 24, question: "Who are statutory heirs entitled to a share of the estate?" },
+  makeQuizQuestion(1, 24, "Who is exempt from inheritance tax in most cantons?"),
+  makeQuizQuestion(1, 24, "What is required to obtain a certificate of inheritance?"),
+  makeQuizQuestion(1, 24, "Within how many months must you renounce an inheritance?"),
+  makeQuizQuestion(1, 24, "Who inherits if there is no will and no relatives?"),
+  makeQuizQuestion(1, 24, "What is a handwritten will also known as?"),
+  makeQuizQuestion(1, 24, "What can be included in a contract of succession?"),
+  makeQuizQuestion(1, 24, "What is the purpose of a public inventory?"),
+  makeQuizQuestion(1, 24, "Who are statutory heirs entitled to a share of the estate?"),
 
   // Quiz 25: Marriage
-  { localeId: 1, quizId: 25, question: "What is the minimum age to get married in Switzerland?" },
-  { localeId: 1, quizId: 25, question: "What must you do before getting married at a civil register office?" },
-  { localeId: 1, quizId: 25, question: "What is the default marital property regime in Switzerland?" },
-  { localeId: 1, quizId: 25, question: "Since when can same-sex couples marry in Switzerland?" },
-  { localeId: 1, quizId: 25, question: "What is a requirement for a marriage ceremony?" },
-  { localeId: 1, quizId: 25, question: "How are taxes handled for married couples?" },
-  { localeId: 1, quizId: 25, question: "What happens to a same-sex registered partnership after 1 July 2022?" },
-  { localeId: 1, quizId: 25, question: "What is the approximate cost of a civil marriage ceremony?" },
+  makeQuizQuestion(1, 25, "What is the minimum age to get married in Switzerland?"),
+  makeQuizQuestion(1, 25, "What must you do before getting married at a civil register office?"),
+  makeQuizQuestion(1, 25, "What is the default marital property regime in Switzerland?"),
+  makeQuizQuestion(1, 25, "Since when can same-sex couples marry in Switzerland?"),
+  makeQuizQuestion(1, 25, "What is a requirement for a marriage ceremony?"),
+  makeQuizQuestion(1, 25, "How are taxes handled for married couples?"),
+  makeQuizQuestion(1, 25, "What happens to a same-sex registered partnership after 1 July 2022?"),
+  makeQuizQuestion(1, 25, "What is the approximate cost of a civil marriage ceremony?"),
 ];
 
-const quizAnswerFamily = [
+const quizAnswerFamily: QuizAnswer[] = [
   // Quiz 20: Adoption
   // Question 149
-  { localeId: 1, quizQuestionId: 149, answer: "Central adoption authority of your canton", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 149, answer: "Local police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 149, answer: "Federal tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 149, answer: "Health insurance provider", isCorrect: 0 },
+  makeQuizAnswer(1, 149, "Central adoption authority of your canton", 1),
+  makeQuizAnswer(1, 149, "Local police station", 0),
+  makeQuizAnswer(1, 149, "Federal tax office", 0),
+  makeQuizAnswer(1, 149, "Health insurance provider", 0),
 
   // Question 150
-  { localeId: 1, quizQuestionId: 150, answer: "16 years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 150, answer: "10 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 150, answer: "20 years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 150, answer: "5 years", isCorrect: 0 },
+  makeQuizAnswer(1, 150, "16 years", 1),
+  makeQuizAnswer(1, 150, "10 years", 0),
+  makeQuizAnswer(1, 150, "20 years", 0),
+  makeQuizAnswer(1, 150, "5 years", 0),
 
   // Question 151
-  { localeId: 1, quizQuestionId: 151, answer: "Must be married", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 151, answer: "Must be under 30 years old", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 151, answer: "Must own a house", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 151, answer: "Must have Swiss citizenship", isCorrect: 0 },
+  makeQuizAnswer(1, 151, "Must be married", 1),
+  makeQuizAnswer(1, 151, "Must be under 30 years old", 0),
+  makeQuizAnswer(1, 151, "Must own a house", 0),
+  makeQuizAnswer(1, 151, "Must have Swiss citizenship", 0),
 
   // Question 152
-  { localeId: 1, quizQuestionId: 152, answer: "28 years old", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 152, answer: "18 years old", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 152, answer: "25 years old", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 152, answer: "35 years old", isCorrect: 0 },
+  makeQuizAnswer(1, 152, "28 years old", 1),
+  makeQuizAnswer(1, 152, "18 years old", 0),
+  makeQuizAnswer(1, 152, "25 years old", 0),
+  makeQuizAnswer(1, 152, "35 years old", 0),
 
   // Question 152
-  { localeId: 1, quizQuestionId: 153, answer: "The child must be capable of consenting", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 153, answer: "The child must be over 18", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 153, answer: "The child’s consent is not required", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 153, answer: "The child must be Swiss", isCorrect: 0 },
+  makeQuizAnswer(1, 153, "The child must be capable of consenting", 1),
+  makeQuizAnswer(1, 153, "The child must be over 18", 0),
+  makeQuizAnswer(1, 153, "The child’s consent is not required", 0),
+  makeQuizAnswer(1, 153, "The child must be Swiss", 0),
 
   // Question 154
-  { localeId: 1, quizQuestionId: 154, answer: "At least one year", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 154, answer: "Six months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 154, answer: "Two years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 154, answer: "Three months", isCorrect: 0 },
+  makeQuizAnswer(1, 154, "At least one year", 1),
+  makeQuizAnswer(1, 154, "Six months", 0),
+  makeQuizAnswer(1, 154, "Two years", 0),
+  makeQuizAnswer(1, 154, "Three months", 0),
 
   // Question 155
-  { localeId: 1, quizQuestionId: 155, answer: "Employed or self-employed parents adopting a child under 4", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 155, answer: "Parents adopting their spouse’s child", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 155, answer: "Unemployed parents", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 155, answer: "Parents adopting an adult", isCorrect: 0 },
+  makeQuizAnswer(1, 155, "Employed or self-employed parents adopting a child under 4", 1),
+  makeQuizAnswer(1, 155, "Parents adopting their spouse’s child", 0),
+  makeQuizAnswer(1, 155, "Unemployed parents", 0),
+  makeQuizAnswer(1, 155, "Parents adopting an adult", 0),
 
   // Question 156
-  { localeId: 1, quizQuestionId: 156, answer: "CHF 220", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 156, answer: "CHF 150", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 156, answer: "CHF 300", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 156, answer: "CHF 100", isCorrect: 0 },
+  makeQuizAnswer(1, 156, "CHF 220", 1),
+  makeQuizAnswer(1, 156, "CHF 150", 0),
+  makeQuizAnswer(1, 156, "CHF 300", 0),
+  makeQuizAnswer(1, 156, "CHF 100", 0),
 
   // Quiz 21: Family Reunification
   // Question 157: Who can apply
-  { localeId: 1, quizQuestionId: 157, answer: "Residents of Switzerland with foreign family members", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 157, answer: "Asylum seekers", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 157, answer: "Tourists in Switzerland", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 157, answer: "Non-residents", isCorrect: 0 },
+  makeQuizAnswer(1, 157, "Residents of Switzerland with foreign family members", 1),
+  makeQuizAnswer(1, 157, "Asylum seekers", 0),
+  makeQuizAnswer(1, 157, "Tourists in Switzerland", 0),
+  makeQuizAnswer(1, 157, "Non-residents", 0),
 
   // Question 158: Family members for Swiss citizen
-  { localeId: 1, quizQuestionId: 158, answer: "Spouse, children under 18, dependent parents with EU/EFTA permit", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 158, answer: "All extended family members", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 158, answer: "Only parents", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 158, answer: "Siblings over 18", isCorrect: 0 },
+  makeQuizAnswer(1, 158, "Spouse, children under 18, dependent parents with EU/EFTA permit", 1),
+  makeQuizAnswer(1, 158, "All extended family members", 0),
+  makeQuizAnswer(1, 158, "Only parents", 0),
+  makeQuizAnswer(1, 158, "Siblings over 18", 0),
 
   // Question 159: Condition for reunification
-  { localeId: 1, quizQuestionId: 159, answer: "Adequate housing for the family", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 159, answer: "Swiss citizenship", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 159, answer: "Permanent employment", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 159, answer: "Fluency in German", isCorrect: 0 },
+  makeQuizAnswer(1, 159, "Adequate housing for the family", 1),
+  makeQuizAnswer(1, 159, "Swiss citizenship", 0),
+  makeQuizAnswer(1, 159, "Permanent employment", 0),
+  makeQuizAnswer(1, 159, "Fluency in German", 0),
 
   // Question 160: Time limit for children over 12
-  { localeId: 1, quizQuestionId: 160, answer: "One year", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 160, answer: "Five years", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 160, answer: "Six months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 160, answer: "Two years", isCorrect: 0 },
+  makeQuizAnswer(1, 160, "One year", 1),
+  makeQuizAnswer(1, 160, "Five years", 0),
+  makeQuizAnswer(1, 160, "Six months", 0),
+  makeQuizAnswer(1, 160, "Two years", 0),
 
   // Question 161: Who cannot bring all family members
-  { localeId: 1, quizQuestionId: 161, answer: "Citizens from third countries", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 161, answer: "Swiss citizens", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 161, answer: "EU/EFTA citizens", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 161, answer: "All residents", isCorrect: 0 },
+  makeQuizAnswer(1, 161, "Citizens from third countries", 1),
+  makeQuizAnswer(1, 161, "Swiss citizens", 0),
+  makeQuizAnswer(1, 161, "EU/EFTA citizens", 0),
+  makeQuizAnswer(1, 161, "All residents", 0),
 
   // Question 162: Required document
-  { localeId: 1, quizQuestionId: 162, answer: "Valid identity card or passport", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 162, answer: "Swiss work permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 162, answer: "Tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 162, answer: "Health certificate", isCorrect: 0 },
+  makeQuizAnswer(1, 162, "Valid identity card or passport", 1),
+  makeQuizAnswer(1, 162, "Swiss work permit", 0),
+  makeQuizAnswer(1, 162, "Tax return", 0),
+  makeQuizAnswer(1, 162, "Health certificate", 0),
 
   // Question 163: Children’s obligation
-  { localeId: 1, quizQuestionId: 163, answer: "Attend compulsory schooling until age 16", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 163, answer: "Obtain a work permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 163, answer: "Learn Swiss history", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 163, answer: "Register with the police", isCorrect: 0 },
+  makeQuizAnswer(1, 163, "Attend compulsory schooling until age 16", 1),
+  makeQuizAnswer(1, 163, "Obtain a work permit", 0),
+  makeQuizAnswer(1, 163, "Learn Swiss history", 0),
+  makeQuizAnswer(1, 163, "Register with the police", 0),
 
   // Question 164: Where to apply
-  { localeId: 1, quizQuestionId: 164, answer: "Cantonal immigration authorities", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 164, answer: "Federal tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 164, answer: "Local police station", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 164, answer: "Swiss embassy", isCorrect: 0 },
+  makeQuizAnswer(1, 164, "Cantonal immigration authorities", 1),
+  makeQuizAnswer(1, 164, "Federal tax office", 0),
+  makeQuizAnswer(1, 164, "Local police station", 0),
+  makeQuizAnswer(1, 164, "Swiss embassy", 0),
 
   // Quiz 22: Death
   // Question 165: Death certificate in hospital
-  { localeId: 1, quizQuestionId: 165, answer: "The hospital", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 165, answer: "The police", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 165, answer: "The civil register office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 165, answer: "The family doctor", isCorrect: 0 },
+  makeQuizAnswer(1, 165, "The hospital", 1),
+  makeQuizAnswer(1, 165, "The police", 0),
+  makeQuizAnswer(1, 165, "The civil register office", 0),
+  makeQuizAnswer(1, 165, "The family doctor", 0),
 
   // Question 166
-  { localeId: 1, quizQuestionId: 166, answer: "Within two days", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 166, answer: "Within one week", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 166, answer: "Within one month", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 166, answer: "Within 24 hours", isCorrect: 0 },
+  makeQuizAnswer(1, 166, "Within two days", 1),
+  makeQuizAnswer(1, 166, "Within one week", 0),
+  makeQuizAnswer(1, 166, "Within one month", 0),
+  makeQuizAnswer(1, 166, "Within 24 hours", 0),
 
   // Question 167
-  { localeId: 1, quizQuestionId: 167, answer: "Original medical death certificate", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 167, answer: "Birth certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 167, answer: "Marriage certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 167, answer: "Tax return", isCorrect: 0 },
+  makeQuizAnswer(1, 167, "Original medical death certificate", 1),
+  makeQuizAnswer(1, 167, "Birth certificate", 0),
+  makeQuizAnswer(1, 167, "Marriage certificate", 0),
+  makeQuizAnswer(1, 167, "Tax return", 0),
 
   // Question 168
-  { localeId: 1, quizQuestionId: 168, answer: "Civil register office confirms the death report", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 168, answer: "Police approval", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 168, answer: "Tax clearance", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 168, answer: "Insurance notification", isCorrect: 0 },
+  makeQuizAnswer(1, 168, "Civil register office confirms the death report", 1),
+  makeQuizAnswer(1, 168, "Police approval", 0),
+  makeQuizAnswer(1, 168, "Tax clearance", 0),
+  makeQuizAnswer(1, 168, "Insurance notification", 0),
 
   // Question 169
-  { localeId: 1, quizQuestionId: 169, answer: "Swiss representation abroad", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 169, answer: "Local police", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 169, answer: "Federal health office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 169, answer: "Cantonal tax office", isCorrect: 0 },
+  makeQuizAnswer(1, 169, "Swiss representation abroad", 1),
+  makeQuizAnswer(1, 169, "Local police", 0),
+  makeQuizAnswer(1, 169, "Federal health office", 0),
+  makeQuizAnswer(1, 169, "Cantonal tax office", 0),
 
   // Question 170
-  { localeId: 1, quizQuestionId: 170, answer: "Prevent financial hardship for survivors", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 170, answer: "Cover funeral costs", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 170, answer: "Pay off debts", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 170, answer: "Support education", isCorrect: 0 },
+  makeQuizAnswer(1, 170, "Prevent financial hardship for survivors", 1),
+  makeQuizAnswer(1, 170, "Cover funeral costs", 0),
+  makeQuizAnswer(1, 170, "Pay off debts", 0),
+  makeQuizAnswer(1, 170, "Support education", 0),
 
   // Question 171
-  { localeId: 1, quizQuestionId: 171, answer: "CHF 2016", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 171, answer: "CHF 1008", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 171, answer: "CHF 3000", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 171, answer: "CHF 504", isCorrect: 0 },
+  makeQuizAnswer(1, 171, "CHF 2016", 1),
+  makeQuizAnswer(1, 171, "CHF 1008", 0),
+  makeQuizAnswer(1, 171, "CHF 3000", 0),
+  makeQuizAnswer(1, 171, "CHF 504", 0),
 
   // Question 172
-  { localeId: 1, quizQuestionId: 172, answer: "Cancel the deceased’s insurance policies", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 172, answer: "File a tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 172, answer: "Register a new address", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 172, answer: "Apply for a new passport", isCorrect: 0 },
+  makeQuizAnswer(1, 172, "Cancel the deceased’s insurance policies", 1),
+  makeQuizAnswer(1, 172, "File a tax return", 0),
+  makeQuizAnswer(1, 172, "Register a new address", 0),
+  makeQuizAnswer(1, 172, "Apply for a new passport", 0),
 
   // Quiz 23: Divorce
   // Question 173
-  { localeId: 1, quizQuestionId: 173, answer: "Competent cantonal court", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 173, answer: "Civil register office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 173, answer: "Federal migration office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 173, answer: "Local commune office", isCorrect: 0 },
+  makeQuizAnswer(1, 173, "Competent cantonal court", 1),
+  makeQuizAnswer(1, 173, "Civil register office", 0),
+  makeQuizAnswer(1, 173, "Federal migration office", 0),
+  makeQuizAnswer(1, 173, "Local commune office", 0),
 
   // Question 174
-  { localeId: 1, quizQuestionId: 174, answer: "Joint application with agreement on consequences", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 174, answer: "Court approval without agreement", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 174, answer: "Separate applications", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 174, answer: "Mediation session", isCorrect: 0 },
+  makeQuizAnswer(1, 174, "Joint application with agreement on consequences", 1),
+  makeQuizAnswer(1, 174, "Court approval without agreement", 0),
+  makeQuizAnswer(1, 174, "Separate applications", 0),
+  makeQuizAnswer(1, 174, "Mediation session", 0),
 
   // Question 175
-  { localeId: 1, quizQuestionId: 175, answer: "At least two years", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 175, answer: "One year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 175, answer: "Six months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 175, answer: "Three years", isCorrect: 0 },
+  makeQuizAnswer(1, 175, "At least two years", 1),
+  makeQuizAnswer(1, 175, "One year", 0),
+  makeQuizAnswer(1, 175, "Six months", 0),
+  makeQuizAnswer(1, 175, "Three years", 0),
 
   // Question 176
-  { localeId: 1, quizQuestionId: 176, answer: "Three to four months", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 176, answer: "One year", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 176, answer: "Six weeks", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 176, answer: "Two years", isCorrect: 0 },
+  makeQuizAnswer(1, 176, "Three to four months", 1),
+  makeQuizAnswer(1, 176, "One year", 0),
+  makeQuizAnswer(1, 176, "Six weeks", 0),
+  makeQuizAnswer(1, 176, "Two years", 0),
 
   // Question 177
-  { localeId: 1, quizQuestionId: 177, answer: "Joint responsibility is the rule", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 177, answer: "Always sole responsibility", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 177, answer: "No responsibility assigned", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 177, answer: "Decided by children", isCorrect: 0 },
+  makeQuizAnswer(1, 177, "Joint responsibility is the rule", 1),
+  makeQuizAnswer(1, 177, "Always sole responsibility", 0),
+  makeQuizAnswer(1, 177, "No responsibility assigned", 0),
+  makeQuizAnswer(1, 177, "Decided by children", 0),
 
   // Question 178
-  { localeId: 1, quizQuestionId: 178, answer: "Contact a canton’s debt collection agency", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 178, answer: "File a new divorce case", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 178, answer: "Report to the police", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 178, answer: "Apply for a loan", isCorrect: 0 },
+  makeQuizAnswer(1, 178, "Contact a canton’s debt collection agency", 1),
+  makeQuizAnswer(1, 178, "File a new divorce case", 0),
+  makeQuizAnswer(1, 178, "Report to the police", 0),
+  makeQuizAnswer(1, 178, "Apply for a loan", 0),
 
   // Question 179
-  { localeId: 1, quizQuestionId: 179, answer: "May stay under certain conditions", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 179, answer: "Must leave immediately", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 179, answer: "Automatically upgraded to C permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 179, answer: "No change in status", isCorrect: 0 },
+  makeQuizAnswer(1, 179, "May stay under certain conditions", 1),
+  makeQuizAnswer(1, 179, "Must leave immediately", 0),
+  makeQuizAnswer(1, 179, "Automatically upgraded to C permit", 0),
+  makeQuizAnswer(1, 179, "No change in status", 0),
 
   // Question 180
-  { localeId: 1, quizQuestionId: 180, answer: "CHF 1,000 to CHF 4,000", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 180, answer: "CHF 500 to CHF 1,000", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 180, answer: "CHF 5,000 to CHF 10,000", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 180, answer: "Free of charge", isCorrect: 0 },
+  makeQuizAnswer(1, 180, "CHF 1,000 to CHF 4,000", 1),
+  makeQuizAnswer(1, 180, "CHF 500 to CHF 1,000", 0),
+  makeQuizAnswer(1, 180, "CHF 5,000 to CHF 10,000", 0),
+  makeQuizAnswer(1, 180, "Free of charge", 0),
 
   // Quiz 24: Inheritance
   // Question 181
-  { localeId: 1, quizQuestionId: 181, answer: "Spouses and children", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 181, answer: "All heirs", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 181, answer: "Only siblings", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 181, answer: "Non-relatives", isCorrect: 0 },
+  makeQuizAnswer(1, 181, "Spouses and children", 1),
+  makeQuizAnswer(1, 181, "All heirs", 0),
+  makeQuizAnswer(1, 181, "Only siblings", 0),
+  makeQuizAnswer(1, 181, "Non-relatives", 0),
 
   // Question 182
-  { localeId: 1, quizQuestionId: 182, answer: "Copy of death certificate and proof of entitlement", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 182, answer: "Tax return", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 182, answer: "Marriage certificate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 182, answer: "Bank statement", isCorrect: 0 },
+  makeQuizAnswer(1, 182, "Copy of death certificate and proof of entitlement", 1),
+  makeQuizAnswer(1, 182, "Tax return", 0),
+  makeQuizAnswer(1, 182, "Marriage certificate", 0),
+  makeQuizAnswer(1, 182, "Bank statement", 0),
 
   // Question 183
-  { localeId: 1, quizQuestionId: 183, answer: "Three months", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 183, answer: "One month", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 183, answer: "Six months", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 183, answer: "One year", isCorrect: 0 },
+  makeQuizAnswer(1, 183, "Three months", 1),
+  makeQuizAnswer(1, 183, "One month", 0),
+  makeQuizAnswer(1, 183, "Six months", 0),
+  makeQuizAnswer(1, 183, "One year", 0),
 
   // Question 184
-  { localeId: 1, quizQuestionId: 184, answer: "Canton or commune", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 184, answer: "Federal government", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 184, answer: "Charity", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 184, answer: "Bank", isCorrect: 0 },
+  makeQuizAnswer(1, 184, "Canton or commune", 1),
+  makeQuizAnswer(1, 184, "Federal government", 0),
+  makeQuizAnswer(1, 184, "Charity", 0),
+  makeQuizAnswer(1, 184, "Bank", 0),
 
   // Question 185
-  { localeId: 1, quizQuestionId: 185, answer: "Holographic will", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 185, answer: "Public deed will", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 185, answer: "Oral will", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 185, answer: "Notarial will", isCorrect: 0 },
+  makeQuizAnswer(1, 185, "Holographic will", 1),
+  makeQuizAnswer(1, 185, "Public deed will", 0),
+  makeQuizAnswer(1, 185, "Oral will", 0),
+  makeQuizAnswer(1, 185, "Notarial will", 0),
 
   // Question 186
-  { localeId: 1, quizQuestionId: 186, answer: "Agreement for an heir to renounce inheritance", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 186, answer: "Tax exemption form", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 186, answer: "Marriage contract", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 186, answer: "Loan agreement", isCorrect: 0 },
+  makeQuizAnswer(1, 186, "Agreement for an heir to renounce inheritance", 1),
+  makeQuizAnswer(1, 186, "Tax exemption form", 0),
+  makeQuizAnswer(1, 186, "Marriage contract", 0),
+  makeQuizAnswer(1, 186, "Loan agreement", 0),
 
   // Question 187
-  { localeId: 1, quizQuestionId: 187, answer: "List assets and debts of the estate", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 187, answer: "Distribute the estate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 187, answer: "Tax the estate", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 187, answer: "Sell the estate", isCorrect: 0 },
+  makeQuizAnswer(1, 187, "List assets and debts of the estate", 1),
+  makeQuizAnswer(1, 187, "Distribute the estate", 0),
+  makeQuizAnswer(1, 187, "Tax the estate", 0),
+  makeQuizAnswer(1, 187, "Sell the estate", 0),
 
   // Question 188
-  { localeId: 1, quizQuestionId: 188, answer: "Spouse and children", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 188, answer: "Siblings only", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 188, answer: "Friends", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 188, answer: "All relatives", isCorrect: 0 },
+  makeQuizAnswer(1, 188, "Spouse and children", 1),
+  makeQuizAnswer(1, 188, "Siblings only", 0),
+  makeQuizAnswer(1, 188, "Friends", 0),
+  makeQuizAnswer(1, 188, "All relatives", 0),
 
   // Quiz 24: Marriage
   // Question 189
-  { localeId: 1, quizQuestionId: 189, answer: "18 years old", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 189, answer: "16 years old", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 189, answer: "21 years old", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 189, answer: "25 years old", isCorrect: 0 },
+  makeQuizAnswer(1, 189, "18 years old", 1),
+  makeQuizAnswer(1, 189, "16 years old", 0),
+  makeQuizAnswer(1, 189, "21 years old", 0),
+  makeQuizAnswer(1, 189, "25 years old", 0),
 
   // Question 190
-  { localeId: 1, quizQuestionId: 190, answer: "Submit a marriage application", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 190, answer: "Obtain a work permit", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 190, answer: "Register with the tax office", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 190, answer: "Apply for citizenship", isCorrect: 0 },
+  makeQuizAnswer(1, 190, "Submit a marriage application", 1),
+  makeQuizAnswer(1, 190, "Obtain a work permit", 0),
+  makeQuizAnswer(1, 190, "Register with the tax office", 0),
+  makeQuizAnswer(1, 190, "Apply for citizenship", 0),
 
   // Question 191
-  { localeId: 1, quizQuestionId: 191, answer: "Participation in acquired property", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 191, answer: "Community of property", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 191, answer: "Separation of property", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 191, answer: "Joint ownership", isCorrect: 0 },
+  makeQuizAnswer(1, 191, "Participation in acquired property", 1),
+  makeQuizAnswer(1, 191, "Community of property", 0),
+  makeQuizAnswer(1, 191, "Separation of property", 0),
+  makeQuizAnswer(1, 191, "Joint ownership", 0),
 
   // Question 192
-  { localeId: 1, quizQuestionId: 192, answer: "1 July 2022", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 192, answer: "1 January 2020", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 192, answer: "1 June 2021", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 192, answer: "1 August 2023", isCorrect: 0 },
+  makeQuizAnswer(1, 192, "1 July 2022", 1),
+  makeQuizAnswer(1, 192, "1 January 2020", 0),
+  makeQuizAnswer(1, 192, "1 June 2021", 0),
+  makeQuizAnswer(1, 192, "1 August 2023", 0),
 
   // Question 193
-  { localeId: 1, quizQuestionId: 193, answer: "Two witnesses over 18", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 193, answer: "Parental consent", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 193, answer: "Swiss citizenship", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 193, answer: "Religious officiant", isCorrect: 0 },
+  makeQuizAnswer(1, 193, "Two witnesses over 18", 1),
+  makeQuizAnswer(1, 193, "Parental consent", 0),
+  makeQuizAnswer(1, 193, "Swiss citizenship", 0),
+  makeQuizAnswer(1, 193, "Religious officiant", 0),
 
   // Question 194
-  { localeId: 1, quizQuestionId: 194, answer: "File joint tax return", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 194, answer: "File separate tax returns", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 194, answer: "No tax obligation", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 194, answer: "Pay individual income tax", isCorrect: 0 },
+  makeQuizAnswer(1, 194, "File joint tax return", 1),
+  makeQuizAnswer(1, 194, "File separate tax returns", 0),
+  makeQuizAnswer(1, 194, "No tax obligation", 0),
+  makeQuizAnswer(1, 194, "Pay individual income tax", 0),
 
   // Question 195
-  { localeId: 1, quizQuestionId: 195, answer: "Can be converted to marriage", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 195, answer: "Automatically becomes marriage", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 195, answer: "No longer valid", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 195, answer: "Cannot be changed", isCorrect: 0 },
+  makeQuizAnswer(1, 195, "Can be converted to marriage", 1),
+  makeQuizAnswer(1, 195, "Automatically becomes marriage", 0),
+  makeQuizAnswer(1, 195, "No longer valid", 0),
+  makeQuizAnswer(1, 195, "Cannot be changed", 0),
 
   // Question 196
-  { localeId: 1, quizQuestionId: 196, answer: "CHF 300 to CHF 400", isCorrect: 1 },
-  { localeId: 1, quizQuestionId: 196, answer: "CHF 100 to CHF 200", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 196, answer: "CHF 500 to CHF 600", isCorrect: 0 },
-  { localeId: 1, quizQuestionId: 196, answer: "Free of charge", isCorrect: 0 },
+  makeQuizAnswer(1, 196, "CHF 300 to CHF 400", 1),
+  makeQuizAnswer(1, 196, "CHF 100 to CHF 200", 0),
+  makeQuizAnswer(1, 196, "CHF 500 to CHF 600", 0),
+  makeQuizAnswer(1, 196, "Free of charge", 0),
 ];
 
 export const quizzes: Quiz[] = [...quizCustom, ...quizDocuments, ...quizFamily];

@@ -1,0 +1,22 @@
+{
+  "explore": {
+    "nav": "Entdecken",
+    "topic": "Themen",
+    "essential_content": "Wichtige Inhalte"
+  },
+  "dashboard": {
+    "nav": "Übersicht",
+    "last_seen": "Zuletzt gesehene Themen",
+    "checklist": "Checkliste für notwendige Verwaltungsdokumente"
+  },
+  "quiz": {
+    "nav": "Quiz",
+    "quiz_time": "Quizzeit!",
+    "questions": "Frage"
+  },
+  "settings": {
+    "nav": "Einstellungen",
+    "language": "Sprache"
+  },
+  "searchfield": "Themen durchsuchen"
+}

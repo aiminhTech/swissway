@@ -1,9 +1,9 @@
-import type { Information } from "../model";
+import { CategoryId, LocaleId, type Information } from "../model";
 
 const infoCustoms: Information[] = [
   {
-    localeId: 1,
-    categoryId: 1,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(1),
     title: "Bringing sensitive goods into Switzerland",
     description:
       "Clearing customs in Switzerland can be difficult depending on the goods and animals you are bringing into the country. This page provides helpful information on border crossing procedures and entry into Switzerland.",
@@ -74,11 +74,11 @@ More information is available on the Federal Office for Customs and Border Secur
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 1,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(1),
     title: "Moving to Switzerland",
     description:
       "If you live abroad and are planning to move to Switzerland, you will find an overview here of the necessary formalities for seamlessly moving your furniture and other personal belongings across the border and through customs without having to pay any fees.",
@@ -154,11 +154,11 @@ The Federal Office for Customs and Security Border provides a list of the custom
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 1,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(1),
     title: "Ordering goods from abroad",
     description: "Import customs duties are charged on goods ordered abroad. This page provides an overview of the customs duties for online purchases.",
     contents: [
@@ -205,11 +205,11 @@ Swiss Post charges a minimum of CHF 11.50 and a maximum of CHF 70 for processing
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 1,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(1),
     title: "Shopping tourism",
     description:
       "When you bring purchases made abroad back to Switzerland, you may need to fill out a customs declaration form. This page will guide you through the steps to clear meat, wine and other goods through customs.",
@@ -285,15 +285,15 @@ Swiss VAT must be paid on goods of a total value exceeding CHF 150 on import eve
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 
 const infoDocuments: Information[] = [
   //Certificate of inheritance
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Certificate of inheritance",
     description:
       "The certificate of inheritance (obtained in a procedure equivalent to the English or American grant of probate or Scottish confirmation) states who is entitled to inherit a deceased person's assets. This document is usually required to deal with assets in the deceased's estate, for example, to withdraw money from the deceased's bank account.",
@@ -337,12 +337,12 @@ If there is a will or a contract of succession, the certificate of inheritance c
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   //Civil status certificates
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Civil status certificates",
     description:
       "The authorities will supply various kinds of document that certify a family relationship, for example, or your date and place of birth. This page gives a list of the civil status certificates that you can order, and where to get them from.",
@@ -445,12 +445,12 @@ If there is a will or a contract of succession, the certificate of inheritance c
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   //Criminal records extract
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Criminal records extract",
     description:
       "A prospective employer may want to ensure that you do not have a criminal past. An extract from the Register of Criminal Records will provide information on any convictions that you may have.",
@@ -512,12 +512,12 @@ The procedure for ordering a special private extract is the same as for a standa
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Driving licence
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Driving licence///Exchanging your driving licence",
     description:
       "A Swiss driving licence does not have an expiry date, however if your driving licence is lost or stolen, you need to apply for a new one. This web page provides instructions for getting a credit-card format driving licence and changing information on your existing licence. ",
@@ -595,11 +595,11 @@ After handing over your foreign licence and taking the necessary texts, you will
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Driving licence///International driving licence",
     description: "If you plan to drive in a foreign country, you may need an international driving licence. Find out if you need one, and how to order one in Switzerland.  ",
     contents: [
@@ -655,12 +655,12 @@ The price of an international licence varies from canton to canton. It is around
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Extract from the debt enforcement register
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Extract from the debt enforcement register",
     description: "In order to prove that you pay your bills and have no outstanding debts, you regularly have to provide an extract from the debt enforcement register.",
     contents: [
@@ -743,12 +743,12 @@ You can also ask for an extract from the register relating to another person wit
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Hunting licence
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Hunting training and licence",
     description: "If you want to hunt in Switzerland, you need hunting training. Depending on the canton, you may also need to obtain a hunting licence or become a member of a hunting association.",
     contents: [
@@ -823,12 +823,12 @@ You can find more information on compulsory shooting and recognised shooting ran
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Living wills
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Living wills",
     description: "With a living will you determine the medical treatment that you want at the end of your life. Special forms are available. We explain the process, and where to find templates",
     contents: [
@@ -879,12 +879,12 @@ Doctors are bound only by living wills that have been dated and signed by hand.`
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Passport and identity card
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Passport and identity card///Applying for a passport or an identity card",
     description:
       "Identity documents can be ordered online or at your cantonal passport office. You can expect to receive them within about 10 working days - up to 30 working days if you live abroad. In exceptional and urgent cases, you can apply for a temporary passport.",
@@ -1024,11 +1024,11 @@ A temporary passport is valid for a maximum of 12 months.`,
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Passport and identity card///Lost or stolen passport or identity card",
     description: "If you lose your ID documents or if they are stolen, you must file a police report to obtain a new passport or ID card.",
     contents: [
@@ -1093,12 +1093,12 @@ In cases of urgency - for example, if you cannot otherwise return to Switzerland
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   //Permits for living in Switzerland
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Permits for living in Switzerland",
     description: "All foreign nationals who remain in Switzerland for more than three months must obtain a permit. Guide to obtaining a permit.",
     contents: [
@@ -1209,12 +1209,12 @@ If you have a residence permit (B permit), you may be permitted to stay subject 
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   //Requesting an OASI card
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Requesting an OASI card",
     description: "If you do not have an OASI card or if you have lost yours, you can request one by filling out the online form and sending it to the competent authority.",
     contents: [
@@ -1279,12 +1279,12 @@ If you live abroad but work in Switzerland, please refer to the sections ‹If y
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Salary certificate
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Salary certificate",
     description: "Employees do not need to ask for a salary certificate. They get this important certificate automatically so that they can file their tax return.",
     contents: [
@@ -1327,12 +1327,12 @@ The salary certificate is the most important document you need for completing yo
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Lost vehicle registration document
   {
-    localeId: 1,
-    categoryId: 2,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(2),
     title: "Lost vehicle registration document",
     description: "If you have lost or need to change your vehicle registration document, contact the driver and vehicle licensing office.",
     contents: [
@@ -1374,7 +1374,7 @@ The salary certificate is the most important document you need for completing yo
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 
@@ -1382,8 +1382,8 @@ The salary certificate is the most important document you need for completing yo
 const infoFamily: Information[] = [
   //Adoption
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Adoption///Adoption",
     description: "In Switzerland you can adopt a child as either a couple or a single parent. The adoption process can take several years. The welfare of the child is always paramount.",
     contents: [
@@ -1489,11 +1489,11 @@ The same regulations as apply to the adoption of minors also apply to the adopti
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Adoption///Adoption leave",
     description: "Under certain conditions, couples who adopt a child under the age of 4 may share two weeks of paid leave.",
     contents: [
@@ -1539,11 +1539,11 @@ Check your insurance coverage before requesting unpaid leave.`,
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Adoption///Searching for biological parents, children or siblings",
     description:
       "You want to learn about your origins, or you are searching for a child you gave up for adoption. When and how this is possible, and which authorities you can contact for assistance.",
@@ -1605,12 +1605,12 @@ You can contact the relevant cantonal offices (web page available in German, Fre
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Civil status certificates
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Ordering civil status certificates",
     description:
       "The authorities will supply various kinds of document that certify a family relationship, for example, or your date and place of birth. This page gives a list of the civil status certificates that you can order, and where to get them from.",
@@ -1713,12 +1713,12 @@ You can contact the relevant cantonal offices (web page available in German, Fre
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Family reunification
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Family reunification",
     description: "If you live in Switzerland and your family lives abroad, you can find more information here about the requirements for bringing your children, spouse or parents to Switzerland. ",
     contents: [
@@ -1830,12 +1830,12 @@ You will find further useful information on the page Moving to Switzerland.`,
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   //Death
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Death///Survivors' pensions",
     description: "If your wife, husband, registered partner or parent dies, you are entitled to a pension.",
     contents: [
@@ -1895,11 +1895,11 @@ If you live abroad, you must contact the Swiss compensation fund to find out the
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Death///What to do if someone dies",
     description:
       "If a relative or person close to you dies, there are several things you must do: obtain a death certificate, organise the funeral and notify the deceased’s insurance company, bank and landlord.",
@@ -1992,12 +1992,12 @@ If you would like the funeral to take place in Switzerland, the Swiss embassy or
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Divorce
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Divorce///Divorce procedure",
     description:
       "In Switzerland, you can apply for divorce by mutual consent, or by unilateral petition. The conditions and duration of the procedure can vary if one of the spouses refuses a divorce",
@@ -2061,11 +2061,11 @@ Ask the competent court about the possibilities of obtaining legal aid.`,
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Divorce///Effects of divorce",
     description: "Divorce has numerous effects on your and your children’s personal, family and financial lives.",
     contents: [
@@ -2149,12 +2149,12 @@ If you were granted a B permit for the purpose of family reunification, you may 
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Inheritance
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Gift tax",
     description: "Most cantons and some communes levy a tax on gifts. However, there is no gift tax at federal level.",
     contents: [
@@ -2217,11 +2217,11 @@ Normally, spouses and registered partners and their descendants (children and gr
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Certificate of inheritance",
     description:
       "The certificate of inheritance (obtained in a procedure equivalent to the English or American grant of probate or Scottish confirmation) states who is entitled to inherit a deceased person's assets. This document is usually required to deal with assets in the deceased's estate, for example, to withdraw money from the deceased's bank account.",
@@ -2269,11 +2269,11 @@ Normally, spouses and registered partners and their descendants (children and gr
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Inheritance tax",
     description:
       "All the cantons apart from Obwalden and Schwyz levy an inheritance tax. The amount of tax and who has to pay varies from canton to canton. There is no inheritance tax at federal level.",
@@ -2316,11 +2316,11 @@ In order to avoid this type of double taxation, Switzerland has concluded agreem
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Renouncing an inheritance",
     description: "If you are concerned that you may inherit debts from someone who has died, or if you simply do not want to inherit anything from someone, you can renounce an inheritance.",
     contents: [
@@ -2363,11 +2363,11 @@ The inventory gives you a complete overview of the assets that make up the estat
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Succession: who inherits what?",
     description: "In Switzerland, the law is clear about who your heirs will be. However, in a will or contract of succession you can influence how at least part of your estate will be distributed.",
     contents: [
@@ -2467,11 +2467,11 @@ Contact a lawyer or notary to find out more about this.`,
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Inheritance///Wills and contracts of succession",
     description: "You have several options for determining who gets your assets after you die and how that should happen. However, your freedom to dispose of your assets as you please is limited. ",
     contents: [
@@ -2579,13 +2579,13 @@ You should keep a written record of any gifts that you make. This will help to a
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 
   // Marriage - living together as an unmarried couple
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Marriage///Same-sex partnership",
     description: "Since 1 July 2022, two people of the same sex can marry, however, they can no longer enter into a registered partnership.",
     contents: [
@@ -2696,11 +2696,11 @@ However, you and your partner can enter into a property agreement, which must be
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Marriage///Getting married",
     description: "In order to get married, you must meet certain requirements and submit an official application to the civil register office, which will tell you how to prepare for the ceremony.",
     contents: [
@@ -2810,11 +2810,11 @@ If neither you nor your spouse are Swiss, you should contact the migration autho
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 3,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(3),
     title: "Marriage///Financial consequences",
     description:
       "Marriage has an impact on a couple’s finances. By choosing a marital property regime, the couple decide what belongs to whom during the marriage and how their property will be divided in the event of divorce or death.",
@@ -2866,7 +2866,7 @@ In this case, their assets will be managed jointly and will be divided in half i
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 
@@ -2874,8 +2874,8 @@ In this case, their assets will be managed jointly and will be divided in half i
 const infoForeignNationals: Information[] = [
   //Entry and stay in Switzerland
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Entry and stay in Switzerland///Applying for asylum in Switzerland",
     description: "Switzerland can grant asylum to people who are persecuted. Here is some information on how to apply.",
     contents: [
@@ -2936,11 +2936,11 @@ Usually the entire asylum procedure takes place in a federal asylum centre. You 
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Entry and stay in Switzerland///Living in Switzerland without gainful employment",
     description:
       "Foreign nationals such as students, pensioners or those of private means can take up residence in Switzerland without gainful employment. However, they must meet certain criteria depending on their nationality.",
@@ -2999,11 +2999,11 @@ Students must also submit the following documents with their application for a r
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Entry and stay in Switzerland///Visas for foreign nationals",
     description:
       "Some foreigners cannot enter Switzerland without a visa. Some citizens of non-European countries who live in Switzerland require a visa to travel abroad. Here you can find out more about whether this applies to you and how you can obtain a visa. ",
@@ -3096,12 +3096,12 @@ A leaflet describes what to do if you lose your travel document in Switzerland a
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Living in Switzerland
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Living in Switzerland///Purchasing property",
     description: "Not all foreign nationals are free to purchase property in Switzerland. Some need authorisation to become the owner of a house or land.",
     contents: [
@@ -3217,11 +3217,11 @@ Like Swiss citizens, foreign nationals cannot build a second home in a commune w
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Living in Switzerland///Taking out health insurance",
     description:
       "You can change your health insurer at the end of each year. Send notice of cancellation to your current health insurer by the end-November deadline. New-borns should be registered soon after birth.",
@@ -3335,11 +3335,11 @@ Parents often insure their children for dental treatment (orthodontics). This is
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Living in Switzerland///Tax at source",
     description: "Tax at source is deducted directly from your salary. In Switzerland, this form of taxation mainly concerns foreign residents who do not hold a C permit.",
     contents: [
@@ -3380,12 +3380,12 @@ Other taxpayers file a tax return and are taxed according to the standard taxati
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Naturalisation
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Naturalisation in Switzerland",
     description: "Naturalisation allows a foreign citizen to obtain Swiss citizenship. The procedure varies from case to case. A brief guide to help you become Swiss.",
     contents: [
@@ -3513,12 +3513,12 @@ The documents that also have to be provided vary according to the case. You can 
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Working in Switzerland as a foreign national
   {
-    localeId: 1,
-    categoryId: 4,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(4),
     title: "Working in Switzerland as a foreign national",
     description: "Most foreign nationals require a permit to work in Switzerland. The procedure for obtaining a permit depends on your nationality and type of employment.",
     contents: [
@@ -3632,7 +3632,7 @@ You only need to worry about private accident insurance if you work less than ei
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
 ];
 
@@ -3640,8 +3640,8 @@ You only need to worry about private accident insurance if you work less than ei
 const infoHealth: Information[] = [
   //Health insurance
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Health insurance///Health insurance costs",
     description:
       "Health insurance costs are a major budget item for many. However, if you are a low earner you will pay a reduced premium. You can also save with your choice of deductible and retention fee.",
@@ -3711,11 +3711,11 @@ If you are employed for more than eight hours per week you are covered by compul
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Health insurance///Health insurance benefits",
     description: "All health insurers must pay the same benefits under basic insurance. If you are pregnant, you will generally not have to pay a deductible. But what happens if you fall ill abroad?",
     contents: [
@@ -3802,11 +3802,11 @@ Added to this are regular check-ups with your obstetrician/gynaecologist, which 
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Health insurance///Taking out, changing and cancelling health insurance",
     description:
       "You can change your health insurer at the end of each year. Send notice of cancellation to your current health insurer by the end-November deadline. New-borns should be registered soon after birth.",
@@ -3890,12 +3890,12 @@ Parents often insure their children for dental treatment (orthodontics). This is
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Medicines and narcotic substances
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Medicines and narcotic substances///Cannabis",
     description:
       "Cannabis is a banned drug in Switzerland. Cannabis products are only permitted if they contain less than one per cent of the active substance THC. But even then, some rules must be observed.",
@@ -3955,12 +3955,12 @@ In addition, cannabis users can legally obtain cannabis products subject to stri
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Protection against ticks
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Protection against ticks",
     description: "Ticks are widespread in Switzerland. Tick bites can be dangerous and cause Lyme disease or meningitis. Protect yourself, children and pets when you are outdoors.",
     contents: [
@@ -4057,12 +4057,12 @@ The ideal time for vaccination is winter, but it can be done all year round. Ful
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   //Vaccinations
   {
-    localeId: 1,
-    categoryId: 5,
+    localeId: LocaleId.make(1),
+    categoryId: CategoryId.make(5),
     title: "Vaccinations",
     description: "By getting vaccinated, you protect yourself and others. Many vaccinations are recommended for (almost) everyone. It often makes sense to get the flu jab and other vaccinations too.",
     contents: [
@@ -4166,7 +4166,7 @@ NB: In some countries, certain vaccinations are mandatory.`,
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 

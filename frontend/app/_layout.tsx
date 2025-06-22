@@ -1,3 +1,4 @@
+import i18n from "@/assets/i18n/i18n";
 import {
   DarkTheme,
   DefaultTheme,
@@ -42,6 +43,19 @@ export default function RootLayout() {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
+  const [i18nReady, setI18nReady] = useState(false);
+
+  // ✅ Wait for i18n to be ready
+  useEffect(() => {
+    if (!i18n.isInitialized) {
+      i18n.on("initialized", () => {
+        setI18nReady(true);
+      });
+    } else {
+      setI18nReady(true);
+    }
+  }, []);
 
   // useLayoutEffect(() => {
   //   setStyleLoaded(true);

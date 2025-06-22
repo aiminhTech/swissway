@@ -1,6 +1,7 @@
-import type { ApiCategory, ApiChecklist, ApiInfoContent, ApiLocale, ApiQuiz } from "@models/api-model";
+import { ApiCategories, ApiLocale, ApiLocales, type ApiCategory, type ApiChecklist, type ApiInfoContent, type ApiQuiz } from "@models/api-model";
 import { transformCategories, transformChecklists, transformInfoContents, transformQuiz } from "@utils/transform-api-response";
 import db from "@db/db";
+import type { CategoryDB, ChecklistDB, InfoContentDB } from "@/models/db-model";
 
 /**
  * Retrieves all locales from the database.
@@ -13,7 +14,7 @@ import db from "@db/db";
  * ```
  */
 export function getLocales(): ApiLocale[] {
-  return db.prepare("SELECT * FROM locale").all() as ApiLocale[];
+  return db.prepare("SELECT * FROM locale").all() as ApiLocales;
 }
 
 /**
@@ -27,15 +28,15 @@ export function getLocales(): ApiLocale[] {
  * const categories = getCategories("en");
  * ```
  */
-export function getCategories(localeCode: string) {
+export function getCategories(localeCode: string): ApiCategories {
   const result = db
     .prepare(
       `
     SELECT * from view_category as v
-    WHERE v.code = ?
+    WHERE v.locale_code = ?
   `,
     )
-    .all(localeCode) as ApiCategory[];
+    .all(localeCode) as CategoryDB[];
 
   return transformCategories(result);
 }
@@ -52,29 +53,27 @@ export function getCategories(localeCode: string) {
  * const infoTitles = getInfoTitleLocaleCodeAndCatName("en", "Work");
  * ```
  */
-export function getInfoTitleByLocaleCodeAndCatName(localeCode: string, catName: string) {
+export function getInfoTitle(localeCode: string, catName: string) {
   return db
     .prepare(
       `
-    SELECT v.code AS locale_code, v.category_name, v.information_title from view_information as v
-    WHERE v.code = ? AND v.category_name = ?
+    SELECT v.locale_code AS locale_code, v.category_name, v.information_title from view_information as v
+    WHERE v.locale_code = ? AND v.category_name = ?
   `,
     )
     .all(localeCode, catName);
 }
 
-
 export function getEssentialInfoTitle(localeCode: string, isEssential: number) {
   return db
     .prepare(
       `
-    SELECT v.code AS locale_code, v.category_name, v.information_title from view_information as v
-    WHERE v.code = ? AND v.is_essential = ?
+    SELECT v.locale_code AS locale_code, v.category_name, v.information_title from view_information as v
+    WHERE v.locale_code = ? AND v.is_essential = ?
   `,
     )
     .all(localeCode, isEssential);
 }
-
 
 /**
  * Retrieves detailed information content by locale code and information title key.
@@ -88,15 +87,15 @@ export function getEssentialInfoTitle(localeCode: string, isEssential: number) {
  * const infoContent = getInfoContentByKey("en", "Family and work/Absences");
  * ```
  */
-export function getInfoContentByKey(localeCode: string, infoTitle: string) {
+export function getInfoContent(localeCode: string, infoTitle: string) {
   const result = db
     .prepare(
       `
       SELECT * FROM view_information AS v
-      WHERE v.code = ? AND v.information_title LIKE ?
+      WHERE v.locale_code = ? AND v.information_title LIKE ?
       `,
     )
-    .all(localeCode, `${infoTitle}%`) as ApiInfoContent[];
+    .all(localeCode, `${infoTitle}%`) as InfoContentDB[];
 
   return transformInfoContents(result);
 }
@@ -117,10 +116,10 @@ export function getChecklists(localeCode: string) {
     .prepare(
       `
     SELECT * from view_checklist as v
-    WHERE v.code = ?
+    WHERE v.locale_code = ?
   `,
     )
-    .all(localeCode) as ApiChecklist[];
+    .all(localeCode) as ChecklistDB[];
 
   return transformChecklists(result);
 }
@@ -132,7 +131,7 @@ export function getChecklists(localeCode: string) {
  * @returns An array of quiz summaries with `quiz_id` and `title`.
  *
  * @example
- * ```ts
+ * ```
  * const quizzes = getQuizLists("Customs");
  * ```
  */

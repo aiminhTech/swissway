@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import InfoCard from "./InfoCard";
 import { Colors } from "@/constants/Colors";
-import { InfoContent } from "@/models/models";
+import { InfoContent } from "@/models/api-model";
 
 type ContentSectionProps = {
   contents: InfoContent;

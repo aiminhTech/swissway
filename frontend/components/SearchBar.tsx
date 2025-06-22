@@ -1,5 +1,6 @@
 import { Colors } from "@/constants/Colors";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { StyleSheet, Text, TextInput } from "react-native";
 
 type SearchBarProps = {
@@ -8,10 +9,12 @@ type SearchBarProps = {
 };
 
 export default function SearchBar({ query, setQuery }: SearchBarProps) {
+  const { t } = useTranslation();
+
   return (
     <TextInput
       style={styles.searchInput}
-      placeholder="Search topics..."
+      placeholder={`${t("searchfield")}...`}
       placeholderTextColor="#888"
       value={query}
       onChangeText={setQuery}

@@ -1,0 +1,22 @@
+{
+  "explore": {
+    "nav": "Explore",
+    "topic": "Topics",
+    "essential_content": "Essential Contents"
+  },
+  "dashboard": {
+    "nav": "Dashboard",
+    "last_seen": "Last seen topics",
+    "checklist": "Checklist for necessary administrative documents"
+  },
+  "quiz": {
+    "nav": "Quiz",
+    "quiz_time": "Quiz Time!",
+    "question": "Question"
+  },
+  "settings": {
+    "nav": "Settings",
+    "language": "Language"
+  },
+  "searchfield": "Search topics"
+}

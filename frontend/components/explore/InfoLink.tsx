@@ -1,7 +1,7 @@
 import { Text } from "react-native";
 import { ExternalLink } from "@/components/ExternalLink";
 import { Colors } from "@/constants/Colors";
-import { Link } from "@/models/models";
+import { Link } from "@/models/model";
 
 type InfoLinkProps = {
   links?: Link[];

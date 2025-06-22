@@ -1,9 +1,9 @@
-import type { Information } from "../model";
+import { CategoryId, LocaleId, type Information } from "../model";
 
 const infoZoll: Information[] = [
   {
-    localeId: 2,
-    categoryId: 17,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(17),
     title: "Einkaufstourismus",
     description:
       "Wenn Sie Waren in die Schweiz einführen, die Sie im Ausland gekauft haben, müssen Sie dies beim Zoll möglicherweise deklarieren. Anleitung zur Verzollung von Fleisch, Wein und anderen Waren",
@@ -112,11 +112,11 @@ Wenn die eingeführte Ware einen Gesamtwert von 150 Franken überschreitet, muss
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 17,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(17),
     title: "Heikle Waren bei der Einfuhr in die Schweiz",
     description:
       "Je nach Art der Waren oder der Tiere, die Sie bei der Einreise in die Schweiz mitführen, kann es für Sie am Zoll heikel werden. Angaben, die Ihnen bei der Erledigung der Formalitäten an der Grenze und bei der Einreise in die Schweiz helfen können.",
@@ -221,11 +221,11 @@ Ihre Angaben werden im Informationssystem des Bundesamtes für Zoll und Grenzsic
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 17,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(17),
     title: "Umzug in die Schweiz",
     description:
       "Sie leben im Ausland und planen einen Umzug in die Schweiz ­– welche Formalitäten Sie erledigen müssen, damit Ihre Möbel und anderen persönlichen Gegenstände die Grenze problemlos und zollfrei überqueren.",
@@ -306,11 +306,11 @@ Sie müssen den Grenzübertritt nicht vorgängig dem Zoll ankündigen; dieser Sc
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 17,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(17),
     title: "Waren im Ausland bestellen",
     description:
       "Wenn Sie Waren im Ausland bestellen, müssen Sie damit rechnen, dass Sie bei der Einfuhr in die Schweiz Zollabgaben entrichten müssen. Übersicht über die bei Online-Käufen zu erwartenden Kosten.  ",
@@ -372,14 +372,14 @@ Sie hat FAQ zu den Kosten bei der Einfuhr von Paketsendung publiziert.`,
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 
 const infoArbeit: Information[] = [
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Als Ausländer/in in der Schweiz arbeiten",
     description:
       "Die meisten Ausländerinnen und Ausländer benötigen eine Erlaubnis, wenn sie in der Schweiz arbeiten wollen. Wie man zu einer solchen Erlaubnis kommt, hängt von der Staatsangehörigkeit und der Art der angestrebten Arbeit ab.",
@@ -539,11 +539,11 @@ Eine private Unfallversicherung müssen Sie nur dann abschliessen, wenn Sie weni
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Altersvorsorge///Wie funktioniert die Altersvorsorge?",
     description:
       "In der Schweiz besteht die Altersvorsorge aus drei Säulen. Ziel ist, dass Menschen im Rentenalter ihre Grundkosten decken können und ihnen ein angemessener Lebensstandard garantiert ist:",
@@ -607,11 +607,11 @@ Im Gegensatz zu den beiden anderen Säulen ist die dritte Säule nicht obligator
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Altersvorsorge///1. Säule (AHV)",
     description:
       "Die erste Säule oder umgangssprachlich «die AHV» ist die staatliche Alters-, Hinterlassenen- und Invalidenversicherung (AHV/IV). Sie bildet die Basis des Schweizer Vorsorgesystems und soll existenzsichernde Leistungen auszahlen. Diese werden in Form von Alters-, Invaliden- oder Hinterbliebenen-Renten erbracht.",
@@ -855,11 +855,11 @@ Die AHV-Nummer Ihrer Kinder finden Sie daher auf der Krankenversicherungskarte o
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Altersvorsorge///2. Säule (Pensionskasse)",
     description:
       "Die 2. Säule ist als Ergänzung zur 1. Säule gedacht, damit Sie sicher sein können, im Ruhestand eine angemessene Rente zu erhalten. Wenn Sie die Schweiz verlassen, sich selbstständig machen oder Wohneigentum kaufen, können Sie sich das Kapital, das Sie bis zu diesem Zeitpunkt angespart haben, auch vorzeitig auszahlen lassen.",
@@ -1020,11 +1020,11 @@ Ihre Pensionskasse kann Sie im Detail über das Thema Rente informieren.`,
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Altersvorsorge///3. Säule (private Vorsorge)",
     description:
       "Im Hinblick auf die Pensionierung können Sie das Alterseinkommen, das bereits mit der 1. und der 2. Säule gesichert ist, mit einer freiwilligen Versicherung verbessern: mit der privaten Vorsorge (3. Säule).",
@@ -1149,11 +1149,11 @@ Ihre Vorsorgeeinrichtung kann Sie im Detail über die Bedingungen und die Modali
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitslosenversicherung",
     description:
       "Wenn Sie Ihre Arbeit verlieren, können Sie während einer gewissen Zeit Arbeitslosengeld beziehen. Sie müssen dafür bestimmte Bedingungen erfüllen und alles Zumutbare unternehmen, um so schnell wie möglich eine neue Stelle zu finden.",
@@ -1302,11 +1302,11 @@ Sie müssen dafür das entsprechende Formular «Antrag für Überbrückungsleist
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitsunfähigkeit",
     description: "Wenn Sie krank sind oder einen Unfall hatten, erhalten Sie während einer gewissen Zeit weiterhin Lohn. Ausserdem darf Ihnen in dieser Zeit nicht gekündigt werden.",
     contents: [
@@ -1389,11 +1389,11 @@ Wenn Sie einen Unfall haben, nachdem Sie die Kündigung bekommen haben, wird die
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitsvertrag",
     description:
       "Die Arbeitnehmerin oder der Arbeitnehmer und der Arbeitgeber müssen einen Arbeitsvertrag unterschreiben, der die Arbeitsbedingungen regelt. Für bestimmte Branchen gelten spezielle Regeln, die in nationalen oder regionalen Gesamtarbeitsverträgen festgelegt sind.",
@@ -1445,11 +1445,11 @@ Ein Beispiel für einen NAV auf nationaler Ebene ist der NAV Hauswirtschaft. Die
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeugnis",
     description:
       "Wenn Ihr Arbeitsverhältnis endet, stellt Ihnen Ihre Vorgesetzte oder Ihr Vorgesetzter normalerweise ein Arbeitszeugnis aus. Dieses ist Ihnen dann von Nutzen, wenn Sie sich auf eine neue Stelle bewerben.",
@@ -1488,11 +1488,11 @@ Es sollten auch nicht einzelne negative Vorfälle aufgeführt sein (zum Beispiel
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeit///Überstunden und Überzeit",
     description:
       "Jede Arbeitnehmerin und jeder Arbeitnehmer muss pro Woche eine bestimmte Anzahl Stunden arbeiten. Wie viele das sind, ist im Arbeitsvertrag festgelegt. Es ist möglich, diese Schwelle zu überschreiten, wenn bestimmte Voraussetzungen erfüllt sind.",
@@ -1573,11 +1573,11 @@ Die in der Berufsschule verbrachten Tage gelten als Arbeitszeit.`,
         ],
       },
     ],
-    isEssential: 1
+    isEssential: 1,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeit///Kurzarbeit",
     description:
       "Befindet sich Ihre Firma vorübergehend in einer schwierigen Situation, können Sie die Arbeit im Betrieb reduzieren oder ganz einstellen, ohne Ihre Mitarbeiterinnen und Mitarbeiter zu entlassen.",
@@ -1643,11 +1643,11 @@ Dennoch haben während der Kurzarbeitsphase sowohl der Arbeitgeber als auch die 
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeit///Ruhezeiten und Arbeitspausen",
     description:
       "Sie haben bei der Arbeit das Recht, Pause zu machen. Abhängig davon, wie viele Stunden Arbeit Sie an einem Tag leisten müssen, ist Ihre Pause mehr oder weniger lang. Zwischen zwei Arbeitstagen haben Sie Anspruch auf eine bestimmte Mindestanzahl Stunden Ruhezeit.",
@@ -1719,11 +1719,11 @@ Bitte beachten Sie: Für Jugendliche bis 18 Jahre muss die tägliche Ruhezeit in
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeit///Sonntags- und Nachtarbeit",
     description:
       "In der Schweiz sind Nachtarbeit und Sonntagsarbeit verboten. Gewisse Sektoren sind von diesem Verbot ausgenommen. Andere Sektoren können eine Bewilligung für vorübergehende oder dauernde Nacht- und Sonntagsarbeit beantragen.",
@@ -1829,11 +1829,11 @@ Das SECO stellt eine aktuelle Liste der Berufskategorien zur Verfügung, für di
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Arbeitszeit///Ferien, Feiertage und Arbeitsabwesenheiten",
     description:
       "In der Schweiz haben alle Arbeitnehmerinnen und Arbeitnehmer das Anrecht auf mindestens 4 Wochen Ferien im Jahr. Für besondere Anlässe haben sie zudem freie Tage oder freie Stunden zugute.",
@@ -1903,11 +1903,11 @@ Bitte beachten Sie: Kommen Sie aufgrund äusserer Umstände wie Stau, gesperrte 
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
   {
-    localeId: 2,
-    categoryId: 18,
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(18),
     title: "Invalidenversicherung (IV)",
     description:
       "Diese schweizerische Sozial-versicherung unterstützt Personen, die aus gesundheitlichen Gründen dauerhaft nicht in der Lage sind, einer Arbeit nachzugehen. Die IV-Rente muss den täglichen Bedarf im Fall von Invalidität decken.",
@@ -1975,7 +1975,7 @@ Die Rente wird individuell berechnet. Sie hängt vom Invaliditätsgrad, dem mass
 
 Wenn Sie eine IV-Rente beziehen und Kinder haben, haben Sie zusätzlich Anspruch auf eine Rente pro Kind unter 18 Jahren (unter 25 Jahren, wenn das Kind in Ausbildung ist). Die Kinderrente beträgt 40 Prozent der IV-Rente.
 
-Sie können auch von der Unfall- oder Militärversicherung eine Invalidenrente beziehen.`
+Sie können auch von der Unfall- oder Militärversicherung eine Invalidenrente beziehen.`,
               },
               {
                 subtitle: "Hilflosenentschädigung",
@@ -1983,20 +1983,20 @@ Sie können auch von der Unfall- oder Militärversicherung eine Invalidenrente b
 
 Die Entschädigung wird zusätzlich zur IV-Rente ausgerichtet. Der Betrag hängt vom Ausmass Ihrer Einschränkung ab. Es können nur in der Schweiz wohnhafte Personen Hilflosenentschädigung beziehen.
 
-Sie können auch von der Unfall- oder Militärversicherung Hilflosenentschädigung beziehen.`
+Sie können auch von der Unfall- oder Militärversicherung Hilflosenentschädigung beziehen.`,
               },
               {
                 subtitle: "Assistenzbeitrag",
                 text: `Wenn Sie von der IV eine Hilflosenentschädigung beziehen, zu Hause leben und eine Drittperson, die Sie unterstützt, bezahlen, kann die IV dafür einen Assistenzbeitrag leisten. Das Ziel ist, dass Sie nicht in ein Heim eintreten müssen.
 
-Die Höhe des Assistenzbeitrags hängt vom Zeitaufwand und den Qualifikationen ab, die für die Unterstützung nötig sind.`
-              }
+Die Höhe des Assistenzbeitrags hängt vom Zeitaufwand und den Qualifikationen ab, die für die Unterstützung nötig sind.`,
+              },
             ],
           },
         ],
       },
     ],
-    isEssential: 0
+    isEssential: 0,
   },
 ];
 

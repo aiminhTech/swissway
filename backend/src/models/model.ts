@@ -1,71 +1,88 @@
-export type Category = {
-  localeId: number;
-  name: string;
-  description: string;
-};
+import { Schema as S } from "effect";
 
-export type Information = {
-  localeId: number;
-  categoryId: number;
-  title: string;
-  description: string;
-  contents: InfoContent[];
-  isEssential: number
-};
+export const CategoryId = S.Positive.pipe(S.brand("CategoryId"));
+export type CategoryId = typeof CategoryId.Type;
 
-export type InfoContent = {
-  infos: Info[];
-};
+export const LocaleId = S.Positive.pipe(S.brand("LocaleId"));
+export type LocaleId = typeof LocaleId.Type;
 
-export type Info = {
-  title: string;
-  contents: Content[];
-};
+export const QuizId = S.Positive.pipe(S.brand("QuizId"));
+export type QuizId = typeof QuizId.Type;
 
-export type Content = {
-  subtitle?: string;
-  text: string;
-  links?: Link[];
-};
+export const QuizQuestionId = S.Positive.pipe(S.brand("QuizQuestionId"));
+export type QuizQuestionId = typeof QuizQuestionId.Type;
 
-export type Link = {
-  text?: string;
-  url: string;
-};
+export const ChecklistId = S.Positive.pipe(S.brand("ChecklistId"));
+export type ChecklistId = typeof ChecklistId.Type;
 
-export type CheckList = {
-  localeId: number;
-  categoryId: number;
-  title: string;
-};
+export class Category extends S.Class<Category>("Category")({
+  localeId: LocaleId,
+  name: S.NonEmptyString,
+  description: S.NonEmptyString,
+}) {}
 
-export type CheckListItem = {
-  localeId: number;
-  checklistId: number;
-  text: string;
-};
+export class Link extends S.Class<Link>("Link")({
+  text: S.optional(S.String),
+  url: S.String,
+}) {}
 
-export type Quiz = {
-  localeId: number;
-  categoryId: number;
-  title: string;
-};
+export class Content extends S.Class<Content>("Content")({
+  subtitle: S.optional(S.String),
+  text: S.NonEmptyString,
+  links: S.optional(S.Array(Link)),
+}) {}
 
-export type QuizQuestion = {
-  localeId: number;
-  quizId: number;
-  question: string;
-};
+export class Info extends S.Class<Info>("Info")({
+  title: S.NonEmptyString,
+  contents: S.Array(Content),
+}) {}
 
-export type QuizAnswer = {
-  localeId: number;
-  quizQuestionId: number;
-  answer: string;
-  isCorrect: number;
-};
+export class InfoContent extends S.Class<InfoContent>("InfoContent")({
+  infos: S.Array(Info),
+}) {}
 
-export type Image = {
-  relatedTable: string;
-  relatedId: number;
-  url: string;
-};
+export class Information extends S.Class<Information>("Information")({
+  localeId: LocaleId,
+  categoryId: CategoryId,
+  title: S.NonEmptyString,
+  description: S.NonEmptyString,
+  contents: S.Array(InfoContent),
+  isEssential: S.Number,
+}) {}
+
+export class CheckList extends S.Class<CheckList>("CheckList")({
+  localeId: LocaleId,
+  categoryId: CategoryId,
+  title: S.String,
+}) {}
+
+export class CheckListItem extends S.Class<CheckListItem>("CheckListItem")({
+  localeId: LocaleId,
+  checklistId: ChecklistId,
+  text: S.String,
+}) {}
+
+export class Quiz extends S.Class<Quiz>("Quiz")({
+  localeId: LocaleId,
+  categoryId: CategoryId,
+  title: S.String,
+}) {}
+
+export class QuizQuestion extends S.Class<QuizQuestion>("QuizQuestion")({
+  localeId: LocaleId,
+  quizId: QuizId,
+  question: S.String,
+}) {}
+
+export class QuizAnswer extends S.Class<QuizAnswer>("QuizAnswer")({
+  localeId: LocaleId,
+  quizQuestionId: QuizQuestionId,
+  answer: S.NonEmptyString,
+  isCorrect: S.Number,
+}) {}
+
+export class Image extends S.Class<Image>("Image")({
+  relatedTable: S.String,
+  relatedId: S.Number,
+  url: S.String,
+}) {}

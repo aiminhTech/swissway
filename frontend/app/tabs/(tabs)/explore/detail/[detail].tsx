@@ -1,18 +1,21 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView, StyleSheet, View, Text } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useApiStore } from "@/store/apiStore";
 import { useEffect, useState } from "react";
 import Error from "@/components/Error";
-import ContentSection from "@/components/explore/ContentSection";
 
 import { globalStyles } from "@/constants/Styles";
+import ContentSection from "@/components/explore/ContentSection";
+import BackButton from "@/components/ui/BackButton";
+import { Box } from "@/components/ui/box";
+import { Colors } from "@/constants/Colors";
+import Line from "@/components/Line";
 
 export default function InfoContents() {
   const params = useLocalSearchParams();
   const { detail } = params;
 
-  const { fetchInfoContents, infoContents, contentsError, language } =
-    useApiStore();
+  const { fetchInfoContents, infoContentState, language } = useApiStore();
 
   const [expandedItems, setExpandedItems] = useState<{
     [key: string]: boolean;
@@ -29,34 +32,46 @@ export default function InfoContents() {
       }
     }
   }, [language]);
-
-  if (contentsError && !infoContents) {
-    return <Error error={contentsError} />;
-  }
-
-  if (!infoContents || infoContents.length === 0) {
-    return <Error error={{ message: "No content available." }} />;
-  }
+  const { contents, error } = infoContentState;
 
   return (
     <ScrollView contentContainerStyle={globalStyles.container}>
-      {infoContents.map((item, itemIdx) =>
-        item.info_contents?.map((content, contentIdx) => {
-          const topicName = item.info_title.split("///")[1];
+      <Box style={styles.headingWrapper}>
+        <BackButton />
+        <Text style={styles.heading}>Back</Text>
+      </Box>
+      <Line></Line>
+      {error && <Error error={error} />}
+      {contents &&
+        contents.map((item, itemIdx) =>
+          item.information_contents.map((content, contentIdx) => {
+            const topicName = item.information_title.split("///")[1];
 
-          return (
-            <View key={`${itemIdx}-${contentIdx}`}>
-              <ContentSection
-                index={contentIdx}
-                contents={content}
-                topic={topicName}
-                expandedItems={expandedItems}
-                setExpandedItems={setExpandedItems}
-              />
-            </View>
-          );
-        })
-      )}
+            return (
+              <View key={`${itemIdx}-${contentIdx}`}>
+                <ContentSection
+                  index={contentIdx}
+                  contents={content}
+                  topic={topicName}
+                  expandedItems={expandedItems}
+                  setExpandedItems={setExpandedItems}
+                />
+              </View>
+            );
+          })
+        )}
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  headingWrapper: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  heading: {
+    fontSize: 22,
+    color: Colors.custom.grey,
+    fontWeight: "bold",
+  },
+});

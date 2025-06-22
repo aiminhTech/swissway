@@ -1,22 +1,24 @@
 import React, { useState, useMemo } from "react";
 import { ScrollView } from "react-native";
 import { globalStyles } from "@/constants/Styles";
-import { CategoryType, FetchError } from "@/models/models";
 import { Box } from "@/components/ui/box";
 import { Heading } from "@/components/ui/heading";
 import { CategoryBox } from "@/components/explore/CategoryBox";
 import SearchBar from "@/components/SearchBar";
 import Error from "@/components/Error";
+import { useTranslation } from "react-i18next";
+import { ApiCategories, ApiError } from "@/models/api-model";
 
 type CategoryProps = {
-  categories: CategoryType[] | undefined;
-  categoriesError: FetchError | undefined;
+  categoryState: {
+    categories?: ApiCategories;
+    error?: ApiError;
+  };
 };
 
-export default function CatergoryWidget({
-  categories,
-  categoriesError,
-}: CategoryProps) {
+export default function CatergoryWidget({ categoryState }: CategoryProps) {
+  const { t } = useTranslation();
+  const { categories, error } = categoryState;
   const [query, setQuery] = useState("");
 
   const filteredCategories = useMemo(() => {
@@ -27,18 +29,14 @@ export default function CatergoryWidget({
 
   return (
     <Box>
-      <Heading style={globalStyles.heading}>Topics</Heading>
+      <Heading style={globalStyles.heading}>{t("explore.topic")}</Heading>
       <SearchBar query={query} setQuery={setQuery}></SearchBar>
 
       <ScrollView horizontal contentContainerStyle={{ height: 300 }}>
-        {categoriesError && <Error error={categoriesError} />}
+        {error && <Error error={error} />}
 
-        {!categoriesError && filteredCategories?.length === 0 && (
-          <Error
-            error={{
-              message: "No topics found",
-            }}
-          />
+        {!error && filteredCategories?.length === 0 && (
+          <Error error={ApiError.make({ message: "No topics was found!" })} />
         )}
 
         {filteredCategories?.map((cat) => (

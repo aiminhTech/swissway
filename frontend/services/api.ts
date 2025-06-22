@@ -1,116 +1,97 @@
 import {
-  CategoryType,
-  ChecklistType,
-  FetchError,
-  InfoContentType,
-  InfoTitleType,
-  LocaleType,
-  QuizListType,
-  QuizType,
-} from "@/models/models";
+  ApiCategories,
+  ApiChecklists,
+  ApiError,
+  ApiInfoContents,
+  ApiInfoTitles,
+  ApiLocales,
+  ApiQuiz,
+  ApiQuizLists,
+} from "@/models/api-model";
+import {
+  HttpClient,
+  HttpClientRequest,
+  HttpClientResponse,
+} from "@effect/platform";
+import { Effect, pipe, Schema } from "effect";
+import { runPromise } from "./runtime";
 
-const baseUrl = "https://swissway.onrender.com/api";
+//const baseUrl = "https://swissway.onrender.com/api";
+const baseUrl = "http://localhost:3000/api";
+
+function fetchData<A, I>(url: string | URL, schema: Schema.Schema<A, I>) {
+  return runPromise(
+    Effect.gen(function* () {
+      const client = yield* HttpClient.HttpClient;
+      const res = yield* pipe(HttpClientRequest.get(url), client.execute);
+      console.log(res);
+
+      if (res.status !== 200) {
+        console.log("error");
+
+        const error = yield* HttpClientResponse.schemaBodyJson(ApiError)(res);
+        return yield* Effect.fail(error);
+      }
+
+      return yield* HttpClientResponse.schemaBodyJson(schema)(res);
+    }).pipe(
+      Effect.mapError((e) => ApiError.make({ message: e.message })),
+      Effect.either
+    )
+  );
+}
 
 export async function fetchLocale() {
-  try {
-    const res = await fetch(`${baseUrl}/locale`);
-
-    if (!res.ok) {
-      return {
-        message: `Failed to fetch locales. Please try again`,
-      } as FetchError;
-    }
-
-    return res.json() as Promise<LocaleType[]>;
-  } catch (e) {
-    return {
-      message: `Unexpected error: ${e}. Please try again`,
-    } as FetchError;
-  }
+  return await fetchData(baseUrl + "/locale", ApiLocales);
 }
 
 export async function fetchCategories(code: string) {
-  const res = await fetch(`${baseUrl}/category?code=${code}`);
+  const fetchUrl = new URL(baseUrl + "/category");
+  fetchUrl.searchParams.append("code", code);
 
-  if (!res.ok) {
-    return {
-      message: `Failed to fetch categories. Please try again`,
-    } as FetchError;
-  }
-
-  return res.json() as Promise<CategoryType[]>;
+  return await fetchData(fetchUrl, ApiCategories);
 }
 
 export async function fetchInfoTitles(code: string, cat: string) {
-  const res = await fetch(`${baseUrl}/info?code=${code}&cat=${cat}`);
+  const fetchUrl = new URL(baseUrl + "/info");
+  fetchUrl.searchParams.append("code", code);
+  fetchUrl.searchParams.append("cat", cat);
 
-  if (!res.ok) {
-    return {
-      message: `Failed to fetch info titles. Please try again`,
-    } as FetchError;
-  }
+  return await fetchData(fetchUrl, ApiInfoTitles);
+}
 
-  return res.json() as Promise<InfoTitleType[]>;
+export async function fetchEssentialInfo(code: string) {
+  const fetchUrl = new URL(baseUrl + "/info/essential");
+  fetchUrl.searchParams.append("code", code);
+  fetchUrl.searchParams.append("essential", "true");
+
+  return await fetchData(fetchUrl, ApiInfoTitles);
 }
 
 export async function fetchInfoContents(code: string, title: string) {
-  const res = await fetch(
-    `${baseUrl}/info/content?code=${code}&infoTitle=${title}`
-  );
+  const fetchUrl = new URL(baseUrl + "/info/content");
+  fetchUrl.searchParams.append("code", code);
+  fetchUrl.searchParams.append("title", title);
 
-  if (!res.ok) {
-    return {
-      message: `Failed to fetch info contents. Please try again`,
-    } as FetchError;
-  }
-
-  return res.json() as Promise<InfoContentType[]>;
+  return await fetchData(fetchUrl, ApiInfoContents);
 }
 
-export async function fetchQuizzes(catName: string) {
-  const res = await fetch(`${baseUrl}/quiz?cat=${catName}`);
+export async function fetchQuizList(cat: string) {
+  const fetchUrl = new URL(baseUrl + "/quiz");
+  fetchUrl.searchParams.append("cat", cat);
 
-  if (!res.ok) {
-    return {
-      message: `Failed to fetch quizzes. Please try again`,
-    } as FetchError;
-  }
-
-  return res.json() as Promise<QuizListType[]>;
+  return await fetchData(fetchUrl, ApiQuizLists);
 }
 
 export async function fetchQuizById(id: string) {
-  try {
-    const res = await fetch(`${baseUrl}/quiz/${id}`);
+  const fetchUrl = `${baseUrl}/quiz/${id}`;
 
-    if (!res.ok) {
-      return {
-        message: `Failed to fetch quizzes. Please try again`,
-      } as FetchError;
-    }
-
-    return res.json() as Promise<QuizType>;
-  } catch (e) {
-    return {
-      message: `Unexpected error: ${e}. Please try again`,
-    } as FetchError;
-  }
+  return await fetchData(fetchUrl, ApiQuiz);
 }
 
 export async function fetchChecklists(code: string) {
-  try {
-    const res = await fetch(`${baseUrl}/checklist?code=${code}`);
+  const fetchUrl = new URL(baseUrl + "/checklist");
+  fetchUrl.searchParams.append("code", code);
 
-    if (!res.ok) {
-      return {
-        message: `Failed to fetch checklists. Please try again`,
-      } as FetchError;
-    }
-
-    return res.json() as Promise<ChecklistType[]>;
-  } catch (e) {
-    return {
-      message: `Unexpected error: ${e}. Please try again`,
-    } as FetchError;
-  }
+  return await fetchData(fetchUrl, ApiChecklists);
 }

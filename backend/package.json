@@ -18,6 +18,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "effect": "^3.16.8",
     "hono": "^4.7.10"
   }
 }

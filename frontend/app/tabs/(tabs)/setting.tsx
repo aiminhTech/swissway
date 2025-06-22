@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Box } from "@/components/ui/box";
 import { Text } from "@/components/ui/text";
 import { Heading } from "@/components/ui/heading";
@@ -16,40 +18,54 @@ import {
 } from "@/components/ui/select";
 import { globalStyles } from "@/constants/Styles";
 import { useApiStore } from "@/store/apiStore";
-import { useEffect, useState } from "react";
-import { LanguageEnum } from "@/models/models";
 import Line from "@/components/Line";
 import Error from "@/components/Error";
+import i18n from "@/assets/i18n/i18n";
+import { Locales } from "@/models/api-model";
 
 export default function Setting() {
-  const { languages, fetchLanguages, languagesError, language, setLanguage } =
-    useApiStore();
+  const { t } = useTranslation();
+  const { localeState, fetchLocales, language, setLanguage } = useApiStore();
+
   const [selectedLang, setSelectedLang] = useState<string | undefined>();
 
+  const { locales, error } = localeState;
+
   useEffect(() => {
-    if (!languages) {
-      fetchLanguages();
+    if (!locales) {
+      fetchLocales();
     }
+  }, []);
+
+  useEffect(() => {
+    if (language) {
+      setSelectedLang(language);
+    }
+  }, [language]);
+
+  useEffect(() => {
     if (selectedLang && selectedLang !== language) {
-      setLanguage(selectedLang as LanguageEnum);
+      setLanguage(selectedLang as Locales);
+      i18n.changeLanguage(selectedLang);
     }
   }, [selectedLang]);
 
   return (
     <Box style={globalStyles.container}>
-      <Heading style={globalStyles.heading}>Setting</Heading>
+      <Heading style={globalStyles.heading}>{t("settings.nav")}</Heading>
       <Line />
-      <Text style={globalStyles.heading2}>Language</Text>
+      <Text style={globalStyles.heading2}>{t("settings.language")}</Text>
+
       <Select
-        selectedValue={selectedLang}
+        selectedValue={selectedLang?.toUpperCase()}
         onValueChange={setSelectedLang}
-        defaultValue={language.toUpperCase()}
         style={{ width: "95%" }}
       >
         <SelectTrigger variant="outline" size="lg">
-          <SelectInput placeholder="Select Language" />
+          <SelectInput placeholder={t("select_language")} />
           <SelectIcon as={ChevronDownIcon} />
         </SelectTrigger>
+
         <SelectPortal>
           <SelectBackdrop />
           <SelectContent className="rounded-none p-6">
@@ -57,15 +73,16 @@ export default function Setting() {
               <SelectDragIndicator />
             </SelectDragIndicatorWrapper>
 
-            {languages?.map((lang) => (
-              <SelectItem
-                key={lang.id}
-                label={lang.code.toUpperCase()}
-                value={lang.code}
-              />
-            ))}
+            {locales &&
+              locales.map((lang) => (
+                <SelectItem
+                  key={lang.id}
+                  label={lang.code.toUpperCase()}
+                  value={lang.code}
+                />
+              ))}
 
-            {languagesError && <Error error={languagesError} />}
+            {error && <Error error={error} />}
           </SelectContent>
         </SelectPortal>
       </Select>

@@ -1,5 +1,4 @@
 import { Schema as S } from "effect";
-import { InfoContent, QuizId } from "./model";
 
 export enum Locales {
   EN = "en",
@@ -32,6 +31,26 @@ export class ApiInfoTitle extends S.Class<ApiInfoTitle>("ApiInfoTitle")({
 export const ApiInfoTitles = S.mutable(S.Array(ApiInfoTitle));
 export type ApiInfoTitles = typeof ApiInfoTitles.Type;
 
+export class Link extends S.Class<Link>("Link")({
+  text: S.optional(S.String),
+  url: S.String,
+}) {}
+
+export class Content extends S.Class<Content>("Content")({
+  subtitle: S.optional(S.String),
+  text: S.NonEmptyString,
+  links: S.optional(S.mutable(S.Array(Link))),
+}) {}
+
+export class Info extends S.Class<Info>("Info")({
+  title: S.NonEmptyString,
+  contents: S.Array(Content),
+}) {}
+
+export class InfoContent extends S.Class<InfoContent>("InfoContent")({
+  infos: S.Array(Info),
+}) {}
+
 export class ApiInfoContent extends S.Class<ApiInfoContent>("ApiInfoContent")({
   information_title: S.String,
   information_contents: S.Array(InfoContent),
@@ -48,19 +67,20 @@ export const ApiChecklists = S.mutable(S.Array(ApiChecklist));
 export type ApiChecklists = typeof ApiChecklists.Type;
 
 export class ApiQuizList extends S.Class<ApiQuizList>("ApiQuizList")({
-  quiz_id: QuizId,
+  quiz_id: S.Number,
   title: S.NonEmptyString,
 }) {}
 export const ApiQuizLists = S.mutable(S.Array(ApiQuizList));
 export type ApiQuizLists = typeof ApiQuizLists.Type;
 
+const AnswerOption = S.Record({ key: S.String, value: S.Number });
+
+const Question = S.Record({ key: S.String, value: S.Array(AnswerOption) });
+
 export class ApiQuiz extends S.Class<ApiQuiz>("ApiQuiz")({
-  quiz_title: S.String,
-  question: S.String,
-  answers: S.String,
+  title: S.String,
+  questions: S.Array(Question),
 }) {}
-export const ApiQuizzes = S.mutable(S.Array(ApiQuiz));
-export type ApiQuizzes = typeof ApiQuizzes.Type;
 
 export class ApiError extends S.TaggedError<ApiError>("ApiError")("ApiError", {
   message: S.Unknown,
