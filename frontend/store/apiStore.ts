@@ -100,7 +100,6 @@ export const useApiStore = create<ApiStore>()(
       categoryState: { categories: undefined, error: undefined },
       fetchCategories: async (code) => {
         const res = await fetchCategories(code);
-        console.log(res);
 
         if (Either.isLeft(res)) {
           set({ categoryState: { categories: undefined, error: res.left } });

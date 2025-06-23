@@ -16,19 +16,29 @@ import {
 import { Effect, pipe, Schema } from "effect";
 import { runPromise } from "./runtime";
 
+const apiKey = process.env.EXPO_PUBLIC_API_KEY;
+
 //const baseUrl = "https://swissway.onrender.com/api";
 const baseUrl = "http://localhost:3000/api";
 
 function fetchData<A, I>(url: string | URL, schema: Schema.Schema<A, I>) {
+  console.log(apiKey);
+
   return runPromise(
     Effect.gen(function* () {
+      if (!apiKey) {
+        return yield* ApiError.make({ message: "Missing API KEY!" });
+      }
+
       const client = yield* HttpClient.HttpClient;
-      const res = yield* pipe(HttpClientRequest.get(url), client.execute);
-      console.log(res);
+
+      const res = yield* pipe(
+        HttpClientRequest.get(url),
+        HttpClientRequest.setHeader("x-api-key", "supersecret123"),
+        client.execute
+      );
 
       if (res.status !== 200) {
-        console.log("error");
-
         const error = yield* HttpClientResponse.schemaBodyJson(ApiError)(res);
         return yield* Effect.fail(error);
       }

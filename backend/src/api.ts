@@ -1,13 +1,24 @@
-import { Hono, type Context } from "hono";
+import "dotenv/config";
+import { Hono, type Context, type MiddlewareHandler } from "hono";
 import { getCategories, getChecklists, getEssentialInfoTitle, getInfoContent, getInfoTitle, getLocales, getQuiz, getQuizLists } from "@db/select";
 import { showRoutes } from "hono/dev";
 import { ApiError } from "./models/api-model";
-
 /**
  * Hono application instance for handling API routes.
  */
-const app = new Hono();
 
+export const apiKeyAuth: MiddlewareHandler = async (c, next) => {
+  const apiKeyHeader = c.req.header("x-api-key");
+  const validKey = process.env.API_KEY;
+
+  if (!apiKeyHeader || apiKeyHeader !== validKey) {
+    return c.json({ error: "Unauthorized: Invalid API Key" }, 401);
+  }
+
+  await next();
+};
+const app = new Hono();
+app.use("/api/*", apiKeyAuth);
 app.get("/", (c) => c.text("Backend is live and running!"));
 
 /**
@@ -143,4 +154,5 @@ showRoutes(app);
 /**
  * Exports the configured Hono app instance.
  */
+
 export default app;
