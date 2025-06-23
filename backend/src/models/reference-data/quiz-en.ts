@@ -1498,8 +1498,8 @@ const quizAnswerFamily: QuizAnswer[] = [
   makeQuizAnswer(1, 196, "Free of charge", 0),
 ];
 
-export const quizzes: Quiz[] = [...quizCustom, ...quizDocuments, ...quizFamily];
+export const quizzesEN: Quiz[] = [...quizCustom, ...quizDocuments, ...quizFamily];
 
-export const quizQuestions: QuizQuestion[] = [...quizQuestionCustom, ...quizQuestionDocuments, ...quizQuestionFamily];
+export const quizQuestionsEN: QuizQuestion[] = [...quizQuestionCustom, ...quizQuestionDocuments, ...quizQuestionFamily];
 
-export const quizAnswers: QuizAnswer[] = [...quizAnswerCustom, ...quizAnswerDocuments, ...quizAnswerFamily];
+export const quizAnswersEN: QuizAnswer[] = [...quizAnswerCustom, ...quizAnswerDocuments, ...quizAnswerFamily];

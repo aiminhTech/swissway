@@ -56,7 +56,16 @@ export default function Infos() {
     <ScrollView style={{ margin: 16 }} contentContainerStyle={{ flexGrow: 1 }}>
       <Box style={styles.headingWrapper}>
         <BackButton />
-        <Heading style={styles.heading}>{cat}</Heading>
+        <Heading
+          style={[
+            styles.heading,
+            { flexShrink: 1, flexGrow: 1, flexWrap: "wrap" },
+          ]}
+          numberOfLines={2}
+          ellipsizeMode="tail"
+        >
+          {cat}
+        </Heading>
       </Box>
       <Line></Line>
       {error && <Error error={error} />}

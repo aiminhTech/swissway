@@ -4170,4 +4170,1517 @@ NB: In some countries, certain vaccinations are mandatory.`,
   },
 ];
 
-export const infoEN = [...infoCustoms, ...infoDocuments, ...infoFamily, ...infoForeignNationals, ...infoHealth];
+const infoWork: Information[] = [
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working in Switzerland as a Foreigner",
+    description: "Most foreigners require a permit to work in Switzerland. The process for obtaining such a permit depends on nationality and the type of work being pursued.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "EU/EFTA Nationals",
+            contents: [
+              {
+                text: `Thanks to the free movement of persons with the EU/EFTA, you can enter Switzerland, reside here, and work.`,
+              },
+              {
+                subtitle: "What needs to be done for short-term employment?",
+                text: `You do not need a residence permit if you work for an employer in Switzerland for a maximum of three months. This also applies if you provide a service in Switzerland for up to 90 days per calendar year.
+
+However, your employer must report your employment using the notification procedure for short-term employment at least one day before you start working.`,
+                links: [
+                  {
+                    text: "Notification procedure for short-term employment",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/fza_schweiz-eu-efta/meldeverfahren.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "What needs to be done for employment longer than three months?",
+                text: `You must apply for a residence permit at your municipality of residence in Switzerland before starting your employment. You need to submit the following documents:
+
+- Valid identity card or valid passport
+- A statement from your employer confirming they will hire you, or proof of employment (e.g., employment contract).
+
+The residence permit is valid throughout Switzerland; it allows you to change jobs or employers. Its validity depends on the duration of your employment.`,
+              },
+              {
+                subtitle: "What do self-employed individuals need to do?",
+                text: `You must report your arrival within 14 days at your municipality of residence and apply for a residence permit there.
+
+You need to submit the following documents:
+
+- Valid identity card or valid passport
+- Documents proving that you are or will be engaged in self-employed activity with income sufficient to support yourself and your family (e.g., business or accounting records).`,
+              },
+              {
+                subtitle: "How to find a job in Switzerland?",
+                text: `You can enter Switzerland and search for a job for up to six months. For the first three months, you do not need a permit. Afterward, you can apply for an EU/EFTA short-term residence permit, valid for three months per year, provided you can support yourself financially.
+
+Further information is available on the page EU/EFTA Citizens: Living and Working in Switzerland from the State Secretariat for Migration, or you can contact the cantonal migration or labor market authorities.`,
+                links: [
+                  {
+                    text: "EU/EFTA Citizens: Living and Working in Switzerland",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/fza_schweiz-eu-efta/eu-efta_buerger_schweiz.html",
+                  },
+                  {
+                    text: "Cantonal Migration and Labor Market Authorities",
+                    url: "https://www.sem.admin.ch/sem/en/home/sem/kontakt/kantonale_behoerden/adressen_kantone_und.html",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "UK Nationals",
+            contents: [
+              {
+                text: `Since January 1, 2021, UK nationals are no longer EU citizens. They are now subject to quotas and other regulations for third-country nationals.
+
+If you had residence rights in Switzerland before 2021, you may benefit from special provisions in the agreement between Switzerland and the UK on acquired citizens' rights.
+
+Switzerland and the UK have also concluded an agreement on the mobility of service providers. Until the end of 2025, UK service providers working in Switzerland for short-term activities, i.e., up to 90 days per calendar year, must register via the notification procedure for short-term employment.
+
+Further information is available on the United Kingdom page of the State Secretariat for Migration and under the section You are not an EU/EFTA citizen.`,
+                links: [
+                  {
+                    text: "UK Nationals with Acquired Rights",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/arbeit/uk/erworbene-rechte.html",
+                  },
+                  {
+                    text: "Notification procedure for short-term employment",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/fza_schweiz-eu-efta/meldeverfahren.html",
+                  },
+                  {
+                    text: "United Kingdom",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/arbeit/uk.html",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Non-EU/EFTA Nationals",
+            contents: [
+              {
+                subtitle: "Who can work in Switzerland?",
+                text: `Nationals of countries outside the EU/EFTA can only work in Switzerland if they are highly qualified. This includes, for example, executives, specialists, or individuals with a teaching diploma for higher education and several years of professional experience.
+
+A work permit is required even for short-term employment, and the number of permits is limited.
+
+A permit may also be granted for self-employed activities. Spouses of Swiss citizens or individuals with a settlement permit do not need a permit.`,
+                links: [
+                  {
+                    text: "QuickZoll App",
+                    url: "https://www.bazg.admin.ch/bazg/en/home/services/services-private/services-private-einfuhr/quickzoll-app.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "Requirements?",
+                text: `Your future employer must demonstrate that hiring you is in Switzerland's economic interest and that no suitable personnel could be found in the Swiss or EU/EFTA labor market.
+
+The employer must employ you under the same wage and working conditions as Swiss nationals.`,
+              },
+              {
+                subtitle: "How to obtain a permit?",
+                text: `In Switzerland, your future employer must take the necessary steps to obtain a work permit from the cantonal migration and labor market authority.
+
+If you wish to engage in self-employed activity, you must apply for the permit yourself.
+
+You can learn more about the procedure for non-EU/EFTA nationals on the State Secretariat for Migration website.
+
+The work permit does not automatically grant the right to enter Switzerland. Depending on your nationality, you may also need a visa.
+
+Check whether this applies to you and how to proceed. Consult the Visa for Foreigners page for details.
+
+Upon arrival in Switzerland, you must register with the residents' registration office in your municipality within 14 days. You may not start work until you have done so.`,
+                links: [
+                  {
+                    text: "Cantonal Migration and Labor Market Authorities",
+                    url: "https://www.sem.admin.ch/sem/en/home/sem/kontakt/kantonale_behoerden/adressen_kantone_und.html",
+                  },
+                  {
+                    text: "Procedure for Non-EU/EFTA Nationals",
+                    url: "https://www.sem.admin.ch/sem/en/home/themen/arbeit/nicht-eu_efta-angehoerige/verfahrensablauf.html",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "Don't Forget to Get Insured",
+            contents: [
+              {
+                text: `When you come to Switzerland to work, you enter the Swiss social insurance system. Not all insurance contributions are deducted directly from your salary.
+
+Health insurance is mandatory but private. You must take out a policy with a private health insurance company for yourself and your family within three months of entering Switzerland or starting employment. Further information is available on the page Taking Out Health Insurance.
+
+You only need to take out private accident insurance if you work less than eight hours per week. If you work more, your employer must insure you, and the insurance premium will be deducted from your salary.`,
+                links: [
+                  {
+                    text: "Swiss Social Insurance System",
+                    url: "https://www.ahv-iv.ch/en/Sozialversicherungen",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Retirement Planning///How Does Retirement Planning Work?",
+    description:
+      "In Switzerland, retirement planning consists of three pillars. The goal is to ensure that people in retirement can cover their basic costs and maintain an appropriate standard of living:",
+    contents: [
+      {
+        infos: [
+          {
+            title: "The 3-Pillar System",
+            contents: [
+              {
+                text: `The Swiss retirement planning system consists of: state pension (1st pillar), occupational pension (2nd pillar), and private pension (3rd pillar).
+
+Each of the three pillars serves a specific purpose.`,
+              },
+            ],
+          },
+          {
+            title: "The First Pillar",
+            contents: [
+              {
+                text: `The first (mandatory) pillar primarily consists of the old-age pension. It aims to ensure you have a minimum income to cover basic costs when you reach retirement age.
+
+The first pillar is based on the principle of solidarity: The working population pays contributions, financing the pensions of the retired population. Those who earn more and thus pay higher contributions support less affluent insured individuals who pay lower contributions.
+
+Thanks to the survivors' insurance, you also receive benefits if your spouse or a parent (or both parents) dies, preventing financial hardship.
+
+If the old-age and survivors' insurance (AHV) is insufficient to cover your basic costs, additional benefits are provided under the first pillar: supplementary benefits.`,
+                links: [
+                  {
+                    text: "Principle of Solidarity",
+                    url: "https://www.ahv-iv.ch/en/Sozialversicherungen/Alters-und-Hinterlassenenversicherung-AHV/Allgemeines#qa-730",
+                  },
+                  {
+                    text: "Supplementary Benefits EL",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ergaenzungsleistungen.html",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "The Second Pillar",
+            contents: [
+              {
+                text: `The occupational pension, also called the pension fund or BVG, is mandatory for most employed individuals. It supplements the AHV pension and aims to enable you to maintain an appropriate standard of living after retirement.
+
+The combined amount from the first and second pillars guarantees you an income of approximately 60 percent of your pre-retirement income.`,
+              },
+            ],
+          },
+          {
+            title: "The Third Pillar",
+            contents: [
+              {
+                text: `The third pillar allows you to enhance your retirement pension.
+
+Unlike the other two pillars, the third pillar is not mandatory. It is an individual and private, voluntary insurance. You can take out insurance as long as you are employed and intend to save additional money for retirement. The combined amount from the first and second pillars guarantees you an income of approximately 60 percent of your pre-retirement income.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Retirement Planning///1st Pillar (AHV)",
+    description:
+      "The first pillar, commonly referred to as 'AHV,' is the state old-age, survivors', and disability insurance (AHV/IV). It forms the foundation of the Swiss pension system and aims to provide benefits that ensure a basic standard of living. These are paid out as old-age, disability, or survivors' pensions.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "AHV Card",
+            contents: [
+              {
+                subtitle: "Ordering the AHV Card",
+                text: `If you do not yet have an AHV card or have lost your AHV card, you can apply for one by filling out the form available online and submitting it to the relevant authority.`,
+              },
+              {
+                subtitle: "You are employed",
+                text: `If you do not yet have an AHV card or have lost your AHV card, you can fill out the corresponding form available on the AHV/IV Information Center website and submit it to your employer.
+
+This way, you will receive a (new) AHV card.`,
+                links: [
+                  {
+                    text: "Corresponding Form",
+                    url: "https://www.ahv-iv.ch/en/Formulare/Formulare/Allgemeine-Verwaltungsformulare",
+                  },
+                ],
+              },
+              {
+                subtitle: "You are self-employed or not working",
+                text: `If you do not yet have an AHV card or have lost your AHV card, you can fill out the corresponding form available on the AHV/IV Information Center website and submit it to your professional association compensation fund or the cantonal compensation fund responsible for collecting insurance contributions.
+
+This way, you will receive a (new) AHV card.`,
+                links: [
+                  {
+                    text: "Corresponding Form",
+                    url: "https://www.ahv-iv.ch/en/Formulare/Formulare/Allgemeine-Verwaltungsformulare",
+                  },
+                  {
+                    text: "Professional Association Compensation Fund",
+                    url: "https://www.ahv-iv.ch/en/Kontakte/Verbandsausgleichskassen",
+                  },
+                  {
+                    text: "Cantonal Compensation Funds",
+                    url: "https://www.ahv-iv.ch/en/Kontakte/Kantonale-Ausgleichskassen",
+                  },
+                ],
+              },
+              {
+                subtitle: "You live abroad",
+                text: `If you do not yet have an AHV card or have lost your AHV card and live abroad, you must contact the Swiss Compensation Fund (SAK), which will issue you a (new) card.
+
+If you live abroad and work in Switzerland, refer to the sections 'You are employed' or 'You are self-employed or not working' to obtain a (new) AHV card.`,
+                links: [
+                  {
+                    text: "Swiss Compensation Fund SAK",
+                    url: "https://www.ahv-iv.ch/en/Kontakte/Schweizerische-Ausgleichskasse-SAK",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            title: "AHV Contributions",
+            contents: [
+              {
+                text: `In Switzerland, you are required to pay AHV contributions until retirement age (more precisely, the reference age) to ensure an old-age pension. If you have not always paid contributions, you may be able to make up for missing contributions in certain cases.`,
+              },
+              {
+                subtitle: "Who must pay AHV contributions?",
+                text: `All individuals living or working in Switzerland must pay AHV contributions starting January 1 after their 20th birthday until retirement age (more precisely, the reference age). This obligation begins at age 17 if you are already working and continues if you remain employed after retirement age.
+
+The old-age pension you receive after retirement depends on the total amount of AHV contributions you have paid during your lifetime.`,
+                links: [
+                  {
+                    text: "Reference Age",
+                    url: "https://www.ahv-iv.ch/en/Sozialversicherungen/Glossar/term/referenzalter",
+                  },
+                ],
+              },
+              {
+                subtitle: "How much are the contributions?",
+                text: ``,
+              },
+              {
+                subtitle: "You are not employed",
+                text: `If you are not employed, you must pay an AHV contribution of at least 530 francs per year (depending on your situation). This applies, for example, if you are studying, retired early, receiving a disability pension, health or accident benefits, or are unemployed and no longer entitled to benefits. This amount also includes mandatory contributions for disability insurance and income replacement compensation.
+
+Please note: Married individuals who are not employed do not have to pay anything if their spouse is employed and pays at least double the annual minimum amount (i.e., 530 francs x 2 = 1,060 francs). The same applies to partners in a registered partnership.
+
+On the Federal Social Insurance Office website, you can calculate the contributions you need to pay in your case online.`,
+                links: [
+                  {
+                    text: "Not Employed",
+                    url: "https://www.ahv-iv.ch/p/2.03.e",
+                  },
+                  {
+                    text: "Calculate contributions online",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ueberblick/beitraege.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "You are employed",
+                text: `AHV contributions (8.7 percent of your salary) are split equally between you and your employer. Your employer handles everything; they deduct the AHV contributions directly from your payroll and transfer them to the compensation fund.
+
+Please note: In addition to AHV contributions, you and your employer must also pay mandatory contributions for disability insurance, income replacement compensation, and unemployment insurance.`,
+                links: [
+                  {
+                    text: "Calculate contributions online",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ueberblick/beitraege.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "You are self-employed",
+                text: `If you are self-employed, you must pay the AHV contributions yourself (usually 8.1 percent of your income). Contact a compensation fund to find out how to proceed.
+
+Please note: In addition to AHV contributions, you must also pay mandatory contributions for disability insurance and income replacement compensation.
+
+On the Federal Social Insurance Office website, you can calculate the contributions you need to pay in your case online.`,
+                links: [
+                  {
+                    text: "Calculate contributions online",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ueberblick/beitraege.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "You work beyond retirement age",
+                text: `If you work beyond your retirement age, you must continue to pay AHV/IV/EO contributions.
+
+However, you no longer have to pay unemployment insurance contributions, as you are no longer entitled to unemployment benefits after the standard retirement age.
+
+Contributions are levied on the portion of your salary that exceeds a certain exemption amount (currently 16,800 francs per year). You can choose to waive this exemption to have contributions calculated on your entire income. If you work for multiple employers, the exemption applies to each employment relationship separately.
+
+If you are not employed for the entire year, the annual exemption is calculated proportionally.
+
+On the Federal Social Insurance Office website, you can calculate the contributions you need to pay in your case online.`,
+                links: [
+                  {
+                    text: "Calculate contributions online",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ueberblick/beitraege.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "You move abroad",
+                text: `If you move abroad, you generally no longer pay AHV contributions in Switzerland.
+
+In certain cases (e.g., if you are abroad for a limited time or work for a Swiss employer) and under certain conditions, you can continue to pay mandatory AHV contributions in Switzerland or at least join the voluntary AHV (e.g., if you move to a country outside the EU/EFTA).
+
+To find out the options available in your case, contact your AHV compensation fund or the Swiss representation in your future country of residence directly.`,
+                links: [
+                  {
+                    text: "Calculate contributions online",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ueberblick/beitraege.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "Ordering a statement of your AHV contributions",
+                text: `You can request a statement of your AHV contributions at any time. If you notice errors or inaccuracies, you can ask the compensation fund to correct the statement within 30 days of receiving it.`,
+              },
+              {
+                subtitle: "Gaps in AHV contribution payments",
+                text: `Paying AHV contributions is mandatory. However, for various reasons, you may not have always paid contributions, resulting in contribution gaps.
+
+Example: Missing contributions during studies.
+
+If you have not always paid contributions, you will receive a lower AHV pension. For example, if you are missing one contribution year, your pension will be approximately 2.3 percent lower.
+
+You can generally make up for missing contributions, but this is only possible for gaps in the last five years. Earlier gaps cannot be compensated through back payments.
+
+If you continue working after reaching the reference age, you can, under certain conditions, use the contributions paid to fill gaps and potentially increase your pension.
+
+Contact your responsible compensation fund; they will explain how to proceed.`,
+              },
+            ],
+          },
+          {
+            title: "AHV Number",
+            contents: [
+              {
+                text: `If you do not know your AHV number, you can ask your health insurance provider or employer.`,
+              },
+              {
+                subtitle: "What is the AHV number?",
+                text: `An AHV number is assigned to all individuals living or working in Switzerland: It serves as a social insurance number; you also need it in other administrative areas.
+
+The number consists of 13 digits. It is anonymous, randomly generated, and it is not possible to identify a person based on the number.`,
+                links: [
+                  {
+                    text: "Social Insurance",
+                    url: "https://www.bsv.admin.ch/bsv/en/home/sozialversicherungen/ahv/grundlagen-gesetze/ahv-nummer.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "Living or working in Switzerland",
+                text: `If you live or work in Switzerland, you receive an AHV number regardless of whether you have Swiss or another nationality. Cross-border commuters also receive an AHV number.
+
+You can find your AHV number on your Swiss health insurance card.
+
+If you are employed, you can also ask your employer for your AHV number.
+
+If you are self-employed, you can contact your compensation fund (professional association compensation fund or the compensation fund of your canton of residence).`,
+                links: [
+                  {
+                    text: "Professional Association Compensation Fund",
+                    url: "https://www.ahv-iv.ch/en/Kontakte/Verbandsausgleichskassen",
+                  },
+                  {
+                    text: "Cantonal Compensation Funds",
+                    url: "https://www.ahv-iv.ch/en/Kontakte/Kantonale-Ausgleichskassen",
+                  },
+                ],
+              },
+              {
+                subtitle: "Living abroad",
+                text: `The AHV number remains valid for life. If you have left Switzerland and do not work for a Swiss company but need to know your AHV number, you can order a duplicate of your insurance certificate using this form.`,
+                links: [
+                  {
+                    text: "Form",
+                    url: "https://www.zas.admin.ch/zas/en/home/services-en-ligne/particuliers/duplicata-du-certificat-d-assurance.html",
+                  },
+                ],
+              },
+              {
+                subtitle: "The AHV number of your children",
+                text: `Every child living in Switzerland receives an AHV number.
+
+You can find your children's AHV number on their health insurance card or by asking their health insurance provider.`,
+              },
+              {
+                subtitle: "If you are studying in Switzerland",
+                text: `Contact your university or educational institution directly to find out your AHV number. You can also request an insurance certificate from the cantonal compensation fund at your place of study using this form.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Retirement Planning///2nd Pillar (Pension Fund)",
+    description:
+      "The 2nd pillar is designed to complement the 1st pillar, ensuring you receive an adequate pension in retirement. If you leave Switzerland, become self-employed, or buy property, you can also withdraw the capital you have saved up to that point early.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Purpose of the 2nd Pillar",
+            contents: [
+              {
+                text: `The Swiss retirement planning system consists of three pillars. The 2nd pillar, together with the 1st pillar, primarily aims to secure you an adequate income in retirement. To benefit from it, you must pay monthly contributions during your working life. Under certain circumstances, you can also access this money before retirement.`,
+              },
+            ],
+          },
+          {
+            title: "Insured Persons",
+            contents: [
+              {
+                text: `Contributions to the 2nd pillar are mandatory if you meet all of the following conditions:
+
+- You are at least 17 years old.
+- You are insured under the 1st pillar (AHV).
+- You are employed and earn at least 22,680 francs per year.
+
+Please note: If you do not meet these conditions, you can also take out voluntary insurance:
+
+- If your income is less than 22,680 francs per year, your employer can voluntarily insure you with a 2nd pillar institution.
+- If you are self-employed or have a fixed-term employment contract of up to three months, you are not required to pay contributions. However, you can choose to do so voluntarily.`,
+              },
+            ],
+          },
+          {
+            title: "Contributions to the 2nd Pillar",
+            contents: [
+              {
+                text: `You and your employer must each pay half of the contributions to the 2nd pillar. Your employer may also choose to pay more than half.
+
+You do not need to worry about anything. Your employer deducts your contributions directly from your salary and transfers them to your account at the pension institution of their choice.
+
+If you are self-employed and decide to pay BVG contributions voluntarily, you can contact a pension institution of your choice to find out how to proceed.
+
+Since the 2nd pillar is managed by private pension institutions, each with its own regulations, the amount you must pay is not fixed and may vary depending on the institution.`,
+              },
+            ],
+          },
+          {
+            title: "The 2nd Pillar and the Vested Benefits Account",
+            contents: [
+              {
+                text: `If your annual income falls below 22,680 francs (entry threshold), you become unemployed, move abroad for some time, or stop working due to training, you are no longer required to pay contributions to the 2nd pillar.
+
+Please note: In this case, you cannot freely dispose of the capital saved up to that point but must transfer it to a vested benefits account at a bank or financial institution of your choice. Your BVG balance is temporarily 'parked' and held there.
+
+If or when you meet the conditions for contributing to the 2nd pillar again, you must transfer the money from the vested benefits account to your new BVG account with your new employer's pension fund.
+
+If you do not open a vested benefits account, your 2nd pillar funds will automatically be transferred to an account with the national pension institution, the BVG Substitute Institution. Contact the BVG Substitute Institution if you want to invest your 2nd pillar funds elsewhere with a better interest rate.`,
+              },
+            ],
+          },
+          {
+            title: "Investing in the 2nd Pillar (Buy-In)",
+            contents: [
+              {
+                text: `When you change jobs, your new salary may be higher than your previous one, or your new employer's pension fund may offer more favorable conditions.
+
+You may also have contribution gaps because you have not paid contributions to the 2nd pillar throughout your life.
+
+In these cases, you can invest in your 2nd pillar by buying additional contribution years. The conditions of the new pension fund apply.
+
+The amount you contribute to the 2nd pillar can be deducted from your taxes.
+
+You can obtain information about the possibilities and conditions for investing in the 2nd pillar from your new pension fund. Your employer can provide you with their contact details.`,
+              },
+            ],
+          },
+          {
+            title: "Early Withdrawal of the 2nd Pillar",
+            contents: [
+              {
+                subtitle: "For purchasing a home",
+                text: `You can use your 2nd pillar before retirement to buy property, pay off a mortgage, or acquire shares in housing cooperatives.
+
+The following conditions apply:
+
+- The purchase is for your primary residence.
+- Up to the age of 50, you can withdraw the entire capital.
+- From age 50, you can only withdraw a partial amount.
+- An early withdrawal can be requested at most every five years.
+- If you are married or in a registered partnership, you need the consent of your spouse or partner.
+- If you sell your property, you are usually required to repay the 2nd pillar funds you withdrew for the purchase.
+
+You can obtain information about the modalities of an early withdrawal for purchasing property from your pension institution.`,
+              },
+              {
+                subtitle: "When starting self-employment",
+                text: `If you intend to become self-employed, you are no longer required to pay contributions to the 2nd pillar. You can have the capital saved up to that point paid out. However, the following conditions apply:
+
+- You must submit the request for the early withdrawal within the first year after starting your new activity.
+- You must prove that you have started a self-employed activity, e.g., with an extract from the commercial register or AHV documents.
+- If you are married or in a registered partnership, you need the consent of your spouse or partner.
+
+You can obtain information about the modalities of an early withdrawal for starting self-employment from your pension institution.`,
+              },
+              {
+                subtitle: "When permanently leaving Switzerland",
+                text: `If you permanently leave Switzerland, you can have your 2nd pillar paid out early.
+
+An early withdrawal of this capital is not possible if you intend to settle in an EU/EFTA country. If one of these countries becomes your new place of residence, you are mandatorily insured there for old age, disability, and survivors' benefits.
+
+In this case, part of your occupational pension (the so-called mandatory part) must remain in a blocked account in Switzerland; it can only be paid out when you reach the standard retirement age (65 years). However, you can have the remaining part of your 2nd pillar (the so-called non-mandatory part) paid out in cash.
+
+You can obtain information about the modalities of an early withdrawal for permanently moving abroad from your pension institution.
+
+Please note: If you permanently leave Switzerland and still have a vested benefits account, do not forget to take this balance with you.`,
+              },
+            ],
+          },
+          {
+            title: "Payout of the 2nd Pillar at Retirement",
+            contents: [
+              {
+                text: `At age 65, you can withdraw the money you have saved during your working life. With some pension funds, withdrawal is possible from age 58 in case of early retirement, or it can be deferred until age 70 if you work beyond retirement age.
+
+Take care of the withdrawal of your 2nd pillar benefits in good time: You can find out more on the page Planning Retirement. Your pension fund can also provide detailed information on how to proceed in your case.`,
+              },
+            ],
+          },
+          {
+            title: "The 2nd Pillar in Case of Divorce",
+            contents: [
+              {
+                text: `If you get divorced or dissolve a registered partnership, only the portion of the 2nd pillar capital accumulated during the marriage or registered partnership is divided between the spouses or partners.
+
+The 2nd pillar is also divided if one of the two individuals is already retired and receiving an old-age pension from the 2nd pillar.`,
+              },
+            ],
+          },
+          {
+            title: "The 2nd Pillar in Case of Death",
+            contents: [
+              {
+                text: `In a marriage or registered partnership, the surviving person receives a pension in the event of a death.
+
+If your spouse or registered partner dies, you are entitled to a pension under the following conditions:
+
+- You are at least 45 years old.
+- Your marriage or partnership lasted at least five years.
+- You are caring for at least one child.
+
+If you do not meet any of these conditions, you are entitled to a one-time settlement equal to three annual pensions.
+
+Children who have lost one or both parents through death receive a half-orphan or orphan pension until they are 18 years old. If they are studying or in training, they receive the pension until they are 25 years old.
+
+Your pension fund can provide detailed information on pensions.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Retirement Planning///3rd Pillar (Private Pension)",
+    description: "To prepare for retirement, you can enhance the retirement income already secured by the 1st and 2nd pillars with a voluntary insurance: the private pension (3rd pillar).",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Private Pension",
+            contents: [
+              {
+                subtitle: "Purpose of the 3rd Pillar",
+                text: `If you want to supplement your 1st and 2nd pillars and ensure you receive additional funds after retirement, you can voluntarily set up a 3rd pillar. There are two types of 3rd pillar: tied pension provision (Pillar 3a) and untied pension provision (Pillar 3b).`,
+              },
+              {
+                subtitle: "Tied Pension Provision (Pillar 3a)",
+                text: `With Pillar 3a, you can accumulate savings with a bank or insurance company during your working life until retirement.
+
+Key features of Pillar 3a:
+
+- You can pay a maximum annual amount into your account.
+- The interest rates are higher than those of a savings account.
+- The contributions you pay can be deducted from your taxes each year.
+- Certain conditions apply to withdrawing the balance.
+- A one-time tax is due upon withdrawal, based on your income at the time of withdrawal.`,
+              },
+              {
+                subtitle: "Untied Pension Provision (Pillar 3b)",
+                text: `Pillar 3b consists of savings deposits in the form of cash, savings accounts, life insurance, or investments.
+
+Key features of Pillar 3b:
+
+- You can pay any amount annually.
+- You must declare the saved balance in your tax return each year.
+- The balance is generally taxed annually.
+- You can withdraw the money at any time.
+- You do not have to pay additional taxes when withdrawing the saved funds.`,
+              },
+            ],
+          },
+          {
+            title: "Who Can Take Out a 3rd Pillar",
+            contents: [
+              {
+                text: `You can take out and maintain a Pillar 3a in the following cases:
+
+- You pay contributions to the 2nd pillar (employees).
+- You are not insured with a BVG pension institution (self-employed).
+- You live abroad but work in Switzerland (e.g., cross-border commuters).
+- You receive daily benefits from the AHV-mandatory disability insurance.
+- You receive daily benefits from the disability insurance subject to AHV.
+- You receive daily benefits from Swiss unemployment insurance.
+- You are a partially disabled insured person with an AHV-mandatory income from employment.
+- If you work beyond the standard retirement age, you can continue to pay contributions until five years after your 65th birthday.
+- You can also continue to pay contributions if you temporarily interrupt your employment (e.g., civil or military service, unemployment, illness).
+
+There are no special requirements for Pillar 3b.
+
+Pension institutions can provide detailed information on taking out a 3rd pillar.`,
+              },
+            ],
+          },
+          {
+            title: "3rd Pillar: Annual Contribution",
+            contents: [
+              {
+                text: `You can pay a maximum annual amount into Pillar 3a.
+
+For employees, this is a maximum of 7,258 francs in 2025.
+
+For self-employed individuals without a 2nd pillar, this is up to twenty percent of income and a maximum of 36,288 francs.
+
+There are no annual limits for Pillar 3b.`,
+              },
+            ],
+          },
+          {
+            title: "Tax Advantages of the 3rd Pillar",
+            contents: [
+              {
+                text: `If you opt for a Pillar 3a, you benefit from tax advantages: You can deduct the paid contributions in your annual tax return.
+
+Employees can deduct the maximum amount for the current tax year (2025 amount: 7,258 francs).
+
+Self-employed individuals without a 2nd pillar can deduct up to twenty percent of their income, up to a maximum of 36,288 francs (2025 amount).
+
+Please note: A one-time lump-sum tax is due upon withdrawal of the balance.
+
+There are generally no tax advantages for Pillar 3b.
+
+However, unlike Pillar 3a, you do not have to pay taxes when withdrawing the entire saved balance.
+
+Your pension institution or the tax authority of your canton can provide detailed information on this topic.`,
+              },
+            ],
+          },
+          {
+            title: "Withdrawal of the Balance: Possible Timing",
+            contents: [
+              {
+                text: `Normally, you can withdraw the 3rd pillar funds at the time of your retirement or, at the earliest, five years before the standard retirement age (65 years).
+
+In the following exceptional cases, you can withdraw the capital early:
+
+- You plan to buy or build property.
+- You permanently leave Switzerland.
+- You intend to become self-employed.
+- You intend to start a new self-employed activity.
+- You want to buy additional contribution years with a 2nd pillar pension institution.
+- You receive a full disability insurance (IV) pension, and the disability risk is not insured.
+
+If you decide to work beyond the standard retirement age (65 years), you can continue to pay contributions and defer the withdrawal for up to five years.
+
+When withdrawing, you must withdraw the entire balance at once.
+
+The withdrawal of Pillar 3b capital is not subject to conditions and can occur at any time.
+
+Your pension institution can provide detailed information on the conditions and modalities for capital withdrawal.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Unemployment Insurance",
+    description:
+      "If you lose your job, you can receive unemployment benefits for a certain period. You must meet specific conditions and make every reasonable effort to find a new job as quickly as possible.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Check Whether the Termination is Valid",
+            contents: [
+              {
+                text: `If you receive a termination notice from your employer, first check whether the termination complies with legal requirements. In particular, verify the following: Was the notice period respected? Were you terminated while on sick leave or pregnant?`,
+              },
+            ],
+          },
+          {
+            title: "Am I Entitled to Unemployment Benefits?",
+            contents: [
+              {
+                text: `If you have lost your job, you are entitled to unemployment benefits in Switzerland as soon as you meet the following conditions:
+
+- You are fully or partially unemployed.
+- You were employed for at least 12 months in the last 2 years (possible exceptions in FAQ point 2).
+- Your main residence is in Switzerland. If not, refer to the section 'Unemployment for Foreign Nationals and Cross-Border Commuters'.
+- You have completed compulsory schooling and have not yet reached the AHV retirement age.
+
+Additionally, the following applies:
+
+- You must register with the Regional Employment Office (RAO).
+- You must be willing to accept a job that matches your professional profile and be immediately available.
+- You must start looking for a job during the notice period.
+- If you have a fixed-term employment contract, you must begin your job search three months before the end of the employment relationship.
+
+Keep careful records of your job search (applications, rejection letters, etc.). You must present them to the regional employment agency.`,
+              },
+            ],
+          },
+          {
+            title: "Where Do I Register for Unemployment?",
+            contents: [
+              {
+                text: `Register as unemployed as early as possible, but no later than the first day for which you wish to receive unemployment benefits. You must register in person—either via the eService 'Registration for Employment Services (RAV)' or by visiting the regional employment agency (RAV).
+
+Within the first 15 days after your registration, the responsible RAV will invite you to an initial interview.
+
+Please have the following documents ready:
+
+- AHV/IV insurance card or health insurance card
+- Identity card or passport
+- Proof of job search efforts already undertaken (applications, responses, etc.)
+- Additional information requested by the RAV.
+- Form PD U2, if you are a citizen of an EU or EFTA state, already receiving unemployment benefits from an EU or EFTA state, and looking for a job in Switzerland.
+
+Choose an unemployment fund in your region. This fund will pay you the unemployment benefits monthly. You must submit the following documents to your unemployment fund:
+
+- The 'Application for Unemployment Benefits' form,
+- 'Employer Certificate' forms for employments in the last two years.
+- Additional information requested by the unemployment fund,
+- Form PD U1, if you come from an EU or EFTA state.`,
+              },
+            ],
+          },
+          {
+            title: "Unemployment Benefits",
+            contents: [
+              {
+                subtitle: "How Much Unemployment Benefit Will I Receive?",
+                text: `Generally, you receive unemployment benefits equal to 70 percent of your insured salary. This is, simplified, the average salary of the last 6 months—or the last 12 months if this is more advantageous for you.
+
+You receive 80 percent of the insured salary if one of the following conditions is met:
+
+- You have children under 25 years old for whom you are responsible.
+- Your insured income does not exceed 3,797 francs.
+- You have a disability degree of at least 40 percent.`,
+              },
+              {
+                subtitle: "How Long Will I Receive Unemployment Benefits?",
+                text: `The following table shows how long you are entitled to unemployment benefits, depending on your situation:
+
+Contribution Period      Age/Maintenance Obligation        Conditions                               Daily Benefits
+12 to 24                Up to 25 without maintenance obligation                                     200
+12 to <18               25 and older                                                        2601
+12 to <18               With maintenance obligation                                         2601
+18 to 24                25 and older                                                        4001
+18 to 24                With maintenance obligation                                         4001
+22 to 24                55 and older                                                        5201
+22 to 24                25 and older                      Receiving a disability pension           5201
+                                                          corresponding to at least 40% disability
+22 to 24                With maintenance obligation       Receiving a disability pension           5201
+                                                          corresponding to at least 40% disability
+
+Contribution-exempt                                                                      90/1802
+
+1 These insured categories are entitled to an additional 120 daily benefits if they become unemployed within the last 4 years before reaching the AHV retirement age.
+
+2 Individuals whose disability pension has been reduced or canceled by the IV and who therefore need to look for work or increase their workload are entitled to a maximum of 180 daily benefits.
+
+Source of the table: SECO Unemployment - A Guide for Insured Persons`,
+              },
+            ],
+          },
+          {
+            title: "Unemployment for Foreign Nationals and Cross-Border Commuters",
+            contents: [
+              {
+                subtitle: "Foreigners in Switzerland",
+                text: `If you are a foreigner and have worked in Switzerland, you need a residence or settlement permit to receive unemployment benefits in Switzerland. Apply for an extension in good time before it expires.`,
+              },
+              {
+                subtitle: "Cross-Border Commuters",
+                text: `If you are a cross-border commuter (G permit), you generally receive unemployment benefits in your country of residence. However, you can use the services of the regional employment agency (RAV) to search for a new job in Switzerland. To do so, you must register with the RAV in the region where you had your last job in Switzerland.`,
+              },
+            ],
+          },
+          {
+            title: "Self-Employed Individuals and Unemployment",
+            contents: [
+              {
+                text: `As a self-employed person, you are not insured against unemployment. Therefore, you are not entitled to unemployment benefits if you no longer have work.`,
+              },
+            ],
+          },
+          {
+            title: "Bridging Benefits for Older Unemployed Individuals",
+            contents: [
+              {
+                text: `If you lose your job before you can receive your old-age pension and cannot find a new job, you may be eligible for 'Bridging Benefits for Older Unemployed Individuals (ÜL)'. These benefits cover your living expenses until you reach the AHV retirement age.
+
+To be eligible for bridging benefits, you must meet several conditions, including:
+
+- Having been fully unemployed no earlier than the month in which you reach age 60.
+- Having been insured with the AHV for at least 20 years, including at least five years after your 50th birthday.
+- Having worked and earned an income of at least 75 percent of the maximum AHV pension annually (2024: 22,050 francs) or having been entitled to education and care credits of this amount.
+- Living in Switzerland or an EU or EFTA member state.
+- Having basic expenses that exceed your countable income (legally defined limits).
+
+To receive bridging benefits, you must submit an application to your municipality or the cantonal implementing authority.
+
+You must fill out the corresponding form 'Application for Bridging Benefits for Older Unemployed Individuals'. The form is available online.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Inability to Work",
+    description: "If you are sick or have had an accident, you continue to receive your salary for a certain period. Additionally, you cannot be terminated during this time.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "In Case of Illness",
+            contents: [
+              {
+                subtitle: "Procedure",
+                text: `If you are sick or feel unwell during pregnancy, you must inform your employer as soon as possible.
+
+You generally need to provide a medical certificate from the third day of absence. Check with your employer which rules apply to you.
+
+If you can only work a reduced schedule due to illness or pregnancy, the doctor must indicate on the medical certificate the maximum number of hours you can work per day or per week.`,
+              },
+              {
+                subtitle: "Illness and Salary",
+                text: `There are two cases to distinguish:
+
+1. Your employer has taken out a daily sickness benefit insurance for their employees. Most employers have such insurance. In this case, you continue to receive your salary for 720 or 730 sick days within 900 days, depending on the insurance. Check with your employer. Please note: As long as you are on sick leave, you may not work. If you do, the insurance will file a claim and demand repayment of the paid daily benefits.
+
+2. Your employer has not taken out daily sickness benefit insurance for their employees. In this case, they must continue to pay your salary for a certain period. In the first year of employment, this period is three weeks, increasing with more years of employment up to a maximum of four months. The exact duration of salary continuation varies by region.`,
+              },
+              {
+                subtitle: "Illness and Termination",
+                text: `While you are on sick leave, your employer may not terminate you. A termination protection applies during the so-called lockout period:
+
+- For 30 days in the first year of employment
+- For 90 days from the second to the fifth year of employment
+- For 180 days from the sixth year of employment
+
+Please note: During the probation period, your employer can terminate you even if you are on sick leave.
+
+As an employee, you can submit your termination notice even while on sick leave.
+
+If you fall ill after receiving a termination notice, the notice period is suspended during the sick leave. It resumes only when you can return to work.`,
+              },
+            ],
+          },
+          {
+            title: "Accident",
+            contents: [
+              {
+                subtitle: "Procedure",
+                text: `In case of an accident, you must inform your employer as soon as possible, regardless of whether the accident occurred during working hours or in your free time.
+
+The employer must immediately notify their insurance company. The insurance company will provide you with a form in which you and your doctor must provide details about the accident and your health condition.`,
+              },
+              {
+                subtitle: "Accident and Salary",
+                text: `In Switzerland, employers must insure their employees against the consequences of accidents.
+
+From the third day after the accident, you receive a daily benefit equal to 80 percent of your salary.
+
+The daily benefit is paid regardless of whether the accident occurred at the workplace (occupational accident) or in your free time (non-occupational accident).
+
+The only exception: If you are employed and your weekly working hours are less than 8 hours, only occupational accidents and accidents on the way to work are insured.
+
+Daily benefits are paid for a certain period. Check with your employer about the conditions that apply to you.
+
+Please note: If your doctor declares you unable to work due to an accident, you must comply. If you work anyway, the insurance will file a claim and demand repayment of the paid daily benefits.`,
+              },
+              {
+                subtitle: "Accident and Termination",
+                text: `While you are on sick leave due to an accident, your employer may not terminate you. A termination protection applies during the so-called lockout period:
+
+- For 30 days in the first year of employment
+- For 90 days from the second to the fifth year of employment
+- For 180 days from the sixth year of employment
+
+Please note: During the probation period, your employer can terminate you even if you are on sick leave due to an accident.
+
+As an employee, you can submit your termination notice while recovering from an accident.
+
+If you have an accident after receiving a termination notice, the notice period is suspended during the sick leave. It resumes only when you can return to work.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Employment Contract",
+    description:
+      "The employee and the employer must sign an employment contract that regulates the working conditions. Specific rules apply to certain industries, laid down in national or regional collective labor agreements.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Individual Employment Contract",
+            contents: [
+              {
+                text: `When you are hired by an employer (or when you, as an employer, hire a new person), you must sign an employment contract. This sets out the rights and obligations regarding the employment relationship for both parties.
+
+The employment contract is signed by both parties. It must include at least the following points:
+
+- The name of the employee and the name of the employer
+- The start date of the employment relationship
+- The employee's position
+- The salary and any salary supplements
+- The weekly working hours
+
+For fixed-term employment contracts, the employer must clearly indicate the end date of the employment relationship.
+
+Special provisions, such as a non-compete clause or overtime regulations, must also be included in the employment contract.`,
+              },
+            ],
+          },
+          {
+            title: "Collective Labor Agreements",
+            contents: [
+              {
+                text: `A collective labor agreement (CLA) is a contract concluded between employer associations and employee associations/unions. Both parties establish the minimum requirements to be observed (e.g., the minimum wage). In Switzerland, there are numerous CLAs, for example, for the hairdressing industry, construction industry, private security services, or the bakery, confectionery, and patisserie industry.
+
+Most are national CLAs, whose conditions apply to the respective industry throughout Switzerland. However, there are also company-specific CLAs (e.g., for Migros and Coop) or regional CLAs, whose conditions apply only to a specific company or region.`,
+              },
+            ],
+          },
+          {
+            title: "Standard Employment Contracts",
+            contents: [
+              {
+                text: `In industries without a collective labor agreement, federal or cantonal authorities can issue a standard employment contract (SEC) that sets binding minimum wages. The SEC conditions can only be amended by the employer in favor of the employees.
+
+An SEC is used when industry or local wage conditions have been repeatedly disregarded. The SEC aims to prevent this.
+
+An example of a national SEC is the SEC for domestic work. This and examples of cantonal SECs are listed on the State Secretariat for Economic Affairs (SECO) website.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Work Certificate",
+    description: "When your employment relationship ends, your supervisor usually issues you a work certificate. This is useful when applying for a new job.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Content of the Work Certificate",
+            contents: [
+              {
+                text: `The work certificate must include the following points:
+
+- Start and end of the employment relationship
+- Position and tasks performed
+- Percentage of employment
+- Assessment of the quality of your work
+- Assessment of your behavior
+- Reason for issuing the work certificate (termination, change of supervisor, new position, etc.)`,
+              },
+            ],
+          },
+          {
+            title: "Form of the Work Certificate",
+            contents: [
+              {
+                text: `Your employer must issue the work certificate in writing.
+
+They must describe the employment relationship completely and truthfully and provide a benevolent assessment. If you notice inaccuracies, errors, or falsehoods in the work certificate, you can request that your supervisor revise the text.
+
+The work certificate must not contain ambiguous formulations or codes that could be interpreted in different ways.
+
+It should also not list individual negative incidents (e.g., a single instance of tardiness) or incidents that have no direct impact on the employment relationship.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working Hours///Overtime and Extra Hours",
+    description: "Every employee must work a certain number of hours per week, as specified in the employment contract. It is possible to exceed this threshold if certain conditions are met.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Overtime",
+            contents: [
+              {
+                subtitle: "What is overtime?",
+                text: `Your employment contract specifies how many hours per week you must work.
+
+If you work more than the contractually agreed hours but do not exceed the weekly maximum working hours, these additional hours are considered overtime. The weekly maximum working hours are:
+
+- 45 hours for employees in industrial companies, office staff, technical employees, and sales staff in large retail companies;
+- 50 hours for all other employees.`,
+              },
+              {
+                subtitle: "What conditions apply to working overtime?",
+                text: `If your employer requires you to work overtime or you work overtime on your own initiative, the following conditions must be met:
+
+- The overtime is necessary.
+- The overtime is not physically or mentally excessively demanding.
+- Working hours and daily rest periods are observed.`,
+              },
+              {
+                subtitle: "How is overtime compensated?",
+                text: `- Overtime must be compensated with a wage supplement of 25 percent.
+- Instead of a wage supplement, overtime can be compensated with time off of at least the same duration. However, this requires your consent and a written agreement between you and your employer.
+- Managers generally have no entitlement to a wage supplement. This must be regulated in the employment contract. It can also be agreed in writing that overtime is compensated without a supplement or with a supplement of less than 25 percent.`,
+              },
+            ],
+          },
+          {
+            title: "Extra Hours",
+            contents: [
+              {
+                subtitle: "What are extra hours?",
+                text: `The law specifies a weekly maximum working time:
+
+- 45 hours for employees in industrial companies, office staff, technical employees, and sales staff in large retail companies;
+- 50 hours for all other employees.
+
+If you work more than the legally specified weekly maximum working time, you are working extra hours.`,
+              },
+              {
+                subtitle: "What conditions apply to working extra hours?",
+                text: `More than the weekly maximum working time may be worked:
+
+- Due to urgent work or extraordinary workload;
+- For inventory, accounting, or liquidation tasks;
+- To prevent or address operational disruptions.
+- It must not exceed two hours per day.
+- It must not exceed 170 hours per year (for a weekly maximum working time of 45 hours) or 140 hours (for a weekly maximum working time of 50 hours).`,
+              },
+              {
+                subtitle: "How are extra hours compensated?",
+                text: `For extra hours, a wage supplement of at least 25 percent is paid. It can be agreed that extra hours are compensated with time off instead of a wage supplement; in this case, compensation is provided with time off of the same duration within 14 weeks or within a period agreed with your employer (not exceeding 12 months).
+
+For office staff and some other categories of employees, no supplement is owed for the first 60 hours of extra work.`,
+              },
+            ],
+          },
+          {
+            title: "Please Note: Rules for Young People",
+            contents: [
+              {
+                text: `If you are under 18 years old, you may not work more hours than other employees in the company. The daily working time must not exceed nine hours and must, including breaks, be within twelve hours.
+
+Days spent at vocational school count as working time.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 1,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working Hours///Short-Time Work",
+    description: "If your company is temporarily in a difficult situation, you can reduce or completely stop work in the company without laying off your employees.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "What is Short-Time Work?",
+            contents: [
+              {
+                text: `Short-time work primarily aims to prevent you from having to lay off your employees due to a short but unavoidable work stoppage.
+
+The unemployment insurance covers part of your employees' wages for a certain period if they are affected by work interruptions. You can apply for short-time work compensation under the following conditions: Your company temporarily interrupts or reduces operations while employment contracts continue. The interruption is due to economic factors, measures imposed by authorities, or other developments your company cannot directly influence.`,
+              },
+            ],
+          },
+          {
+            title: "Pre-Registering Short-Time Work: Where, How, and When?",
+            contents: [
+              {
+                subtitle: "Where and How?",
+                text: `The authority responsible for approving short-time work is the office of the canton where your company is based.
+
+The competent authority will provide you with the form for pre-registering short-time work. Fill it out and return it to the authority. You can find all forms on travail.swiss. You can also use the eService on www.job-room.ch to send the pre-registration form to the competent cantonal authority.
+
+Note: Employees must agree to work short-time. The employer must obtain the employees' consent in advance and confirm this during pre-registration.`,
+              },
+              {
+                subtitle: "When to Register?",
+                text: `You must pre-register the planned short-time work at least 10 days before it begins.
+
+The registration period is exceptionally 3 days if you can prove that short-time work must be introduced very urgently due to sudden, unforeseeable circumstances.
+
+If you need to extend short-time work beyond the already approved duration, you must submit a new pre-registration at least 10 days before the approval expires.`,
+              },
+            ],
+          },
+          {
+            title: "How Much is the Short-Time Work Compensation?",
+            contents: [
+              {
+                subtitle: "Compensation and Salary",
+                text: `- The short-time work compensation is 80 percent of the loss of earnings, i.e., 80 percent of the temporary work stoppage.
+- For the part of the work not subject to short-time work, the salary is paid by the employer.
+- Apprentices, temporary employees, and individuals with fixed-term contracts do not receive short-time work compensation. They receive their full salary. If your employment contract is fixed-term, it generally cannot be terminated early.`,
+              },
+              {
+                subtitle: "Compensation and Social Insurance",
+                text: `Short-time work does not affect contributions to social insurance such as AHV/IV/Income Replacement Ordinance, unemployment insurance, accident insurance, and pension funds: Both the employer and the employees must continue to pay the full contributions. Employees are insured for their normal salary.`,
+              },
+            ],
+          },
+          {
+            title: "Short-Time Work and Termination",
+            contents: [
+              {
+                text: `Short-time work compensation is primarily intended to avoid terminations and maintain employment relationships.
+
+Nevertheless, during the short-time work phase, both the employer and the employee have the right to terminate the employment relationship. Regardless of who issued the termination, the company can no longer claim short-time work compensation from the start of the notice period.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working Hours///Rest Periods and Work Breaks",
+    description:
+      "You have the right to take breaks during work. Depending on how many hours you need to work in a day, your break is more or less long. Between two working days, you are entitled to a certain minimum number of rest hours.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "How Long Can I Take a Break at Work?",
+            contents: [
+              {
+                text: `All employees are entitled to breaks. Breaks are primarily intended for rest and meals.
+
+The duration of the break depends on the actual working hours:
+
+- 15 minutes for a daily working time of more than five and a half hours,
+- 30 minutes for a daily working time of more than seven hours,
+- 1 hour for a daily working time of more than nine hours; in this case, the break can be split.
+
+Your employer may also grant you longer breaks.
+
+If you have flexible working hours and the daily working time is between less than seven and more than nine hours, the break duration is determined by the average weekly working time.
+
+Please note:
+
+Your employer may issue break regulations. For example, they may require you to take your break at a specific time or place.
+
+Smokers are not entitled to additional breaks for smoking.`,
+              },
+            ],
+          },
+          {
+            title: "Are Breaks Considered Working Time?",
+            contents: [
+              {
+                text: `Breaks are not considered working time. Therefore, they do not have to be paid.
+
+There are the following exceptions:
+
+- If you cannot leave your workplace during the break, the break counts as working time.
+- Technically induced work interruptions (e.g., a machine shutdown) are not considered breaks, as you cannot rest during this time. Such interruptions are too short, and you cannot know in advance when you will resume work.`,
+              },
+            ],
+          },
+          {
+            title: "Can I Work Through Instead of Taking a Break?",
+            contents: [
+              {
+                text: `Breaks usually take place around the middle of the daily working time. They are intended for recovery and meals. Therefore, you cannot skip the break, as this could lead to errors and accidents.
+
+For the same reason, you may not work through to leave earlier or start later.`,
+              },
+            ],
+          },
+          {
+            title: "Daily Rest Period",
+            contents: [
+              {
+                text: `The break serves for recovery during the workday. The daily rest period, on the other hand, is the legally prescribed recovery time after a workday:
+
+- It must be at least 11 hours.
+- It begins at the end of the workday and ends at the start of work.
+
+Your employer may reduce the daily rest period to 8 hours once a week. This is only permissible if the 11-hour duration is maintained on average over two weeks.
+
+Please note: For young people up to 18 years, the daily rest period must be at least 12 hours in any case.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working Hours///Sunday and Night Work",
+    description:
+      "In Switzerland, night work and Sunday work are prohibited. Certain sectors are exempt from this prohibition. Other sectors can apply for a permit for temporary or permanent night and Sunday work.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Night Work: Regulations and Permits",
+            contents: [
+              {
+                subtitle: "Temporary and Permanent Night Work",
+                text: `In Switzerland, it is legally prohibited to employ employees between 11:00 PM and 6:00 AM.
+
+If an employer wishes to employ employees during this time, they need a permit and the employee's consent.
+
+For night work, the daily working time for the employee must not exceed nine hours; it must, including breaks, be within a ten-hour period.
+
+Please note: In Switzerland, a distinction is made between temporary and permanent night work.
+
+- Temporary night work refers to pre-scheduled assignments that do not last longer than 6 months per assignment.
+- Permanent night work refers to work exceeding this duration. Note that night work consisting of regular, recurring assignments over several years for the same reason is also considered permanent night work.`,
+              },
+              {
+                subtitle: "Applying for a Permit",
+                text: `If you, as an employer, want to introduce temporary night work, you must submit a justified application for a work time permit to the responsible cantonal authority.
+
+If you want to introduce night work for a longer period, you must obtain a permit for permanent night work. Apply for your work time permit via EasyGov.swiss - The Online Portal for Companies.
+
+Please note: If an employee works night shifts for 25 nights or more per year, they are entitled to have their suitability for night work medically assessed every two years. In certain cases, such a medical examination is mandatory, for example, for young people employed at night or for employees working under difficult conditions (extreme temperatures, noise, vibrations, physical work, working alone, etc.). From age 45, employees can request that the examination be conducted annually.`,
+              },
+            ],
+          },
+          {
+            title: "Night Work: Compensation",
+            contents: [
+              {
+                subtitle: "Temporary Night Work",
+                text: `Employees who work fewer than 25 nights per calendar year between 11:00 PM and 6:00 AM are entitled to a wage supplement of at least 25 percent.`,
+              },
+              {
+                subtitle: "Permanent Night Work",
+                text: `Employees who work 25 or more nights per calendar year are entitled to compensation of 10 percent of the time they performed night work.
+
+It is not permissible to replace this time supplement with a wage supplement, as the compensatory rest period is intended to allow the employee to recover and make up for sleep deprivation.
+
+SECO provides a fact sheet detailing compensation for permanent night work.`,
+              },
+            ],
+          },
+          {
+            title: "Sunday Work: Regulations and Permits",
+            contents: [
+              {
+                subtitle: "Temporary and Permanent Sunday Work",
+                text: `In Switzerland, Sunday work is generally prohibited. If an employer wishes to employ employees on Sundays, they need a permit and the employee's consent.
+
+Please note: In Switzerland, a distinction is made between temporary and permanent Sunday work.
+
+- Temporary Sunday work refers to pre-scheduled assignments that do not last longer than 6 months. Work on a public holiday is also considered Sunday work.
+- Permanent Sunday work refers to work exceeding this limit. Note that Sunday work consisting of regular, recurring assignments over several years for the same reason is also considered permanent Sunday work.`,
+              },
+              {
+                subtitle: "Applying for a Permit",
+                text: `To allow temporary employment of employees on Sundays, you, as an employer, must submit an application for a work time permit to the responsible cantonal authority. They will provide you with the necessary information and forms for submitting the application.
+
+If you want to apply for a permit for permanent Sunday work, apply for your work time permit via EasyGov.swiss - The Online Portal for Companies.`,
+              },
+            ],
+          },
+          {
+            title: "Sunday Work: Compensation",
+            contents: [
+              {
+                subtitle: "Temporary Sunday Work",
+                text: `Employees who work up to six Sundays per year are entitled to a wage supplement of 50 percent and time compensation. This varies depending on the situation as follows:
+
+- Sunday work lasting up to five hours must be compensated with time off of the same duration within four weeks.
+- If Sunday work lasts longer than five hours, a rest day of at least 24 consecutive hours must be granted in the preceding or following week (in addition to the daily rest period, i.e., the rest period between two working days, which must be at least 11 hours; the total compensation must therefore be 35 hours).`,
+              },
+              {
+                subtitle: "Permanent Sunday Work",
+                text: `Employees who perform permanent Sunday work are entitled to time compensation.
+
+This varies depending on the situation as follows:
+
+- Sunday work lasting up to five hours must be compensated with time off of the same duration within four weeks.
+- If Sunday work lasts longer than five hours, a rest day of at least 24 consecutive hours must be granted in the preceding or following week (in addition to the daily rest period, i.e., the rest period between two working days, which must be at least 11 hours; the total compensation must therefore be 35 hours).
+
+It is not permissible to replace this time compensation with a wage supplement, as the compensatory rest period is intended to allow the employee to recover and make up for missed Sunday and holiday rest.`,
+              },
+            ],
+          },
+          {
+            title: "Night and Sunday Work: Exceptions",
+            contents: [
+              {
+                text: `In certain professions and occupational categories, employees can be employed at night and on Sundays without a permit, for example, in healthcare, hospitality, kiosks, bakeries, theaters, and newspaper editorial offices.
+
+SECO provides an up-to-date list of occupational categories for which night and Sunday work is permitted without a permit.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+  {
+    localeId: LocaleId.make(2),
+    categoryId: CategoryId.make(6),
+    title: "Working Hours///Vacations, Holidays, and Absences",
+    description: "In Switzerland, all employees are entitled to at least 4 weeks of vacation per year. For special occasions, they also have days or hours off.",
+    contents: [
+      {
+        infos: [
+          {
+            title: "Vacations",
+            contents: [
+              {
+                subtitle: "How Many Weeks?",
+                text: `Regardless of your work schedule, you are entitled to at least four weeks of vacation per year.
+
+Up to the age of 20, you have at least five weeks of vacation.
+
+Depending on your employer (or collective labor agreement), you may be granted more vacation.`,
+              },
+              {
+                subtitle: "How Do I Schedule My Vacation?",
+                text: `Your employer's consent is required regarding when you take your vacation. If your vacation is not compatible with the company's organization or needs and interests, your supervisor may require you to reschedule your vacation.`,
+              },
+              {
+                subtitle: "Vacation and Illness",
+                text: `Vacations are intended for recovery. If you are unable to recover during your vacation due to illness or a serious accident, you have the right to reschedule your vacation; you must provide a medical certificate.`,
+              },
+              {
+                subtitle: "Vacation and Termination",
+                text: `In principle, you can take any remaining vacation during the notice period. However, your employer may refuse to allow you to take the remaining vacation days if an exceptional business situation exists.
+
+In certain cases, you can agree with your employer that the remaining vacation days will be paid out.`,
+              },
+            ],
+          },
+          {
+            title: "Holidays",
+            contents: [
+              {
+                text: `August 1 (Swiss National Day) is the only federal holiday.
+
+Cantons may designate up to eight additional holidays as equivalent to Sundays. Cantonal holidays therefore vary from canton to canton.
+
+If a holiday falls on a non-working day (e.g., Saturday or Sunday), there is no entitlement to compensate for it during the week. If a holiday falls during your vacation, it does not count as a vacation day.`,
+              },
+            ],
+          },
+          {
+            title: "Absences / Leave",
+            contents: [
+              {
+                text: `In certain cases, you can be absent from work without having to make up for the hours or days you were absent. This applies, for example, in the following cases:
+
+- Fulfillment of legal obligations
+- Exercise of a public office (member of a municipal parliament or executive, etc.)
+- Wedding
+- Death of a close relative
+- Moving
+- Birth of your own children
+- Care of a close relative
+- Childcare
+
+The number of free hours and days available in these cases is not clearly regulated by law. Ask your employer which rules apply in your company or check the Leisure and Holidays page of the State Secretariat for Economic Affairs (SECO).
+
+Please note: If you are late for work or absent entirely due to external circumstances such as traffic jams, road closures, or flight or train cancellations, your employer is not obliged to grant you these hours, and you must make up for the missed working time.`,
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    isEssential: 0,
+  },
+];
+
+export const infoEN = [...infoCustoms, ...infoDocuments, ...infoFamily, ...infoForeignNationals, ...infoHealth, ...infoWork];

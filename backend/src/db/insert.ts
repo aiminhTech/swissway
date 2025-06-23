@@ -1,5 +1,4 @@
-import { categories, checklistItems, checklists, informations, locales } from "@/models/reference-data/data";
-import { quizAnswers, quizQuestions, quizzes } from "@/models/reference-data/quiz-en";
+import { categories, checklistItems, checklists, informations, locales, quizAnswers, quizQuestions, quizzes } from "@/models/reference-data/data";
 import { Database } from "bun:sqlite";
 
 /**
@@ -67,16 +66,15 @@ export function insert(db: Database) {
     }
 
     // checklist table
-    const checklistQuery = db.prepare("INSERT INTO checklist (category_id, locale_id, title) VALUES ($categoryId, $localeId, $title) ON CONFLICT DO NOTHING");
+    const checklistQuery = db.prepare("INSERT INTO checklist ( locale_id, title) VALUES ( $localeId, $title) ON CONFLICT DO NOTHING");
     for (const l of checklists) {
       checklistQuery.run({
-        $categoryId: l.categoryId,
         $localeId: l.localeId,
         $title: l.title,
       });
     }
 
-    // checklist_item table 
+    // checklist_item table
     const checklistItemQuery = db.prepare("INSERT INTO checklist_item (checklist_id, locale_id, text) VALUES ($checklistId, $localeId, $text) ON CONFLICT DO NOTHING");
     for (const i of checklistItems) {
       checklistItemQuery.run({
@@ -118,7 +116,7 @@ export function insert(db: Database) {
     }
 
     // image table
-   /*  const imageQuery = db.prepare("INSERT INTO image (related_table, related_id, url) VALUES ($relatedTable, $relatedId, $url) ON CONFLICT DO NOTHING");
+    /*  const imageQuery = db.prepare("INSERT INTO image (related_table, related_id, url) VALUES ($relatedTable, $relatedId, $url) ON CONFLICT DO NOTHING");
     for (const i of images) {
       imageQuery.run({
         $relatedTable: i.relatedTable,

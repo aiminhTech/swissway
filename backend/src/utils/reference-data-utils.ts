@@ -33,10 +33,9 @@ export function makeQuizAnswer(localeId: number, quizQuestionId: number, answer:
   });
 }
 
-export function makeChecklist(localeId: number, categoryId: number, title: string) {
+export function makeChecklist(localeId: number, title: string) {
   return CheckList.make({
     localeId: LocaleId.make(localeId),
-    categoryId: CategoryId.make(categoryId),
     title,
   });
 }

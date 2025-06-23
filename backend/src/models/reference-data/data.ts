@@ -3,6 +3,9 @@ import { infoEN } from "./info-en";
 import { checklistItemsEN, checklistsEN } from "./checklist-en";
 import { infoDE } from "./info-de";
 import { makeCategory } from "@/utils/reference-data-utils";
+import { checklistItemsDE, checklistsDE } from "./checklist-de";
+import { quizAnswersEN, quizQuestionsEN, quizzesEN } from "./quiz-en";
+import { quizAnswersDE, quizQuestionsDE, quizzesDE } from "./quiz-de";
 
 export const locales = ["en", "de"];
 
@@ -18,15 +21,23 @@ export const categoriesEN: Category[] = [
 
 export const categoriesDE: Category[] = [
   makeCategory(2, "Zoll", "Informationen zu Zollvorschriften, Abgaben und der Einfuhr von Waren in die Schweiz."),
+  makeCategory(2, "Dokumente und Registerauszüge", "Anleitungen zum Erhalten offizieller Dokumente wie Geburtsurkunden und Wohnsitzbestätigungen."),
+  makeCategory(2, "Familie und Partnerschaft", "Unterstützung und Informationen zu Ehe, eingetragenen Partnerschaften und Familienleben."),
+  makeCategory(2, "Ausländerinnen und Ausländer in der Schweiz", "Wichtige Informationen für Zuwandernde, einschließlich Aufenthaltsbewilligungen und Integrationshilfen."),
+  makeCategory(2, "Gesundheit", "Ressourcen zu Gesundheitsdienstleistern, Versicherungen und gesund bleiben in der Schweiz."),
   makeCategory(2, "Arbeit", "Informationen zu arbeitsrechtlichen Regelungen, Beschäftigungsmöglichkeiten und Arbeitsgenehmigungen in der Schweiz."),
 ];
 
 export const categories = [...categoriesEN, ...categoriesDE];
 
 // Checklist
-export const checklists: CheckList[] = [...checklistsEN];
+export const checklists: CheckList[] = [...checklistsEN, ...checklistsDE];
 
-export const checklistItems: CheckListItem[] = [...checklistItemsEN];
+export const checklistItems: CheckListItem[] = [...checklistItemsEN, ...checklistItemsDE];
 
 // Information
 export const informations: Information[] = [...infoEN, ...infoDE];
+
+export const quizzes = [...quizzesEN, ...quizzesDE];
+export const quizQuestions = [...quizQuestionsEN, ...quizQuestionsDE];
+export const quizAnswers = [...quizAnswersEN, ...quizAnswersDE];

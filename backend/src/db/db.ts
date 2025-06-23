@@ -56,10 +56,9 @@ export const schema = `
 	CREATE TABLE IF NOT EXISTS checklist (
 		id INTEGER PRIMARY KEY NOT NULL,
 		locale_id INTEGER NOT NULL REFERENCES locale(id),
-		category_id INTEGER NOT NULL REFERENCES category(id),
 		title TEXT NOT NULL
 	) STRICT;
-	CREATE UNIQUE INDEX IF NOT EXISTS idx_checklist_locale_id_category_id_title ON checklist(locale_id, category_id, title);
+	CREATE UNIQUE INDEX IF NOT EXISTS idx_checklist_locale_id_title ON checklist(locale_id, title);
 
 	CREATE TABLE IF NOT EXISTS checklist_item (
 		id INTEGER PRIMARY KEY NOT NULL,
@@ -125,19 +124,17 @@ export const schema = `
 		FROM view_category AS v
 		JOIN information AS i ON i.category_id = v.category_id;
 
-		CREATE VIEW IF NOT EXISTS view_checklist AS
+	CREATE VIEW IF NOT EXISTS view_checklist AS
 		SELECT
 			v.locale_code,
-			v.category_name,
 			c.title AS checklist_title,
 			GROUP_CONCAT(ci.text, ' ||| ') AS checklist_items
 		FROM
-			view_category AS v
-		JOIN checklist AS c ON c.category_id = v.category_id
+			checklist AS c
+		JOIN view_locale AS v ON c.locale_id = v.code_id
 		JOIN checklist_item AS ci ON ci.checklist_id = c.id
 		GROUP BY
 			v.locale_code,
-			v.category_name,
 			c.title;
 
 

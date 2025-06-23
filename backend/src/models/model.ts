@@ -52,7 +52,6 @@ export class Information extends S.Class<Information>("Information")({
 
 export class CheckList extends S.Class<CheckList>("CheckList")({
   localeId: LocaleId,
-  categoryId: CategoryId,
   title: S.String,
 }) {}
 

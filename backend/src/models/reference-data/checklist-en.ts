@@ -2,12 +2,12 @@ import { makeChecklist, makeChecklistItem } from "@/utils/reference-data-utils";
 import type { CheckList, CheckListItem } from "../model";
 
 export const checklistsEN: CheckList[] = [
-  makeChecklist(1, 2, "Obtaining a Certificate of Inheritance"),
-  makeChecklist(1, 2, "Ordering Civil Status Certificates"),
-  makeChecklist(1, 2, "Obtaining a Criminal Records Extract"),
-  makeChecklist(1, 2, "Replacing a Lost or Stolen Driving Licence"),
-  makeChecklist(1, 2, "Applying for a Passport or Identity Card"),
-  makeChecklist(1, 2, "Obtaining a Residence Permit in Switzerland"),
+  makeChecklist(1, "Obtaining a Certificate of Inheritance"),
+  makeChecklist(1, "Ordering Civil Status Certificates"),
+  makeChecklist(1, "Obtaining a Criminal Records Extract"),
+  makeChecklist(1, "Replacing a Lost or Stolen Driving Licence"),
+  makeChecklist(1, "Applying for a Passport or Identity Card"),
+  makeChecklist(1, "Obtaining a Residence Permit in Switzerland"),
 ];
 
 export const checklistItemsEN: CheckListItem[] = [
