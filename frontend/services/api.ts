@@ -34,7 +34,7 @@ function fetchData<A, I>(url: string | URL, schema: Schema.Schema<A, I>) {
 
       const res = yield* pipe(
         HttpClientRequest.get(url),
-        HttpClientRequest.setHeader("x-api-key", "supersecret123"),
+        HttpClientRequest.setHeader("x-api-key", apiKey),
         client.execute
       );
 
